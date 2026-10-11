@@ -85,5 +85,4 @@ Full step-by-step instructions, evaluation rules and what each trained component
 
 ## License
 
-MIT License. Add a `LICENSE` file with the standard MIT text and the names of the project
-authors before publishing.
+MIT License. See [`LICENSE`](LICENSE). Copyright (c) 2026 Dhanush S, E Sasi Vaishnav, Dhruthi Kulkarni.
