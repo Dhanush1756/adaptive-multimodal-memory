@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+models/*.joblib
+data/synthetic/
+data/processed/
+data/raw/
+reports/results/
+*.db

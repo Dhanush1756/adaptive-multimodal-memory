@@ -1,0 +1,18 @@
+# Core (enough for the memory engine, tests, synthetic data and HSV-only vision)
+numpy
+Pillow
+pyyaml
+scikit-learn
+joblib
+pytest
+
+# Demo
+streamlit
+
+# NLP embeddings (falls back to a hashing embedder if missing)
+sentence-transformers
+
+# Vision (optional; the system degrades gracefully without them)
+torch
+transformers
+ultralytics

@@ -1,0 +1,71 @@
+question,intent
+What color is my car right now?,CURRENT
+Which colour does my laptop have at the moment?,CURRENT
+Tell me the current color of my phone,CURRENT
+Is my car red now?,CURRENT
+What shade is my shirt these days?,CURRENT
+What colour is the car at present?,CURRENT
+What does my laptop look like currently?,CURRENT
+What is the latest color of my phone?,CURRENT
+What color was my car before?,PREVIOUS
+What was the previous color of my laptop?,PREVIOUS
+What color did my phone used to be?,PREVIOUS
+Before it became blue what color was my car?,PREVIOUS
+What colour was my shirt earlier?,PREVIOUS
+What was the color of my car prior to this one?,PREVIOUS
+Was my laptop black before it became blue?,PREVIOUS
+What color was the phone before the last change?,PREVIOUS
+What was the original color of my car?,ORIGINAL
+What color was my laptop at first?,ORIGINAL
+Initially what colour was my phone?,ORIGINAL
+What color did my shirt start out as?,ORIGINAL
+What color was my car in the beginning?,ORIGINAL
+Was my laptop originally black?,ORIGINAL
+What was the very first color of my phone?,ORIGINAL
+What colour was the car when I first got it?,ORIGINAL
+What color did my car become after red?,AFTER
+What came after blue for my laptop?,AFTER
+Following red what color did my phone turn into?,AFTER
+What colour was the shirt after it was blue?,AFTER
+What did my car change to after black?,AFTER
+What happened after my laptop was blue?,AFTER
+What changed about my car?,CHANGE
+How has my laptop changed?,CHANGE
+Has anything changed with my phone color?,CHANGE
+What is different about my shirt now?,CHANGE
+Any changes to my car?,CHANGE
+What has changed since I bought the laptop?,CHANGE
+How did my phone change over the weeks?,CHANGE
+What is new with my car?,CHANGE
+When did my car change color?,WHEN
+When did my laptop become black?,WHEN
+What date did I repaint my car?,WHEN
+At what point did my phone turn blue?,WHEN
+When was the shirt dyed?,WHEN
+When did the color of my laptop change?,WHEN
+How long ago did my car become red?,WHEN
+On what day did my phone turn green?,WHEN
+How do you know my car is blue?,EVIDENCE
+Show me the evidence,EVIDENCE
+What is your proof that my laptop is black?,EVIDENCE
+Why do you think my phone is green?,EVIDENCE
+Can you show the image that supports this?,EVIDENCE
+Based on what do you say my car is red?,EVIDENCE
+Show me the photo and text behind that answer,EVIDENCE
+How can you tell my shirt is white?,EVIDENCE
+Show me the history of my car color,HISTORY
+List every color my laptop has been,HISTORY
+Give me the timeline of my phone,HISTORY
+What colors has my shirt had over time?,HISTORY
+Show all the states of my car,HISTORY
+Tell me the sequence of colors for my laptop,HISTORY
+What is the complete color history of my phone?,HISTORY
+List all the colours my car has had,HISTORY
+What color was my car on 2026-10-05?,AS_OF
+What colour was my laptop on 2026-10-12?,AS_OF
+What color was my phone last week?,AS_OF
+What color was my shirt 3 days ago?,AS_OF
+What was the car's color on 2026-10-20?,AS_OF
+Which color did my laptop have two weeks ago?,AS_OF
+What color was my phone yesterday?,AS_OF
+What color was the car on 5 October 2026?,AS_OF
