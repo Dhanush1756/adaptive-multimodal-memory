@@ -81,12 +81,13 @@ def _pattern_strength(sentence: str, color: re.Match, ent: Optional[Entity], eve
         return 0.95
     if ent is None:
         return 0.75
-    lo, hi = sorted((ent.end, color.start)) if ent.end <= color.start else sorted((color.end, ent.start))
+    c_start, c_end = color.start(), color.end()  # re.Match.start/end are methods
+    lo, hi = sorted((ent.end, c_start)) if ent.end <= c_start else sorted((c_end, ent.start))
     between = sentence[lo:hi]
     n_words = len(re.findall(r"\w+", between))
-    if ent.start > color.start and n_words <= 2:  # "red Tesla", "a shiny red car"
+    if ent.start > c_start and n_words <= 2:  # "red Tesla", "a shiny red car"
         return 0.95
-    if ent.end <= color.start and n_words <= 4 and _COPULA_RX.search(between):  # "car is now red"
+    if ent.end <= c_start and n_words <= 4 and _COPULA_RX.search(between):  # "car is now red"
         return 0.95
     if event == "buy" and n_words <= 3:
         return 0.95
