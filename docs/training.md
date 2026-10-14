@@ -1,7 +1,8 @@
 # Training guide
 
-**Nothing in this repository has been run yet.** Commands below are the intended workflow;
-expect to fix small bugs on the first run. Run everything from the repository root.
+The offline reliability suite has been run; see [Phase 1 results](phase1_reliability.md).
+Training, pretrained-model inference and research benchmark commands below remain unverified
+in this phase. Run everything from the repository root.
 
 ## What is trained, and what is not
 

@@ -30,6 +30,7 @@ from ..memory.schema import MemoryRecord
 from ..memory.store import MemoryStore
 from ..utils import parse_ts
 from .hybrid_retriever import HybridRetriever
+from .image_retriever import ImageRetriever
 
 
 @dataclass
@@ -168,19 +169,27 @@ class RetrievalResult:
     chain: List[MemoryRecord] = field(default_factory=list)        # full ordered timeline
     conflicts: List[MemoryRecord] = field(default_factory=list)    # CONTRADICTORY states
     transitions: List[Dict[str, str]] = field(default_factory=list)
+    image_hits: List[Dict[str, Any]] = field(default_factory=list)
 
 
 class TemporalRetriever:
     def __init__(self, store: MemoryStore, hybrid: HybridRetriever):
         self.store = store
         self.hybrid = hybrid
+        self.image_retriever = ImageRetriever(store)
 
     def retrieve(self, parsed: ParsedQuery) -> RetrievalResult:
         res = RetrievalResult(parsed=parsed)
         ent = self.hybrid.resolve_entity(parsed)
         if ent is None:
-            res.note = (f"I have no memories about a {parsed.entity}." if parsed.entity
-                        else "No memories are stored yet.")
+            matches = [e for e in self.store.entities() if e["entity"] == parsed.entity]
+            if parsed.entity and len(matches) > 1 and not parsed.entity_ref:
+                res.note = f"Multiple {parsed.entity} identities are stored; name which one you mean."
+            elif parsed.entity_ref and matches:
+                res.note = f"No stored identity matches '{parsed.entity_ref}'."
+            else:
+                res.note = (f"I have no memories about a {parsed.entity}." if parsed.entity
+                            else "No memories are stored yet.")
             return res
         res.entity_id, res.entity = ent
         res.chain = state_tracker.timeline(self.store, res.entity_id, parsed.attribute)
@@ -194,4 +203,7 @@ class TemporalRetriever:
         res.found, res.value, res.actual = sel.found, sel.value, sel.actual
         res.yes_no, res.time, res.note = sel.yes_no, sel.time, sel.note
         res.records = [res.chain[i] for i in sel.indices]
+        # This is the actual visual QA retrieval step.  It is scoped to selected
+        # state IDs, not to all images in the session/entity.
+        res.image_hits = self.image_retriever.for_records(res.records)
         return res

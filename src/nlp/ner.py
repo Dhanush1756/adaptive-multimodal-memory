@@ -87,6 +87,20 @@ def tracked_entities(text: str, lexicon: Optional[Dict[str, List[str]]] = None) 
     return [e for e in extract_entities(text, lexicon, use_spacy=False) if e.label == "TRACKED"]
 
 
+_IDENTITY_WORDS = r"first|second|third|fourth|fifth|1st|2nd|3rd|4th|5th"
+
+
+def entity_reference(text: str, entity: Entity) -> Optional[str]:
+    """Return an explicit ordinal identity while keeping category separate.
+
+    This intentionally handles only references present in the text. It never infers
+    identity from colour, upload order, or an unverified image.
+    """
+    prefix = text[max(0, entity.start - 24):entity.end]
+    match = re.search(rf"\b({_IDENTITY_WORDS})\s+(?:\w+\s+)?{re.escape(entity.text)}\b", prefix, re.I)
+    return f"{match.group(1).lower()} {entity.canonical}" if match else None
+
+
 def has_pronoun_reference(text: str) -> bool:
     """True if the sentence refers back to an entity ("it", "this one", "the vehicle")."""
     toks = set(re.findall(r"[a-z']+", normalize(text).lower()))

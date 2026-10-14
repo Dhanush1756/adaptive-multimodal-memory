@@ -4,9 +4,9 @@ An adaptive multimodal memory that links **text** and **image** evidence to evol
 states, keeps history instead of overwriting it, and answers current and historical questions
 with the evidence behind each answer.
 
-> **Status: written but not yet run.** No test, script or demo in this repository has been
-> executed. Run `pytest -q` first and expect to fix small bugs. No result numbers exist yet;
-> every number in your report must come from `python -m src.evaluation.ablations`.
+> **Status: Phase 8 release stabilization complete.** See
+> [`docs/phase8_release_readiness.md`](docs/phase8_release_readiness.md) for the final UI fixes,
+> integration-test results, release checks, and remaining manual/model validation limits.
 
 ## How it works
 
@@ -32,19 +32,36 @@ image -> CV  (detect, crop, HSV/CLIP colour, embedding) ──┘            │
 ```bash
 pip install -r requirements.txt
 pytest -q                                   # unit + end-to-end tests (no model downloads)
-streamlit run app/streamlit_app.py          # demo; tick "Light mode" to avoid downloads
+python -m streamlit run app/streamlit_app.py --server.address 127.0.0.1  # Light mode defaults on
 ```
 
 Quick use from Python:
 
 ```python
 from src.agent.reasoning import MemoryAgent
-agent = MemoryAgent(light=True)             # light = hashing embeddings + HSV colour
+agent = MemoryAgent(light=True)             # uses the configured persistent database
 agent.remember("I bought a red car.", "red_car.jpg", "2026-10-01")
 agent.remember("I repainted my car blue.", "blue_car.jpg", "2026-10-10")
 print(agent.ask("What color is my car now?").text)
 print(agent.ask("What color was my car originally?").text)
+agent.store.close()
 ```
+
+Relative configured storage paths resolve from the repository root. Missing database parents
+are created automatically. Use `MemoryAgent(db_path=":memory:", light=True)` for an isolated,
+ephemeral agent; tests and benchmark factories explicitly use temporary or in-memory storage.
+
+The Streamlit app keeps one agent per browser session. With the default configuration its
+database is `data/processed/memory_sessions/<random-session-id>/memory.db`; images are under
+`<paths.image_dir>/sessions/<random-session-id>/`. Reruns and Light-mode changes preserve that
+session's memory. Reset affects only its database. A fresh browser session gets a new namespace;
+automatic restoration after a browser/server restart is not implemented. Existing files remain
+available for explicit reopening through `MemoryAgent(db_path=...)`. Reset does not delete images.
+
+Late compatible evidence uses its event time: a blue observation dated October 10 can extend
+a blue state previously known from October 20. An October 15 query then returns blue because
+of that earlier observation. Evidence merely confirming an October 20 event does not backdate
+it. Every text/image item retains its own source date and session association.
 
 ## Evaluate and train
 
@@ -79,7 +96,8 @@ Full step-by-step instructions, evaluation rules and what each trained component
 
 - Only one attribute (`color`) is tracked; other attributes need extractor and CV support.
 - One claim is extracted per input; several entities in one message are not handled.
-- Entity identity is by type (the latest "car" is "the car"); two cars are not distinguished.
+- Explicit ordinal identities such as "first car" and "second car" are distinguished. General
+  identity resolution and visual re-identification are not implemented.
 - The synthetic images are an easy domain. Real-photo accuracy must be measured separately.
 - Weights and thresholds in `config.yaml` are initial values, not tuned ones.
 

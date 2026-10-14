@@ -54,13 +54,32 @@ class VisualEvidence:
     confidence: float = 0.0               # confidence of the visual attribute
     detection_confidence: float = 0.0     # confidence of the object detector
     embedding: Optional[List[float]] = None
+    # Source observation metadata; independent of a state's earliest known event time.
+    # Defaults keep JSON evidence from existing databases readable.
+    timestamp: str = ""
+    session_id: str = ""
+    # `verified` means one detector result matched the claim entity.  `contextual`
+    # is retained for detector-free observations and older JSON evidence; it is
+    # explicitly surfaced to callers rather than claimed as detector verification.
+    association_status: str = "contextual"
+    association_reason: str = ""
+    # Only detector-grounded associations may establish, support, or contradict a state.
+    supports_state: bool = False
+
+    def __post_init__(self) -> None:
+        if self.association_status == "verified":
+            self.supports_state = True
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
     @staticmethod
     def from_dict(d: Dict[str, Any]) -> "VisualEvidence":
-        return VisualEvidence(**d)
+        compatible = dict(d)
+        compatible.setdefault("association_status", "contextual")
+        compatible.setdefault("association_reason", "legacy evidence has no detector association metadata")
+        compatible.setdefault("supports_state", compatible.get("association_status") == "verified")
+        return VisualEvidence(**compatible)
 
 
 @dataclass
@@ -74,6 +93,7 @@ class Claim:
     resolved_time: Optional[str] = None        # ISO timestamp if the expression was normalised
     confidence: float = 0.0
     source_text: str = ""
+    entity_ref: Optional[str] = None            # explicit identity, e.g. "second car"
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -113,6 +133,7 @@ class MemoryRecord:
     text_evidence: List[TextEvidence] = field(default_factory=list)
     visual_evidence: List[VisualEvidence] = field(default_factory=list)
     source: str = "user_interaction"
+    entity_ref: str = ""
 
     def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)

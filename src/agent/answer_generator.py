@@ -7,11 +7,31 @@ can rephrase using the grounded prompt; any failure falls back to the template.
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
+import re
 from typing import Any, Callable, Dict, List, Optional
 
 from ..memory.schema import MemoryRecord
 from ..retrieval.temporal_retriever import RetrievalResult
 from .query_parser import Intent, ParsedQuery
+
+
+def _llm_output_is_grounded(text: str, value: Any) -> bool:
+    """Conservative guard for optional free-form rephrasing.
+
+    The deterministic template remains authoritative. A rephrase must mention every
+    selected scalar value and may not introduce another known colour value.
+    """
+    from ..nlp.relation_extraction import COLOR_WORDS
+    from ..memory.conflict import normalize_value
+
+    expected = value if isinstance(value, list) else [value]
+    expected = {normalize_value(str(v)) for v in expected if v is not None}
+    low = text.lower()
+    if any(v not in low for v in expected if v not in {"yes", "no"}):
+        return False
+    tokens = set(re.findall(r"[a-z]+", low))
+    mentioned = {normalize_value(c) for c in COLOR_WORDS if c in tokens}
+    return not mentioned or mentioned <= expected
 
 
 @dataclass
@@ -26,6 +46,15 @@ class Answer:
     yes_no: Optional[bool] = None
     note: str = ""
     prompt: str = ""
+    status: str = "answered"
+    supporting_state_ids: List[str] = field(default_factory=list)
+    supporting_evidence_ids: List[str] = field(default_factory=list)
+
+    def __post_init__(self) -> None:
+        if self.status not in {"answered", "uncertain", "abstained"}:
+            raise ValueError(f"invalid answer status: {self.status}")
+        if not self.found and self.status == "answered":
+            self.status = "abstained"
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -56,15 +85,25 @@ def evidence_items(res: RetrievalResult, include_conflicts: bool) -> List[Dict[s
         if all(r.memory_id != x.memory_id for x in recs):
             recs.append(r)
     items: List[Dict[str, Any]] = []
+    hits_by_record: Dict[str, List[Any]] = {}
+    for hit in res.image_hits:
+        hits_by_record.setdefault(hit["record"].memory_id, []).append(hit["evidence"])
     for rec in recs:
         base = {"memory_id": rec.memory_id, "role": roles.get(rec.memory_id, "supporting"), "value": rec.value}
-        for te in rec.text_evidence:
+        for index, te in enumerate(rec.text_evidence):
             items.append({**base, "modality": "text", "text": te.text, "session_id": te.session_id,
-                          "timestamp": te.timestamp, "confidence": te.confidence})
-        for ve in rec.visual_evidence:
+                          "timestamp": te.timestamp, "confidence": te.confidence,
+                          "evidence_id": f"{rec.memory_id}:text:{index}", "supports_state": True})
+        for ve in hits_by_record.get(rec.memory_id, []):
             items.append({**base, "modality": "image", "image_id": ve.image_id, "image_path": ve.image_path,
-                          "visual_value": ve.value, "timestamp": rec.timestamp, "confidence": ve.confidence,
-                          "session_id": ve.image_id[4:] if ve.image_id.startswith("IMG_") else ""})
+                          "visual_value": ve.value, "timestamp": ve.timestamp or rec.timestamp,
+                          "confidence": ve.confidence,
+                          "association_status": ve.association_status,
+                          "association_reason": ve.association_reason,
+                          "supports_state": ve.supports_state,
+                          "evidence_id": ve.image_id or f"{rec.memory_id}:image",
+                          "session_id": ve.session_id or (
+                              ve.image_id[4:] if ve.image_id.startswith("IMG_") else "")})
     return sorted(items, key=lambda x: (x.get("timestamp") or "", x["modality"]))
 
 
@@ -131,7 +170,8 @@ class AnswerGenerator:
                 if it["modality"] == "text":
                     lines.append(f"- text ({it['session_id']}, {_d(it['timestamp'])}): \"{it['text']}\"")
                 else:
-                    lines.append(f"- image {it['image_id']} ({_d(it['timestamp'])}), looks {it['visual_value']}")
+                    qualifier = "" if it.get("association_status") == "verified" else " (contextually associated; detector did not verify entity)"
+                    lines.append(f"- image {it['image_id']} ({_d(it['timestamp'])}), looks {it['visual_value']}{qualifier}")
             base = head + "\n" + "\n".join(lines)
         elif I == Intent.HISTORY:
             base = "Timeline: " + " → ".join(f"{r.value} ({_d(r.timestamp)})" for r in res.chain)
@@ -157,7 +197,7 @@ class AnswerGenerator:
                 extra = f" Conflicting evidence exists ('{c.value}' vs '{c.conflicting_value}')."
             return Answer(f"I don't have enough stored information to answer that. {note}.{extra}".replace("..", "."),
                           None, 0.0, False, parsed.intent.value, note=note,
-                          evidence=evidence_items(res, True) if res.conflicts else [])
+                          evidence=evidence_items(res, True) if res.conflicts else [], status="abstained")
 
         include_conf = parsed.intent in (Intent.CURRENT, Intent.EVIDENCE)
         items = evidence_items(res, include_conf)
@@ -166,15 +206,19 @@ class AnswerGenerator:
         if self.llm_fn is not None:
             try:
                 out = self.llm_fn(prompt)
-                if out and out.strip():
+                if out and out.strip() and _llm_output_is_grounded(out, res.actual):
                     text = out.strip()
             except Exception as exc:
                 print(f"[answer] LLM failed ({exc.__class__.__name__}); using template answer")
         conf = min((r.confidence for r in res.records), default=0.5)
         if res.conflicts and include_conf:
             conf *= 0.8
+        supporting = [i for i in items if i.get("supports_state", True) and i.get("role") != "conflicting"]
+        status = "uncertain" if (res.conflicts and include_conf) else "answered"
         return Answer(
             text=text, value=res.value, confidence=round(conf, 3), found=True, intent=parsed.intent.value,
             evidence=items, states=[r.to_dict() for r in res.records], yes_no=res.yes_no,
-            note=res.note, prompt=prompt,
+            note=res.note, prompt=prompt, status=status,
+            supporting_state_ids=[r.memory_id for r in res.records],
+            supporting_evidence_ids=[i["evidence_id"] for i in supporting],
         )

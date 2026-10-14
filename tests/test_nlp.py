@@ -119,6 +119,11 @@ def test_pronoun_uses_context_entity():
     assert c.confidence < 0.95  # resolved from context -> slightly lower
 
 
+def test_explicit_entity_reference_is_preserved():
+    (c,) = extract_claims("My second car is blue.", REF)
+    assert c.entity == "car" and c.entity_ref == "second car"
+
+
 def test_no_entity_and_no_context_gives_no_claim():
     assert extract_claims("I repainted it black.", REF) == []
 
@@ -179,6 +184,16 @@ def test_query_intent(q, intent):
     assert parse_query(q, REF, context_entity="car").intent == intent
 
 
+def test_initial_previous_and_current_paraphrases_are_distinct():
+    originals = ["Which colour did the car start with?", "What was the car's earliest recorded colour?",
+                 "What was the car's initial condition?"]
+    previous = ["What colour was the car immediately before this?", "What was the prior colour?"]
+    current = ["What is the car's latest colour?", "Which colour is established for the car?"]
+    assert all(parse_query(q, REF).intent == Intent.ORIGINAL for q in originals)
+    assert all(parse_query(q, REF, context_entity="car").intent == Intent.PREVIOUS for q in previous)
+    assert all(parse_query(q, REF).intent == Intent.CURRENT for q in current)
+
+
 def test_query_reference_and_target_values():
     p = parse_query("Was my car red before it became blue?", REF)
     assert p.intent == Intent.PREVIOUS
@@ -194,9 +209,10 @@ def test_query_event_reference_and_entity():
 
 
 def test_query_evidence_scope():
-    assert parse_query("Show the evidence.", REF).evidence_scope == "ALL"
+    assert parse_query("Show the evidence.", REF).evidence_scope == "CURRENT"
     assert parse_query("How do you know it is blue?", REF).evidence_scope == "VALUE"
     assert parse_query("Show the evidence for the original color", REF).evidence_scope == "ORIGINAL"
+    assert parse_query("Which evidence supports the established car colour?", REF).evidence_scope == "CURRENT"
 
 
 def test_query_asof_time_resolved():

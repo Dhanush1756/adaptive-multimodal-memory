@@ -23,3 +23,18 @@ class ImageRetriever:
         items = [it for it in items if len(it[1].embedding) == len(embedding)]
         hits = top_k(embedding, [ev.embedding for _, ev in items], k)
         return [{"record": items[i][0], "evidence": items[i][1], "score": s} for i, s in hits]
+
+    def for_records(self, records: Sequence[Any]) -> List[Dict[str, Any]]:
+        """Retrieve visual evidence structurally tied to already selected states.
+
+        A text question has no image embedding to compare.  State selection is
+        therefore the reliable first-stage retrieval: only evidence stored on an
+        answer-supporting state can be returned.  Ambiguous/unmatched detections
+        never become hits.
+        """
+        hits: List[Dict[str, Any]] = []
+        for rec in records:
+            for ev in rec.visual_evidence:
+                if ev.association_status in {"verified", "contextual"}:
+                    hits.append({"record": rec, "evidence": ev, "score": 1.0})
+        return hits

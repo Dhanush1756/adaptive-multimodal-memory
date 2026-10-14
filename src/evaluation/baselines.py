@@ -87,6 +87,19 @@ class _Base:
                       yes_no=yes_no)
 
 
+class NoPersistentMemory(_Base):
+    """Control system: observations are discarded and every query abstains."""
+    name = "N_no_memory"
+
+    def remember(self, text: str = "", image: Any = None, timestamp: Any = None,
+                 session_id: Optional[str] = None):
+        self._sid(session_id)
+        return None
+
+    def ask(self, question: str, reference_time: Any = None) -> Answer:
+        return _no_answer(parse_query(question, reference_time), "no persistent memory")
+
+
 class NaiveTextMemory(_Base):
     name = "A_naive_text"
 
@@ -186,3 +199,21 @@ class AppendOnlyTemporalMemory(_Base):
               for i in sel.indices for s in chain[i].sessions]
         return Answer(text=str(sel.value), value=sel.value, confidence=0.5, found=True,
                       intent=parsed.intent.value, evidence=ev, yes_no=sel.yes_no, note=sel.note)
+
+
+class LatestValueMemory(AppendOnlyTemporalMemory):
+    """Keeps one latest observation per entity and cannot answer history."""
+    name = "L_latest_value"
+
+    def remember(self, *args, **kwargs):
+        result = super().remember(*args, **kwargs)
+        for entity, chain in self.chains.items():
+            if chain:
+                self.chains[entity] = [chain[-1]]
+        return result
+
+    def ask(self, question: str, reference_time: Any = None) -> Answer:
+        parsed = parse_query(question, reference_time, context_entity=self.last_entity)
+        if parsed.intent not in {Intent.CURRENT, Intent.EVIDENCE}:
+            return _no_answer(parsed, "latest-value memory does not preserve history")
+        return super().ask(question, reference_time)

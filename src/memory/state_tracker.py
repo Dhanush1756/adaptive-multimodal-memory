@@ -13,7 +13,7 @@ from .schema import MemoryRecord, Status
 from .store import MemoryStore
 
 
-def resolve_entity_id(store: MemoryStore, entity: str) -> str:
+def resolve_entity_id(store: MemoryStore, entity: str, entity_ref: Optional[str] = None) -> str:
     """Map an entity name to a stable id.
 
     Baseline policy: one instance per entity name ("car" -> car_001). Multiple instances
@@ -21,10 +21,14 @@ def resolve_entity_id(store: MemoryStore, entity: str) -> str:
     e.g. by comparing image embeddings of the object across sessions.
     """
     entity = entity.strip().lower()
-    for row in store.entities():
-        if row["entity"] == entity:
+    ref = (entity_ref or "").strip().lower()
+    rows = [row for row in store.entities() if row["entity"] == entity]
+    for row in rows:
+        if ref and row.get("entity_ref", "") == ref:
             return row["entity_id"]
-    n = sum(1 for r in store.entities() if r["entity"] == entity) + 1
+    if not ref and len(rows) == 1:
+        return rows[0]["entity_id"]
+    n = len(rows) + 1
     return f"{entity}_{n:03d}"
 
 

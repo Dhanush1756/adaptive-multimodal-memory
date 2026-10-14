@@ -63,7 +63,8 @@ def fuse(
     entity = entity.lower() if entity else None
 
     visual: Optional[VisualEvidence] = None
-    if image is not None and entity and image.color:
+    usable_visual = image is not None and image.association_status in {"verified", "contextual"}
+    if usable_visual and entity and image.color:
         visual = VisualEvidence(
             image_id=image_id or "",
             image_path=image_path,
@@ -73,16 +74,21 @@ def fuse(
             confidence=image.confidence,
             detection_confidence=image.detection.confidence,
             embedding=[float(x) for x in image.embedding],
+            timestamp=timestamp,
+            session_id=session_id,
+            association_status=image.association_status,
+            association_reason=image.association_reason,
+            supports_state=image.association_status == "verified",
         )
 
     agreement: Optional[float] = None
     if claim is not None and not claim.value:
         # value-less change event: fill from the image if there is one
-        if visual is not None:
+        if visual is not None and visual.supports_state:
             claim = replace(claim, value=visual.value, confidence=round(min(claim.confidence, visual.confidence), 3))
         else:
             claim = None
-    elif claim is not None and visual is not None:
+    elif claim is not None and visual is not None and visual.supports_state:
         agreement = cross_modal_agreement(claim.value, visual.value)
         if agreement is not None and 0.5 <= agreement < 1.0:
             visual.value = normalize_value(claim.value)  # near-synonym: treat as supporting
@@ -100,7 +106,7 @@ def fuse(
     cand_time = claim.resolved_time if (claim is not None and claim.resolved_time) else timestamp
     confidence = combine_confidence(
         claim.confidence if claim is not None else None,
-        visual.confidence if visual is not None else None,
+        visual.confidence if visual is not None and visual.supports_state else None,
         agreement,
         temporal_consistency,
         cfg,

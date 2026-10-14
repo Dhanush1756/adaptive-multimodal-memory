@@ -23,7 +23,9 @@ def cand(value, ts, text=True, img=None, text_conf=0.95, img_conf=0.9, event=Non
     )
     visual = (
         VisualEvidence(
-            image_id=f"IMG_{img}_{ts}", label=entity, value=img, confidence=img_conf, detection_confidence=0.9
+            image_id=f"IMG_{img}_{ts}", label=entity, value=img, confidence=img_conf,
+            detection_confidence=0.9, association_status="verified",
+            association_reason="test detector match", supports_state=True,
         )
         if img
         else None
@@ -42,7 +44,8 @@ def cand(value, ts, text=True, img=None, text_conf=0.95, img_conf=0.9, event=Non
 @pytest.fixture()
 def engine():
     store = MemoryStore(":memory:")
-    return MemoryEngine(store, CFG)
+    yield MemoryEngine(store, CFG)
+    store.close()
 
 
 # ---------------------------------------------------------------- milestone 1 / 2
@@ -87,6 +90,19 @@ def test_same_value_merges_evidence_not_duplicates(engine):
     rec = engine.store.get(d1.memory_id)
     assert len(rec.text_evidence) == 2 and len(rec.visual_evidence) == 1
     assert rec.confidence > 0.95  # corroboration raises confidence
+
+
+def test_exact_retry_does_not_duplicate_evidence_or_raise_confidence(engine):
+    first = cand("blue", "2026-10-01", session="source-1")
+    engine.process(first)
+    supported = cand("blue", "2026-10-02", img="blue", session="source-2")
+    engine.process(supported)
+    rec = engine.store.current("car_001", "color")
+    before = (len(rec.text_evidence), len(rec.visual_evidence), rec.confidence)
+    result = engine.process(supported)
+    after = engine.store.current("car_001", "color")
+    assert result.action == Action.MERGE and "duplicate evidence" in result.reason
+    assert (len(after.text_evidence), len(after.visual_evidence), after.confidence) == before
 
 
 # ----------------------------------------------------------------- CONTRADICTORY
@@ -159,6 +175,9 @@ def test_late_duplicate_of_newer_state_merges(engine):
     d = engine.process(cand("blue", "2026-10-10", img="blue"))
     assert d.action == Action.MERGE and d.memory_id == d_blue.memory_id
     assert len(timeline(engine.store, "car_001", "color")) == 2
+    assert engine.store.get(d_blue.memory_id).timestamp == "2026-10-10T00:00:00"
+    assert {e.timestamp for e in engine.store.get(d_blue.memory_id).text_evidence} == {
+        "2026-10-10", "2026-10-20"}
 
 
 # ------------------------------------------------------------ other behaviours

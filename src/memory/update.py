@@ -12,12 +12,15 @@ Decision procedure for a candidate with value v at time t
      (an unconfirmed photo must not silently rewrite memory)
   3. no state exists for (entity, attribute)                              -> ADD
   4. state in effect at t (or the next later state) has value v           -> MERGE evidence
+     If merging into the next later state, extend its start to t (event time).
+     Each evidence item keeps its own source date; arrival order never supplies event time.
   5. otherwise insert a new state; the chain is recomputed from time:
        t >= newest state time -> UPDATE (old current becomes HISTORICAL)
        t <  newest state time -> HISTORICAL (late/out-of-order evidence)
 """
 from __future__ import annotations
 
+from dataclasses import replace
 from typing import Any, Dict, Optional
 
 from ..utils import iso, parse_ts
@@ -55,7 +58,7 @@ class MemoryEngine:
         if cand.claim is not None:
             return cand.claim
         v = cand.visual
-        if v is not None and v.value and v.label:
+        if v is not None and v.supports_state and v.value and v.label:
             return Claim(
                 entity=v.label,
                 attribute="color",
@@ -97,10 +100,22 @@ class MemoryEngine:
             text_evidence=[text_ev] if text_ev else [],
             visual_evidence=[cand.visual] if cand.visual else [],
             source=cand.source,
+            entity_ref=claim.entity_ref or "",
         )
 
     # --------------------------------------------------------------- main entry
     def process(self, cand: Candidate) -> Decision:
+        # ID allocation, evidence changes and chain rebuilding commit together.
+        with self.store.transaction():
+            if cand.visual is not None:
+                cand = replace(cand, visual=replace(
+                    cand.visual,
+                    timestamp=cand.visual.timestamp or iso(cand.timestamp),
+                    session_id=cand.visual.session_id or cand.session_id,
+                ))
+            return self._process(cand)
+
+    def _process(self, cand: Candidate) -> Decision:
         claim = self._effective_claim(cand)
         if claim is None:
             return Decision(Action.IGNORE, None, "no extractable claim in text or image")
@@ -118,7 +133,11 @@ class MemoryEngine:
             )
 
         ts = iso(cand.timestamp)
-        entity_id = resolve_entity_id(self.store, entity)
+        same_category = [r for r in self.store.entities() if r["entity"] == entity]
+        if not claim.entity_ref and len(same_category) > 1:
+            return Decision(Action.IGNORE, None,
+                            f"multiple {entity} identities exist; an explicit reference is required")
+        entity_id = resolve_entity_id(self.store, entity, claim.entity_ref)
         members = _chain_members(self.store, entity_id, attribute)
         entity_match = 1.0 if members or self.store.query(entity_id=entity_id) else 0.0
         attribute_match = 1.0 if members else 0.0
@@ -192,16 +211,26 @@ class MemoryEngine:
         # --- 4. same value already represented -> MERGE ------------------------------
         for target in (in_effect, next_after):
             if target is not None and values_equal(target.value, new_value):
+                extended = t < parse_ts(target.timestamp)
+                if extended:
+                    # Only the adjacent compatible state is extended. An intervening
+                    # different state is never skipped, so red -> blue -> red survives.
+                    self.store.set_state_start(target.memory_id, ts, claim.event)
                 text_ev = cand.text_evidence
                 if text_ev is None and claim.source_text:
                     text_ev = TextEvidence(claim.source_text, cand.session_id, ts, claim.confidence)
-                self.store.add_evidence(target.memory_id, text=text_ev, visual=cand.visual)
-                new_conf = min(0.99, 1.0 - (1.0 - target.confidence) * (1.0 - max(cand.confidence, 0.0)))
-                self.store.set_confidence(target.memory_id, new_conf)
+                evidence_added = self.store.add_evidence(target.memory_id, text=text_ev, visual=cand.visual)
+                if evidence_added:
+                    new_conf = min(0.99, 1.0 - (1.0 - target.confidence) * (1.0 - max(cand.confidence, 0.0)))
+                    self.store.set_confidence(target.memory_id, new_conf)
+                if extended:
+                    rebuild_chain(self.store, entity_id, attribute)
                 return Decision(
                     Action.MERGE,
                     target.memory_id,
-                    "new evidence supports an existing state; evidence attached, confidence raised",
+                    (f"compatible earlier observation extends state start to {ts}; evidence dates preserved"
+                     if extended else ("new evidence supports an existing state; evidence attached, confidence raised"
+                                      if evidence_added else "duplicate evidence already represented; state unchanged")),
                     temporal_relation=relation,
                     previous_value=target.value,
                     **base,

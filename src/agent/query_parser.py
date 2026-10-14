@@ -17,7 +17,7 @@ from enum import Enum
 from typing import Any, Dict, List, Optional, Tuple
 
 from ..memory.conflict import normalize_value
-from ..nlp.ner import tracked_entities
+from ..nlp.ner import entity_reference, tracked_entities
 from ..nlp.preprocessing import normalize
 from ..nlp.relation_extraction import COLOR_WORDS, detect_event
 from ..nlp.temporal_extraction import extract_time_expressions
@@ -50,6 +50,7 @@ class ParsedQuery:
     asks_boolean: bool = False
     evidence_scope: Optional[str] = None      # CURRENT | PREVIOUS | ORIGINAL | VALUE | ALL
     rule_confidence: float = 0.6
+    entity_ref: Optional[str] = None
 
     def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
@@ -74,7 +75,8 @@ _HISTORY = re.compile(
 )
 _ORIGINAL = re.compile(
     r"\boriginal(?:ly)?\b|\bat first\b|\binitial(?:ly)?\b|\bin the beginning\b|\bat the start\b|"
-    r"\bto begin with\b|\bfrom the start\b|\bvery first\b|\bfirst (?:colou?r|state|value|time)\b"
+    r"\bto begin with\b|\bfrom the start\b|\bvery first\b|\bfirst (?:colou?r|state|value|time|appearance)\b|"
+    r"\bstart(?:ed)? (?:out )?with\b|\bearliest recorded\b|\binitial condition\b"
 )
 _AFTER_KW = re.compile(r"\b(after|following|since)\b")
 _BEFORE_KW = re.compile(r"\b(before|prior to|preceding|until|earlier than)\b")
@@ -95,7 +97,8 @@ def _first_after(colors: List[Tuple[str, int]], pos: int) -> Optional[Tuple[str,
     return next(((c, p) for c, p in colors if p > pos), None)
 
 
-def parse_query(text: str, reference_time=None, context_entity: Optional[str] = None) -> ParsedQuery:
+def parse_query(text: str, reference_time=None, context_entity: Optional[str] = None,
+                context_entity_ref: Optional[str] = None) -> ParsedQuery:
     """Parse a user question.
 
     reference_time : "now" for resolving relative expressions (defaults to datetime.now())
@@ -107,6 +110,7 @@ def parse_query(text: str, reference_time=None, context_entity: Optional[str] = 
 
     ents = tracked_entities(raw)
     entity = ents[0].canonical if ents else (context_entity.lower() if context_entity else None)
+    entity_ref = entity_reference(raw, ents[0]) if ents else context_entity_ref
     attribute = "color"
 
     colors = _colors_with_pos(low)
@@ -166,9 +170,9 @@ def parse_query(text: str, reference_time=None, context_entity: Optional[str] = 
         elif _CURRENT_CUE.search(low):
             scope = "CURRENT"
         else:
-            scope = "ALL"
+            scope = "CURRENT"
         return ParsedQuery(raw, entity, attribute, intent, reference_value, reference_event,
-                           target_value, time_iso, time_text, asks_boolean, scope, rule_conf)
+                           target_value, time_iso, time_text, asks_boolean, scope, rule_conf, entity_ref)
 
     if _WHEN.search(low):
         intent = Intent.WHEN
@@ -181,4 +185,4 @@ def parse_query(text: str, reference_time=None, context_entity: Optional[str] = 
         rule_conf = 0.9 if _CURRENT_CUE.search(low) or "color" in low or "colour" in low else 0.6
 
     return ParsedQuery(raw, entity, attribute, intent, reference_value, reference_event,
-                       target_value, time_iso, time_text, asks_boolean, None, rule_conf)
+                       target_value, time_iso, time_text, asks_boolean, None, rule_conf, entity_ref)

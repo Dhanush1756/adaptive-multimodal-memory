@@ -1,0 +1,26 @@
+{
+  "inspection_only": true,
+  "network_accessed": false,
+  "models_initialized": false,
+  "packages": {
+    "torch": true,
+    "ultralytics": true,
+    "transformers": false
+  },
+  "workspace_model_files": {
+    "pt": [],
+    "onnx": []
+  },
+  "huggingface_cache": {
+    "exists": true,
+    "entries": [
+      "models--cdsteameight--ISL-SignLanguageTranslation",
+      "models--dslim--bert-base-NER",
+      "models--sentence-transformers--all-MiniLM-L6-v2",
+      "models--sentence-transformers--all-mpnet-base-v2"
+    ],
+    "configured_clip_present": false
+  },
+  "track_b_status": "unperformed",
+  "reason": "Configured YOLO weights and CLIP model are not locally available; transformers is absent. Downloads and installation were prohibited."
+}

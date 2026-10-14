@@ -23,7 +23,7 @@ from typing import Dict, List, Optional, Tuple
 
 from ..memory.conflict import normalize_value
 from ..memory.schema import Claim
-from .ner import Entity, tracked_entities
+from .ner import Entity, entity_reference, tracked_entities
 from .preprocessing import normalize, split_sentences
 from .temporal_extraction import extract_time_expressions
 
@@ -52,6 +52,7 @@ _PAST_STATE_RX = re.compile(r"\b(was|were|used to be|used to look|had been|origi
 _CONTRAST_RX = re.compile(r"\b(but now|now|then|instead|into|turned|became|become|changed to|to)\b", re.I)
 _PRESENT_CUE_RX = re.compile(r"\b(but now|now|currently|these days|at the moment|today)\b", re.I)
 _COPULA_RX = re.compile(r"\b(is|are|was|were|looks?|looked|became|become|turned|got|gets|appears|seems|now|currently)\b", re.I)
+_REFERENCE_DATE_CUE_RX = re.compile(r"\b(on this date|on that date|that day|at that time)\b", re.I)
 
 
 def detect_event(sentence: str) -> Optional[str]:
@@ -98,6 +99,7 @@ def extract_claims(
     text: str,
     reference=None,
     context_entity: Optional[str] = None,
+    context_entity_ref: Optional[str] = None,
     lexicon: Optional[Dict[str, List[str]]] = None,
     attribute: str = "color",
 ) -> List[Claim]:
@@ -143,6 +145,7 @@ def extract_claims(
             and event is None
             and _PAST_STATE_RX.search(sent)
             and resolved is None
+            and not _REFERENCE_DATE_CUE_RX.search(sent)
             and not _PRESENT_CUE_RX.search(sent)
         ):
             continue
@@ -172,6 +175,7 @@ def extract_claims(
                 resolved_time=tx.iso() if (tx and tx.resolved is not None) else None,
                 confidence=round(conf, 3),
                 source_text=sent,
+                entity_ref=entity_reference(sent, ent_obj) if ent_obj is not None else context_entity_ref,
             )
         )
     return claims

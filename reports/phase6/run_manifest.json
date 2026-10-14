@@ -1,0 +1,138 @@
+{
+  "created_utc": "2026-10-13T16:22:45.731332+00:00",
+  "command": [
+    "C:\\Users\\DHANUSH S\\anaconda3\\python.exe",
+    "-m",
+    "src.evaluation.ablations",
+    "--data",
+    "data/annotations/phase6_test.jsonl",
+    "--split",
+    "all",
+    "--seed",
+    "20261013",
+    "--light",
+    "--systems",
+    "N_no_memory",
+    "L_latest_value",
+    "B_naive_multimodal",
+    "C_append_only_temporal",
+    "E_no_provenance",
+    "E_no_visual_linking",
+    "E_no_text_image_conflict",
+    "E_proposed",
+    "--out",
+    "reports/phase6"
+  ],
+  "python": "3.14.6 | packaged by Anaconda, Inc. | (main, Jul  9 2026, 14:29:05) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "git_commit": "unavailable",
+  "git_status": "A  .gitignore\nA  LICENSE\nAM README.md\nAM app/streamlit_app.py\nA  config.yaml\nAM conftest.py\nA  data/annotations/intent_paraphrases.csv\nAM docs/training.md\nA  pytest.ini\nA  requirements.txt\nA  src/__init__.py\nA  src/agent/__init__.py\nAM src/agent/answer_generator.py\nA  src/agent/intent_model.py\nAM src/agent/query_parser.py\nAM src/agent/reasoning.py\nA  src/config.py\nA  src/cv/__init__.py\nA  src/cv/attributes.py\nA  src/cv/detection.py\nA  src/cv/embeddings.py\nA  src/cv/preprocessing.py\nA  src/cv/similarity.py\nA  src/data/__init__.py\nA  src/data/make_dataset.py\nA  src/data/synthetic.py\nA  src/evaluation/__init__.py\nAM src/evaluation/ablations.py\nAM src/evaluation/baselines.py\nAM src/evaluation/benchmarks.py\nA  src/evaluation/component_eval.py\nAM src/evaluation/metrics.py\nA  src/memory/__init__.py\nAM src/memory/conflict.py\nAM src/memory/schema.py\nAM src/memory/state_tracker.py\nAM src/memory/store.py\nAM src/memory/update.py\nA  src/multimodal/__init__.py\nA  src/multimodal/alignment.py\nAM src/multimodal/evidence.py\nAM src/multimodal/fusion.py\nAM src/multimodal/visual_pipeline.py\nA  src/nlp/__init__.py\nA  src/nlp/embeddings.py\nAM src/nlp/ner.py\nA  src/nlp/preprocessing.py\nAM src/nlp/relation_extraction.py\nA  src/nlp/temporal_extraction.py\nA  src/retrieval/__init__.py\nAM src/retrieval/hybrid_retriever.py\nAM src/retrieval/image_retriever.py\nAM src/retrieval/temporal_retriever.py\nA  src/retrieval/text_retriever.py\nA  src/training/__init__.py\nA  src/training/text_prep.py\nA  src/training/train_color_head.py\nA  src/training/train_intent_classifier.py\nA  src/utils.py\nA  tests/test_cv.py\nAM tests/test_end_to_end.py\nAM tests/test_memory.py\nAM tests/test_nlp.py\nA  tests/test_retrieval.py\n?? Microsoft/\n?? data/annotations/phase4_dev.jsonl\n?? data/annotations/phase4_test.jsonl\n?? data/annotations/phase5_dev.jsonl\n?? data/annotations/phase5_test.jsonl\n?? data/annotations/phase6_dev.jsonl\n?? data/annotations/phase6_test.jsonl\n?? docs/final_validation_checklist.md\n?? docs/phase1_reliability.md\n?? docs/phase2_multimodal_evidence.md\n?? docs/phase3_adaptive_memory.md\n?? docs/phase4_evaluation.md\n?? docs/phase5_reliability.md\n?? docs/phase6_benchmarking.md\n?? reports/\n?? src/evaluation/research_reporting.py\n?? tests/test_evaluation_metrics.py\n?? tests/test_multimodal_evidence.py\n?? tests/test_phase4_evaluation.py\n?? tests/test_phase5_evaluation.py\n?? tests/test_phase5_reliability.py\n?? tests/test_phase6_benchmarking.py\n?? tests/test_reliability.py",
+  "dataset_path": "data/annotations/phase6_test.jsonl",
+  "dataset_sha256": "831449bb23989915803bf715071a656bf663c6c335320890b8340edfa9fadaf7",
+  "configuration_sha256": "9cddf450ee04c6aa3e2ec80864b1c8b8a11ce0074ed24e7ee9f457d7e170ec4a",
+  "configuration": {
+    "paths": {
+      "db_path": "data/processed/memory.db",
+      "image_dir": "data/synthetic/images",
+      "synthetic_dir": "data/synthetic",
+      "results_dir": "reports/results"
+    },
+    "nlp": {
+      "spacy_model": "en_core_web_sm",
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "fallback_embedding_dim": 256,
+      "tracked_entities": [
+        "car",
+        "laptop",
+        "bike",
+        "phone",
+        "shirt",
+        "room",
+        "plant"
+      ],
+      "tracked_attributes": [
+        "color"
+      ]
+    },
+    "cv": {
+      "yolo_weights": "yolov8n.pt",
+      "yolo_conf": 0.25,
+      "clip_model": "openai/clip-vit-base-patch32",
+      "colors": [
+        "red",
+        "blue",
+        "black",
+        "white",
+        "green",
+        "yellow",
+        "silver",
+        "gray",
+        "orange",
+        "brown",
+        "purple",
+        "pink"
+      ],
+      "clip_weight": 0.6,
+      "hsv_weight": 0.4
+    },
+    "memory": {
+      "min_claim_confidence": 0.3,
+      "conflict_text_conf": 0.6,
+      "conflict_visual_conf": 0.6,
+      "agreement_threshold": 0.5
+    },
+    "confidence": {
+      "w_text": 0.3,
+      "w_visual": 0.3,
+      "w_agreement": 0.25,
+      "w_temporal": 0.15
+    },
+    "retrieval": {
+      "w_semantic": 0.3,
+      "w_entity": 0.2,
+      "w_attribute": 0.2,
+      "w_temporal": 0.2,
+      "w_confidence": 0.1,
+      "top_k": 5
+    },
+    "llm": {
+      "provider": "none",
+      "model": ""
+    }
+  },
+  "split": "all",
+  "seed": 20261013,
+  "light": true,
+  "components": {
+    "text_embedding": "hashing-256",
+    "detector": "none (whole-image fallback)",
+    "color": "hsv",
+    "image_embedding": "color-histogram"
+  },
+  "systems": [
+    "N_no_memory",
+    "L_latest_value",
+    "B_naive_multimodal",
+    "C_append_only_temporal",
+    "E_no_provenance",
+    "E_no_visual_linking",
+    "E_no_text_image_conflict",
+    "E_proposed"
+  ],
+  "n_scenarios": 100,
+  "n_sessions": 210,
+  "n_queries": 265,
+  "families": {
+    "temporal_sequence": 15,
+    "late_arrival": 10,
+    "duplicate_and_corroboration": 10,
+    "unrelated_visual": 10,
+    "verified_visual": 10,
+    "verified_conflict": 10,
+    "entity_identity": 10,
+    "abstention_and_irrelevance": 10,
+    "corrupt_image": 5,
+    "ambiguous_visual": 5,
+    "long_sequence": 5
+  }
+}

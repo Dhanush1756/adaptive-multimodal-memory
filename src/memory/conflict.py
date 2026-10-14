@@ -39,7 +39,8 @@ def detect_cross_modal_conflict(
     clear text statement (and vice versa). Weak disagreement is handled by the
     confidence model instead of a conflict flag.
     """
-    if cand.claim is None or cand.visual is None or not cand.visual.value:
+    if (cand.claim is None or cand.visual is None or not cand.visual.value or
+            not cand.visual.supports_state):
         return None
     if values_equal(cand.claim.value, cand.visual.value):
         return None

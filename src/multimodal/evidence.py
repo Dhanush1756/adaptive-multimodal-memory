@@ -22,6 +22,8 @@ class ImageAnalysis:
     embedding: np.ndarray
     quality: Dict[str, Any] = field(default_factory=dict)
     distribution: Dict[str, float] = field(default_factory=dict)
+    association_status: str = "contextual"
+    association_reason: str = ""
 
     @property
     def entity(self) -> Optional[str]:
@@ -35,4 +37,6 @@ class ImageAnalysis:
             "visual_confidence": self.confidence,
             "method": self.method,
             "quality": self.quality,
+            "association_status": self.association_status,
+            "association_reason": self.association_reason,
         }

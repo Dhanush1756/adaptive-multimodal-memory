@@ -9,7 +9,7 @@ from typing import Any, Dict, Optional
 
 from ..config import load_config
 from ..cv.attributes import VisualAttributeExtractor
-from ..cv.detection import ObjectDetector, crop_to_bbox, select_primary
+from ..cv.detection import ObjectDetector, crop_to_bbox, full_image_detection, select_primary
 from ..cv.embeddings import ImageEmbedder, get_clip
 from ..cv.preprocessing import load_image, quality_report
 from .evidence import ImageAnalysis
@@ -31,7 +31,21 @@ class VisualPipeline:
         img = load_image(image)
         quality = quality_report(img)
         dets = self.detector.detect(img)
-        primary = select_primary(dets, img, preferred_entity)
+        mapped = [d for d in dets if d.entity]
+        if preferred_entity:
+            matches = [d for d in mapped if d.entity == preferred_entity]
+            if len(matches) == 1:
+                primary, association_status, association_reason = matches[0], "verified", "one detector result matches the claim entity"
+            elif len(matches) > 1:
+                primary, association_status, association_reason = select_primary(matches, img), "ambiguous", "multiple detected objects match the claim entity"
+            elif not dets:
+                primary, association_status, association_reason = full_image_detection(img, preferred_entity), "contextual", "detector unavailable; image was submitted with this claim"
+            else:
+                primary, association_status, association_reason = full_image_detection(img), "unmatched", "detector found no object matching the claim entity"
+        elif mapped:
+            primary, association_status, association_reason = select_primary(mapped, img), "verified", "detected object selected without a text entity"
+        else:
+            primary, association_status, association_reason = full_image_detection(img), "unmatched", "no tracked object was detected"
         crop = crop_to_bbox(img, primary.bbox) if primary.source != "fallback" else img
         attrs = self.attributes.extract(
             crop, entity=primary.entity or preferred_entity,
@@ -51,4 +65,6 @@ class VisualPipeline:
             embedding=self.embedder.embed(crop),
             quality=quality,
             distribution=attrs.get("distribution", {}),
+            association_status=association_status,
+            association_reason=association_reason,
         )

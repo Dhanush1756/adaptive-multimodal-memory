@@ -1,0 +1,4547 @@
+{
+  "meta": {
+    "split": "all",
+    "n_scenarios": 8,
+    "light": true,
+    "components": {
+      "text_embedding": "hashing-256",
+      "detector": "none (whole-image fallback)",
+      "color": "hsv",
+      "image_embedding": "color-histogram"
+    }
+  },
+  "results": [
+    {
+      "system": "N_no_memory",
+      "n_scenarios": 8,
+      "seconds": 0.2,
+      "queries": {
+        "n_queries": 16,
+        "current_state_accuracy": {
+          "value": 0.125,
+          "n": 8,
+          "ci95": [
+            0.0,
+            0.375
+          ]
+        },
+        "historical_state_accuracy": {
+          "value": 0.3333333333333333,
+          "n": 6,
+          "ci95": null
+        },
+        "temporal_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "temporal_ordering_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "evidence_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "initial_state_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "entity_identity_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "evidence_recall": {
+          "value": 0.0,
+          "n": 13
+        },
+        "evidence_precision": {
+          "value": 0.0,
+          "n": 13
+        },
+        "overall_accuracy": {
+          "value": 0.1875,
+          "n": 16
+        },
+        "answered_rate": {
+          "value": 0.0,
+          "n": 16
+        },
+        "unsupported_answer_rate": {
+          "value": null,
+          "n": 0
+        },
+        "answer_schema_validity": {
+          "value": 1.0,
+          "n": 16
+        },
+        "by_kind": {
+          "as_of": {
+            "value": 0.5,
+            "n": 4
+          },
+          "current": {
+            "value": 0.125,
+            "n": 8
+          },
+          "evidence": {
+            "value": 0.0,
+            "n": 1
+          },
+          "history": {
+            "value": 0.0,
+            "n": 1
+          },
+          "original": {
+            "value": 0.0,
+            "n": 1
+          },
+          "previous": {
+            "value": 0.0,
+            "n": 1
+          }
+        }
+      },
+      "raw_queries": [
+        {
+          "scenario_id": "H01",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What shade is my car at the moment?",
+          "gold": "black",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "original",
+          "intent": "ORIGINAL",
+          "question": "Which colour did the car start with?",
+          "gold": "red",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "previous",
+          "intent": "PREVIOUS",
+          "question": "What colour did it have immediately before black?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the car on 2026-09-20?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What is the car's latest colour?",
+          "gold": "black",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was my car on 2026-09-18?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "Which colour is my laptop currently?",
+          "gold": "silver",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "history",
+          "intent": "HISTORY",
+          "question": "List the laptop colour history.",
+          "gold": [
+            "silver"
+          ],
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour should be treated as established for my car now?",
+          "gold": "red",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "evidence",
+          "intent": "EVIDENCE",
+          "question": "Which evidence supports the established car colour?",
+          "gold": "red",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H05",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour did I state for the car?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my phone now?",
+          "gold": "green",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the phone on 2020-01-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H07",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my second car?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is the plant pot?",
+          "gold": "white",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was it on 2026-09-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        }
+      ],
+      "raw_sessions": [
+        {
+          "scenario_id": "H01",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S3",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S3",
+          "kind": "late_arrival",
+          "gold": "HISTORICAL",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S2",
+          "kind": "corroboration",
+          "gold": "MERGE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S3",
+          "kind": "duplicate",
+          "gold": "MERGE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S1",
+          "kind": "text_image",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S2",
+          "kind": "conflict",
+          "gold": "CONTRADICTORY",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H05",
+          "session_id": "S1",
+          "kind": "irrelevant_image",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S1",
+          "kind": "missing_time",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S2",
+          "kind": "cv_failure",
+          "gold": "IGNORE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S1",
+          "kind": "first_instance",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S2",
+          "kind": "ambiguous_identity",
+          "gold": "IGNORE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S2",
+          "kind": "irrelevant_text",
+          "gold": "IGNORE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        }
+      ],
+      "n_session_errors": 0,
+      "actions": null,
+      "visual_association": {
+        "precision": null,
+        "false_association_rate": null,
+        "accepted": 0,
+        "labelled": 0,
+        "rejected": 0
+      }
+    },
+    {
+      "system": "L_latest_value",
+      "n_scenarios": 8,
+      "seconds": 0.5,
+      "queries": {
+        "n_queries": 16,
+        "current_state_accuracy": {
+          "value": 0.625,
+          "n": 8,
+          "ci95": [
+            0.25,
+            0.875
+          ]
+        },
+        "historical_state_accuracy": {
+          "value": 0.3333333333333333,
+          "n": 6,
+          "ci95": null
+        },
+        "temporal_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "temporal_ordering_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "evidence_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "initial_state_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "entity_identity_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "evidence_recall": {
+          "value": 0.3333333333333333,
+          "n": 13
+        },
+        "evidence_precision": {
+          "value": 0.38461538461538464,
+          "n": 13
+        },
+        "overall_accuracy": {
+          "value": 0.4375,
+          "n": 16
+        },
+        "answered_rate": {
+          "value": 0.5,
+          "n": 16
+        },
+        "unsupported_answer_rate": {
+          "value": 0.375,
+          "n": 8
+        },
+        "answer_schema_validity": {
+          "value": 1.0,
+          "n": 16
+        },
+        "by_kind": {
+          "as_of": {
+            "value": 0.5,
+            "n": 4
+          },
+          "current": {
+            "value": 0.625,
+            "n": 8
+          },
+          "evidence": {
+            "value": 0.0,
+            "n": 1
+          },
+          "history": {
+            "value": 0.0,
+            "n": 1
+          },
+          "original": {
+            "value": 0.0,
+            "n": 1
+          },
+          "previous": {
+            "value": 0.0,
+            "n": 1
+          }
+        }
+      },
+      "raw_queries": [
+        {
+          "scenario_id": "H01",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What shade is my car at the moment?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "original",
+          "intent": "ORIGINAL",
+          "question": "Which colour did the car start with?",
+          "gold": "red",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "previous",
+          "intent": "PREVIOUS",
+          "question": "What colour did it have immediately before black?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the car on 2026-09-20?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What is the car's latest colour?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was my car on 2026-09-18?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "Which colour is my laptop currently?",
+          "gold": "silver",
+          "predicted": "silver",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.3333333333333333,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "history",
+          "intent": "HISTORY",
+          "question": "List the laptop colour history.",
+          "gold": [
+            "silver"
+          ],
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour should be treated as established for my car now?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "evidence",
+          "intent": "EVIDENCE",
+          "question": "Which evidence supports the established car colour?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H05",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour did I state for the car?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my phone now?",
+          "gold": "green",
+          "predicted": "green",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the phone on 2020-01-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H07",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my second car?",
+          "gold": null,
+          "predicted": "blue",
+          "found": true,
+          "answerable": false,
+          "correct": false,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is the plant pot?",
+          "gold": "white",
+          "predicted": "white",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was it on 2026-09-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        }
+      ],
+      "raw_sessions": [
+        {
+          "scenario_id": "H01",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S3",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S3",
+          "kind": "late_arrival",
+          "gold": "HISTORICAL",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S2",
+          "kind": "corroboration",
+          "gold": "MERGE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S3",
+          "kind": "duplicate",
+          "gold": "MERGE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S1",
+          "kind": "text_image",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S2",
+          "kind": "conflict",
+          "gold": "CONTRADICTORY",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H05",
+          "session_id": "S1",
+          "kind": "irrelevant_image",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S1",
+          "kind": "missing_time",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S2",
+          "kind": "cv_failure",
+          "gold": "IGNORE",
+          "predicted": "ERROR",
+          "error": "UnidentifiedImageError",
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S1",
+          "kind": "first_instance",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S2",
+          "kind": "ambiguous_identity",
+          "gold": "IGNORE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S2",
+          "kind": "irrelevant_text",
+          "gold": "IGNORE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        }
+      ],
+      "n_session_errors": 1,
+      "actions": null,
+      "visual_association": {
+        "precision": null,
+        "false_association_rate": null,
+        "accepted": 0,
+        "labelled": 0,
+        "rejected": 0
+      }
+    },
+    {
+      "system": "B_naive_multimodal",
+      "n_scenarios": 8,
+      "seconds": 0.1,
+      "queries": {
+        "n_queries": 16,
+        "current_state_accuracy": {
+          "value": 0.5,
+          "n": 8,
+          "ci95": [
+            0.125,
+            0.875
+          ]
+        },
+        "historical_state_accuracy": {
+          "value": 0.16666666666666666,
+          "n": 6,
+          "ci95": null
+        },
+        "temporal_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "temporal_ordering_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "evidence_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "initial_state_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "entity_identity_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "evidence_recall": {
+          "value": 0.3333333333333333,
+          "n": 13
+        },
+        "evidence_precision": {
+          "value": 0.38461538461538464,
+          "n": 13
+        },
+        "overall_accuracy": {
+          "value": 0.3125,
+          "n": 16
+        },
+        "answered_rate": {
+          "value": 0.9375,
+          "n": 16
+        },
+        "unsupported_answer_rate": {
+          "value": 0.6666666666666666,
+          "n": 15
+        },
+        "answer_schema_validity": {
+          "value": 1.0,
+          "n": 16
+        },
+        "by_kind": {
+          "as_of": {
+            "value": 0.25,
+            "n": 4
+          },
+          "current": {
+            "value": 0.5,
+            "n": 8
+          },
+          "evidence": {
+            "value": 0.0,
+            "n": 1
+          },
+          "history": {
+            "value": 0.0,
+            "n": 1
+          },
+          "original": {
+            "value": 0.0,
+            "n": 1
+          },
+          "previous": {
+            "value": 0.0,
+            "n": 1
+          }
+        }
+      },
+      "raw_queries": [
+        {
+          "scenario_id": "H01",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What shade is my car at the moment?",
+          "gold": "black",
+          "predicted": "red",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "original",
+          "intent": "ORIGINAL",
+          "question": "Which colour did the car start with?",
+          "gold": "red",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "previous",
+          "intent": "PREVIOUS",
+          "question": "What colour did it have immediately before black?",
+          "gold": "blue",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the car on 2026-09-20?",
+          "gold": "blue",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What is the car's latest colour?",
+          "gold": "black",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was my car on 2026-09-18?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "Which colour is my laptop currently?",
+          "gold": "silver",
+          "predicted": "silver",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.3333333333333333,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "history",
+          "intent": "HISTORY",
+          "question": "List the laptop colour history.",
+          "gold": [
+            "silver"
+          ],
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour should be treated as established for my car now?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "evidence",
+          "intent": "EVIDENCE",
+          "question": "Which evidence supports the established car colour?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H05",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour did I state for the car?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my phone now?",
+          "gold": "green",
+          "predicted": "green",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the phone on 2020-01-01?",
+          "gold": null,
+          "predicted": "green",
+          "found": true,
+          "answerable": false,
+          "correct": false,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H07",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my second car?",
+          "gold": null,
+          "predicted": "blue",
+          "found": true,
+          "answerable": false,
+          "correct": false,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is the plant pot?",
+          "gold": "white",
+          "predicted": "white",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was it on 2026-09-01?",
+          "gold": null,
+          "predicted": "white",
+          "found": true,
+          "answerable": false,
+          "correct": false,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        }
+      ],
+      "raw_sessions": [
+        {
+          "scenario_id": "H01",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S3",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S3",
+          "kind": "late_arrival",
+          "gold": "HISTORICAL",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S2",
+          "kind": "corroboration",
+          "gold": "MERGE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S3",
+          "kind": "duplicate",
+          "gold": "MERGE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S1",
+          "kind": "text_image",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S2",
+          "kind": "conflict",
+          "gold": "CONTRADICTORY",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H05",
+          "session_id": "S1",
+          "kind": "irrelevant_image",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S1",
+          "kind": "missing_time",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S2",
+          "kind": "cv_failure",
+          "gold": "IGNORE",
+          "predicted": "ERROR",
+          "error": "UnidentifiedImageError",
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S1",
+          "kind": "first_instance",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S2",
+          "kind": "ambiguous_identity",
+          "gold": "IGNORE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S2",
+          "kind": "irrelevant_text",
+          "gold": "IGNORE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        }
+      ],
+      "n_session_errors": 1,
+      "actions": null,
+      "visual_association": {
+        "precision": null,
+        "false_association_rate": null,
+        "accepted": 0,
+        "labelled": 0,
+        "rejected": 0
+      }
+    },
+    {
+      "system": "C_append_only_temporal",
+      "n_scenarios": 8,
+      "seconds": 0.1,
+      "queries": {
+        "n_queries": 16,
+        "current_state_accuracy": {
+          "value": 0.625,
+          "n": 8,
+          "ci95": [
+            0.25,
+            0.875
+          ]
+        },
+        "historical_state_accuracy": {
+          "value": 1.0,
+          "n": 6,
+          "ci95": null
+        },
+        "temporal_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "temporal_ordering_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "evidence_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "initial_state_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "entity_identity_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "evidence_recall": {
+          "value": 0.717948717948718,
+          "n": 13
+        },
+        "evidence_precision": {
+          "value": 0.7307692307692307,
+          "n": 13
+        },
+        "overall_accuracy": {
+          "value": 0.6875,
+          "n": 16
+        },
+        "answered_rate": {
+          "value": 0.8125,
+          "n": 16
+        },
+        "unsupported_answer_rate": {
+          "value": 0.3076923076923077,
+          "n": 13
+        },
+        "answer_schema_validity": {
+          "value": 1.0,
+          "n": 16
+        },
+        "by_kind": {
+          "as_of": {
+            "value": 1.0,
+            "n": 4
+          },
+          "current": {
+            "value": 0.625,
+            "n": 8
+          },
+          "evidence": {
+            "value": 0.0,
+            "n": 1
+          },
+          "history": {
+            "value": 0.0,
+            "n": 1
+          },
+          "original": {
+            "value": 1.0,
+            "n": 1
+          },
+          "previous": {
+            "value": 1.0,
+            "n": 1
+          }
+        }
+      },
+      "raw_queries": [
+        {
+          "scenario_id": "H01",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What shade is my car at the moment?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "original",
+          "intent": "ORIGINAL",
+          "question": "Which colour did the car start with?",
+          "gold": "red",
+          "predicted": "red",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "previous",
+          "intent": "PREVIOUS",
+          "question": "What colour did it have immediately before black?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 0.5,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the car on 2026-09-20?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What is the car's latest colour?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was my car on 2026-09-18?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "Which colour is my laptop currently?",
+          "gold": "silver",
+          "predicted": "silver",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.3333333333333333,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "history",
+          "intent": "HISTORY",
+          "question": "List the laptop colour history.",
+          "gold": [
+            "silver"
+          ],
+          "predicted": [
+            "silver",
+            "silver",
+            "silver"
+          ],
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour should be treated as established for my car now?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "evidence",
+          "intent": "EVIDENCE",
+          "question": "Which evidence supports the established car colour?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H05",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour did I state for the car?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my phone now?",
+          "gold": "green",
+          "predicted": "green",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the phone on 2020-01-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H07",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my second car?",
+          "gold": null,
+          "predicted": "blue",
+          "found": true,
+          "answerable": false,
+          "correct": false,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is the plant pot?",
+          "gold": "white",
+          "predicted": "white",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was it on 2026-09-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        }
+      ],
+      "raw_sessions": [
+        {
+          "scenario_id": "H01",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S3",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S3",
+          "kind": "late_arrival",
+          "gold": "HISTORICAL",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S2",
+          "kind": "corroboration",
+          "gold": "MERGE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S3",
+          "kind": "duplicate",
+          "gold": "MERGE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S1",
+          "kind": "text_image",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S2",
+          "kind": "conflict",
+          "gold": "CONTRADICTORY",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H05",
+          "session_id": "S1",
+          "kind": "irrelevant_image",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S1",
+          "kind": "missing_time",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S2",
+          "kind": "cv_failure",
+          "gold": "IGNORE",
+          "predicted": "ERROR",
+          "error": "UnidentifiedImageError",
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S1",
+          "kind": "first_instance",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S2",
+          "kind": "ambiguous_identity",
+          "gold": "IGNORE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S2",
+          "kind": "irrelevant_text",
+          "gold": "IGNORE",
+          "predicted": null,
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        }
+      ],
+      "n_session_errors": 1,
+      "actions": null,
+      "visual_association": {
+        "precision": null,
+        "false_association_rate": null,
+        "accepted": 0,
+        "labelled": 0,
+        "rejected": 0
+      }
+    },
+    {
+      "system": "E_no_provenance",
+      "n_scenarios": 8,
+      "seconds": 0.3,
+      "queries": {
+        "n_queries": 16,
+        "current_state_accuracy": {
+          "value": 0.625,
+          "n": 8,
+          "ci95": [
+            0.25,
+            0.875
+          ]
+        },
+        "historical_state_accuracy": {
+          "value": 1.0,
+          "n": 6,
+          "ci95": null
+        },
+        "temporal_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "temporal_ordering_accuracy": {
+          "value": 1.0,
+          "n": 1,
+          "ci95": null
+        },
+        "evidence_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "initial_state_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "entity_identity_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "evidence_recall": {
+          "value": 0.0,
+          "n": 13
+        },
+        "evidence_precision": {
+          "value": 0.0,
+          "n": 13
+        },
+        "overall_accuracy": {
+          "value": 0.75,
+          "n": 16
+        },
+        "answered_rate": {
+          "value": 0.8125,
+          "n": 16
+        },
+        "unsupported_answer_rate": {
+          "value": 0.23076923076923078,
+          "n": 13
+        },
+        "answer_schema_validity": {
+          "value": 1.0,
+          "n": 16
+        },
+        "by_kind": {
+          "as_of": {
+            "value": 1.0,
+            "n": 4
+          },
+          "current": {
+            "value": 0.625,
+            "n": 8
+          },
+          "evidence": {
+            "value": 0.0,
+            "n": 1
+          },
+          "history": {
+            "value": 1.0,
+            "n": 1
+          },
+          "original": {
+            "value": 1.0,
+            "n": 1
+          },
+          "previous": {
+            "value": 1.0,
+            "n": 1
+          }
+        }
+      },
+      "raw_queries": [
+        {
+          "scenario_id": "H01",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What shade is my car at the moment?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "original",
+          "intent": "ORIGINAL",
+          "question": "Which colour did the car start with?",
+          "gold": "red",
+          "predicted": "red",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "previous",
+          "intent": "PREVIOUS",
+          "question": "What colour did it have immediately before black?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the car on 2026-09-20?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What is the car's latest colour?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was my car on 2026-09-18?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "Which colour is my laptop currently?",
+          "gold": "silver",
+          "predicted": "silver",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "history",
+          "intent": "HISTORY",
+          "question": "List the laptop colour history.",
+          "gold": [
+            "silver"
+          ],
+          "predicted": [
+            "silver"
+          ],
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour should be treated as established for my car now?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "evidence",
+          "intent": "EVIDENCE",
+          "question": "Which evidence supports the established car colour?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H05",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour did I state for the car?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my phone now?",
+          "gold": "green",
+          "predicted": "green",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the phone on 2020-01-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H07",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my second car?",
+          "gold": null,
+          "predicted": "blue",
+          "found": true,
+          "answerable": false,
+          "correct": false,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is the plant pot?",
+          "gold": "white",
+          "predicted": "white",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was it on 2026-09-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        }
+      ],
+      "raw_sessions": [
+        {
+          "scenario_id": "H01",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S3",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S3",
+          "kind": "late_arrival",
+          "gold": "HISTORICAL",
+          "predicted": "HISTORICAL",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S2",
+          "kind": "corroboration",
+          "gold": "MERGE",
+          "predicted": "MERGE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S3",
+          "kind": "duplicate",
+          "gold": "MERGE",
+          "predicted": "MERGE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S1",
+          "kind": "text_image",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S2",
+          "kind": "conflict",
+          "gold": "CONTRADICTORY",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H05",
+          "session_id": "S1",
+          "kind": "irrelevant_image",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S1",
+          "kind": "missing_time",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S2",
+          "kind": "cv_failure",
+          "gold": "IGNORE",
+          "predicted": "IGNORE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S1",
+          "kind": "first_instance",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S2",
+          "kind": "ambiguous_identity",
+          "gold": "IGNORE",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S2",
+          "kind": "irrelevant_text",
+          "gold": "IGNORE",
+          "predicted": "IGNORE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        }
+      ],
+      "n_session_errors": 0,
+      "actions": {
+        "state_update_accuracy": 0.8888888888888888,
+        "n": 18,
+        "per_action": {
+          "ADD": {
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "f1": 0.9411764705882353,
+            "support": 8
+          },
+          "CONTRADICTORY": {
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "HISTORICAL": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "IGNORE": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 3
+          },
+          "MERGE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "UPDATE": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "support": 3
+          }
+        },
+        "conflict_detection": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "confusion": {
+          "ADD": {
+            "ADD": 8
+          },
+          "UPDATE": {
+            "UPDATE": 3
+          },
+          "HISTORICAL": {
+            "HISTORICAL": 1
+          },
+          "MERGE": {
+            "MERGE": 2
+          },
+          "CONTRADICTORY": {
+            "UPDATE": 1
+          },
+          "IGNORE": {
+            "IGNORE": 2,
+            "ADD": 1
+          }
+        }
+      },
+      "visual_association": {
+        "precision": null,
+        "false_association_rate": null,
+        "accepted": 0,
+        "labelled": 0,
+        "rejected": 0
+      }
+    },
+    {
+      "system": "E_no_visual_linking",
+      "n_scenarios": 8,
+      "seconds": 0.2,
+      "queries": {
+        "n_queries": 16,
+        "current_state_accuracy": {
+          "value": 0.625,
+          "n": 8,
+          "ci95": [
+            0.25,
+            0.875
+          ]
+        },
+        "historical_state_accuracy": {
+          "value": 1.0,
+          "n": 6,
+          "ci95": null
+        },
+        "temporal_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "temporal_ordering_accuracy": {
+          "value": 1.0,
+          "n": 1,
+          "ci95": null
+        },
+        "evidence_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "initial_state_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "entity_identity_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "evidence_recall": {
+          "value": 0.7692307692307693,
+          "n": 13
+        },
+        "evidence_precision": {
+          "value": 0.7307692307692307,
+          "n": 13
+        },
+        "overall_accuracy": {
+          "value": 0.75,
+          "n": 16
+        },
+        "answered_rate": {
+          "value": 0.8125,
+          "n": 16
+        },
+        "unsupported_answer_rate": {
+          "value": 0.23076923076923078,
+          "n": 13
+        },
+        "answer_schema_validity": {
+          "value": 1.0,
+          "n": 16
+        },
+        "by_kind": {
+          "as_of": {
+            "value": 1.0,
+            "n": 4
+          },
+          "current": {
+            "value": 0.625,
+            "n": 8
+          },
+          "evidence": {
+            "value": 0.0,
+            "n": 1
+          },
+          "history": {
+            "value": 1.0,
+            "n": 1
+          },
+          "original": {
+            "value": 1.0,
+            "n": 1
+          },
+          "previous": {
+            "value": 1.0,
+            "n": 1
+          }
+        }
+      },
+      "raw_queries": [
+        {
+          "scenario_id": "H01",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What shade is my car at the moment?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "original",
+          "intent": "ORIGINAL",
+          "question": "Which colour did the car start with?",
+          "gold": "red",
+          "predicted": "red",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "previous",
+          "intent": "PREVIOUS",
+          "question": "What colour did it have immediately before black?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 0.5,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the car on 2026-09-20?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What is the car's latest colour?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was my car on 2026-09-18?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "Which colour is my laptop currently?",
+          "gold": "silver",
+          "predicted": "silver",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "history",
+          "intent": "HISTORY",
+          "question": "List the laptop colour history.",
+          "gold": [
+            "silver"
+          ],
+          "predicted": [
+            "silver"
+          ],
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour should be treated as established for my car now?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "evidence",
+          "intent": "EVIDENCE",
+          "question": "Which evidence supports the established car colour?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H05",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour did I state for the car?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my phone now?",
+          "gold": "green",
+          "predicted": "green",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the phone on 2020-01-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H07",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my second car?",
+          "gold": null,
+          "predicted": "blue",
+          "found": true,
+          "answerable": false,
+          "correct": false,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is the plant pot?",
+          "gold": "white",
+          "predicted": "white",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was it on 2026-09-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        }
+      ],
+      "raw_sessions": [
+        {
+          "scenario_id": "H01",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S3",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S3",
+          "kind": "late_arrival",
+          "gold": "HISTORICAL",
+          "predicted": "HISTORICAL",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S2",
+          "kind": "corroboration",
+          "gold": "MERGE",
+          "predicted": "MERGE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S3",
+          "kind": "duplicate",
+          "gold": "MERGE",
+          "predicted": "MERGE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S1",
+          "kind": "text_image",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S2",
+          "kind": "conflict",
+          "gold": "CONTRADICTORY",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H05",
+          "session_id": "S1",
+          "kind": "irrelevant_image",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S1",
+          "kind": "missing_time",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S2",
+          "kind": "cv_failure",
+          "gold": "IGNORE",
+          "predicted": "IGNORE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S1",
+          "kind": "first_instance",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S2",
+          "kind": "ambiguous_identity",
+          "gold": "IGNORE",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S2",
+          "kind": "irrelevant_text",
+          "gold": "IGNORE",
+          "predicted": "IGNORE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        }
+      ],
+      "n_session_errors": 0,
+      "actions": {
+        "state_update_accuracy": 0.8888888888888888,
+        "n": 18,
+        "per_action": {
+          "ADD": {
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "f1": 0.9411764705882353,
+            "support": 8
+          },
+          "CONTRADICTORY": {
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "HISTORICAL": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "IGNORE": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 3
+          },
+          "MERGE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "UPDATE": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "support": 3
+          }
+        },
+        "conflict_detection": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "confusion": {
+          "ADD": {
+            "ADD": 8
+          },
+          "UPDATE": {
+            "UPDATE": 3
+          },
+          "HISTORICAL": {
+            "HISTORICAL": 1
+          },
+          "MERGE": {
+            "MERGE": 2
+          },
+          "CONTRADICTORY": {
+            "UPDATE": 1
+          },
+          "IGNORE": {
+            "IGNORE": 2,
+            "ADD": 1
+          }
+        }
+      },
+      "visual_association": {
+        "precision": null,
+        "false_association_rate": null,
+        "accepted": 0,
+        "labelled": 0,
+        "rejected": 0
+      }
+    },
+    {
+      "system": "E_no_text_image_conflict",
+      "n_scenarios": 8,
+      "seconds": 0.2,
+      "queries": {
+        "n_queries": 16,
+        "current_state_accuracy": {
+          "value": 0.625,
+          "n": 8,
+          "ci95": [
+            0.25,
+            0.875
+          ]
+        },
+        "historical_state_accuracy": {
+          "value": 1.0,
+          "n": 6,
+          "ci95": null
+        },
+        "temporal_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "temporal_ordering_accuracy": {
+          "value": 1.0,
+          "n": 1,
+          "ci95": null
+        },
+        "evidence_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "initial_state_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "entity_identity_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "evidence_recall": {
+          "value": 0.7692307692307693,
+          "n": 13
+        },
+        "evidence_precision": {
+          "value": 0.7307692307692307,
+          "n": 13
+        },
+        "overall_accuracy": {
+          "value": 0.75,
+          "n": 16
+        },
+        "answered_rate": {
+          "value": 0.8125,
+          "n": 16
+        },
+        "unsupported_answer_rate": {
+          "value": 0.23076923076923078,
+          "n": 13
+        },
+        "answer_schema_validity": {
+          "value": 1.0,
+          "n": 16
+        },
+        "by_kind": {
+          "as_of": {
+            "value": 1.0,
+            "n": 4
+          },
+          "current": {
+            "value": 0.625,
+            "n": 8
+          },
+          "evidence": {
+            "value": 0.0,
+            "n": 1
+          },
+          "history": {
+            "value": 1.0,
+            "n": 1
+          },
+          "original": {
+            "value": 1.0,
+            "n": 1
+          },
+          "previous": {
+            "value": 1.0,
+            "n": 1
+          }
+        }
+      },
+      "raw_queries": [
+        {
+          "scenario_id": "H01",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What shade is my car at the moment?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "original",
+          "intent": "ORIGINAL",
+          "question": "Which colour did the car start with?",
+          "gold": "red",
+          "predicted": "red",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "previous",
+          "intent": "PREVIOUS",
+          "question": "What colour did it have immediately before black?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 0.5,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the car on 2026-09-20?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What is the car's latest colour?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was my car on 2026-09-18?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "Which colour is my laptop currently?",
+          "gold": "silver",
+          "predicted": "silver",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "history",
+          "intent": "HISTORY",
+          "question": "List the laptop colour history.",
+          "gold": [
+            "silver"
+          ],
+          "predicted": [
+            "silver"
+          ],
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour should be treated as established for my car now?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "evidence",
+          "intent": "EVIDENCE",
+          "question": "Which evidence supports the established car colour?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H05",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour did I state for the car?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my phone now?",
+          "gold": "green",
+          "predicted": "green",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the phone on 2020-01-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H07",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my second car?",
+          "gold": null,
+          "predicted": "blue",
+          "found": true,
+          "answerable": false,
+          "correct": false,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is the plant pot?",
+          "gold": "white",
+          "predicted": "white",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was it on 2026-09-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        }
+      ],
+      "raw_sessions": [
+        {
+          "scenario_id": "H01",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S3",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S3",
+          "kind": "late_arrival",
+          "gold": "HISTORICAL",
+          "predicted": "HISTORICAL",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S2",
+          "kind": "corroboration",
+          "gold": "MERGE",
+          "predicted": "MERGE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S3",
+          "kind": "duplicate",
+          "gold": "MERGE",
+          "predicted": "MERGE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S1",
+          "kind": "text_image",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S2",
+          "kind": "conflict",
+          "gold": "CONTRADICTORY",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H05",
+          "session_id": "S1",
+          "kind": "irrelevant_image",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S1",
+          "kind": "missing_time",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S2",
+          "kind": "cv_failure",
+          "gold": "IGNORE",
+          "predicted": "IGNORE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S1",
+          "kind": "first_instance",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S2",
+          "kind": "ambiguous_identity",
+          "gold": "IGNORE",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S2",
+          "kind": "irrelevant_text",
+          "gold": "IGNORE",
+          "predicted": "IGNORE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        }
+      ],
+      "n_session_errors": 0,
+      "actions": {
+        "state_update_accuracy": 0.8888888888888888,
+        "n": 18,
+        "per_action": {
+          "ADD": {
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "f1": 0.9411764705882353,
+            "support": 8
+          },
+          "CONTRADICTORY": {
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "HISTORICAL": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "IGNORE": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 3
+          },
+          "MERGE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "UPDATE": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "support": 3
+          }
+        },
+        "conflict_detection": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "confusion": {
+          "ADD": {
+            "ADD": 8
+          },
+          "UPDATE": {
+            "UPDATE": 3
+          },
+          "HISTORICAL": {
+            "HISTORICAL": 1
+          },
+          "MERGE": {
+            "MERGE": 2
+          },
+          "CONTRADICTORY": {
+            "UPDATE": 1
+          },
+          "IGNORE": {
+            "IGNORE": 2,
+            "ADD": 1
+          }
+        }
+      },
+      "visual_association": {
+        "precision": null,
+        "false_association_rate": null,
+        "accepted": 0,
+        "labelled": 0,
+        "rejected": 0
+      }
+    },
+    {
+      "system": "E_proposed",
+      "n_scenarios": 8,
+      "seconds": 0.3,
+      "queries": {
+        "n_queries": 16,
+        "current_state_accuracy": {
+          "value": 0.625,
+          "n": 8,
+          "ci95": [
+            0.25,
+            0.875
+          ]
+        },
+        "historical_state_accuracy": {
+          "value": 1.0,
+          "n": 6,
+          "ci95": null
+        },
+        "temporal_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "temporal_ordering_accuracy": {
+          "value": 1.0,
+          "n": 1,
+          "ci95": null
+        },
+        "evidence_accuracy": {
+          "value": 0.0,
+          "n": 1,
+          "ci95": null
+        },
+        "initial_state_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "entity_identity_accuracy": {
+          "value": null,
+          "n": 0,
+          "ci95": null
+        },
+        "evidence_recall": {
+          "value": 0.7692307692307693,
+          "n": 13
+        },
+        "evidence_precision": {
+          "value": 0.7307692307692307,
+          "n": 13
+        },
+        "overall_accuracy": {
+          "value": 0.75,
+          "n": 16
+        },
+        "answered_rate": {
+          "value": 0.8125,
+          "n": 16
+        },
+        "unsupported_answer_rate": {
+          "value": 0.23076923076923078,
+          "n": 13
+        },
+        "answer_schema_validity": {
+          "value": 1.0,
+          "n": 16
+        },
+        "by_kind": {
+          "as_of": {
+            "value": 1.0,
+            "n": 4
+          },
+          "current": {
+            "value": 0.625,
+            "n": 8
+          },
+          "evidence": {
+            "value": 0.0,
+            "n": 1
+          },
+          "history": {
+            "value": 1.0,
+            "n": 1
+          },
+          "original": {
+            "value": 1.0,
+            "n": 1
+          },
+          "previous": {
+            "value": 1.0,
+            "n": 1
+          }
+        }
+      },
+      "raw_queries": [
+        {
+          "scenario_id": "H01",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What shade is my car at the moment?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "original",
+          "intent": "ORIGINAL",
+          "question": "Which colour did the car start with?",
+          "gold": "red",
+          "predicted": "red",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "previous",
+          "intent": "PREVIOUS",
+          "question": "What colour did it have immediately before black?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 0.5,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H01",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the car on 2026-09-20?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What is the car's latest colour?",
+          "gold": "black",
+          "predicted": "black",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H02",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was my car on 2026-09-18?",
+          "gold": "blue",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "Which colour is my laptop currently?",
+          "gold": "silver",
+          "predicted": "silver",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H03",
+          "kind": "history",
+          "intent": "HISTORY",
+          "question": "List the laptop colour history.",
+          "gold": [
+            "silver"
+          ],
+          "predicted": [
+            "silver"
+          ],
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour should be treated as established for my car now?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H04",
+          "kind": "evidence",
+          "intent": "EVIDENCE",
+          "question": "Which evidence supports the established car colour?",
+          "gold": "red",
+          "predicted": "blue",
+          "found": true,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H05",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour did I state for the car?",
+          "gold": "blue",
+          "predicted": null,
+          "found": false,
+          "answerable": true,
+          "correct": false,
+          "evidence_recall": 0.0,
+          "evidence_precision": 0.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my phone now?",
+          "gold": "green",
+          "predicted": "green",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H06",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was the phone on 2020-01-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H07",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is my second car?",
+          "gold": null,
+          "predicted": "blue",
+          "found": true,
+          "answerable": false,
+          "correct": false,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": true,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "current",
+          "intent": "CURRENT",
+          "question": "What colour is the plant pot?",
+          "gold": "white",
+          "predicted": "white",
+          "found": true,
+          "answerable": true,
+          "correct": true,
+          "evidence_recall": 1.0,
+          "evidence_precision": 1.0,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        },
+        {
+          "scenario_id": "H08",
+          "kind": "as_of",
+          "intent": "AS_OF",
+          "question": "What colour was it on 2026-09-01?",
+          "gold": null,
+          "predicted": null,
+          "found": false,
+          "answerable": false,
+          "correct": true,
+          "evidence_recall": null,
+          "evidence_precision": null,
+          "unsupported_answer": false,
+          "answer_schema_valid": true
+        }
+      ],
+      "raw_sessions": [
+        {
+          "scenario_id": "H01",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H01",
+          "session_id": "S3",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S2",
+          "kind": "change",
+          "gold": "UPDATE",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H02",
+          "session_id": "S3",
+          "kind": "late_arrival",
+          "gold": "HISTORICAL",
+          "predicted": "HISTORICAL",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S2",
+          "kind": "corroboration",
+          "gold": "MERGE",
+          "predicted": "MERGE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H03",
+          "session_id": "S3",
+          "kind": "duplicate",
+          "gold": "MERGE",
+          "predicted": "MERGE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S1",
+          "kind": "text_image",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H04",
+          "session_id": "S2",
+          "kind": "conflict",
+          "gold": "CONTRADICTORY",
+          "predicted": "UPDATE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H05",
+          "session_id": "S1",
+          "kind": "irrelevant_image",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": "contextual"
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S1",
+          "kind": "missing_time",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H06",
+          "session_id": "S2",
+          "kind": "cv_failure",
+          "gold": "IGNORE",
+          "predicted": "IGNORE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S1",
+          "kind": "first_instance",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H07",
+          "session_id": "S2",
+          "kind": "ambiguous_identity",
+          "gold": "IGNORE",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S1",
+          "kind": "text_only",
+          "gold": "ADD",
+          "predicted": "ADD",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        },
+        {
+          "scenario_id": "H08",
+          "session_id": "S2",
+          "kind": "irrelevant_text",
+          "gold": "IGNORE",
+          "predicted": "IGNORE",
+          "error": null,
+          "visual_gold": null,
+          "visual_predicted": null
+        }
+      ],
+      "n_session_errors": 0,
+      "actions": {
+        "state_update_accuracy": 0.8888888888888888,
+        "n": 18,
+        "per_action": {
+          "ADD": {
+            "precision": 0.8888888888888888,
+            "recall": 1.0,
+            "f1": 0.9411764705882353,
+            "support": 8
+          },
+          "CONTRADICTORY": {
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "HISTORICAL": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "IGNORE": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 3
+          },
+          "MERGE": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          "UPDATE": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "support": 3
+          }
+        },
+        "conflict_detection": {
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "confusion": {
+          "ADD": {
+            "ADD": 8
+          },
+          "UPDATE": {
+            "UPDATE": 3
+          },
+          "HISTORICAL": {
+            "HISTORICAL": 1
+          },
+          "MERGE": {
+            "MERGE": 2
+          },
+          "CONTRADICTORY": {
+            "UPDATE": 1
+          },
+          "IGNORE": {
+            "IGNORE": 2,
+            "ADD": 1
+          }
+        }
+      },
+      "visual_association": {
+        "precision": null,
+        "false_association_rate": null,
+        "accepted": 0,
+        "labelled": 0,
+        "rejected": 0
+      }
+    }
+  ]
+}

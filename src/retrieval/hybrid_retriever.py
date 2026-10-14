@@ -77,9 +77,12 @@ class HybridRetriever:
         """(entity_id, entity) the question is about, or None if memory has nothing for it."""
         ents = self.store.entities()
         if parsed.entity:
-            for e in ents:
-                if e["entity"] == parsed.entity:
-                    return e["entity_id"], e["entity"]
+            matches = [e for e in ents if e["entity"] == parsed.entity]
+            if parsed.entity_ref:
+                matches = [e for e in matches if e.get("entity_ref") == parsed.entity_ref]
+            if len(matches) == 1:
+                e = matches[0]
+                return e["entity_id"], e["entity"]
             return None
         if not ents:
             return None
