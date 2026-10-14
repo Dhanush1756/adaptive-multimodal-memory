@@ -1,0 +1,54 @@
+# Central configuration. Every weight/threshold here is an INITIAL BASELINE value,
+# not an optimised one. Tune them on a validation split (see src/evaluation/ablations.py).
+
+paths:
+  db_path: "data/processed/memory.db"
+  image_dir: "data/synthetic/images"
+  synthetic_dir: "data/synthetic"
+  results_dir: "reports/results"
+
+nlp:
+  spacy_model: "en_core_web_sm"
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  # If sentence-transformers cannot load, a deterministic hashing embedder is used instead.
+  fallback_embedding_dim: 256
+  # Domain the memory tracks. Claims about other entities are IGNOREd.
+  tracked_entities: ["car", "laptop", "bike", "phone", "shirt", "room", "plant"]
+  tracked_attributes: ["color"]
+
+cv:
+  yolo_weights: "yolov8n.pt"
+  yolo_conf: 0.25
+  clip_model: "openai/clip-vit-base-patch32"
+  colors: ["red", "blue", "black", "white", "green", "yellow", "silver", "gray", "orange", "brown", "purple", "pink"]
+  # Weight of CLIP vs HSV evidence when both are available.
+  clip_weight: 0.6
+  hsv_weight: 0.4
+
+memory:
+  min_claim_confidence: 0.30      # below this a claim is IGNOREd
+  conflict_text_conf: 0.60        # both modalities must exceed this to raise CONTRADICTORY
+  conflict_visual_conf: 0.60
+  agreement_threshold: 0.50       # cross-modal agreement above this counts as "supported"
+
+confidence:
+  # C_total = w1*text + w2*visual + w3*agreement + w4*temporal_consistency
+  # Weights are renormalised over the components that are actually available.
+  w_text: 0.30
+  w_visual: 0.30
+  w_agreement: 0.25
+  w_temporal: 0.15
+
+retrieval:
+  # Final score = sum(weight * component); components in [0, 1].
+  w_semantic: 0.30
+  w_entity: 0.20
+  w_attribute: 0.20
+  w_temporal: 0.20
+  w_confidence: 0.10
+  top_k: 5
+
+llm:
+  # Optional. If no provider is configured the system returns a template (structured) answer.
+  provider: "none"     # none | anthropic | openai | local
+  model: ""
