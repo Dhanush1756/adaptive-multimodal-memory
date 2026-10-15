@@ -182,6 +182,27 @@ def test_streamlit_ask_accepts_image_only_and_stores_contextual_provenance(app_t
     assert "appears 'white'" in rendered_warnings and "state remains 'red'" in rendered_warnings
 
 
+def test_streamlit_requires_one_human_verification_for_text_image_disagreement(app_test):
+    at = app_test
+    _input(at, "What happened?").set_value("My car is red.")
+    next(item for item in at.file_uploader if item.label == "Photo (optional)").set_value(
+        ("white-car.png", _png_bytes(render_object("car", "white")), "image/png")
+    )
+    next(item for item in at.date_input if item.label == "Date").set_value(date(2026, 10, 1))
+    _click(at, "Store")
+
+    assert "pending_verification" in at.session_state
+    chooser = next(item for item in at.radio if item.label == "Which value is correct?")
+    assert set(chooser.options) == {"Keep memory/text value (red)", "Accept image value (white)"}
+    chooser.set_value("Accept image value (white)")
+    _click(at, "Apply human verification")
+
+    assert "pending_verification" not in at.session_state
+    assert at.session_state["memory_agent"].ask("What color is my car now?").value == "white"
+    assert not [item for item in at.radio if item.label == "Which value is correct?"]
+    assert any("Human verification applied" in item.value for item in at.success)
+
+
 def test_streamlit_surfaces_controlled_conflict_as_uncertain(app_test, monkeypatch):
     """Controlled detector output exercises UI plumbing, not detector accuracy."""
     at = app_test

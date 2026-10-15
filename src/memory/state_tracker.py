@@ -33,7 +33,8 @@ def resolve_entity_id(store: MemoryStore, entity: str, entity_ref: Optional[str]
 
 
 def _chain_members(store: MemoryStore, entity_id: str, attribute: str) -> List[MemoryRecord]:
-    recs = [r for r in store.query(entity_id, attribute) if r.status != Status.CONTRADICTORY]
+    recs = [r for r in store.query(entity_id, attribute)
+            if r.status not in {Status.CONTRADICTORY, Status.RESOLVED}]
     # Stable sort by actual time; ties keep insertion order (store.query already ordered by seq).
     return sorted(recs, key=lambda r: parse_ts(r.timestamp))
 

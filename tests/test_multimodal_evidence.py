@@ -132,6 +132,59 @@ def test_image_only_contextual_observation_attaches_without_changing_known_state
         agent.store.close()
 
 
+def test_human_verification_can_accept_contextual_image_value():
+    agent = _agent()
+    try:
+        result = _remember(agent, "My car is red.", "white", 1)
+        request = agent.verification_request(result)
+        assert request is not None
+        assert request["memory_value"] == "red"
+        assert request["image_value"] == "white"
+
+        verified = agent.verify(result, "white")
+        assert verified.decision.action == Action.UPDATE
+        assert agent.ask("What color is my car now?").value == "white"
+        assert [r.value for r in agent.timeline_for("car")] == ["red", "white"]
+    finally:
+        agent.store.close()
+
+
+def test_human_verification_resolves_detector_verified_conflict(monkeypatch, tmp_path):
+    path = str(tmp_path / "verified.db")
+    agent = _agent(path)
+    conflict_id = None
+    try:
+        monkeypatch.setattr(agent.comp.visual.detector, "detect", lambda image: [
+            Detection("car", "car", [0, 0, 320, 240], .95),
+        ])
+        agent.remember("My car is red.", timestamp="2026-10-01", session_id="red")
+        conflict = agent.remember(
+            "My car is blue.", render_object("car", "red"), "2026-10-02", "conflict",
+        )
+        assert conflict.decision.action == Action.CONTRADICTORY
+        assert agent.ask("What color is my car now?").status == "uncertain"
+
+        verified = agent.verify(conflict, "blue")
+        assert verified.decision.action == Action.UPDATE
+        conflict_id = conflict.decision.memory_id
+        resolved = agent.store.get(conflict_id)
+        assert resolved.status.value == "RESOLVED"
+        answer = agent.ask("What color is my car now?")
+        assert answer.value == "blue"
+        assert answer.status == "answered"
+        assert "conflicting evidence" not in answer.text.lower()
+    finally:
+        agent.store.close()
+
+    reopened = _agent(path)
+    try:
+        assert reopened.store.get(conflict_id).status.value == "RESOLVED"
+        answer = reopened.ask("What color is my car now?")
+        assert answer.value == "blue" and answer.status == "answered"
+    finally:
+        reopened.store.close()
+
+
 def test_failed_visual_analysis_keeps_text_memory_and_reports_uncertainty(monkeypatch):
     agent = _agent()
     try:

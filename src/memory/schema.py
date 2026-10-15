@@ -17,6 +17,7 @@ class Status(str, Enum):
     CURRENT = "CURRENT"
     HISTORICAL = "HISTORICAL"
     CONTRADICTORY = "CONTRADICTORY"
+    RESOLVED = "RESOLVED"
 
 
 class Action(str, Enum):

@@ -19,7 +19,8 @@ from typing import Any, Callable, Dict, List, Optional
 from uuid import uuid4
 
 from ..config import load_config, resolve_path
-from ..memory.schema import Candidate, Decision, MemoryRecord
+from ..memory.conflict import normalize_value, values_equal
+from ..memory.schema import Action, Candidate, Decision, MemoryRecord, Status
 from ..memory.state_tracker import resolve_entity_id, timeline
 from ..memory.store import MemoryStore
 from ..memory.update import MemoryEngine
@@ -285,6 +286,70 @@ class MemoryAgent:
             image=analysis.summary() if analysis else None,
             candidates=cands, decisions=decisions, notes=notes,
         )
+
+    def verification_request(self, result: IngestResult) -> Optional[Dict[str, Any]]:
+        """Describe a text/memory versus image disagreement requiring one human choice."""
+        if not result.candidates or not result.decisions:
+            return None
+        cand, decision = result.candidate, result.decision
+        visual = cand.visual
+        if visual is None or not visual.value:
+            return None
+
+        if cand.claim is not None:
+            memory_value = normalize_value(cand.claim.value)
+            entity = cand.claim.entity
+            entity_ref = cand.claim.entity_ref or ""
+            disagrees = cand.agreement is not None and cand.agreement < float(
+                self.cfg.get("memory", {}).get("agreement_threshold", 0.50)
+            )
+        else:
+            memory_value = normalize_value(decision.previous_value)
+            entity = visual.label
+            entity_ref = ""
+            disagrees = decision.visual_agreement == 0.0
+
+        image_value = normalize_value(visual.value)
+        if not disagrees or not memory_value or not image_value or values_equal(memory_value, image_value):
+            return None
+        return {
+            "memory_value": memory_value,
+            "image_value": image_value,
+            "entity": entity,
+            "entity_ref": entity_ref,
+            "timestamp": cand.timestamp,
+            "conflict_memory_id": (
+                decision.memory_id if decision.action == Action.CONTRADICTORY else None
+            ),
+        }
+
+    def verify(self, result: IngestResult, accepted_value: str) -> IngestResult:
+        """Apply one explicit human choice and close any persisted conflict record."""
+        request = self.verification_request(result)
+        if request is None:
+            raise ValueError("this observation has no unresolved text-image disagreement")
+        accepted = normalize_value(accepted_value)
+        allowed = {request["memory_value"], request["image_value"]}
+        if accepted not in allowed:
+            raise ValueError(f"accepted value must be one of {sorted(allowed)}")
+
+        subject = request["entity_ref"] or request["entity"]
+        confirmation = f"I confirm my {subject} is {accepted}."
+        with self.store.transaction():
+            verified = self.remember(
+                confirmation,
+                timestamp=request["timestamp"],
+                session_id=f"{result.session_id}-human-verified",
+            )
+            conflict_id = request["conflict_memory_id"]
+            if conflict_id:
+                conflict = self.store.get(conflict_id)
+                if conflict is not None and conflict.status == Status.CONTRADICTORY:
+                    self.store.set_status(conflict_id, Status.RESOLVED)
+        verified.notes.append(
+            f"Human verification accepted '{accepted}' and resolved the text-image disagreement."
+        )
+        return verified
 
     # ------------------------------------------------------------------ read path
     def parse(self, question: str, reference_time: Any = None) -> ParsedQuery:

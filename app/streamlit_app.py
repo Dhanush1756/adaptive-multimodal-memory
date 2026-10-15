@@ -77,6 +77,9 @@ with st.sidebar:
     if st.button("Reset memory"):
         agent.reset()
         st.session_state.pop("last", None)
+        st.session_state.pop("last_ask_image", None)
+        st.session_state.pop("pending_verification", None)
+        st.session_state.pop("verification_message", None)
         st.rerun()
 
 st.title("Adaptive Evidence-Grounded Memory")
@@ -103,6 +106,8 @@ with left:
                     image_error = f"The uploaded image could not be read ({exc.__class__.__name__}). Text will still be stored."
             st.session_state["last"] = agent.remember(
                 text, image, datetime.combine(when, datetime.min.time()).replace(hour=10), sid or None)
+            if agent.verification_request(st.session_state["last"]) is not None:
+                st.session_state["pending_verification"] = st.session_state["last"]
             if image_error:
                 st.session_state["last"].notes.append(image_error)
     res = st.session_state.get("last")
@@ -143,6 +148,8 @@ with right:
                         "", ask_image,
                         datetime.combine(ask_when, datetime.min.time()).replace(hour=10),
                     )
+                    if agent.verification_request(st.session_state["last_ask_image"]) is not None:
+                        st.session_state["pending_verification"] = st.session_state["last_ask_image"]
             else:
                 st.session_state.pop("last_ask_image", None)
             if q:
@@ -188,6 +195,37 @@ with right:
                         st.image(p, width=220)
         with st.expander("Grounded prompt (what an LLM would see)"):
             st.code(ans.prompt or "(not found)")
+
+# ---------------------------------------------------------- human verification
+verification_message = st.session_state.pop("verification_message", None)
+if verification_message:
+    st.success(verification_message)
+
+pending = st.session_state.get("pending_verification")
+request = agent.verification_request(pending) if pending is not None else None
+if request is not None:
+    st.subheader("Human verification required")
+    st.error(
+        f"The stored text/memory value is **{request['memory_value']}**, while the image "
+        f"appears **{request['image_value']}**. Choose the correct value before this "
+        "disagreement is considered resolved."
+    )
+    choices = {
+        f"Keep memory/text value ({request['memory_value']})": request["memory_value"],
+        f"Accept image value ({request['image_value']})": request["image_value"],
+    }
+    selected = st.radio(
+        "Which value is correct?", list(choices),
+        key=f"verification_choice_{pending.session_id}",
+    )
+    if st.button("Apply human verification", type="primary"):
+        verified = agent.verify(pending, choices[selected])
+        st.session_state["last"] = verified
+        st.session_state.pop("pending_verification", None)
+        st.session_state["verification_message"] = (
+            f"Human verification applied: '{choices[selected]}' is now the accepted value."
+        )
+        st.rerun()
 
 # ------------------------------------------------------------------ timeline
 st.subheader("3. Timeline")
