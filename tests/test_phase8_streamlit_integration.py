@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 from datetime import date
+from io import BytesIO
 import json
 from pathlib import Path
 import sqlite3
@@ -66,6 +67,12 @@ def _ask(at, question):
     _input(at, "Question").set_value(question)
     _click(at, "Ask")
     return [item.value for item in at.markdown], [item.value for item in at.caption]
+
+
+def _png_bytes(image):
+    output = BytesIO()
+    image.save(output, format="PNG")
+    return output.getvalue()
 
 
 def test_streamlit_red_blue_black_queries_timeline_and_evidence(app_test):
@@ -153,6 +160,26 @@ def test_streamlit_displays_contextual_image_as_non_supporting(app_test):
     answer = agent.ask("How do you know my car is blue?")
     assert all("IMG_" not in evidence_id for evidence_id in answer.supporting_evidence_ids)
     assert answer.value == "blue"
+
+
+def test_streamlit_ask_accepts_image_only_and_stores_contextual_provenance(app_test):
+    at = app_test
+    _store(at, "My car is red.", 1, "red-source")
+
+    uploader = next(item for item in at.file_uploader if item.label == "Image to ask about (optional)")
+    uploader.set_value(("white-car.png", _png_bytes(render_object("car", "white")), "image/png"))
+    next(item for item in at.date_input if item.label == "Image date").set_value(date(2026, 10, 2))
+    _click(at, "Ask")
+
+    agent = at.session_state["memory_agent"]
+    record = agent.timeline_for("car")[0]
+    assert record.value == "red"
+    assert len(record.visual_evidence) == 1
+    assert record.visual_evidence[0].value == "white"
+    assert record.visual_evidence[0].supports_state is False
+    assert at.session_state["last_ask_image"].decision.action.value == "MERGE"
+    rendered_warnings = "\n".join(item.value for item in at.warning).lower()
+    assert "appears 'white'" in rendered_warnings and "state remains 'red'" in rendered_warnings
 
 
 def test_streamlit_surfaces_controlled_conflict_as_uncertain(app_test, monkeypatch):

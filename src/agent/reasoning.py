@@ -261,6 +261,22 @@ class MemoryAgent:
             notes.append("image quality: " + ", ".join(analysis.quality["flags"]))
         if analysis is not None and analysis.association_status in {"ambiguous", "unmatched"}:
             notes.append("image association unavailable: " + analysis.association_reason)
+        if claim is not None and cands and cands[0].visual is not None:
+            visual = cands[0].visual
+            agreement = cands[0].agreement
+            threshold = float(self.cfg.get("memory", {}).get("agreement_threshold", 0.50))
+            if agreement is not None and not visual.supports_state:
+                if agreement < threshold:
+                    notes.append(
+                        f"Cross-check warning: text says '{claim.value}' but the contextual image "
+                        f"appears '{visual.value}'. The image is non-supporting and did not confirm "
+                        "or change the state."
+                    )
+                else:
+                    notes.append(
+                        f"Cross-check: the contextual image appears '{visual.value}' and matches the text, "
+                        "but it remains non-supporting because object identity was not detector-verified."
+                    )
         if claim is not None and claim.confidence < 0.8:
             notes.append("text claim has reduced confidence (hedged or resolved from context)")
         return IngestResult(

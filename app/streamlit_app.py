@@ -86,7 +86,7 @@ left, right = st.columns(2)
 with left:
     st.subheader("1. Add a memory")
     text = st.text_input("What happened?", placeholder="I bought a red Tesla.")
-    up = st.file_uploader("Photo (optional)", type=["jpg", "jpeg", "png"])
+    up = st.file_uploader("Photo (optional)", type=["jpg", "jpeg", "png"], key="memory_image")
     when = st.date_input("Date", value=datetime.now().date())
     sid = st.text_input("Session id (optional)")
     if st.button("Store", type="primary"):
@@ -112,14 +112,58 @@ with left:
         st.write(d.reason)
         st.json({"claim": res.claim, "image": res.image, "decision": d.to_dict()}, expanded=False)
         for n in res.notes:
-            st.caption(n)
+            if "warning" in n.lower():
+                st.warning(n)
+            else:
+                st.caption(n)
 
 # --------------------------------------------------------------------- query
 with right:
     st.subheader("2. Ask")
     q = st.text_input("Question", placeholder="What color is my car now?")
-    if st.button("Ask") and q:
-        ans = agent.ask(q)
+    ask_up = st.file_uploader(
+        "Image to ask about (optional)", type=["jpg", "jpeg", "png"], key="ask_image",
+        help="The image is stored as dated evidence. In Light mode it cannot rewrite a state without detector verification.",
+    )
+    ask_when = st.date_input("Image date", value=datetime.now().date(), key="ask_image_date")
+    ans = None
+    if st.button("Ask"):
+        if not q and ask_up is None:
+            st.warning("Enter a question or upload an image.")
+        else:
+            if ask_up is not None:
+                from PIL import Image
+                try:
+                    ask_image = Image.open(ask_up).convert("RGB")
+                except Exception as exc:
+                    st.session_state.pop("last_ask_image", None)
+                    st.warning(f"The uploaded image could not be read ({exc.__class__.__name__}).")
+                else:
+                    st.session_state["last_ask_image"] = agent.remember(
+                        "", ask_image,
+                        datetime.combine(ask_when, datetime.min.time()).replace(hour=10),
+                    )
+            else:
+                st.session_state.pop("last_ask_image", None)
+            if q:
+                ans = agent.ask(q)
+
+    ask_ingest = st.session_state.get("last_ask_image")
+    if ask_ingest is not None:
+        decision = ask_ingest.decision
+        st.markdown(f"**Image memory action: `{decision.action.value}`** ({ask_ingest.session_id})")
+        if "warning" in decision.reason.lower() or decision.action.value in {"CONTRADICTORY", "IGNORE"}:
+            st.warning(decision.reason)
+        else:
+            st.info(decision.reason)
+        st.json({"image": ask_ingest.image, "decision": decision.to_dict()}, expanded=False)
+        for note in ask_ingest.notes:
+            if "warning" in note.lower():
+                st.warning(note)
+            else:
+                st.caption(note)
+
+    if ans is not None:
         st.markdown(f"### {ans.text}")
         st.caption(
             f"intent: {ans.intent} · status: {ans.status} · "

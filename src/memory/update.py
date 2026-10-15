@@ -116,6 +116,52 @@ class MemoryEngine:
             return self._process(cand)
 
     def _process(self, cand: Candidate) -> Decision:
+        # Detector-free image-only input may be retained as contextual provenance
+        # for one already-known identity. It can cross-check that state, but cannot
+        # establish or rewrite it. Ambiguous/unmatched images never reach this path.
+        if (cand.claim is None and cand.visual is not None and
+                not cand.visual.supports_state and
+                cand.visual.association_status == "contextual"):
+            visual = cand.visual
+            entity = visual.label.strip().lower()
+            if self.tracked_entities is not None and entity not in self.tracked_entities:
+                return Decision(Action.IGNORE, None, f"entity '{entity}' is outside the tracked domain")
+            identities = [r for r in self.store.entities() if r["entity"] == entity]
+            if len(identities) != 1:
+                reason = (f"multiple {entity} identities exist; image-only input needs an explicit reference"
+                          if identities else
+                          "contextual image cannot establish the first state without a verified object or text")
+                return Decision(Action.IGNORE, None, reason)
+            entity_id = identities[0]["entity_id"]
+            members = _chain_members(self.store, entity_id, "color")
+            if not members:
+                return Decision(Action.IGNORE, None, "no established state is available for contextual image evidence")
+            observed_at = parse_ts(cand.timestamp)
+            prior = [m for m in members if parse_ts(m.timestamp) <= observed_at]
+            target = prior[-1] if prior else members[0]
+            evidence_added = self.store.add_evidence(target.memory_id, visual=visual)
+            agrees = values_equal(target.value, visual.value)
+            if agrees:
+                reason = (f"contextual image appears '{normalize_value(visual.value)}' and matches memory; "
+                          f"attached as non-supporting provenance; state remains '{target.value}'")
+            else:
+                reason = (f"cross-check warning: contextual image appears '{normalize_value(visual.value)}' "
+                          f"while memory says '{target.value}'; attached as non-supporting provenance; "
+                          f"state remains '{target.value}'")
+            if not evidence_added:
+                reason += "; duplicate evidence already represented"
+            return Decision(
+                Action.MERGE,
+                target.memory_id,
+                reason,
+                entity_match=1.0,
+                attribute_match=1.0,
+                visual_agreement=1.0 if agrees else 0.0,
+                temporal_relation="same",
+                previous_value=target.value,
+                new_value=normalize_value(visual.value),
+            )
+
         claim = self._effective_claim(cand)
         if claim is None:
             return Decision(Action.IGNORE, None, "no extractable claim in text or image")

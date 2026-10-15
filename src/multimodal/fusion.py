@@ -88,9 +88,12 @@ def fuse(
             claim = replace(claim, value=visual.value, confidence=round(min(claim.confidence, visual.confidence), 3))
         else:
             claim = None
-    elif claim is not None and visual is not None and visual.supports_state:
+    elif claim is not None and visual is not None:
+        # Cross-check every associated image, including detector-free contextual
+        # evidence. Contextual evidence remains non-supporting and cannot change
+        # state, but its agreement is still useful to explain a visible mismatch.
         agreement = cross_modal_agreement(claim.value, visual.value)
-        if agreement is not None and 0.5 <= agreement < 1.0:
+        if visual.supports_state and agreement is not None and 0.5 <= agreement < 1.0:
             visual.value = normalize_value(claim.value)  # near-synonym: treat as supporting
 
     text_ev: Optional[TextEvidence] = None
@@ -107,7 +110,7 @@ def fuse(
     confidence = combine_confidence(
         claim.confidence if claim is not None else None,
         visual.confidence if visual is not None and visual.supports_state else None,
-        agreement,
+        agreement if visual is not None and visual.supports_state else None,
         temporal_consistency,
         cfg,
     )

@@ -91,6 +91,47 @@ def test_mismatched_or_ambiguous_detection_does_not_confirm_or_conflict(monkeypa
         agent.store.close()
 
 
+def test_contextual_image_is_cross_checked_without_rewriting_text_state():
+    agent = _agent()
+    try:
+        result = _remember(agent, "My car is red.", "white", 1)
+        record = agent.timeline_for("car")[0]
+
+        assert result.decision.action == Action.ADD
+        assert result.candidate.agreement == 0.0
+        assert record.value == "red"
+        assert record.visual_evidence[0].value == "white"
+        assert record.visual_evidence[0].supports_state is False
+        assert any("cross-check warning" in note.lower() for note in result.notes)
+        assert any("text says 'red'" in note.lower() and "appears 'white'" in note.lower()
+                   for note in result.notes)
+    finally:
+        agent.store.close()
+
+
+def test_image_only_contextual_observation_attaches_without_changing_known_state():
+    agent = _agent()
+    try:
+        agent.remember("My car is red.", timestamp="2026-10-01", session_id="text")
+        result = agent.remember(
+            "", render_object("car", "white"), "2026-10-02", "ask-image",
+        )
+        record = agent.timeline_for("car")[0]
+
+        assert result.decision.action == Action.MERGE
+        assert record.value == "red"
+        assert len(record.visual_evidence) == 1
+        visual = record.visual_evidence[0]
+        assert visual.value == "white"
+        assert visual.association_status == "contextual"
+        assert visual.supports_state is False
+        assert visual.timestamp == "2026-10-02T00:00:00"
+        assert visual.session_id == "ask-image"
+        assert "state remains 'red'" in result.decision.reason.lower()
+    finally:
+        agent.store.close()
+
+
 def test_failed_visual_analysis_keeps_text_memory_and_reports_uncertainty(monkeypatch):
     agent = _agent()
     try:
