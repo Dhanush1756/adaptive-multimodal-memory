@@ -6,6 +6,7 @@ from copy import deepcopy
 from concurrent.futures import ThreadPoolExecutor
 import json
 from pathlib import Path
+import sqlite3
 from threading import Barrier
 
 import pytest
@@ -95,6 +96,32 @@ def test_store_creates_missing_parent_directory(tmp_path):
         assert store.stats()["TOTAL"] == 0
     finally:
         store.close()
+
+
+def test_existing_sqlite_schema_migrates_ingestion_provenance(tmp_path):
+    db = tmp_path / "legacy.db"
+    conn = sqlite3.connect(db)
+    conn.execute(
+        """CREATE TABLE memory (
+        memory_id TEXT PRIMARY KEY, seq INTEGER NOT NULL, session_id TEXT,
+        entity TEXT NOT NULL, entity_id TEXT NOT NULL, attribute TEXT NOT NULL,
+        value TEXT NOT NULL, timestamp TEXT NOT NULL, confidence REAL,
+        status TEXT NOT NULL, previous_memory_id TEXT, event TEXT,
+        conflicting_value TEXT, text_evidence TEXT, visual_evidence TEXT,
+        source TEXT, entity_ref TEXT DEFAULT '')"""
+    )
+    conn.close()
+
+    agent = MemoryAgent(load_config(), db_path=str(db), light=True, use_intent_model=False)
+    try:
+        columns = {row[1] for row in agent.store.conn.execute("PRAGMA table_info(memory)")}
+        assert "ingested_at" in columns
+        agent.remember("My car is red.", timestamp="2026-10-01", session_id="legacy-upgrade")
+        record = agent.timeline_for("car")[0]
+        assert record.ingested_at
+        assert record.text_evidence[0].evidence_id == "TXT_legacy-upgrade"
+    finally:
+        agent.store.close()
 
 
 @pytest.mark.parametrize("relative", [False, True])
@@ -298,6 +325,10 @@ def test_legacy_image_evidence_stays_readable_after_earlier_merge(make_agent):
     legacy = rec.visual_evidence[0].to_dict()
     legacy.pop("timestamp")
     legacy.pop("session_id")
+    legacy.pop("ingested_at")
+    legacy.pop("detector_model")
+    legacy.pop("attribute_model")
+    legacy.pop("embedding_model")
     legacy["image_id"] = "IMG_legacy"
     # Reproduce the original JSON format inside this test's temporary database.
     agent.store.conn.execute("UPDATE memory SET visual_evidence=? WHERE memory_id=?",
@@ -310,6 +341,8 @@ def test_legacy_image_evidence_stays_readable_after_earlier_merge(make_agent):
     assert visual["timestamp"] == "2026-10-20T00:00:00"
     assert visual["session_id"] == "legacy"
     assert visual["image_path"] == legacy["image_path"]
+    assert visual["detector_model"] == ""
+    assert visual["ingested_at"] == reopened.timeline_for("car")[0].ingested_at
     assert reopened.timeline_for("car")[0].timestamp == "2026-10-10T00:00:00"
 
 

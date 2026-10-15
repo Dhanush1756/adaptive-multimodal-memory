@@ -83,6 +83,10 @@ with st.sidebar:
         st.rerun()
 
 st.title("Adaptive Evidence-Grounded Memory")
+st.caption(
+    "Multimodal input → NLP/CV extraction → unified evidence validation → "
+    "adaptive temporal memory → grounded retrieval and answer"
+)
 left, right = st.columns(2)
 
 # ------------------------------------------------------------------ add memory
@@ -115,7 +119,12 @@ with left:
         d = res.decision
         st.markdown(f"**Memory action: `{d.action.value}`** ({res.session_id})")
         st.write(d.reason)
-        st.json({"claim": res.claim, "image": res.image, "decision": d.to_dict()}, expanded=False)
+        st.markdown("**NLP extraction**")
+        st.json(res.claim or {"status": "no text claim extracted"}, expanded=False)
+        st.markdown("**CV extraction**")
+        st.json(res.image or {"status": "no usable image analysis"}, expanded=False)
+        st.markdown("**Evidence validation and memory lifecycle**")
+        st.json(d.to_dict(), expanded=False)
         for n in res.notes:
             if "warning" in n.lower():
                 st.warning(n)
@@ -180,15 +189,23 @@ with right:
             st.markdown("**Evidence**")
             for it in ans.evidence:
                 if it["modality"] == "text":
-                    st.write(f"- [{it['role']}] text ({it.get('session_id', '')}, {str(it.get('timestamp', ''))[:10]}): "
+                    st.write(f"- [{it['role']}] text `{it.get('evidence_id', '')}` "
+                             f"({it.get('source', '')}/{it.get('session_id', '')}, "
+                             f"event {str(it.get('timestamp', ''))[:10]}, "
+                             f"ingested {it.get('ingested_at') or 'legacy/unknown'}, "
+                             f"extractor {it.get('extractor', 'unknown')}): "
                              f"“{it['text']}”")
                 else:
                     association = it.get("association_status", "unknown")
                     support = "supporting" if it.get("supports_state") else "non-supporting"
                     st.write(
-                        f"- [{it['role']}] image {it['image_id']} "
-                        f"({it.get('session_id', '')}, {str(it.get('timestamp', ''))[:10]}; "
-                        f"{association}, {support}) looks **{it.get('visual_value')}**"
+                        f"- [{it['role']}] image `{it['image_id']}` "
+                        f"({it.get('source', '')}/{it.get('session_id', '')}, "
+                        f"event {str(it.get('timestamp', ''))[:10]}, "
+                        f"ingested {it.get('ingested_at') or 'legacy/unknown'}; "
+                        f"{association}, {support}; detector {it.get('detector_model') or 'unknown'}, "
+                        f"attribute {it.get('attribute_model') or 'unknown'}) "
+                        f"looks **{it.get('visual_value')}**"
                     )
                     p = it.get("image_path")
                     if p and Path(p).exists():
@@ -252,6 +269,7 @@ else:
         identity = f" · {r.entity_ref}" if r.entity_ref else ""
         st.write(f"**{r.entity_id}**{identity} · {r.timestamp[:10]} · **{r.value}** · {badge} · "
                  f"{r.memory_id} (prev: {r.previous_memory_id or '-'}) · {imgs} · conf {r.confidence:.2f}")
+        st.caption(f"ingested: {r.ingested_at or 'legacy/unknown'}")
 conflicts = [r for r in agent.store.all() if r.status.value == "CONTRADICTORY"]
 for r in conflicts:
     st.warning(f"Conflict {r.memory_id}: '{r.value}' vs '{r.conflicting_value}' on {r.timestamp[:10]} (not applied)")

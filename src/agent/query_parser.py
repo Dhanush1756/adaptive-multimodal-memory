@@ -7,7 +7,7 @@ Rule-based baseline. Intent labels double as the target of an optional learned c
 (see docs/training.md); `parse_query` is the interface to keep stable.
 
 Priority order (first match wins):
-  EVIDENCE > WHEN > CHANGE > HISTORY > ORIGINAL > AFTER > AS_OF > PREVIOUS > CURRENT(default)
+  CONFLICT > EVIDENCE > WHEN > CHANGE > HISTORY > ORIGINAL > AFTER > AS_OF > PREVIOUS > CURRENT(default)
 """
 from __future__ import annotations
 
@@ -34,6 +34,7 @@ class Intent(str, Enum):
     EVIDENCE = "EVIDENCE"
     HISTORY = "HISTORY"
     AS_OF = "AS_OF"
+    CONFLICT = "CONFLICT"
 
 
 @dataclass
@@ -63,6 +64,13 @@ _COLOR_RX = re.compile(r"\b(" + "|".join(COLOR_WORDS) + r")\b", re.I)
 _EVIDENCE = re.compile(
     r"\b(evidence|proof|prove|how do you know|how can you tell|how did you (?:know|conclude)|"
     r"why do you (?:think|say|believe)|based on what|what.s your source|show me (?:the )?(?:image|photo|picture|text))\b"
+)
+_CONFLICT = re.compile(
+    r"\b(?:do|does|did|is|are|was|were)?\s*(?:the\s+)?(?:text|statement|memory)\s+and\s+"
+    r"(?:the\s+)?(?:image|photo|picture)\s+(?:disagree|conflict|contradict)\b|"
+    r"\b(?:any|show|what|which|unresolved)?\s*(?:text[- ]image\s+)?(?:disagreement|conflict|contradiction)s?\b|"
+    r"\bconflicting evidence\b",
+    re.I,
 )
 _WHEN = re.compile(r"(?:^|\b)when\s+(?:did|was|were|does|is)\b|^when\b|\bwhat (?:date|time|day)\b|\bhow long ago\b")
 _CHANGE = re.compile(
@@ -161,6 +169,9 @@ def parse_query(text: str, reference_time=None, context_entity: Optional[str] = 
 
     # ---- final intent ---------------------------------------------------------------
     rule_conf = 0.9
+    if _CONFLICT.search(low):
+        return ParsedQuery(raw, entity, attribute, Intent.CONFLICT, reference_value, reference_event,
+                           target_value, time_iso, time_text, False, None, 0.95, entity_ref)
     if _EVIDENCE.search(low):
         intent = Intent.EVIDENCE
         if cue in (Intent.ORIGINAL, Intent.PREVIOUS):

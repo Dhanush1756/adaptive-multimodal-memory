@@ -36,6 +36,9 @@ class TextEvidence:
     timestamp: str = ""
     confidence: float = 0.0
     embedding: Optional[List[float]] = None
+    evidence_id: str = ""
+    ingested_at: str = ""
+    extractor: str = "rules-v1"
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -66,6 +69,10 @@ class VisualEvidence:
     association_reason: str = ""
     # Only detector-grounded associations may establish, support, or contradict a state.
     supports_state: bool = False
+    ingested_at: str = ""
+    detector_model: str = ""
+    attribute_model: str = ""
+    embedding_model: str = ""
 
     def __post_init__(self) -> None:
         if self.association_status == "verified":
@@ -80,6 +87,10 @@ class VisualEvidence:
         compatible.setdefault("association_status", "contextual")
         compatible.setdefault("association_reason", "legacy evidence has no detector association metadata")
         compatible.setdefault("supports_state", compatible.get("association_status") == "verified")
+        compatible.setdefault("ingested_at", "")
+        compatible.setdefault("detector_model", "")
+        compatible.setdefault("attribute_model", "")
+        compatible.setdefault("embedding_model", "")
         return VisualEvidence(**compatible)
 
 
@@ -115,6 +126,7 @@ class Candidate:
     confidence: float = 0.0                     # fused confidence C_total
     semantic_similarity: Optional[float] = None  # optional, for explainability only
     source: str = "user_interaction"
+    ingested_at: str = ""
 
 
 @dataclass
@@ -135,6 +147,7 @@ class MemoryRecord:
     visual_evidence: List[VisualEvidence] = field(default_factory=list)
     source: str = "user_interaction"
     entity_ref: str = ""
+    ingested_at: str = ""
 
     def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)

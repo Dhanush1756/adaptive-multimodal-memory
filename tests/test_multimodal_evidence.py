@@ -229,3 +229,52 @@ def test_persisted_visual_provenance_and_legacy_json_are_readable(tmp_path):
         assert ev.timestamp == "2026-10-01T00:00:00" and ev.session_id == "d1"
     finally:
         reopened.store.close()
+
+
+def test_unified_evidence_exposes_event_ingestion_and_extractor_provenance():
+    agent = _agent()
+    try:
+        result = _remember(agent, "My car is red.", "red", 1)
+        record = agent.timeline_for("car")[0]
+        answer = agent.ask("Which text and image support my car color?")
+        text = next(e for e in answer.evidence if e["modality"] == "text")
+        image = next(e for e in answer.evidence if e["modality"] == "image")
+
+        assert record.ingested_at and record.ingested_at == result.candidate.ingested_at
+        assert text["evidence_id"] == "TXT_d1"
+        assert text["timestamp"] == "2026-10-01T00:00:00"
+        assert text["ingested_at"] == record.ingested_at
+        assert text["extractor"] == "rules-v1"
+        assert image["evidence_id"].startswith("IMG_")
+        assert image["ingested_at"] == record.ingested_at
+        assert image["detector_model"] == "none (whole-image fallback)"
+        assert image["attribute_model"] == "hsv"
+        assert image["embedding_model"] == "color-histogram"
+    finally:
+        agent.store.close()
+
+
+def test_conflict_question_reports_unresolved_then_resolved_disagreement(monkeypatch):
+    agent = _agent()
+    try:
+        monkeypatch.setattr(agent.comp.visual.detector, "detect", lambda image: [
+            Detection("car", "car", [0, 0, 320, 240], .95),
+        ])
+        agent.remember("My car is red.", timestamp="2026-10-01", session_id="base")
+        conflict = agent.remember(
+            "My car is blue.", render_object("car", "red"), "2026-10-02", "conflict",
+        )
+
+        answer = agent.ask("Do the text and image disagree about my car?")
+        assert answer.intent == "CONFLICT"
+        assert answer.value == "yes" and answer.status == "uncertain"
+        assert "human verification" in answer.text.lower()
+        assert any(e["role"] == "conflicting" for e in answer.evidence)
+
+        agent.verify(conflict, "blue")
+        resolved = agent.ask("Is there any text-image conflict for my car?")
+        assert resolved.intent == "CONFLICT"
+        assert resolved.value == "no" and resolved.status == "answered"
+        assert "no unresolved" in resolved.text.lower()
+    finally:
+        agent.store.close()

@@ -67,4 +67,6 @@ class VisualPipeline:
             distribution=attrs.get("distribution", {}),
             association_status=association_status,
             association_reason=association_reason,
+            detector_model=self.detector.backend,
+            embedding_model=self.embedder.name,
         )

@@ -89,15 +89,23 @@ def evidence_items(res: RetrievalResult, include_conflicts: bool) -> List[Dict[s
     for hit in res.image_hits:
         hits_by_record.setdefault(hit["record"].memory_id, []).append(hit["evidence"])
     for rec in recs:
-        base = {"memory_id": rec.memory_id, "role": roles.get(rec.memory_id, "supporting"), "value": rec.value}
+        base = {"memory_id": rec.memory_id, "role": roles.get(rec.memory_id, "supporting"),
+                "value": rec.value, "source": rec.source}
         for index, te in enumerate(rec.text_evidence):
             items.append({**base, "modality": "text", "text": te.text, "session_id": te.session_id,
                           "timestamp": te.timestamp, "confidence": te.confidence,
-                          "evidence_id": f"{rec.memory_id}:text:{index}", "supports_state": True})
+                          "ingested_at": te.ingested_at or rec.ingested_at,
+                          "extractor": te.extractor,
+                          "evidence_id": te.evidence_id or f"{rec.memory_id}:text:{index}",
+                          "supports_state": True})
         for ve in hits_by_record.get(rec.memory_id, []):
             items.append({**base, "modality": "image", "image_id": ve.image_id, "image_path": ve.image_path,
                           "visual_value": ve.value, "timestamp": ve.timestamp or rec.timestamp,
                           "confidence": ve.confidence,
+                          "ingested_at": ve.ingested_at or rec.ingested_at,
+                          "detector_model": ve.detector_model,
+                          "attribute_model": ve.attribute_model,
+                          "embedding_model": ve.embedding_model,
                           "association_status": ve.association_status,
                           "association_reason": ve.association_reason,
                           "supports_state": ve.supports_state,
@@ -177,6 +185,14 @@ class AnswerGenerator:
             base = "Timeline: " + " → ".join(f"{r.value} ({_d(r.timestamp)})" for r in res.chain)
         elif I == Intent.AS_OF:
             base = f"On {_d(parsed.time)}, your {e} was {v}."
+        elif I == Intent.CONFLICT:
+            if res.conflicts:
+                c = res.conflicts[-1]
+                base = (f"Yes. Text and image evidence disagree for your {e}: "
+                        f"'{c.value}' versus '{c.conflicting_value}'. The conflict is retained "
+                        "for human verification and has not changed the accepted state.")
+            else:
+                base = f"No unresolved text-image disagreement is stored for your {e}."
         else:
             base = f"Your {e} is currently {v}."
         if res.yes_no is not None:
@@ -199,7 +215,7 @@ class AnswerGenerator:
                           None, 0.0, False, parsed.intent.value, note=note,
                           evidence=evidence_items(res, True) if res.conflicts else [], status="abstained")
 
-        include_conf = parsed.intent in (Intent.CURRENT, Intent.EVIDENCE)
+        include_conf = parsed.intent in (Intent.CURRENT, Intent.EVIDENCE, Intent.CONFLICT)
         items = evidence_items(res, include_conf)
         text = self._template(parsed, res, items)
         prompt = build_grounded_prompt(parsed, res, items)

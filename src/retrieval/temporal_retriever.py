@@ -195,6 +195,12 @@ class TemporalRetriever:
         res.chain = state_tracker.timeline(self.store, res.entity_id, parsed.attribute)
         res.conflicts = state_tracker.conflicts(self.store, res.entity_id, parsed.attribute)
         res.transitions = state_tracker.transitions(self.store, res.entity_id, parsed.attribute)
+        if parsed.intent == Intent.CONFLICT and (res.chain or res.conflicts):
+            res.found = True
+            res.value = res.actual = "yes" if res.conflicts else "no"
+            res.records = [res.chain[-1]] if res.chain else []
+            res.image_hits = self.image_retriever.for_records(res.records)
+            return res
         if not res.chain:
             res.note = ("Only conflicting evidence is stored (no confirmed state)." if res.conflicts
                         else "Nothing is stored for that attribute.")

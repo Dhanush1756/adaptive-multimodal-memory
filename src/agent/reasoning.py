@@ -13,6 +13,7 @@ by tests and offline demos.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 import threading
 from typing import Any, Callable, Dict, List, Optional
@@ -188,6 +189,7 @@ class MemoryAgent:
 
     def _remember(self, text: str, image: Any, timestamp: Any, session_id: Optional[str]) -> IngestResult:
         timestamp_missing = timestamp is None
+        ingested_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
         ts = parse_ts(timestamp).replace(microsecond=0)
         ts_iso = ts.isoformat()
         sid = self._new_session_id(session_id)
@@ -225,7 +227,7 @@ class MemoryAgent:
         tc = self._temporal_consistency(entity_guess, cand_time)
 
         common = dict(session_id=sid, timestamp=ts_iso, text_entity=text_entity, context_entity=ctx,
-                      cfg=self.cfg, temporal_consistency=tc)
+                      cfg=self.cfg, temporal_consistency=tc, ingested_at=ingested_at)
         if self.link_evidence or analysis is None or (claim is None and not text):
             cands = [fuse(text=text, claim=claim, image=analysis, image_id=image_id, image_path=image_path,
                           text_embedding=text_emb, **common)]

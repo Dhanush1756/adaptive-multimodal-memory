@@ -32,7 +32,8 @@ CREATE TABLE IF NOT EXISTS memory (
     conflicting_value TEXT,
     text_evidence TEXT,
     visual_evidence TEXT,
-    source TEXT
+    source TEXT,
+    ingested_at TEXT DEFAULT ''
 );
 CREATE INDEX IF NOT EXISTS idx_entity_attr ON memory(entity_id, attribute);
 CREATE INDEX IF NOT EXISTS idx_status ON memory(status);
@@ -55,6 +56,8 @@ class MemoryStore:
             columns = {r[1] for r in self.conn.execute("PRAGMA table_info(memory)")}
             if "entity_ref" not in columns:
                 self.conn.execute("ALTER TABLE memory ADD COLUMN entity_ref TEXT DEFAULT ''")
+            if "ingested_at" not in columns:
+                self.conn.execute("ALTER TABLE memory ADD COLUMN ingested_at TEXT DEFAULT ''")
             self.conn.commit()
 
     @contextmanager
@@ -103,15 +106,15 @@ class MemoryStore:
             self.conn.execute(
                 """INSERT INTO memory (memory_id, seq, session_id, entity, entity_id, attribute, value,
                    timestamp, confidence, status, previous_memory_id, event, conflicting_value,
-                   text_evidence, visual_evidence, source, entity_ref)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                   text_evidence, visual_evidence, source, entity_ref, ingested_at)
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (
                     rec.memory_id, self._next_seq(), rec.session_id, rec.entity, rec.entity_id,
                     rec.attribute, rec.value, rec.timestamp, rec.confidence, rec.status.value,
                     rec.previous_memory_id, rec.event, rec.conflicting_value,
                     json.dumps([e.to_dict() for e in rec.text_evidence]),
                     json.dumps([e.to_dict() for e in rec.visual_evidence]),
-                    rec.source, rec.entity_ref,
+                    rec.source, rec.entity_ref, rec.ingested_at,
                 ),
             )
         return rec
@@ -208,6 +211,7 @@ class MemoryStore:
             visual_evidence=[VisualEvidence.from_dict(d) for d in json.loads(row["visual_evidence"] or "[]")],
             source=row["source"] or "",
             entity_ref=row["entity_ref"] or "",
+            ingested_at=row["ingested_at"] or "",
         )
 
     def get(self, memory_id: str) -> Optional[MemoryRecord]:

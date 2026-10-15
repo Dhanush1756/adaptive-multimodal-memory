@@ -57,6 +57,8 @@ def fuse(
     cfg: Optional[Dict[str, Any]] = None,
     temporal_consistency: float = 1.0,
     semantic_similarity: Optional[float] = None,
+    ingested_at: str = "",
+    nlp_extractor: str = "rules-v1",
 ) -> Candidate:
     text = (text or "").strip()
     entity = (claim.entity if claim else None) or text_entity or (image.entity if image else None) or context_entity
@@ -79,6 +81,10 @@ def fuse(
             association_status=image.association_status,
             association_reason=image.association_reason,
             supports_state=image.association_status == "verified",
+            ingested_at=ingested_at,
+            detector_model=image.detector_model,
+            attribute_model=image.method,
+            embedding_model=image.embedding_model,
         )
 
     agreement: Optional[float] = None
@@ -104,6 +110,9 @@ def fuse(
             timestamp=timestamp,
             confidence=claim.confidence if claim else 0.0,
             embedding=text_embedding,
+            evidence_id=f"TXT_{session_id}",
+            ingested_at=ingested_at,
+            extractor=nlp_extractor,
         )
 
     cand_time = claim.resolved_time if (claim is not None and claim.resolved_time) else timestamp
@@ -123,4 +132,5 @@ def fuse(
         agreement=agreement,
         confidence=confidence,
         semantic_similarity=semantic_similarity,
+        ingested_at=ingested_at,
     )

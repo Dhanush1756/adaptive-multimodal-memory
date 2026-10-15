@@ -84,6 +84,8 @@ class MemoryEngine:
                 session_id=cand.session_id,
                 timestamp=ts,
                 confidence=claim.confidence,
+                evidence_id=f"TXT_{cand.session_id}",
+                ingested_at=cand.ingested_at,
             )
         return MemoryRecord(
             memory_id=self.store.next_memory_id(),
@@ -101,6 +103,7 @@ class MemoryEngine:
             visual_evidence=[cand.visual] if cand.visual else [],
             source=cand.source,
             entity_ref=claim.entity_ref or "",
+            ingested_at=cand.ingested_at,
         )
 
     # --------------------------------------------------------------- main entry
@@ -112,6 +115,7 @@ class MemoryEngine:
                     cand.visual,
                     timestamp=cand.visual.timestamp or iso(cand.timestamp),
                     session_id=cand.visual.session_id or cand.session_id,
+                    ingested_at=cand.visual.ingested_at or cand.ingested_at,
                 ))
             return self._process(cand)
 
@@ -264,7 +268,10 @@ class MemoryEngine:
                     self.store.set_state_start(target.memory_id, ts, claim.event)
                 text_ev = cand.text_evidence
                 if text_ev is None and claim.source_text:
-                    text_ev = TextEvidence(claim.source_text, cand.session_id, ts, claim.confidence)
+                    text_ev = TextEvidence(
+                        claim.source_text, cand.session_id, ts, claim.confidence,
+                        evidence_id=f"TXT_{cand.session_id}", ingested_at=cand.ingested_at,
+                    )
                 evidence_added = self.store.add_evidence(target.memory_id, text=text_ev, visual=cand.visual)
                 if evidence_added:
                     new_conf = min(0.99, 1.0 - (1.0 - target.confidence) * (1.0 - max(cand.confidence, 0.0)))

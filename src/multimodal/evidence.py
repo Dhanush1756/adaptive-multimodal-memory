@@ -24,6 +24,8 @@ class ImageAnalysis:
     distribution: Dict[str, float] = field(default_factory=dict)
     association_status: str = "contextual"
     association_reason: str = ""
+    detector_model: str = ""
+    embedding_model: str = ""
 
     @property
     def entity(self) -> Optional[str]:
@@ -39,4 +41,7 @@ class ImageAnalysis:
             "quality": self.quality,
             "association_status": self.association_status,
             "association_reason": self.association_reason,
+            "detector_model": self.detector_model,
+            "attribute_model": self.method,
+            "embedding_model": self.embedding_model,
         }

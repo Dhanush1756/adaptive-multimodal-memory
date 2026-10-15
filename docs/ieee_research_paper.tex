@@ -1,0 +1,202 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\title{Adaptive Evidence-Grounded Memory for Long-Term NLP Agents:\\Implementation and Controlled Multimodal Evaluation}
+
+\author{
+\IEEEauthorblockN{Dhanush S, Dhruthi R Kulkarni, E Sasi Vaishnav, Jathin K N}
+\IEEEauthorblockA{Department of Computer Science and Engineering\\
+RV University, Bengaluru, India}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Long-term agents must distinguish a user's current state from superseded facts while retaining the evidence needed to explain both. This paper presents an implemented adaptive, evidence-grounded memory architecture that represents an entity attribute as a temporally ordered chain of states. Each state stores event time, lifecycle status, confidence, predecessor links, and text or image provenance. A deterministic NLP pipeline extracts entities, identities, attributes, temporal expressions, and query intent; a computer-vision path associates object and color evidence; and a transactional SQLite layer applies add, merge, update, ignore, conflict, and resolution operations. Retrieval answers current, previous, initial, historical, and as-of questions from the state valid at the requested event time. We evaluate the system on a frozen Light-mode benchmark containing 100 scenarios, 210 ingestion sessions, 265 questions, and 11 temporal and multimodal scenario families. The complete system obtains 240/265 overall question accuracy (0.906), 90/90 current-state accuracy, 30/30 identity accuracy, evidence precision/recall of 0.908/0.914, and 20/20 correct abstentions. It improves by 0.170 over an append-only temporal baseline. Removing visual linking or conflict handling lowers overall accuracy from 0.906 to 0.830. The study establishes the behavior of the memory lifecycle under controlled conditions; real pretrained vision inference, public long-dialogue benchmarks, and external replication remain future work.
+\end{abstract}
+
+\begin{IEEEkeywords}
+long-term memory, NLP agents, temporal reasoning, multimodal evidence, provenance, contradiction handling, question answering
+\end{IEEEkeywords}
+
+\section{Introduction}
+Large language model agents can retain information beyond a single context window by storing and retrieving prior interactions. Long-term storage alone is insufficient when the underlying world changes. If a user first reports a red car, later repaints it blue, and finally paints it black, a useful memory must answer that the car is currently black while preserving blue as the previous state and red as the initial state. It must also avoid treating a late-ingested observation as if it occurred at ingestion time.
+
+The submitted project proposal identified four connected gaps: semantic relevance does not establish temporal validity; evolving memory does not automatically resolve contradictions; provenance is often separated from memory update logic; and multimodal observations are rarely integrated into the same lifecycle. This work implements and evaluates a single system around those gaps. The contribution is the memory mechanism rather than a new foundation model.
+
+The implementation makes four contributions:
+\begin{enumerate}
+    \item a persistent state-chain representation ordered by event time, with explicit current, historical, contradictory, and resolved records;
+    \item a transactional update policy that distinguishes corroboration, change, rejection, and conflict while retaining source evidence;
+    \item temporal and identity-aware retrieval whose answers expose supporting text and image provenance; and
+    \item a frozen controlled benchmark and ablation suite that separates answer accuracy, evidence quality, conflict behavior, lifecycle correctness, visual association, and abstention.
+\end{enumerate}
+
+The validated scope is intentionally constrained. The benchmark tracks the \emph{color} attribute for a finite entity lexicon and uses deterministic Light-mode vision. Optional pretrained components are architectural extensions, not evidence for the reported results.
+
+\section{Related Work}
+Hatalis \emph{et al.} survey long-term memory for LLM agents and emphasize memory organization and lifetime management beyond simple vector retrieval \cite{hatalis2024}. MemoryBank adds continuous update, recall, and selective forgetting for sustained interaction \cite{zhong2024}. These systems motivate persistence and adaptation, but the present work focuses specifically on event-time state validity and attached provenance.
+
+LoCoMo evaluates conversations averaging roughly 600 turns and 16K tokens over as many as 32 sessions, showing persistent difficulty with long-range temporal and causal reasoning even for long-context and retrieval-augmented systems \cite{maharana2024}. MTPChat extends temporal conversational evaluation to linguistic and visual persona information \cite{yang2025}. A-MEM dynamically organizes and links memories as new experience arrives \cite{xu2025}. M-RAG partitions retrieval memory to reduce noise and improve downstream generation \cite{wang2024}.
+
+These studies establish the importance of storage, retrieval, adaptation, and multimodality. Our narrower question is whether one inspectable lifecycle can preserve superseded claims, reject unsupported visual associations, retain evidence, and return the state valid at a requested time.
+
+\section{Research Question and Scope}
+The research question retained from the proposal is: \emph{How can an adaptive evidence-grounded memory framework improve relevance, temporal validity, contradiction handling, and retrieval of textual and multimodal memories in long-term NLP agents?}
+
+The implemented prototype operationalizes ``improve'' by comparison with seven baselines or component removals on identical frozen scenarios. It does not claim open-domain language understanding. The evaluated entity types are car, laptop, bike, phone, shirt, room, and plant; the evaluated attribute is color. Explicit ordinal references separate multiple entities of the same type.
+
+\section{System Architecture}
+The processing path is summarized as
+\begin{equation}
+ (x_t, x_v, \tau_e) \rightarrow C \rightarrow U(M,C) \rightarrow M' \rightarrow R(q,\tau_q) \rightarrow A,
+\end{equation}
+where $x_t$ and $x_v$ are text and image input, $\tau_e$ is observation event time, $C$ is a fused candidate, $U$ is the update policy, $M$ is persistent memory, $R$ is temporal retrieval, and $A$ is a grounded answer with citations.
+
+\subsection{NLP Processing}
+Text is normalized before deterministic entity, identity, relation, and temporal extraction. Supported relations describe a color state, a value-preserving observation, or a state change. The query parser classifies current, previous, initial, full-history, change, after, when, evidence, and as-of intent. A trained intent classifier and sentence-transformer embeddings are optional; the frozen experiment uses rule-based intent and 256-dimensional hashing embeddings for reproducibility.
+
+\subsection{Visual Processing and Association}
+The visual pipeline loads and validates an image, selects a detected object when a detector is available, estimates color, creates an embedding, and records association status. In the evaluated Light mode, whole-image fallback, HSV color estimation, and color histograms replace downloaded detector and CLIP assets. A visual observation is \emph{verified} only when an object detector matches the claim entity. If the detector is unavailable but the user submits an image with an explicit entity context, the image is \emph{contextual}: it can corroborate or raise a warning, but it cannot independently establish or rewrite state. Unmatched and ambiguous images are retained only where policy permits and cannot support an answer.
+
+\subsection{Evidence Fusion}
+A candidate contains the normalized claim, event time, session source, text embedding, visual observation, confidence components, and association metadata. For text confidence $c_t$, visual confidence $c_v$, agreement $a$, and temporal quality $c_\tau$, the configured fused score is
+\begin{equation}
+ c = 0.30c_t + 0.30c_v + 0.25a + 0.15c_\tau.
+\end{equation}
+Missing components are handled by the candidate construction policy. Confidence controls gates and ranking; it is not claimed to be probabilistically calibrated.
+
+\subsection{Persistent Temporal Memory}
+SQLite stores each state with a memory identifier, entity and identity, attribute, normalized value, event timestamp, separate ingestion timestamp, lifecycle status, predecessor identifier, confidence, event type, and evidence rows. Text and visual evidence identify their extractor or model backend. Parent directories are created safely for file-backed stores. Writes use explicit transactions; a write transaction reserves the database before decisions or identifiers are derived, preventing partially applied transitions.
+
+For each $(entity\_id, attribute)$ chain, states are sorted by event time with a deterministic insertion tie-break. The newest accepted state is \texttt{CURRENT}; earlier accepted states are \texttt{HISTORICAL}; conflicts do not displace the accepted chain. Late-arriving evidence is therefore backfilled at its observation time rather than silently relabeled with ingestion time.
+
+\subsection{Update and Conflict Policy}
+The update engine performs the following operations:
+\begin{itemize}
+    \item \texttt{ADD}: create the first supported state;
+    \item \texttt{MERGE}: attach compatible evidence to an existing state;
+    \item \texttt{UPDATE}: add a changed value and preserve the superseded state;
+    \item \texttt{IGNORE}: reject an unusable or unrelated candidate without changing state;
+    \item \texttt{CONTRADICTORY}: retain a disagreement without silently applying it; and
+    \item \texttt{RESOLVED}: mark a conflict after one explicit human choice.
+\end{itemize}
+The human-resolution path was added after the benchmark was frozen. It is regression-tested but contributes no reported Phase 6 performance gain.
+
+\subsection{Retrieval and Answer Generation}
+Hybrid retrieval combines semantic, entity, attribute, temporal, and confidence signals with configured weights 0.30, 0.20, 0.20, 0.20, and 0.10. State selection is constrained by query intent and event time; similarity cannot override temporal validity. Image evidence is retrieved only for selected state records. In addition to temporal and provenance questions, a conflict intent reports whether text and image evidence currently disagree. Deterministic answer templates expose intent, status, confidence, and evidence. An optional LLM may rephrase an answer under a guard, but no LLM provider is used in the frozen evaluation.
+
+\subsection{Session Isolation}
+Each Streamlit browser session receives a random namespace for its SQLite file and image directory. Reset acts only on that namespace, and ordinary Streamlit reruns reuse it. File-backed stores persist when reopened directly; however, the current UI does not expose a durable namespace token with which a browser can reconnect after a full Streamlit server restart.
+
+\section{Experimental Method}
+\subsection{Frozen Dataset}
+The Phase 6 test file contains 100 scenarios, 210 ingestion sessions, and 265 questions. Eleven families cover temporal sequences (15), late arrival (10), duplicate/corroborating evidence (10), unrelated visuals (10), verified visuals (10), verified conflicts (10), identity separation (10), abstention/irrelevance (10), corrupt images (5), ambiguous visuals (5), and long sequences (5). The canonical LF-normalized file SHA-256 is
+\begin{center}
+\footnotesize\texttt{831449bb23989915803bf715071a656bf663c6c335320890b8340edfa9fadaf7}.
+\end{center}
+Git may check out this text file with CRLF on Windows, producing a different raw-byte hash while retaining identical tracked content. All reported systems consume the same frozen annotations with seed 20261013. The evaluated components are hashing-256 text embeddings, no detector, whole-image contextual association, HSV color, and color-histogram image embeddings.
+
+\subsection{Compared Systems}
+The comparison includes no memory (N), latest-value memory (L), naive multimodal top-1 retrieval (B), append-only temporal memory (C), the proposed system without provenance, without visual linking, and without text-image conflict handling, and the complete proposed system (E). This design tests the value of the lifecycle and individual grounding components without introducing a new external service.
+
+\subsection{Metrics}
+Primary metrics are exact question accuracy by temporal intent and identity, evidence precision and recall, answer coverage, correct abstention, unsupported answered questions, state-lifecycle correctness, controlled conflict F1, visual-link precision and false-association rate, and response-schema compliance. Recorded 95\% intervals use scenario-cluster bootstrap resampling. Exact McNemar tests are descriptive because the report compares multiple correlated systems without multiplicity adjustment.
+
+\section{Results}
+\begin{table}[t]
+\caption{Frozen Track A Question Results}
+\label{tab:qa}
+\centering
+\footnotesize
+\begin{tabular}{lrr}
+\toprule
+Metric & Correct/Total & Score \\
+\midrule
+Overall & 240/265 & 0.906 \\
+Current & 90/90 & 1.000 \\
+Historical & 40/55 & 0.727 \\
+Initial & 15/20 & 0.750 \\
+Full history & 25/30 & 0.833 \\
+Identity isolation & 30/30 & 1.000 \\
+Correct abstention & 20/20 & 1.000 \\
+Schema compliance & 265/265 & 1.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The complete system reaches 0.906 overall accuracy with a recorded 95\% interval of [0.874, 0.940]. Evidence precision and recall are 0.908 and 0.914 over 245 answered questions. Twenty-five of 245 answered questions contain unsupported content under the benchmark definition. Lifecycle correctness is 200/210 (0.952). Controlled conflict precision, recall, and F1 are 1.0; visual-link precision is 1.0 with 30 true positives and zero false positives; the false-association rate is 0/15.
+
+\begin{table}[t]
+\caption{Overall Accuracy by System}
+\label{tab:systems}
+\centering
+\footnotesize
+\begin{tabular}{lrr}
+\toprule
+System & Correct/265 & Accuracy \\
+\midrule
+No memory & 20 & 0.075 \\
+Latest value & 125 & 0.472 \\
+Naive multimodal & 141 & 0.532 \\
+Append-only temporal & 195 & 0.736 \\
+No provenance & 240 & 0.906 \\
+No visual linking & 220 & 0.830 \\
+No conflict handling & 220 & 0.830 \\
+Proposed & 240 & 0.906 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Against append-only temporal memory, the absolute accuracy difference is 0.170 with a recorded scenario-cluster interval [0.1099, 0.2368]. The complete system ties the no-provenance variant on answer accuracy, but no-provenance evidence precision and recall are both zero. Thus provenance is not justified by exact-answer accuracy alone; it supplies traceability. Removing either visual linking or conflict handling reduces accuracy by 0.075; each comparison has 20 cases correct only for the proposed system and a descriptive exact McNemar value of $2\times10^{-6}$.
+
+\section{Error Analysis}
+The 25 frozen answer errors are concentrated in two parser limitations. Fifteen questions containing ``immediately preceded'' were interpreted as current queries. Five initial and five full-history errors arose when observations beginning with ``Initially my ...'' were ignored. The same ingestion pattern accounts for the ten lifecycle errors. This concentration shows that the state model behaves consistently once a claim is extracted, while linguistic coverage remains the main measured bottleneck.
+
+Evidence-level errors also reveal a distinction between selecting the correct state and citing only the evidence necessary for that state. Some answers cite broader corroborating evidence than the benchmark expects. Future work should improve evidence minimality without weakening state history.
+
+\section{Implementation Validation}
+Regression tests cover current and historical state, three successive changes, late-arriving event-time evidence, SQLite close/reopen persistence, session isolation, multiple identities, text-image provenance, unrelated-image rejection, corrupt-image handling, conflict persistence, extractor/model metadata, schema migration, and direct disagreement questions. Following the frozen evaluation, tests were also added for Ask-side image ingestion and one-time human conflict resolution. On 2026-10-15, the full repository suite produced 185 passes with Python 3.14.6, Streamlit 1.58.0, and pytest 9.0.3. A secondary installed environment using Python 3.10.8 and Streamlit 1.31.1 produced 178 passes and seven Streamlit test-harness failures, including unavailable file-uploader automation and formatted-selectbox state handling. Requirements are currently unpinned, so this environment sensitivity is a reproducibility limitation. The successful software result does not replace browser-based usability validation or an independent research replication.
+
+\section{Threats to Validity and Limitations}
+\textbf{Construct validity:} Exact answer templates, lifecycle labels, and provenance overlap measure the implemented schema rather than all properties of useful long-term memory. Confidence values are heuristic.
+
+\textbf{Internal validity:} Data, baselines, and the proposed system share repository utilities. Frozen hashes and per-example artifacts reduce accidental drift, but an independent implementation was not used. Statistical comparisons are descriptive and unadjusted for multiple testing.
+
+\textbf{External validity:} Scenarios are controlled and templated, the domain is limited to color, and same-type identity uses explicit ordinal references. Results do not establish performance on unrestricted dialogue, LoCoMo, MTPChat, or real user distributions.
+
+\textbf{Multimodal validity:} Track A uses synthetic or controlled images, HSV color, and histogram embeddings. Pretrained YOLO/CLIP Track B was not executed because approved model assets were absent. LLaVA is not implemented. Claims about real-photo robustness would require a separately approved, frozen real-image study.
+
+\textbf{Operational validity:} Automated Streamlit integration tests exist, but the final browser demonstration and a genuine legacy database-copy migration remain pending. Equal event timestamps use deterministic insertion order rather than uncertain-time reasoning.
+
+\section{Reproducibility}
+From the repository root, the software suite is executed with
+\begin{center}
+\footnotesize\texttt{python -m pytest -q}
+\end{center}
+and the frozen Track A comparison is reproduced with
+\begin{center}
+\footnotesize\begin{minipage}{0.94\columnwidth}
+\texttt{python -m src.evaluation.ablations --data data/annotations/phase6\_test.jsonl --split all --seed 20261013 --light --systems N\_no\_memory L\_latest\_value B\_naive\_multimodal C\_append\_only\_temporal E\_no\_provenance E\_no\_visual\_linking E\_no\_text\_image\_conflict E\_proposed --out <new-output-dir>}
+\end{minipage}
+\end{center}
+Using a new output directory preserves the submitted artifacts. The application starts with \texttt{python -m streamlit run app/streamlit\_app.py}. No pretrained model is required for the reported Light-mode scope.
+
+\section{Conclusion}
+The project implements the central proposal as an inspectable temporal memory lifecycle rather than a generic conversational layer. It stores changes as linked states, uses observation time for historical validity, attaches multimodal provenance, isolates identities and browser sessions, and prevents unverified visual evidence from silently changing memory. Controlled evaluation shows substantial gains over simple retrieval and append-only baselines, while ablations isolate the contribution of visual linking and conflict handling. The remaining research step is broader validation: real pretrained vision, public long-dialogue data, natural paraphrases, human judgments, and independent replication.
+
+\begin{thebibliography}{00}
+\bibitem{hatalis2024} K. Hatalis \emph{et al.}, ``Memory Matters: The Need to Improve Long-Term Memory in LLM-Agents,'' \emph{Proc. AAAI Symposium Series}, vol. 2, no. 1, pp. 277--280, 2024, doi: 10.1609/aaaiss.v2i1.27688.
+\bibitem{zhong2024} W. Zhong, L. Guo, Q. Gao, H. Ye, and Y. Wang, ``MemoryBank: Enhancing Large Language Models with Long-Term Memory,'' \emph{Proc. AAAI}, vol. 38, no. 17, pp. 19724--19731, 2024, doi: 10.1609/aaai.v38i17.29946.
+\bibitem{maharana2024} A. Maharana, D.-H. Lee, S. Tulyakov, M. Bansal, F. Barbieri, and Y. Fang, ``Evaluating Very Long-Term Conversational Memory of LLM Agents,'' in \emph{Proc. ACL}, pp. 13851--13870, 2024, doi: 10.18653/v1/2024.acl-long.747.
+\bibitem{yang2025} W. Yang, Y. Li, M. Fang, and L. Chen, ``MTPChat: A Multimodal Time-Aware Persona Dataset for Conversational Agents,'' in \emph{Findings of NAACL}, pp. 5830--5841, 2025, doi: 10.18653/v1/2025.findings-naacl.323.
+\bibitem{xu2025} W. Xu, Z. Liang, K. Mei, H. Gao, J. Tan, and Y. Zhang, ``A-MEM: Agentic Memory for LLM Agents,'' \emph{arXiv preprint arXiv:2502.12110}, 2025.
+\bibitem{wang2024} Z. Wang, S. X. Teo, J. Ouyang, Y. Xu, and W. Shi, ``M-RAG: Reinforcing Large Language Model Performance through Retrieval-Augmented Generation with Multiple Partitions,'' in \emph{Proc. ACL}, pp. 1966--1978, 2024, doi: 10.18653/v1/2024.acl-long.108.
+\end{thebibliography}
+
+\end{document}

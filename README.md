@@ -4,9 +4,11 @@ An adaptive multimodal memory that links **text** and **image** evidence to evol
 states, keeps history instead of overwriting it, and answers current and historical questions
 with the evidence behind each answer.
 
-> **Status: Phase 8 release stabilization complete.** See
-> [`docs/phase8_release_readiness.md`](docs/phase8_release_readiness.md) for the final UI fixes,
-> integration-test results, release checks, and remaining manual/model validation limits.
+> **Status: integrated NLP + CV research prototype.** The implementation follows the submitted
+> report's adaptive evidence-grounded architecture. See
+> [`docs/report_implementation_traceability.md`](docs/report_implementation_traceability.md) for
+> claim-by-claim alignment and [`docs/integrated_nlp_cv_architecture.md`](docs/integrated_nlp_cv_architecture.md)
+> for the final data flow.
 
 ## How it works
 
@@ -24,6 +26,8 @@ image -> CV  (detect, crop, HSV/CLIP colour, embedding) ──┘            │
 - The memory engine is independent of any LLM (`src/memory/update.py`).
 - Old states are never deleted; they become `HISTORICAL` and stay linked.
 - Text and image that confidently disagree are stored as `CONTRADICTORY` and not applied.
+- Unresolved disagreements can be queried directly and require one explicit human verification.
+- Evidence keeps event time separate from ingestion time and records the active NLP/CV method.
 - Answers come from deterministic templates over retrieved states. An optional LLM only
   rephrases a prompt that contains the retrieved evidence.
 
@@ -44,6 +48,7 @@ agent.remember("I bought a red car.", "red_car.jpg", "2026-10-01")
 agent.remember("I repainted my car blue.", "blue_car.jpg", "2026-10-10")
 print(agent.ask("What color is my car now?").text)
 print(agent.ask("What color was my car originally?").text)
+print(agent.ask("Do the text and image disagree about my car?").text)
 agent.store.close()
 ```
 
@@ -76,6 +81,11 @@ python -m src.training.train_color_head --real-dir data/raw/colors
 Full step-by-step instructions, evaluation rules and what each trained component does are in
 [`docs/training.md`](docs/training.md).
 
+The published Phase 6 Track A metrics are frozen. Put any reproduction in a new directory as
+described in [`docs/multimodal_evaluation_protocol.md`](docs/multimodal_evaluation_protocol.md).
+The recorded compatible test environment is Python 3.14.6, Streamlit 1.58.0 and pytest 9.0.3;
+dependency versions in `requirements.txt` are not yet pinned.
+
 ## Repository layout
 
 | Path | Purpose |
@@ -91,6 +101,15 @@ Full step-by-step instructions, evaluation rules and what each trained component
 | `src/training/` | intent classifier and colour head training |
 | `app/streamlit_app.py` | demo UI |
 | `tests/` | memory, NLP, CV, retrieval and end-to-end tests |
+
+Research documentation:
+
+- [`docs/report_implementation_traceability.md`](docs/report_implementation_traceability.md)
+- [`docs/integrated_nlp_cv_architecture.md`](docs/integrated_nlp_cv_architecture.md)
+- [`docs/multimodal_evaluation_protocol.md`](docs/multimodal_evaluation_protocol.md)
+- [`docs/limitations_and_research_gaps.md`](docs/limitations_and_research_gaps.md)
+- [`docs/integrated_report_outline.md`](docs/integrated_report_outline.md)
+- [`docs/ieee_research_paper.tex`](docs/ieee_research_paper.tex)
 
 ## Limitations
 
