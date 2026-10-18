@@ -1,0 +1,732 @@
+{
+  "dataset": "data\\annotations\\automatic_selection_v1.json",
+  "dataset_sha256": "ebbfdee481b63c8da8351a8d4ffe000e3aa7c1d081d8b615c9cbda1b82b8abcc",
+  "annotation_process": "Assistant-authored and inspected expected claims, not independently human-adjudicated. Constructed grammar-level diagnostics, not natural conversations.",
+  "split": "Diagnostic only; no statistical held-out or generalization claim. Policy fixed before this dataset was executed.",
+  "python": "3.14.6",
+  "selection_case_count": 20,
+  "selection_exact_cases": {
+    "numerator": 20,
+    "denominator": 20,
+    "value": 1.0
+  },
+  "selection_precision": {
+    "numerator": 12,
+    "denominator": 12,
+    "value": 1.0
+  },
+  "selection_recall": {
+    "numerator": 12,
+    "denominator": 12,
+    "value": 1.0
+  },
+  "promote_all_extracted_baseline_false_positives": 2,
+  "history_only_baseline_recall": {
+    "numerator": 0,
+    "denominator": 12,
+    "value": 0.0
+  },
+  "cases": [
+    {
+      "text": "Hello!",
+      "expected": [],
+      "predicted": [],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "history_only",
+          "reason": "No safe explicit candidate extracted.",
+          "usefulness": 0.0,
+          "confidence": 0.0,
+          "candidate": {},
+          "memory_id": null,
+          "lifecycle_action": null
+        }
+      ]
+    },
+    {
+      "text": "Thanks for helping.",
+      "expected": [],
+      "predicted": [],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "history_only",
+          "reason": "No safe explicit candidate extracted.",
+          "usefulness": 0.0,
+          "confidence": 0.0,
+          "candidate": {},
+          "memory_id": null,
+          "lifecycle_action": null
+        }
+      ]
+    },
+    {
+      "text": "What color is my car?",
+      "expected": [],
+      "predicted": [],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "history_only",
+          "reason": "No safe explicit candidate extracted.",
+          "usefulness": 0.0,
+          "confidence": 0.0,
+          "candidate": {},
+          "memory_id": null,
+          "lifecycle_action": null
+        }
+      ]
+    },
+    {
+      "text": "Maybe my car is blue.",
+      "expected": [],
+      "predicted": [],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "history_only",
+          "reason": "No safe explicit candidate extracted.",
+          "usefulness": 0.0,
+          "confidence": 0.0,
+          "candidate": {},
+          "memory_id": null,
+          "lifecycle_action": null
+        }
+      ]
+    },
+    {
+      "text": "Perhaps my laptop brand is Apple.",
+      "expected": [],
+      "predicted": [],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "history_only",
+          "reason": "No safe explicit candidate extracted.",
+          "usefulness": 0.0,
+          "confidence": 0.0,
+          "candidate": {},
+          "memory_id": null,
+          "lifecycle_action": null
+        }
+      ]
+    },
+    {
+      "text": "My car is not red.",
+      "expected": [],
+      "predicted": [],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "history_only",
+          "reason": "No safe explicit candidate extracted.",
+          "usefulness": 0.0,
+          "confidence": 0.0,
+          "candidate": {},
+          "memory_id": null,
+          "lifecycle_action": null
+        }
+      ]
+    },
+    {
+      "text": "My user mood is happy.",
+      "expected": [],
+      "predicted": [],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "history_only",
+          "reason": "Future-usefulness estimate is below the configured threshold.",
+          "usefulness": 0.2,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "user",
+            "attribute": "mood",
+            "value": "happy",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "My user mood is happy",
+            "entity_ref": null
+          },
+          "memory_id": null,
+          "lifecycle_action": null
+        }
+      ]
+    },
+    {
+      "text": "My laptop password is example-only.",
+      "expected": [],
+      "predicted": [],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "reject",
+          "reason": "Sensitive attributes are not promoted automatically.",
+          "usefulness": 0.7,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "laptop",
+            "attribute": "password",
+            "value": "example-only",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "My laptop password is example-only",
+            "entity_ref": null
+          },
+          "memory_id": null,
+          "lifecycle_action": null
+        }
+      ]
+    },
+    {
+      "text": "I ate a cookie today.",
+      "expected": [],
+      "predicted": [],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "history_only",
+          "reason": "No safe explicit candidate extracted.",
+          "usefulness": 0.0,
+          "confidence": 0.0,
+          "candidate": {},
+          "memory_id": null,
+          "lifecycle_action": null
+        }
+      ]
+    },
+    {
+      "text": "My car is red.",
+      "expected": [
+        [
+          "car",
+          "color",
+          "red"
+        ]
+      ],
+      "predicted": [
+        [
+          "car",
+          "color",
+          "red"
+        ]
+      ],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.7,
+          "confidence": 0.95,
+          "candidate": {
+            "entity": "car",
+            "attribute": "color",
+            "value": "red",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.95,
+            "source_text": "My car is red",
+            "entity_ref": null
+          },
+          "memory_id": "M001",
+          "lifecycle_action": "ADD"
+        }
+      ]
+    },
+    {
+      "text": "My laptop brand is Lenovo.",
+      "expected": [
+        [
+          "laptop",
+          "brand",
+          "lenovo"
+        ]
+      ],
+      "predicted": [
+        [
+          "laptop",
+          "brand",
+          "lenovo"
+        ]
+      ],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.7,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "laptop",
+            "attribute": "brand",
+            "value": "lenovo",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "My laptop brand is Lenovo",
+            "entity_ref": null
+          },
+          "memory_id": "M001",
+          "lifecycle_action": "ADD"
+        }
+      ]
+    },
+    {
+      "text": "My project named atlas deadline is 2026-12-01.",
+      "expected": [
+        [
+          "project",
+          "deadline",
+          "2026-12-01"
+        ]
+      ],
+      "predicted": [
+        [
+          "project",
+          "deadline",
+          "2026-12-01"
+        ]
+      ],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.95,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "project",
+            "attribute": "deadline",
+            "value": "2026-12-01",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "My project named atlas deadline is 2026-12-01",
+            "entity_ref": "atlas"
+          },
+          "memory_id": "M001",
+          "lifecycle_action": "ADD"
+        }
+      ]
+    },
+    {
+      "text": "My project named atlas requirement is offline inference.",
+      "expected": [
+        [
+          "project",
+          "requirement",
+          "offline inference"
+        ]
+      ],
+      "predicted": [
+        [
+          "project",
+          "requirement",
+          "offline inference"
+        ]
+      ],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.95,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "project",
+            "attribute": "requirement",
+            "value": "offline inference",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "My project named atlas requirement is offline inference",
+            "entity_ref": "atlas"
+          },
+          "memory_id": "M001",
+          "lifecycle_action": "ADD"
+        }
+      ]
+    },
+    {
+      "text": "I prefer tea.",
+      "expected": [
+        [
+          "user",
+          "preference",
+          "tea"
+        ]
+      ],
+      "predicted": [
+        [
+          "user",
+          "preference",
+          "tea"
+        ]
+      ],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.9,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "user",
+            "attribute": "preference",
+            "value": "tea",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "I prefer tea",
+            "entity_ref": "self"
+          },
+          "memory_id": "M001",
+          "lifecycle_action": "ADD"
+        }
+      ]
+    },
+    {
+      "text": "Alice is my supervisor.",
+      "expected": [
+        [
+          "user",
+          "supervisor",
+          "alice"
+        ]
+      ],
+      "predicted": [
+        [
+          "user",
+          "supervisor",
+          "alice"
+        ]
+      ],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.7,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "user",
+            "attribute": "supervisor",
+            "value": "alice",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "Alice is my supervisor",
+            "entity_ref": "self"
+          },
+          "memory_id": "M001",
+          "lifecycle_action": "ADD"
+        }
+      ]
+    },
+    {
+      "text": "My document named thesis status is draft.",
+      "expected": [
+        [
+          "document",
+          "status",
+          "draft"
+        ]
+      ],
+      "predicted": [
+        [
+          "document",
+          "status",
+          "draft"
+        ]
+      ],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.75,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "document",
+            "attribute": "status",
+            "value": "draft",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "My document named thesis status is draft",
+            "entity_ref": "thesis"
+          },
+          "memory_id": "M001",
+          "lifecycle_action": "ADD"
+        }
+      ]
+    },
+    {
+      "text": "My event named conference location is Bengaluru.",
+      "expected": [
+        [
+          "event",
+          "location",
+          "bengaluru"
+        ]
+      ],
+      "predicted": [
+        [
+          "event",
+          "location",
+          "bengaluru"
+        ]
+      ],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.7,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "event",
+            "attribute": "location",
+            "value": "bengaluru",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "My event named conference location is Bengaluru",
+            "entity_ref": "conference"
+          },
+          "memory_id": "M001",
+          "lifecycle_action": "ADD"
+        }
+      ]
+    },
+    {
+      "text": "My project named atlas model is Gold.",
+      "expected": [
+        [
+          "project",
+          "model",
+          "gold"
+        ]
+      ],
+      "predicted": [
+        [
+          "project",
+          "model",
+          "gold"
+        ]
+      ],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.85,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "project",
+            "attribute": "model",
+            "value": "gold",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "My project named atlas model is Gold",
+            "entity_ref": "atlas"
+          },
+          "memory_id": "M001",
+          "lifecycle_action": "ADD"
+        }
+      ]
+    },
+    {
+      "text": "My mug named desk is green.",
+      "expected": [
+        [
+          "mug",
+          "color",
+          "green"
+        ]
+      ],
+      "predicted": [
+        [
+          "mug",
+          "color",
+          "green"
+        ]
+      ],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.7,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "mug",
+            "attribute": "color",
+            "value": "green",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "My mug named desk is green",
+            "entity_ref": "desk"
+          },
+          "memory_id": "M001",
+          "lifecycle_action": "ADD"
+        }
+      ]
+    },
+    {
+      "text": "My laptop brand is Lenovo. My laptop model is ThinkPad.",
+      "expected": [
+        [
+          "laptop",
+          "brand",
+          "lenovo"
+        ],
+        [
+          "laptop",
+          "model",
+          "thinkpad"
+        ]
+      ],
+      "predicted": [
+        [
+          "laptop",
+          "brand",
+          "lenovo"
+        ],
+        [
+          "laptop",
+          "model",
+          "thinkpad"
+        ]
+      ],
+      "correct": true,
+      "selections": [
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.7,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "laptop",
+            "attribute": "brand",
+            "value": "lenovo",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "My laptop brand is Lenovo",
+            "entity_ref": null
+          },
+          "memory_id": "M001",
+          "lifecycle_action": "ADD"
+        },
+        {
+          "outcome": "promote",
+          "reason": "Explicit attributable fact passes usefulness, confidence and identity gates.",
+          "usefulness": 0.85,
+          "confidence": 0.9,
+          "candidate": {
+            "entity": "laptop",
+            "attribute": "model",
+            "value": "thinkpad",
+            "event": null,
+            "temporal_expression": null,
+            "resolved_time": "2026-10-01T00:00:00+00:00",
+            "confidence": 0.9,
+            "source_text": "My laptop model is ThinkPad",
+            "entity_ref": null
+          },
+          "memory_id": "M002",
+          "lifecycle_action": "ADD"
+        }
+      ]
+    }
+  ],
+  "temporal_queries": [
+    {
+      "question": "What color is my car now?",
+      "expected": "black",
+      "actual": "black"
+    },
+    {
+      "question": "What color was my car previously?",
+      "expected": "blue",
+      "actual": "blue"
+    },
+    {
+      "question": "What color was my car originally?",
+      "expected": "red",
+      "actual": "red"
+    },
+    {
+      "question": "What color was my car on 2026-10-15?",
+      "expected": "blue",
+      "actual": "blue"
+    },
+    {
+      "question": "Show my car color history.",
+      "expected": [
+        "red",
+        "blue",
+        "black"
+      ],
+      "actual": [
+        "red",
+        "blue",
+        "black"
+      ]
+    }
+  ],
+  "temporal_correct": {
+    "numerator": 5,
+    "denominator": 5,
+    "value": 1.0
+  },
+  "duplicate_new_state_rate": {
+    "numerator": 0,
+    "denominator": 1,
+    "value": 0.0
+  },
+  "duplicate_outcome": "duplicate",
+  "cross_conversation_recall": true,
+  "source_metadata_complete": true,
+  "cross_account_retrieval_blocked": true,
+  "foreign_transcript_denied": true,
+  "sqlite_reopen_recall": true,
+  "visual_conflict_diagnostics": [
+    {
+      "choice": "red",
+      "uncertain_before": true,
+      "value_after": "red",
+      "original": "red",
+      "audit_count": 1,
+      "fixture": "generated solid white PIL image; HSV, no pretrained inference"
+    },
+    {
+      "choice": "white",
+      "uncertain_before": true,
+      "value_after": "white",
+      "original": "red",
+      "audit_count": 1,
+      "fixture": "generated solid white PIL image; HSV, no pretrained inference"
+    }
+  ],
+  "limitations": "Constructed assistant-labelled diagnostics; no independent gold, natural-dialogue or pretrained/general-vision performance claim. Frozen tracks not rerun."
+}

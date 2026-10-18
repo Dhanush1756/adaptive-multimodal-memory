@@ -1,0 +1,18 @@
+{
+  "status": "BLOCKED_ON_REAL_PHOTO_DATA_AND_VERIFIED_MODEL_ASSETS",
+  "real_photo_training_executed": false,
+  "real_photo_metrics_available": false,
+  "production_color_head_artifact_created": false,
+  "pretrained_clip_inference_verified": false,
+  "pretrained_yolo_inference_verified": false,
+  "expected_classes": ["red", "blue", "black", "white", "green", "yellow", "silver", "gray", "orange", "brown", "purple", "pink"],
+  "protocol_implemented": "src/training/real_color_experiment.py",
+  "manifest_example": "docs/real_photo_manifest.example.csv",
+  "mechanics_test_scope": "Generated temporary image fixtures train a histogram logistic-regression head and verify live pipeline loading. These are not real-photo performance results.",
+  "blockers": [
+    "No reviewed labelled real-photo manifest or object-group identities supplied.",
+    "No locally verified CLIP encoder and Transformers dependency combination.",
+    "No reviewed and tested pretrained YOLO weights.",
+    "No held-out natural-language intent dataset demonstrating benefit over the rules."
+  ]
+}

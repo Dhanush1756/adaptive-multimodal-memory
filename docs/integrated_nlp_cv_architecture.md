@@ -1,6 +1,51 @@
 # Integrated NLP + Computer Vision architecture
 
-## Final data flow
+## Authenticated automatic-memory flow
+
+The account UI now follows the original diagram with an explicit usefulness
+selection stage. See [the audit and traceability table](automatic_memory_architecture_audit.md)
+and [the implementation/evaluation report](automatic_memory_implementation.md).
+The older Store/Ask demo remains available and the frozen evaluation is unchanged.
+
+The [local-first extension](local_models_implementation.md) prefers Ollama for
+untrusted candidate extraction/current-answer wording and a separate local
+embedding model for semantic nominations. Missing runtimes use the deterministic
+paths. [Setup and manual checks](local_models_setup.md) distinguish implemented
+adapters from actual model-inference verification.
+
+```mermaid
+flowchart TD
+    U[Authenticated user: normal text and supported image] --> X[Rules and optional local LLM candidates; exact quote and event time]
+    U --> V0[Image attachment and explicit association context]
+    X --> C[Preliminary text-grounded candidates and modality context]
+    V0 --> C
+    C --> S[Automatic usefulness selection]
+    S --> W{Worth retaining and safe to associate?}
+    W -->|No or uncertain| T[Transcript plus selection audit; clarify or reject]
+    W -->|Yes| V[Process supported colour image if present; fuse evidence and provenance]
+    V --> E[Compare existing account memory]
+    E --> A[Validate confidence, temporal validity, evidence and duplicates]
+    A --> L[Existing temporal lifecycle: add, merge, update, historical or ignore]
+    A --> F[Flag unresolved conflict]
+    F --> H[Explicit human decision and immutable resolution audit]
+    H --> L
+    L --> M[(Persistent account SQLite states and evidence)]
+    U --> Q[Automatic query intent, entity and attribute matching]
+    M --> R[Lexical or local semantic group matching, then temporal selection; exclude forgotten chains]
+    Q --> R
+    R --> O[Guarded local current-answer wording or deterministic response]
+    O --> Z[Reply with evidence IDs and source timestamps]
+```
+
+Local LLM/embedding integration is implemented, but real inference was blocked
+by missing Ollama/models at development time. General attributes use lexical
+matching or local semantic nominations followed by the existing temporal selector.
+Light mode has no pretrained
+detector. The separately trained Open Images head remains limited to four car
+colours under its opt-in profile. Unsupported image-only association requests ask
+for clarification rather than inventing object identity.
+
+## Preserved legacy data flow
 
 ```mermaid
 flowchart LR
@@ -65,6 +110,14 @@ Observation time controls validity. Ingestion time records when the system recei
 The retriever resolves an explicit identity before selecting current, previous, original, after, when, history, evidence, as-of, or conflict semantics. It returns answer-supporting state IDs and evidence IDs. Conflict answers are `uncertain` until resolved; unsupported or ambiguous requests abstain. An optional LLM can only rephrase a grounded prompt and is rejected if it introduces another known color.
 
 ## Runtime profiles
+
+The authenticated account interface also supports an explicitly enabled Groq text
+provider for unverified candidate extraction, advisory selection and grounded
+conversational phrasing. Memory acceptance and all lifecycle writes remain local.
+Local semantic embeddings are independent and optional; lexical retrieval stays
+available. See [current provider architecture and tests](groq_implementation.md)
+and [privacy/setup](groq_setup.md). This does not change frozen Track A results or
+add general visual recognition. The legacy demonstration remains deterministic.
 
 - **Light/Track A:** rules, hashing-256, no detector, HSV color, histogram image embeddings. Fully offline and the only profile with frozen comparative results.
 - **Optional pretrained:** sentence transformer, YOLO, CLIP, and optional trained heads. Adapters exist, but release-level real-image performance has not been established.

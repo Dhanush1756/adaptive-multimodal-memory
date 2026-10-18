@@ -1,0 +1,27 @@
+/* Local styling only: no external assets, scripts or user-provided HTML. */
+:root { --memory-accent: #10a37f; }
+.stMainBlockContainer { max-width: 56rem; padding-top: 2.2rem; padding-bottom: 3rem; }
+[data-testid="stSidebar"] { border-right: 1px solid rgba(128,128,128,.16); }
+[data-testid="stSidebar"] .stButton button { border-radius: 12px; }
+.st-key-chosen_conversation [role="radiogroup"] { gap: .3rem; max-height: 45vh; overflow-y: auto; }
+.st-key-chosen_conversation [role="radiogroup"] label { border-radius: 10px; padding: .4rem; }
+.st-key-chosen_conversation [role="radiogroup"] label:hover { background: rgba(128,128,128,.10); }
+.memory-brand { font-size: 1.2rem; font-weight: 650; letter-spacing: -.035em; margin: .4rem 0 1.2rem; }
+.memory-brand span { color: var(--memory-accent); margin-right: .45rem; }
+.memory-heading { font-size: 1.05rem; font-weight: 600; letter-spacing: -.025em; }
+.memory-welcome { text-align: center; padding: 12vh 0 2rem; }
+.memory-welcome .mark { color: var(--memory-accent); font-size: 2.2rem; margin-bottom: 1rem; }
+.memory-welcome h1 { font-size: clamp(1.8rem, 5vw, 2.7rem); font-weight: 600; letter-spacing: -.05em; }
+.memory-welcome p { opacity: .65; max-width: 32rem; margin: .8rem auto; line-height: 1.7; }
+[data-testid="stChatMessage"] { background: transparent; padding: 1.1rem .5rem; }
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
+    background: rgba(128,128,128,.10); border-radius: 18px; margin: .8rem 0;
+}
+[data-testid="stChatInput"] { border-radius: 22px; box-shadow: 0 4px 24px rgba(0,0,0,.07); }
+[data-testid="stChatInput"]:focus-within { border-color: var(--memory-accent); }
+[data-testid="stBottomBlockContainer"] { max-width: 56rem; margin: auto; padding-top: .6rem; }
+[data-testid="stChatMessage"] [data-testid="stExpander"] { border-radius: 12px; }
+@media (max-width: 640px) {
+    .stMainBlockContainer { padding-left: 1rem; padding-right: 1rem; }
+    .memory-welcome { padding-top: 7vh; }
+}

@@ -26,6 +26,7 @@ class ImageAnalysis:
     association_reason: str = ""
     detector_model: str = ""
     embedding_model: str = ""
+    classifier: Dict[str, Any] = field(default_factory=dict)
 
     @property
     def entity(self) -> Optional[str]:
@@ -44,4 +45,5 @@ class ImageAnalysis:
             "detector_model": self.detector_model,
             "attribute_model": self.method,
             "embedding_model": self.embedding_model,
+            "classifier": self.classifier,
         }

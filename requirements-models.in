@@ -1,0 +1,9 @@
+# Optional model environment INPUT, not a tested or locked requirements file.
+# Do not install into the supported Light-mode environment.
+# Resolve and record exact versions in a separate Python environment only after
+# supplying a licensed real-photo dataset and approving model-weight downloads.
+-r requirements.txt
+torch
+transformers
+ultralytics
+# No model-install, pretrained inference or real-photo training claim is made.

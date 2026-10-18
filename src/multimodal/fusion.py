@@ -65,6 +65,7 @@ def fuse(
     entity = entity.lower() if entity else None
 
     visual: Optional[VisualEvidence] = None
+    colour_attribute = claim is None or claim.attribute.lower() == 'color'
     usable_visual = image is not None and image.association_status in {"verified", "contextual"}
     if usable_visual and entity and image.color:
         visual = VisualEvidence(
@@ -78,23 +79,25 @@ def fuse(
             embedding=[float(x) for x in image.embedding],
             timestamp=timestamp,
             session_id=session_id,
-            association_status=image.association_status,
-            association_reason=image.association_reason,
-            supports_state=image.association_status == "verified",
+            association_status=image.association_status if colour_attribute else 'contextual',
+            association_reason=(image.association_reason if colour_attribute else
+                image.association_reason + '; colour extraction cannot verify this non-colour attribute'),
+            supports_state=image.association_status == "verified" and colour_attribute,
             ingested_at=ingested_at,
             detector_model=image.detector_model,
             attribute_model=image.method,
             embedding_model=image.embedding_model,
+            classifier=image.classifier,
         )
 
     agreement: Optional[float] = None
     if claim is not None and not claim.value:
         # value-less change event: fill from the image if there is one
-        if visual is not None and visual.supports_state:
+        if visual is not None and visual.supports_state and colour_attribute:
             claim = replace(claim, value=visual.value, confidence=round(min(claim.confidence, visual.confidence), 3))
         else:
             claim = None
-    elif claim is not None and visual is not None:
+    elif claim is not None and visual is not None and colour_attribute:
         # Cross-check every associated image, including detector-free contextual
         # evidence. Contextual evidence remains non-supporting and cannot change
         # state, but its agreement is still useful to explain a visible mismatch.

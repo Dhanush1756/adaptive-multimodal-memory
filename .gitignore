@@ -5,7 +5,14 @@ __pycache__/
 .env.*
 !.env.example
 .streamlit/secrets.toml
+*.dpapi
 models/*.joblib
+*.joblib
+# Small, reviewed first-party classifier required by the Groq/Open Images demo.
+# All other model weights and downloaded assets remain excluded.
+!models/openimages_car_colour_v1/color_head.joblib
+*.pth
+*.ckpt
 *.pt
 *.onnx
 *.safetensors

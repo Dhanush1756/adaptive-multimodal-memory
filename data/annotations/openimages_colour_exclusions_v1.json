@@ -1,0 +1,33 @@
+{
+  "review_index_sha256": "e5a0170139161691761d91eb840bb4685d3e518ab28aa7cd0fad070069bf64dd",
+  "reviewer": "assistant visual review of downloaded contact sheets; not independent human gold labels",
+  "label_policy": "retain only caption-colour agreement; exclude ambiguous colours, major multi-colour paint, prominent livery, obvious renders and heavily filtered pictures; no classifier or HSV prediction used",
+  "excluded_indices": {
+    "3": "gray rather than clearly black", "4": "dark green or black ambiguous", "10": "black/orange multi-colour body",
+    "14": "prominent overlaid meme text", "17": "gray rather than clearly black", "21": "racing livery",
+    "22": "racing livery and multi-colour body", "23": "red body with black roof, not black",
+    "25": "dark blue/purple/black ambiguous", "30": "gray rather than black", "31": "dark green/black ambiguous",
+    "32": "brown reflections versus black ambiguous", "35": "dark purple/brown versus black ambiguous",
+    "37": "gray/purple versus black ambiguous", "40": "green body rather than black", "41": "green body rather than black",
+    "43": "apparent digital render", "45": "apparent render and ambiguous gray/blue body", "46": "cream body, not black",
+    "47": "navy/black ambiguous", "49": "strong yellow lighting obscures body colour",
+    "50": "apparent digital render", "57": "dark gray/purple versus blue ambiguous", "60": "apparent digital render",
+    "63": "large white bonnet and blue body", "64": "cyan/teal/blue ambiguity and colour processing",
+    "67": "interior view does not show the body", "68": "illustrative or heavily processed appearance",
+    "73": "large contrasting silver panels", "75": "racing livery", "76": "gray/blue ambiguous",
+    "78": "apparent digital render", "79": "dark purple/black/blue ambiguous", "80": "dark teal/green versus blue ambiguous",
+    "81": "rendered or heavily retouched appearance", "83": "purple rather than clearly blue", "84": "racing livery",
+    "88": "prominent racing livery", "95": "image obscured by foreground wire mesh", "97": "orange rather than clearly red",
+    "98": "orange rather than red", "99": "pink rather than clearly red", "109": "dark low-contrast image",
+    "110": "magenta/pink versus red ambiguous", "112": "purple/pink versus red ambiguous", "114": "orange/red ambiguity and racing livery",
+    "119": "pink/red ambiguous", "128": "heavy coloured lighting/filter", "131": "digital render",
+    "137": "green rather than white", "141": "silver/gray versus white ambiguous", "142": "red rather than white",
+    "143": "silver rather than clearly white", "145": "silver/white ambiguous", "146": "large livery and weathering",
+    "147": "mint/cream/white ambiguous", "152": "pale green/cream/white ambiguous", "153": "silver rather than white",
+    "154": "racing livery", "155": "apparent digital render", "156": "strong overlaid text and colour processing",
+    "161": "heavy colour filter", "162": "silver rather than white", "165": "silver/white ambiguous",
+    "166": "silver rather than white", "173": "red digital render, not white", "178": "pale green/blue versus white ambiguous",
+    "179": "heavy sepia colour processing", "180": "ivory/cream versus white ambiguous", "182": "pale yellow/cream rather than clear white",
+    "183": "silver/white ambiguous", "184": "red body with white roof, not white", "185": "red body with white roof, not white"
+  }
+}

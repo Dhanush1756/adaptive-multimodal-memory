@@ -25,7 +25,7 @@ class VisualPipeline:
 
     def status(self) -> Dict[str, str]:
         return {"detector": self.detector.backend, "color": self.attributes.method,
-                "image_embedding": self.embedder.name}
+                "image_embedding": self.embedder.name, **self.attributes.provenance()}
 
     def analyze(self, image: Any, preferred_entity: Optional[str] = None) -> ImageAnalysis:
         img = load_image(image)
@@ -69,4 +69,5 @@ class VisualPipeline:
             association_reason=association_reason,
             detector_model=self.detector.backend,
             embedding_model=self.embedder.name,
+            classifier={**self.attributes.provenance(), "applied": attrs["method"] == "hsv+head"},
         )

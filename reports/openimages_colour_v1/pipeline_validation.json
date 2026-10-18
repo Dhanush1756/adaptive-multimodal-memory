@@ -1,0 +1,884 @@
+{
+  "configuration": {
+    "features": "hist",
+    "seed": 13,
+    "C": 2.0,
+    "classes": [
+      "black",
+      "blue",
+      "red",
+      "white"
+    ],
+    "n_train": 69,
+    "n_real": 69,
+    "python": "3.14.6",
+    "manifest_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+    "input_scope": "declared object crops; annotation quality is recorded, not assumed human-verified",
+    "annotation_status": [
+      "human-caption-derived; assistant-reviewed; not independent human gold"
+    ],
+    "group_scope": [
+      "source-author plus perceptual clusters; physical-object identity unverified"
+    ],
+    "detector": "none",
+    "calibrated": false,
+    "encoder_model": "rgb-histogram-64"
+  },
+  "loaded_status": {
+    "detector": "none (whole-image fallback)",
+    "color": "hsv+head",
+    "image_embedding": "color-histogram",
+    "classifier": "logistic-regression",
+    "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+    "classifier_features": "hist",
+    "classifier_classes": [
+      "black",
+      "blue",
+      "red",
+      "white"
+    ],
+    "classifier_entity_scope": [
+      "car"
+    ],
+    "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+    "classifier_calibrated": false
+  },
+  "dataset_counts": {
+    "train": {
+      "black": 13,
+      "blue": 13,
+      "red": 26,
+      "white": 17
+    },
+    "dev": {
+      "black": 10,
+      "blue": 2,
+      "red": 5,
+      "white": 4
+    },
+    "test": {
+      "black": 6,
+      "blue": 5,
+      "red": 7,
+      "white": 5
+    }
+  },
+  "model_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+  "test_n": 23,
+  "pipeline_accuracy": 0.8260869565217391,
+  "pipeline_per_class": {
+    "black": {
+      "precision": 0.625,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.7142857142857143,
+      "support": 6.0
+    },
+    "blue": {
+      "precision": 0.8333333333333334,
+      "recall": 1.0,
+      "f1-score": 0.9090909090909091,
+      "support": 5.0
+    },
+    "red": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 7.0
+    },
+    "white": {
+      "precision": 1.0,
+      "recall": 0.4,
+      "f1-score": 0.5714285714285714,
+      "support": 5.0
+    },
+    "accuracy": 0.8260869565217391,
+    "macro avg": {
+      "precision": 0.8645833333333334,
+      "recall": 0.8083333333333333,
+      "f1-score": 0.7987012987012987,
+      "support": 23.0
+    },
+    "weighted avg": {
+      "precision": 0.8659420289855073,
+      "recall": 0.8260869565217391,
+      "f1-score": 0.8125352907961604,
+      "support": 23.0
+    }
+  },
+  "pipeline_confusion_labels": [
+    "black",
+    "blue",
+    "red",
+    "white"
+  ],
+  "pipeline_confusion_matrix": [
+    [
+      5,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      5,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      7,
+      0
+    ],
+    [
+      3,
+      0,
+      0,
+      2
+    ]
+  ],
+  "hsv_confusion_labels": [
+    "black",
+    "blue",
+    "red",
+    "silver",
+    "white"
+  ],
+  "hsv_confusion_matrix": [
+    [
+      5,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      5,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      7,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      4,
+      0
+    ]
+  ],
+  "memory_checks": [
+    {
+      "source": "text",
+      "photo": "crops/1d66bc96d35337d9.png",
+      "expected_photo_colour": "white",
+      "observed_photo_colour": "white",
+      "state_before_resolution": "red",
+      "prompted": true,
+      "current_after": "red",
+      "original_after": "red",
+      "audit_count": 1,
+      "evidence_methods": [
+        "hsv+head"
+      ]
+    },
+    {
+      "source": "image",
+      "photo": "crops/1d66bc96d35337d9.png",
+      "expected_photo_colour": "white",
+      "observed_photo_colour": "white",
+      "state_before_resolution": "red",
+      "prompted": true,
+      "current_after": "white",
+      "original_after": "red",
+      "audit_count": 1,
+      "evidence_methods": [
+        "hsv+head"
+      ]
+    }
+  ],
+  "predictions": [
+    {
+      "path": "crops/26183d88c4f8012f.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "black",
+      "pipeline_prediction": "black",
+      "hsv_prediction": "black",
+      "correct": true,
+      "confidence": 0.366,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 42.08299999299925
+    },
+    {
+      "path": "crops/378418c267f1ccad.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "black",
+      "pipeline_prediction": "black",
+      "hsv_prediction": "black",
+      "correct": true,
+      "confidence": 0.404,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 17.03619999170769
+    },
+    {
+      "path": "crops/81d967467488a1fa.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "black",
+      "pipeline_prediction": "blue",
+      "hsv_prediction": "blue",
+      "correct": false,
+      "confidence": 0.461,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 24.680199989234097
+    },
+    {
+      "path": "crops/a70bfab1f79150de.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "black",
+      "pipeline_prediction": "black",
+      "hsv_prediction": "black",
+      "correct": true,
+      "confidence": 0.333,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 28.713599996990524
+    },
+    {
+      "path": "crops/e23f496bbc49f399.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "black",
+      "pipeline_prediction": "black",
+      "hsv_prediction": "black",
+      "correct": true,
+      "confidence": 0.421,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 24.91689998714719
+    },
+    {
+      "path": "crops/e4c538f62413f251.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "black",
+      "pipeline_prediction": "black",
+      "hsv_prediction": "black",
+      "correct": true,
+      "confidence": 0.42,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 19.114800001261756
+    },
+    {
+      "path": "crops/64c735f81e689331.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "blue",
+      "pipeline_prediction": "blue",
+      "hsv_prediction": "blue",
+      "correct": true,
+      "confidence": 0.647,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 24.712700003874488
+    },
+    {
+      "path": "crops/8554bdb4bb78d326.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "blue",
+      "pipeline_prediction": "blue",
+      "hsv_prediction": "blue",
+      "correct": true,
+      "confidence": 0.556,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 24.065000005066395
+    },
+    {
+      "path": "crops/c06df3267fbde56b.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "blue",
+      "pipeline_prediction": "blue",
+      "hsv_prediction": "blue",
+      "correct": true,
+      "confidence": 0.55,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 34.23109999857843
+    },
+    {
+      "path": "crops/f5c2a80a21ddb78c.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "blue",
+      "pipeline_prediction": "blue",
+      "hsv_prediction": "blue",
+      "correct": true,
+      "confidence": 0.463,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 32.26409999479074
+    },
+    {
+      "path": "crops/fb34545b0515c8fb.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "blue",
+      "pipeline_prediction": "blue",
+      "hsv_prediction": "blue",
+      "correct": true,
+      "confidence": 0.543,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 23.998499993467703
+    },
+    {
+      "path": "crops/00230c216711fceb.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "red",
+      "pipeline_prediction": "red",
+      "hsv_prediction": "red",
+      "correct": true,
+      "confidence": 0.716,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 22.41910000157077
+    },
+    {
+      "path": "crops/0dd112315cf12277.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "red",
+      "pipeline_prediction": "red",
+      "hsv_prediction": "red",
+      "correct": true,
+      "confidence": 0.66,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 45.884399994974956
+    },
+    {
+      "path": "crops/0e2e68bdc40f10c3.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "red",
+      "pipeline_prediction": "red",
+      "hsv_prediction": "red",
+      "correct": true,
+      "confidence": 0.543,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 31.60800000478048
+    },
+    {
+      "path": "crops/4f3a0f75518a4e6c.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "red",
+      "pipeline_prediction": "red",
+      "hsv_prediction": "red",
+      "correct": true,
+      "confidence": 0.712,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 25.088000009418465
+    },
+    {
+      "path": "crops/500a9dd05eb4d9c3.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "red",
+      "pipeline_prediction": "red",
+      "hsv_prediction": "red",
+      "correct": true,
+      "confidence": 0.709,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 36.308199996710755
+    },
+    {
+      "path": "crops/62f6cb65fba70dd4.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "red",
+      "pipeline_prediction": "red",
+      "hsv_prediction": "red",
+      "correct": true,
+      "confidence": 0.738,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 32.18310000374913
+    },
+    {
+      "path": "crops/f2499872a776cbb1.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "red",
+      "pipeline_prediction": "red",
+      "hsv_prediction": "red",
+      "correct": true,
+      "confidence": 0.689,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 20.78790000814479
+    },
+    {
+      "path": "crops/1d66bc96d35337d9.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "white",
+      "pipeline_prediction": "white",
+      "hsv_prediction": "silver",
+      "correct": true,
+      "confidence": 0.305,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 23.661200000788085
+    },
+    {
+      "path": "crops/54b313a90378af25.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "white",
+      "pipeline_prediction": "black",
+      "hsv_prediction": "silver",
+      "correct": false,
+      "confidence": 0.286,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 29.990499999257736
+    },
+    {
+      "path": "crops/87b1cc825fa313b2.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "white",
+      "pipeline_prediction": "white",
+      "hsv_prediction": "silver",
+      "correct": true,
+      "confidence": 0.357,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 32.55709999939427
+    },
+    {
+      "path": "crops/bec364af10e100f1.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "white",
+      "pipeline_prediction": "black",
+      "hsv_prediction": "black",
+      "correct": false,
+      "confidence": 0.328,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 28.18700000352692
+    },
+    {
+      "path": "crops/c75611295449a7b5.png",
+      "gold_scope": "caption-derived; assistant-reviewed",
+      "expected": "white",
+      "pipeline_prediction": "black",
+      "hsv_prediction": "silver",
+      "correct": false,
+      "confidence": 0.285,
+      "method": "hsv+head",
+      "association_status": "contextual",
+      "classifier": {
+        "classifier": "logistic-regression",
+        "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+        "classifier_features": "hist",
+        "classifier_classes": [
+          "black",
+          "blue",
+          "red",
+          "white"
+        ],
+        "classifier_entity_scope": [
+          "car"
+        ],
+        "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+        "classifier_calibrated": false,
+        "applied": true
+      },
+      "latency_ms": 42.11919999215752
+    }
+  ],
+  "interpretation": "Exploratory four-colour real-car study with weak/AI-reviewed labels, author/duplicate groups, no verified physical identity and no pretrained detector or encoder."
+}

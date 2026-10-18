@@ -1,0 +1,17 @@
+{
+  "environment": "Windows 11, Anaconda CPython 3.14.6, Streamlit 1.58.0, pytest 9.0.3",
+  "command": "C:\\Users\\DHANUSH S\\anaconda3\\python.exe -B -m pytest -q",
+  "passed": 289,
+  "failed": 0,
+  "skipped": 0,
+  "duration_seconds": 210.58,
+  "focused_groq_passed": 30,
+  "focused_groq_duration_seconds": 26.89,
+  "provider_responses": "fake HTTPS opener responses, not live model inference",
+  "live_api_requests_performed": false,
+  "browser_checks_performed": false,
+  "model_downloads_or_package_installs": false,
+  "user_database_access": false,
+  "frozen_benchmark_rerun": false,
+  "git_mutations": false
+}

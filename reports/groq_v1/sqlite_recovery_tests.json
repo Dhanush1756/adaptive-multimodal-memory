@@ -1,0 +1,18 @@
+{
+  "environment": "Windows, Anaconda CPython 3.14.6, Streamlit 1.58.0, pytest 9.0.3",
+  "command": "python -B -m pytest -q -x --tb=short",
+  "passed": 289,
+  "failed": 0,
+  "skipped": 0,
+  "duration_seconds": 190.96,
+  "original_closed_workspace_regression_before_fix": "1 failed in 11.49s",
+  "focused_ui_and_account_tests_after_fix": "14 passed in 69.30s",
+  "corrected_full_record_comparison_focused_test": "1 passed in 13.42s",
+  "intermediate_full_run_test_harness_thread_error": "1 failed, 288 passed in 195.89s; corrected before final run",
+  "user_reported_live_groq_probe": {"result": "PASS", "prompt_tokens": 152, "completion_tokens": 38, "total_tokens": 190},
+  "agent_performed_live_api_calls": false,
+  "browser_verification": "not performed; AppTest integration only",
+  "user_database_access_by_agent": false,
+  "data_reset_or_schema_change": false,
+  "frozen_files_and_trained_model_unchanged": true
+}

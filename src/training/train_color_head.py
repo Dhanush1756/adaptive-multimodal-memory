@@ -3,17 +3,18 @@
     # synthetic only (pipeline check; will NOT transfer to real photos)
     python -m src.training.train_color_head --data data/synthetic
 
-    # recommended: add your own real photos, one folder per colour
-    python -m src.training.train_color_head --data data/synthetic --real-dir data/raw/colors
-        data/raw/colors/red/*.jpg   data/raw/colors/blue/*.jpg ...
+    # real photographs require the replacement object-group experiment:
+    python -m src.training.real_color_experiment --manifest data/raw/colors/manifest.csv --features hist --out models/colour-study-v1
+
+The historical --real-dir filename split is disabled before pipeline creation.
 
 Features: CLIP image features if CLIP loads (config cv.clip_model), else a colour histogram.
 The head replaces CLIP zero-shot in src/cv/attributes.py and is blended with the HSV evidence.
 Crops are produced by exactly the same detect -> select -> crop path as at inference time.
 
-Evaluation printed: synthetic dev accuracy, held-out real-photo accuracy (20%, chosen by file
-name hash so it is stable across runs), and the HSV-only baseline on the same images.
-Use only held-out numbers in reports. Photos must be collected legally and without people/faces.
+This historical utility evaluates only synthetic development images and the
+HSV-only baseline. Real-photo training and evaluation require the group-based
+replacement above. Synthetic results do not establish real-photo performance.
 """
 from __future__ import annotations
 
@@ -62,17 +63,7 @@ def synthetic_items(scenarios) -> List[Tuple[Image.Image, str, str]]:
 
 
 def real_items(root: str, holdout: bool) -> List[Tuple[Image.Image, str, None]]:
-    out = []
-    for d in sorted(Path(root).iterdir()):
-        if not d.is_dir():
-            continue
-        for p in sorted(d.iterdir()):
-            if p.suffix.lower() not in IMG_EXT:
-                continue
-            is_hold = int(hashlib.md5(p.name.encode()).hexdigest(), 16) % 5 == 0
-            if is_hold == holdout:
-                out.append((load_image(str(p)), normalize_value(d.name), None))
-    return out
+    raise ValueError("Filename-only real-photo splits are disabled. Use src.training.real_color_experiment with an object-group manifest.")
 
 
 def evaluate(name: str, clf: Any, items, vp: VisualPipeline, kind: str) -> None:
@@ -96,6 +87,9 @@ def main() -> None:
     ap.add_argument("--C", type=float, default=2.0)
     ap.add_argument("--out", default=resolve_path("models/color_head.joblib"))
     a = ap.parse_args()
+
+    if a.real_dir:
+        ap.error("Filename-only real-photo splits are disabled. Use python -m src.training.real_color_experiment --manifest <csv> --features <hist|clip> --out <new-directory>.")
 
     vp = VisualPipeline(load_config(), light=a.light)
     kind = "clip" if (vp.clip is not None and vp.clip.available) else "hist"

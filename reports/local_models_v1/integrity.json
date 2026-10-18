@@ -1,0 +1,123 @@
+{
+  "annotations": [
+    {
+      "path": "data/annotations/phase4_dev.jsonl",
+      "sha256_canonical_lf": "efd58db3f1c2ee980311217c048276ac0d230fd2d2ceaf0e8c0ac0c84860cdcd",
+      "matches_HEAD": true
+    },
+    {
+      "path": "data/annotations/phase4_test.jsonl",
+      "sha256_canonical_lf": "5796204c446fc69a4d126d08c77a6de436fc281c3737fb72336facf4c99654bd",
+      "matches_HEAD": true
+    },
+    {
+      "path": "data/annotations/phase5_dev.jsonl",
+      "sha256_canonical_lf": "9e488655eb1a0ecd7c6f429abead042e1cbacbaeafa412bc94f0f4e5a57b1462",
+      "matches_HEAD": true
+    },
+    {
+      "path": "data/annotations/phase5_test.jsonl",
+      "sha256_canonical_lf": "b911d6b9993dee49b995c324eb29d53dc37bbd7e5a9b880da0f7484b54f5e019",
+      "matches_HEAD": true
+    },
+    {
+      "path": "data/annotations/phase6_dev.jsonl",
+      "sha256_canonical_lf": "a05c713fad1d8c06159c1b6a53502ea8748ac1e76ebb3ce39225aaa91c2e02bc",
+      "matches_HEAD": true
+    },
+    {
+      "path": "data/annotations/phase6_test.jsonl",
+      "sha256_canonical_lf": "831449bb23989915803bf715071a656bf663c6c335320890b8340edfa9fadaf7",
+      "matches_HEAD": true
+    }
+  ],
+  "historical_reports": [
+    {
+      "path": "reports/phase4/ablation_results.json",
+      "sha256_canonical_lf": "2af3e3adc3b61823eb9f685fa87bcdbcfab16b3b542e8bb46a05ab6709829482",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase4/ablation_table.md",
+      "sha256_canonical_lf": "189b725740b1e490ee95dfe002448e2ea345592037b0cb6ba6dd7991478ff6b2",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase5/ablation_results.json",
+      "sha256_canonical_lf": "690cdfad7a7417a5884cd2d25199de47079a41b5672d4cad8a2354c1a9b106b4",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase5/ablation_table.md",
+      "sha256_canonical_lf": "faa7529f57bb564ee26495145efce7df16103b09c8a83723750eded549bd2269",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase5/phase4_historical_rerun/ablation_results.json",
+      "sha256_canonical_lf": "6743beb05c6b90188b4ecaba36fa8da0e8362c6e5f6af8635c5937e8049cf698",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase5/phase4_historical_rerun/ablation_table.md",
+      "sha256_canonical_lf": "026016ef18ef3c0ea016ea6892dac092870c9e040a799cbce3feeb60dfb5edd1",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase6/ablation_results.json",
+      "sha256_canonical_lf": "621a823f23e984d2afc09711235043d6535b5b1aa3cd38a4c62823a49ef9e3cb",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase6/ablation_table.md",
+      "sha256_canonical_lf": "6635e386a1f478683652419df94fbefa7326f9e1a9bbaf8054b00235f8df7feb",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase6/error_analysis.json",
+      "sha256_canonical_lf": "e788a2f87f79a7e801e97a65a62ec6de0009e84b1a25370be976df557eb6f3c4",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase6/error_analysis.md",
+      "sha256_canonical_lf": "a9b99b60829d05ae17e1e52044421d86a97768388973bca9dfa9622668e475df",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase6/model_availability.json",
+      "sha256_canonical_lf": "5e110f0e3d7c262884252d0bc22711ef238aed29da69700954e8b87d100c94d6",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase6/paired_comparisons.json",
+      "sha256_canonical_lf": "7f555172682ae0b54eb7d49e16d859cb29d4844ca2cc111f4320559a454ca44b",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase6/research_summary.md",
+      "sha256_canonical_lf": "c098e0d187de607cfde37f2ab66085ad598c3c327778e02359aa242172026fa3",
+      "matches_HEAD": true
+    },
+    {
+      "path": "reports/phase6/run_manifest.json",
+      "sha256_canonical_lf": "4ab935cea238f3b9af1bac8dd2f7fedbb82f8f366b2e7fab078645e0c3913378",
+      "matches_HEAD": true
+    }
+  ],
+  "default_files": [
+    {
+      "path": "config.yaml",
+      "sha256_canonical_lf": "f9a2777e23f555c3da2b2ab00426ebf5261b9af9c386c0121af4774621f8346f",
+      "matches_HEAD": true
+    },
+    {
+      "path": "requirements.txt",
+      "sha256_canonical_lf": "2b15b57aa7c66446a78a88dbd9651a10b21e6d71a28c35f20620cb2680657d50",
+      "matches_HEAD": true
+    }
+  ],
+  "openimages_model_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+  "existing_user_database_opened": false,
+  "model_download_or_dependency_install": false,
+  "browser_verification": false,
+  "git_mutations": false
+}

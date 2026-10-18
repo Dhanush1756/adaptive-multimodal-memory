@@ -1,0 +1,17 @@
+# Separate demonstration storage. No existing user database is reset or opened.
+paths:
+  db_path: data/processed/groq_demo/memory.db
+  image_dir: data/processed/groq_demo/images
+llm:
+  provider: groq
+  timeout_seconds: 20
+cv:
+  color_head_path: models/openimages_car_colour_v1/color_head.joblib
+  color_head_entities: [car]
+local_models:
+  enabled: true
+  endpoint: http://127.0.0.1:11434
+  embedding_model: all-minilm:latest
+  semantic_threshold: 0.55
+  semantic_margin: 0.06
+  max_index_documents: 512

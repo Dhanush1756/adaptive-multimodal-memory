@@ -44,10 +44,10 @@ class HashingEmbedder:
 
 
 class SentenceTransformerEmbedder:
-    def __init__(self, model_name: str):
+    def __init__(self, model_name: str, local_files_only=False):
         from sentence_transformers import SentenceTransformer  # heavy import kept local
 
-        self.model = SentenceTransformer(model_name)
+        self.model = SentenceTransformer(model_name, local_files_only=local_files_only)
         self.name = model_name
         self.dim = int(self.model.get_sentence_embedding_dimension())
 
@@ -64,13 +64,14 @@ def get_embedder(cfg: Optional[Dict[str, Any]] = None, force_fallback: bool = Fa
     nlp_cfg = (cfg or {}).get("nlp", {})
     model = nlp_cfg.get("embedding_model", "sentence-transformers/all-MiniLM-L6-v2")
     dim = nlp_cfg.get("fallback_embedding_dim", 256)
-    key = "hash" if force_fallback else model
+    local_only = bool(nlp_cfg.get('local_files_only',False))
+    key = f'hash:{dim}' if force_fallback else (model,local_only,dim)
     if key in _CACHE:
         return _CACHE[key]
     emb = None
     if not force_fallback:
         try:
-            emb = SentenceTransformerEmbedder(model)
+            emb = SentenceTransformerEmbedder(model, local_files_only=local_only)
         except Exception as exc:  # offline, missing package, bad name ...
             print(f"[embeddings] could not load '{model}' ({exc.__class__.__name__}); using hashing fallback")
     if emb is None:

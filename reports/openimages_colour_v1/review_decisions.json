@@ -1,0 +1,1490 @@
+[
+  {
+    "index": 0,
+    "image_id": "003132be85a0beae",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 1,
+    "image_id": "02ec4bbec941280a",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 2,
+    "image_id": "064e47e2061cc517",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 3,
+    "image_id": "09f8b77a88f224d9",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "gray rather than clearly black",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 4,
+    "image_id": "0c53a955b482161a",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "dark green or black ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 5,
+    "image_id": "0e78d30f3c9e4506",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 6,
+    "image_id": "113db08614c821a3",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 7,
+    "image_id": "153ca6b8093d01ef",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 8,
+    "image_id": "182c5012752ad092",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 9,
+    "image_id": "191f3a41c1631139",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 10,
+    "image_id": "1d57e40d40f18464",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "black/orange multi-colour body",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 11,
+    "image_id": "1ecc0db941d92657",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 12,
+    "image_id": "26183d88c4f8012f",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 13,
+    "image_id": "27a36d80be726d15",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 14,
+    "image_id": "352dff96427e8d81",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "prominent overlaid meme text",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 15,
+    "image_id": "378418c267f1ccad",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 16,
+    "image_id": "3bb70c0267942681",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 17,
+    "image_id": "3ec0e81d00d8bc2c",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "gray rather than clearly black",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 18,
+    "image_id": "45d1a8ba81d02555",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 19,
+    "image_id": "468b60dbc63397c0",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 20,
+    "image_id": "53c5232a325710bb",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 21,
+    "image_id": "57aacc99d581528e",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "racing livery",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 22,
+    "image_id": "59759fb1d7d62a4f",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "racing livery and multi-colour body",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 23,
+    "image_id": "5bc0a48d2b85ae88",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "red body with black roof, not black",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 24,
+    "image_id": "68a36f7423794862",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 25,
+    "image_id": "727ba20e113a4260",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "dark blue/purple/black ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 26,
+    "image_id": "79f73796dbe390e5",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 27,
+    "image_id": "7c4cb9f58d38fc0e",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 28,
+    "image_id": "81d967467488a1fa",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 29,
+    "image_id": "8aef4191021de036",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 30,
+    "image_id": "9979e2bd18213f3a",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "gray rather than black",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 31,
+    "image_id": "a626ad6c50d3a8d7",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "dark green/black ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 32,
+    "image_id": "a6e3b0b73220cd32",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "brown reflections versus black ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 33,
+    "image_id": "a70bfab1f79150de",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 34,
+    "image_id": "a774a6f81fea258b",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 35,
+    "image_id": "b633d505332d1a45",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "dark purple/brown versus black ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 36,
+    "image_id": "b8016fdd47a096fa",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 37,
+    "image_id": "c773ec0bbbcf23e4",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "gray/purple versus black ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 38,
+    "image_id": "c89c2b1f475df343",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 39,
+    "image_id": "c8c2db1590f832ee",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 40,
+    "image_id": "ca5c310bba58bf91",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "green body rather than black",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 41,
+    "image_id": "da8eea24abc5d91d",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "green body rather than black",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 42,
+    "image_id": "e23f496bbc49f399",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 43,
+    "image_id": "e2f3f17e5e627dc5",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "apparent digital render",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 44,
+    "image_id": "e4c538f62413f251",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 45,
+    "image_id": "e7a151c7f73792d9",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "apparent render and ambiguous gray/blue body",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 46,
+    "image_id": "e8376cbcf4c016bf",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "cream body, not black",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 47,
+    "image_id": "eb5fdfc162e5fd34",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "navy/black ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 48,
+    "image_id": "f056600365996903",
+    "caption_label": "black",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 49,
+    "image_id": "fb55b73f241bf50a",
+    "caption_label": "black",
+    "decision": "exclude",
+    "reason": "strong yellow lighting obscures body colour",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 50,
+    "image_id": "086a44384e872726",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "apparent digital render",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 51,
+    "image_id": "0dc818e5384e5289",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 52,
+    "image_id": "0ef79b5cdf728e01",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 53,
+    "image_id": "1323163565955362",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 54,
+    "image_id": "305065b141393c46",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 55,
+    "image_id": "30d350f09a97cdd7",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 56,
+    "image_id": "3ed000628c6a0587",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 57,
+    "image_id": "4f7cd70faff70256",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "dark gray/purple versus blue ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 58,
+    "image_id": "55b40b0932e13653",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 59,
+    "image_id": "561228f883b91c64",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 60,
+    "image_id": "5cc5faa42258524f",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "apparent digital render",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 61,
+    "image_id": "63a2023afa1fdd60",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 62,
+    "image_id": "64c735f81e689331",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 63,
+    "image_id": "65378c1fc8c5ad0c",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "large white bonnet and blue body",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 64,
+    "image_id": "67114ee3e551a99a",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "cyan/teal/blue ambiguity and colour processing",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 65,
+    "image_id": "6a3384383cb243c9",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 66,
+    "image_id": "7bcce2931b9e442e",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 67,
+    "image_id": "7d0f0d9444c0d22c",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "interior view does not show the body",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 68,
+    "image_id": "82a9cbf32d9b8bcf",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "illustrative or heavily processed appearance",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 69,
+    "image_id": "82b379d729ff8c2b",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 70,
+    "image_id": "8554bdb4bb78d326",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 71,
+    "image_id": "864310a6a93074bf",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 72,
+    "image_id": "877669a0f12d0b32",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 73,
+    "image_id": "8f5e92debd91b3bb",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "large contrasting silver panels",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 74,
+    "image_id": "927228a44e769c99",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 75,
+    "image_id": "a11377f21cbe7b5d",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "racing livery",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 76,
+    "image_id": "bb09dda759bf5f42",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "gray/blue ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 77,
+    "image_id": "c06df3267fbde56b",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 78,
+    "image_id": "cfe71ea85264c7b3",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "apparent digital render",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 79,
+    "image_id": "d1bd5b0b6fae3598",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "dark purple/black/blue ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 80,
+    "image_id": "e05c65afc710a6f6",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "dark teal/green versus blue ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 81,
+    "image_id": "e7b06050f612d2ba",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "rendered or heavily retouched appearance",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 82,
+    "image_id": "f5c2a80a21ddb78c",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 83,
+    "image_id": "f684d6d673e1b149",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "purple rather than clearly blue",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 84,
+    "image_id": "f6cfa18fdc2a217e",
+    "caption_label": "blue",
+    "decision": "exclude",
+    "reason": "racing livery",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 85,
+    "image_id": "fb34545b0515c8fb",
+    "caption_label": "blue",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 86,
+    "image_id": "001083f05db4352b",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 87,
+    "image_id": "00230c216711fceb",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 88,
+    "image_id": "0c92c0f1cf88863e",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "prominent racing livery",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 89,
+    "image_id": "0dd112315cf12277",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 90,
+    "image_id": "0e2e68bdc40f10c3",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 91,
+    "image_id": "1779d4c01aa42f26",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 92,
+    "image_id": "22009267df1eef43",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 93,
+    "image_id": "2ce0719caf324eb1",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 94,
+    "image_id": "33f24b689dd99c00",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 95,
+    "image_id": "34335dcf0401c8c2",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "image obscured by foreground wire mesh",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 96,
+    "image_id": "3999a066ae304715",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 97,
+    "image_id": "4383947b8040b738",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "orange rather than clearly red",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 98,
+    "image_id": "4aa5361df4de3986",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "orange rather than red",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 99,
+    "image_id": "4cab3bc4ea23226e",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "pink rather than clearly red",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 100,
+    "image_id": "4e217d8a0f2f42d3",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 101,
+    "image_id": "4f28ab9a116d57c3",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 102,
+    "image_id": "4f3a0f75518a4e6c",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 103,
+    "image_id": "500a9dd05eb4d9c3",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 104,
+    "image_id": "50784a0961216133",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 105,
+    "image_id": "535d6e0a924247a4",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 106,
+    "image_id": "57774f673a9479d5",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 107,
+    "image_id": "5c856e54aa9ecb91",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 108,
+    "image_id": "62f6cb65fba70dd4",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 109,
+    "image_id": "63b54a9294a91cd9",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "dark low-contrast image",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 110,
+    "image_id": "66417fec5acc0c2b",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "magenta/pink versus red ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 111,
+    "image_id": "728d2997236bd96e",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 112,
+    "image_id": "7e01f44dabffb807",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "purple/pink versus red ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 113,
+    "image_id": "7e50247c78fa1213",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 114,
+    "image_id": "819d5f5daff18409",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "orange/red ambiguity and racing livery",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 115,
+    "image_id": "8407cc89d4ef5ab2",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 116,
+    "image_id": "872ec10f4fcb90aa",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 117,
+    "image_id": "88ebff265a5f45f7",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 118,
+    "image_id": "8b5d958c661e38ed",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 119,
+    "image_id": "9288da4a44b13c59",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "pink/red ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 120,
+    "image_id": "98c5e220d7eab75f",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 121,
+    "image_id": "98f87035b77e2ede",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 122,
+    "image_id": "9a0c7f79654e82d5",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 123,
+    "image_id": "a00f596ecc1a605d",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 124,
+    "image_id": "a52079c6cc4050cd",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 125,
+    "image_id": "a78a5aa77262260e",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 126,
+    "image_id": "adbc2ca812c0c11a",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 127,
+    "image_id": "b19073acd27ddea3",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 128,
+    "image_id": "b9eb5a2f6ce07dc1",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "heavy coloured lighting/filter",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 129,
+    "image_id": "ccb00bfc7c1487d7",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 130,
+    "image_id": "d657b9e208b3cfe9",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 131,
+    "image_id": "dead6bc1e76b3b5a",
+    "caption_label": "red",
+    "decision": "exclude",
+    "reason": "digital render",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 132,
+    "image_id": "e4cfaaaa9ef168b3",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 133,
+    "image_id": "e4fb3ec67fe6fa34",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 134,
+    "image_id": "f2499872a776cbb1",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 135,
+    "image_id": "f5387d39baceeaf1",
+    "caption_label": "red",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 136,
+    "image_id": "02040812efa69b71",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 137,
+    "image_id": "058ecce8decdeeaa",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "green rather than white",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 138,
+    "image_id": "0afdc9af559cc794",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 139,
+    "image_id": "106822400a1bb88c",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 140,
+    "image_id": "1d66bc96d35337d9",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 141,
+    "image_id": "240fba52ee2bad54",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "silver/gray versus white ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 142,
+    "image_id": "3858fe4c509f8542",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "red rather than white",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 143,
+    "image_id": "3b1943c86ee196f3",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "silver rather than clearly white",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 144,
+    "image_id": "45c5a5823458b1e0",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 145,
+    "image_id": "4b380b2ac4e5c417",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "silver/white ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 146,
+    "image_id": "503de9852d32a7d2",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "large livery and weathering",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 147,
+    "image_id": "53ad98b12752ad16",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "mint/cream/white ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 148,
+    "image_id": "54b313a90378af25",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 149,
+    "image_id": "57383c33a593cf28",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 150,
+    "image_id": "6049589c1b2fcba1",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 151,
+    "image_id": "7278b113f4e825e8",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 152,
+    "image_id": "7611a13aa09c19f3",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "pale green/cream/white ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 153,
+    "image_id": "76e14d05ee8acb6d",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "silver rather than white",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 154,
+    "image_id": "7723ab34ca75ff5e",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "racing livery",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 155,
+    "image_id": "77bc26386377485f",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "apparent digital render",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 156,
+    "image_id": "7b8ba978b8f60421",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "strong overlaid text and colour processing",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 157,
+    "image_id": "7e053c66ad3bd97f",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 158,
+    "image_id": "87b1cc825fa313b2",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 159,
+    "image_id": "88e5a3fe3fb0b71e",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 160,
+    "image_id": "97f3115886e6535d",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 161,
+    "image_id": "99042a829c40eb69",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "heavy colour filter",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 162,
+    "image_id": "996425fa10da7bb0",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "silver rather than white",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 163,
+    "image_id": "a0fad99f5b702765",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 164,
+    "image_id": "a6860b6789da0205",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 165,
+    "image_id": "a7197d4c4d02c789",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "silver/white ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 166,
+    "image_id": "b3acee14af42cbed",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "silver rather than white",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 167,
+    "image_id": "b54614c7c6a96327",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 168,
+    "image_id": "be56c21021eab8b4",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 169,
+    "image_id": "bec364af10e100f1",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 170,
+    "image_id": "c61ed68497448907",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 171,
+    "image_id": "c75611295449a7b5",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 172,
+    "image_id": "c9f37c92d71b0d68",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 173,
+    "image_id": "cead4370a2bfbdba",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "red digital render, not white",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 174,
+    "image_id": "cec622472f1f0092",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 175,
+    "image_id": "cecdbf1251e6c6ac",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 176,
+    "image_id": "cfc25c92ec31ed5e",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 177,
+    "image_id": "d7dccce1573ff95a",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 178,
+    "image_id": "dcc513e2a59a7a6d",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "pale green/blue versus white ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 179,
+    "image_id": "de4ca997b5b9c468",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "heavy sepia colour processing",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 180,
+    "image_id": "e34ada32db901328",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "ivory/cream versus white ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 181,
+    "image_id": "e617abfd70224732",
+    "caption_label": "white",
+    "decision": "retain-caption-label",
+    "reason": "caption agrees with assistant visual review",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 182,
+    "image_id": "ec1ca79bfabf2ecd",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "pale yellow/cream rather than clear white",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 183,
+    "image_id": "efde2a25c1c9c924",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "silver/white ambiguous",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 184,
+    "image_id": "f197630e58eefc29",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "red body with white roof, not white",
+    "reviewer": "assistant-visual-review"
+  },
+  {
+    "index": 185,
+    "image_id": "fa8831003c9a66c8",
+    "caption_label": "white",
+    "decision": "exclude",
+    "reason": "red body with white roof, not white",
+    "reviewer": "assistant-visual-review"
+  }
+]

@@ -106,6 +106,7 @@ def evidence_items(res: RetrievalResult, include_conflicts: bool) -> List[Dict[s
                           "detector_model": ve.detector_model,
                           "attribute_model": ve.attribute_model,
                           "embedding_model": ve.embedding_model,
+                          "classifier": ve.classifier,
                           "association_status": ve.association_status,
                           "association_reason": ve.association_reason,
                           "supports_state": ve.supports_state,

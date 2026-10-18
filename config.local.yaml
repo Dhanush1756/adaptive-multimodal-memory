@@ -1,0 +1,15 @@
+# Explicit local-only demonstration storage; existing default config is preserved.
+paths:
+  db_path: data/processed/local_models_demo/memory.db
+  image_dir: data/processed/local_models_demo/images
+llm:
+  provider: ollama
+local_models:
+  enabled: true
+  endpoint: http://127.0.0.1:11434
+  llm_model: qwen3:0.6b
+  embedding_model: all-minilm:latest
+  timeout_seconds: 30
+  semantic_threshold: 0.55
+  semantic_margin: 0.06
+  max_index_documents: 512

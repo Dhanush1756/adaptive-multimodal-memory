@@ -61,7 +61,7 @@ def _shift(ref: datetime, n: int, unit: str) -> datetime:
 
 def _safe_date(y: int, m: int, d: int, ref: datetime) -> Optional[datetime]:
     try:
-        return datetime(y, m, d, ref.hour, ref.minute, ref.second)
+        return datetime(y, m, d, ref.hour, ref.minute, ref.second, tzinfo=ref.tzinfo)
     except ValueError:
         return None
 

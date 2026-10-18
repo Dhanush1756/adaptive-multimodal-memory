@@ -1,5 +1,16 @@
 # Final demonstration script
 
+For the latest **local Ollama / local embedding** phase, follow
+[local setup and the manual browser checklist](local_models_setup.md).
+Real-model and browser verification remain pending for that phase; the runtime
+was unavailable during implementation and no browser checks were performed.
+
+For the newer authenticated **automatic Message/Send flow**, use the separate
+[automatic-memory demonstration procedure](automatic_memory_implementation.md#manual-demonstration-not-tested-in-a-live-browser-for-this-change).
+That procedure covers generic explicit attributes, automatic selection decisions,
+cross-conversation retrieval and reversible forgetting. Its browser status remains
+pending; earlier browser evidence below applies to the earlier demo only.
+
 This walkthrough uses disposable test data and Light mode. The Phase 12 run
 executed these core flows in genuine headless Chrome; see
 `docs/phase12_demo_reproducibility.md` and `reports/phase12/`. A presentation

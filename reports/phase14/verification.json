@@ -1,0 +1,21 @@
+{
+  "full_suite": {
+    "command": "python -B -m pytest -q -p no:cacheprovider",
+    "passed": 212,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 110.00,
+    "python": "3.14.6",
+    "sqlite": "3.53.2",
+    "streamlit": "1.58.0",
+    "pytest": "9.0.3"
+  },
+  "evaluation_artifact": "reports/phase14/track_c_d_v1_final.json",
+  "new_account_browser_demo": "NOT_TESTED",
+  "new_account_ui_automation": "Streamlit AppTest executed",
+  "production_real_photo_training": "BLOCKED",
+  "pretrained_cv_inference": "NOT_PERFORMED",
+  "frozen_phase4_to_phase6_integrity": "UNCHANGED",
+  "user_database_access": "NONE",
+  "commit_or_push_performed": false
+}

@@ -1,0 +1,80 @@
+{
+  "study": "Open Images V7 four-colour car baseline v1",
+  "python": "3.14.6",
+  "packages": {
+    "numpy": "2.4.6",
+    "Pillow": "12.3.0",
+    "PyYAML": "6.0.3",
+    "scikit-learn": "1.9.0",
+    "joblib": "1.5.3",
+    "streamlit": "1.58.0",
+    "pytest": "9.0.3"
+  },
+  "downloads": 186,
+  "excluded": 73,
+  "retained": 113,
+  "source_metadata": {
+    "classes.csv": {
+      "url": "https://storage.googleapis.com/openimages/v7/oidv7-class-descriptions-boxable.csv",
+      "sha256": "1839e0e7e84130ae281f7f67413768601b031581c0c42e7fc17527b8e2a99aa9"
+    },
+    "boxes.csv": {
+      "url": "https://storage.googleapis.com/openimages/v5/validation-annotations-bbox.csv",
+      "sha256": "d8bbd59410af14835d7733165a7bb8a3f0213981b22dd5077b0b9f7878991ff2"
+    },
+    "images.csv": {
+      "url": "https://storage.googleapis.com/openimages/2018_04/validation/validation-images-with-rotation.csv",
+      "sha256": "ed93a0e121fe345effdfc7359b848dbc64a1ff6778c8c73563157cb500b33a17"
+    },
+    "captions.jsonl": {
+      "url": "https://storage.googleapis.com/localized-narratives/annotations/open_images_validation_captions.jsonl",
+      "sha256": "01c5eb64af111c546c8b0fec7ea1fee7f74ea9c0449c493e49c0bb749c2d618a"
+    }
+  },
+  "model_path": "models/openimages_car_colour_v1/color_head.joblib",
+  "model_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+  "model_parameters": {
+    "C": 2.0,
+    "class_weight": "balanced",
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 3000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": 13,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "model_feature_dimension": 64,
+  "split_image_counts": {
+    "train": 69,
+    "dev": 21,
+    "test": 23
+  },
+  "split_group_counts": {
+    "train": 59,
+    "dev": 20,
+    "test": 20
+  },
+  "pipeline_accuracy_wilson95_image_level": [
+    0.6286194521470433,
+    0.9302145964938723
+  ],
+  "hsv_accuracy_wilson95_image_level": [
+    0.5352960945624944,
+    0.8745155411075104
+  ],
+  "pipeline_median_ms": 28.18700000352692,
+  "pipeline_max_ms": 45.884399994974956,
+  "ci_scope": "Descriptive image-level Wilson intervals; not group-bootstrap or a significance test.",
+  "label_quality": "Human-caption-derived, assistant visually reviewed before split; independent human validation pending.",
+  "group_quality": "Photographer + near-duplicate proxy. Physical-object isolation across photographers not proven.",
+  "licensing": "Provider-listed CC BY 2.0 image metadata retained with attribution; independent contemporary legal verification not performed. Annotation sources CC BY 4.0.",
+  "pretrained_encoder_used": false,
+  "pretrained_detector_used": false,
+  "model_environment_installed": false
+}

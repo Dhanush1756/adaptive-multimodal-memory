@@ -1,0 +1,3536 @@
+[
+  {
+    "image_id": "34335dcf0401c8c2",
+    "crop": "crops/34335dcf0401c8c2.png",
+    "author": "Justin Sewell",
+    "author_profile": "https://www.flickr.com/people/ianmalcm/",
+    "title": "Lambo with a GoPro",
+    "original_landing_url": "https://www.flickr.com/photos/ianmalcm/7037619783",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.07964602,
+      0.24336283,
+      0.8820059,
+      0.920354
+    ],
+    "caption": "In this image I can see shiny ribbons and in the background I can see red color car with number plate and road.",
+    "caption_annotator_id": 133,
+    "image_sha256": "6222ae986c247f88e5bcdc2ec5509b8b29a9ba2c6ff29f57ed414d1ca636a4d3",
+    "label": "red"
+  },
+  {
+    "image_id": "63b54a9294a91cd9",
+    "crop": "crops/63b54a9294a91cd9.png",
+    "author": "Ian Dick",
+    "author_profile": "https://www.flickr.com/people/ian_d/",
+    "title": "Snow at the Ring",
+    "original_landing_url": "https://www.flickr.com/photos/ian_d/1715335401",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.19485791,
+      0.23855421,
+      0.76725304,
+      0.88433737
+    ],
+    "caption": "By seeing this image we can say it is an animated image. In this image we can see a red color car. In the background we can see trees and the sky.",
+    "caption_annotator_id": 119,
+    "image_sha256": "acce40540f4798c5a52bbe5231a9ff82cdee10dd92679e98c417bd40afe0af78",
+    "label": "red"
+  },
+  {
+    "image_id": "819d5f5daff18409",
+    "crop": "crops/819d5f5daff18409.png",
+    "author": "lyall4",
+    "author_profile": "https://www.flickr.com/people/77013171@N07/",
+    "title": "IMG_3089",
+    "original_landing_url": "https://www.flickr.com/photos/77013171@N07/14785586528/",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.025073746,
+      0.13274336,
+      0.85545725,
+      0.5995575
+    ],
+    "caption": "This image consists of a car in red color. On which, we can see the numbers. At the bottom, there is a road. In the background, we can see a wall.",
+    "caption_annotator_id": 176,
+    "image_sha256": "017e15e71a4749a05f6cd8fc31fb3ae110aa4f0ad81ac8c32cbfe4e8531f896a",
+    "label": "red"
+  },
+  {
+    "image_id": "57774f673a9479d5",
+    "crop": "crops/57774f673a9479d5.png",
+    "author": "Ruben",
+    "author_profile": "https://www.flickr.com/people/povesteam/",
+    "title": "V\u00e2nd Seat Cordoba",
+    "original_landing_url": "https://www.flickr.com/photos/povesteam/7174938656",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.056798622,
+      0.0,
+      0.95697075,
+      0.93560606
+    ],
+    "caption": "In this image we can see a red color car is parked in a parking area, and in the front we can see the logo of the company and a white color number plate with some text and a black color mark, and in the background we can see a shed and a wall, and we can also see two green color dustbins, and inside the shed there are some objects.",
+    "caption_annotator_id": 134,
+    "image_sha256": "1a1c5443b6dfe37adcd93e19f0e34043a9ca7185891fb2da7366b835f7a48c63",
+    "label": "red"
+  },
+  {
+    "image_id": "50784a0961216133",
+    "crop": "crops/50784a0961216133.png",
+    "author": "Jeremy",
+    "author_profile": "https://www.flickr.com/people/126433814@N04/",
+    "title": "Chrysler PT Cruiser Classic Edition",
+    "original_landing_url": "https://www.flickr.com/photos/126433814@N04/17307073803",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.064896755,
+      0.17920354,
+      0.93657815,
+      0.70353985
+    ],
+    "caption": "As we can see in the image in the front there is grass, sign board with some text written and a red color car. In the background there are trees and at the top there is sky. On the left side there is a building.",
+    "caption_annotator_id": 170,
+    "image_sha256": "a0064544b808a959a4ea1da0973b443c185ad5690168a29f434b12ae9539d106",
+    "label": "red"
+  },
+  {
+    "image_id": "a78a5aa77262260e",
+    "crop": "crops/a78a5aa77262260e.png",
+    "author": "The NRMA",
+    "author_profile": "https://www.flickr.com/people/nrmadriversseat/",
+    "title": "2014  Kia Koup Turbo - First Drive",
+    "original_landing_url": "https://www.flickr.com/54731423@N04/10586283135",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1281296,
+      0.36504424,
+      0.7511046,
+      0.82522124
+    ],
+    "caption": "In this image, we can see a red car on the road. The background of the image is blur.",
+    "caption_annotator_id": 55,
+    "image_sha256": "ebab4ba9858ae75ec100e0a9ccf81bbefbecf0e79ea73a1008ede2a2b4f703e9",
+    "label": "red"
+  },
+  {
+    "image_id": "a00f596ecc1a605d",
+    "crop": "crops/a00f596ecc1a605d.png",
+    "author": "Jeremy",
+    "author_profile": "https://www.flickr.com/people/126433814@N04/",
+    "title": "Nissan 350Z Z33",
+    "original_landing_url": "https://www.flickr.com/photos/126433814@N04/19633733486",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.07079646,
+      0.2300885,
+      0.9056047,
+      0.6393805
+    ],
+    "caption": "In this picture we can see a red car parked on the road. We can see green grass. In the background we can see a house, a wooden gate, compound wall, rooftops, tree trunks and trees. Rooftops are visible at the top of the image. We can see the wall with dried stems. We can see tiny plants.",
+    "caption_annotator_id": 0,
+    "image_sha256": "cc5e1f5c9ce598b09a2c5fefa8d6e017df741eb54173861d5b28c606d74b28c6",
+    "label": "red"
+  },
+  {
+    "image_id": "4e217d8a0f2f42d3",
+    "crop": "crops/4e217d8a0f2f42d3.png",
+    "author": "cara fealy choate",
+    "author_profile": "https://www.flickr.com/people/carabou/",
+    "title": "Pretty alternative fuel vehicle",
+    "original_landing_url": "https://www.flickr.com/photos/carabou/252891164",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0828125,
+      0.079166666,
+      0.9859375,
+      0.9875
+    ],
+    "caption": "In this picture I can see a red color car placed on the grass, behind there are some benches placed, trees, few people are walking on the road.",
+    "caption_annotator_id": 87,
+    "image_sha256": "07ad3e652ac491ebe1cbb57e06e145b81f9df05a09945f8c6a52f989eaff6c0f",
+    "label": "red"
+  },
+  {
+    "image_id": "1779d4c01aa42f26",
+    "crop": "crops/1779d4c01aa42f26.png",
+    "author": "Filthiest Productions",
+    "author_profile": "https://www.flickr.com/people/connorlimbocker/",
+    "title": "IMG_7285.jpg",
+    "original_landing_url": "https://www.flickr.com/photos/connorlimbocker/11960237696",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.073746316,
+      0.38938054,
+      0.6622419,
+      0.6792035
+    ],
+    "caption": "In this image I can see red color car and I can also see grass, dried leaves, road, swing, rods and in the background I can see tree branches, trees, house with roof and sky and at the bottom of the image I can see some text printed on it.",
+    "caption_annotator_id": 133,
+    "image_sha256": "21910458e666e9b9d8e4e49742c56278bb9ea4c549e648e299cbf1fc04bccf64",
+    "label": "red"
+  },
+  {
+    "image_id": "500a9dd05eb4d9c3",
+    "crop": "crops/500a9dd05eb4d9c3.png",
+    "author": "Thomas&#x27;s Pics",
+    "author_profile": "https://www.flickr.com/people/60900612@N08/",
+    "title": "Westfield Eleven",
+    "original_landing_url": "https://www.flickr.com/photos/60900612@N08/18211943871",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.003076923,
+      0.016949153,
+      0.98923075,
+      1.0
+    ],
+    "caption": "In this image we can see a red color car on the grass.",
+    "caption_annotator_id": 91,
+    "image_sha256": "e6010975892b92b1defd47b05225aa75d61318b994c983abf908bb2486592897",
+    "label": "red"
+  },
+  {
+    "image_id": "adbc2ca812c0c11a",
+    "crop": "crops/adbc2ca812c0c11a.png",
+    "author": "Steve Snodgrass",
+    "author_profile": "https://www.flickr.com/people/stevensnodgrass/",
+    "title": "Kevin's Delivery Service",
+    "original_landing_url": "https://www.flickr.com/photos/stevensnodgrass/5845116511",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.32352942,
+      0.38137472,
+      1.0,
+      0.93126386
+    ],
+    "caption": "In this image I can see the car in red color. In the background I can see the grass and plants in green color and I can also see the shed and something is written on it.",
+    "caption_annotator_id": 17,
+    "image_sha256": "d8f38d128c9ae80411af647a93b92e5b4e3176f1a43fbe55fe540894724100a7",
+    "label": "red"
+  },
+  {
+    "image_id": "f2499872a776cbb1",
+    "crop": "crops/f2499872a776cbb1.png",
+    "author": "CarPictures dot com",
+    "author_profile": "https://www.flickr.com/people/carpictures-dot-com/",
+    "title": "1997 Ferrari F355 Spider red",
+    "original_landing_url": "https://www.flickr.com/photos/carpictures-dot-com/4289355130",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.038,
+      0.46133333,
+      0.878,
+      0.816
+    ],
+    "caption": "In this picture I can see a red color car on the road. I can see the grass on the ground, it looks like a fence in the back, a pole, few trees and buildings in the back. I can see a hill and those are looking like mountains in the back and I can see the sky.",
+    "caption_annotator_id": 37,
+    "image_sha256": "8c0d32497203e76dd361de48cbf4cdc3cc7c5f87b11fc91ea4024107ef9221ea",
+    "label": "red"
+  },
+  {
+    "image_id": "9a0c7f79654e82d5",
+    "crop": "crops/9a0c7f79654e82d5.png",
+    "author": "Peltier Chevrolet",
+    "author_profile": "https://www.flickr.com/people/peltierchevrolet/",
+    "title": "red-chevy-camaro",
+    "original_landing_url": "https://www.flickr.com/photos/peltierchevrolet/6277579173/",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.140625,
+      0.31041667,
+      0.903125,
+      0.96458334
+    ],
+    "caption": "This image consists of cars. In the front, we can see a car in red color. At the bottom, there is a floor. And we can see the balloons in this image. At the top, there is a roof along with the light. On the right, we can see a chair and a table along with boards.",
+    "caption_annotator_id": 92,
+    "image_sha256": "a52f7ecb43f2c88a8f9d0c546ef4a13f112bbe298805c5f62d48e2881b5ded08",
+    "label": "red"
+  },
+  {
+    "image_id": "33f24b689dd99c00",
+    "crop": "crops/33f24b689dd99c00.png",
+    "author": "Rex Gray",
+    "author_profile": "https://www.flickr.com/people/rexgray/",
+    "title": "1970 Chevrolet Chevelle SS 396 - red - fvl",
+    "original_landing_url": "https://www.flickr.com/photos/rexgray/4979450506",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.08256881,
+      0.37526652,
+      0.9495413,
+      0.90831554
+    ],
+    "caption": "This image is taken outdoors. At the top of the image there is sky. At the bottom of the image there is a road. In the background we can see the green grass and green leaves on the ground. There might be a few plants. In the middle of the image a car is parked on the road. The car is red in color.",
+    "caption_annotator_id": 75,
+    "image_sha256": "90eaeb5aa614fc65f17a8c79e09f191d146291f8fb00ba6e7e5328245644e285",
+    "label": "red"
+  },
+  {
+    "image_id": "8407cc89d4ef5ab2",
+    "crop": "crops/8407cc89d4ef5ab2.png",
+    "author": "Damian Morys",
+    "author_profile": "https://www.flickr.com/people/damianmorysfotos/",
+    "title": "C63 AMG BS.",
+    "original_landing_url": "https://www.flickr.com/photos/damianmorysfotos/7911031370",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.064896755,
+      0.5265487,
+      0.83923304,
+      0.8982301
+    ],
+    "caption": "This image consists of a car in red color. At the bottom, there is a road. On the right, there is a bicycle. In the background, there is a building along with glass windows. And we can see a tree. On the right, there is a pole to which we can see a board.",
+    "caption_annotator_id": 92,
+    "image_sha256": "c787a42e97a391315d183ec8de993f9d16cea6d0d46b0082ad539f01b9bfad62",
+    "label": "red"
+  },
+  {
+    "image_id": "98f87035b77e2ede",
+    "crop": "crops/98f87035b77e2ede.png",
+    "author": "The Conmunity -  Pop Culture Geek",
+    "author_profile": "https://www.flickr.com/people/popculturegeek/",
+    "title": "Long Beach Comic Expo 2012 - Magnum P.I. Ferrari",
+    "original_landing_url": "https://www.flickr.com/photos/popculturegeek/7186642842",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.040625,
+      0.13958333,
+      0.9546875,
+      0.82708335
+    ],
+    "caption": "In this image I can see the car in red color. In the background I can see the person standing, the railing, few trees in green color, buildings and the sky is in white color.",
+    "caption_annotator_id": 17,
+    "image_sha256": "843f89a5676c5a581f063f7f5b5e974ed126ba66e867dfd1256279a3e9a419f2",
+    "label": "red"
+  },
+  {
+    "image_id": "728d2997236bd96e",
+    "crop": "crops/728d2997236bd96e.png",
+    "author": "2 TOP",
+    "author_profile": "https://www.flickr.com/people/2top/",
+    "title": "Alfa Romeo",
+    "original_landing_url": "https://www.flickr.com/photos/2top/15598658721",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.10960758,
+      0.0939759,
+      0.8849797,
+      0.773494
+    ],
+    "caption": "In the center of the image we can see a red car on the road.",
+    "caption_annotator_id": 53,
+    "image_sha256": "9a6dae02aa07f7c4e66547fe1d48ff22419100fc8ff38b316569cb121f5c985a",
+    "label": "red"
+  },
+  {
+    "image_id": "b9eb5a2f6ce07dc1",
+    "crop": "crops/b9eb5a2f6ce07dc1.png",
+    "author": "Dustin Askins",
+    "author_profile": "https://www.flickr.com/people/dustinaskins/",
+    "title": "Red SLK550",
+    "original_landing_url": "https://www.flickr.com/photos/dustinaskins/5254899465",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0,
+      0.026548672,
+      1.0,
+      1.0
+    ],
+    "caption": "In this image I can see a red colour car in the front. On the right side of the image I can see few lights and in the background I can see few other things. I can also see this image is little bit blurry.",
+    "caption_annotator_id": 85,
+    "image_sha256": "4f9ead1c4e6c56ffb8cdd9c4000c744278e7e67cb7fabdbd7548fd1d13ed3533",
+    "label": "red"
+  },
+  {
+    "image_id": "9288da4a44b13c59",
+    "crop": "crops/9288da4a44b13c59.png",
+    "author": "Mario Scott",
+    "author_profile": "https://www.flickr.com/people/mlsj_photos/",
+    "title": "DSC_0957",
+    "original_landing_url": "https://www.flickr.com/photos/mlsj_photos/4535814287",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.106038295,
+      0.20620842,
+      0.93078053,
+      0.9268293
+    ],
+    "caption": "In this image I can see a red colour car in the front. In the background I can see a road, a building, two doors, a board, two glass windows and through the windows I can see few curtains. I can also see something is written on the board. On the top right side of the image I can see the wall.",
+    "caption_annotator_id": 85,
+    "image_sha256": "8f526db29ba2790dda4b2a7301a89168f9edc53111904408f5e5e1f33144e362",
+    "label": "red"
+  },
+  {
+    "image_id": "4cab3bc4ea23226e",
+    "crop": "crops/4cab3bc4ea23226e.png",
+    "author": "danielfigfoz",
+    "author_profile": "https://www.flickr.com/people/35899321@N06/",
+    "title": "18th February 2015 - 2015 Toyota Yaris",
+    "original_landing_url": "https://www.flickr.com/photos/35899321@N06/16574963535",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.3,
+      0.32083333,
+      0.759375,
+      0.77708334
+    ],
+    "caption": "In the middle of the picture, we see a red car. At the bottom, we see the road. On the right side, we see a vehicle in white color. Behind that, we see a wall and the hedging plants. There are trees, buildings and a pole in the background. At the top, we see the sky.",
+    "caption_annotator_id": 35,
+    "image_sha256": "5887af89d067ef65a8f890f5b9788288d3dda233602d893f6d79edfc0c708ccc",
+    "label": "red"
+  },
+  {
+    "image_id": "66417fec5acc0c2b",
+    "crop": "crops/66417fec5acc0c2b.png",
+    "author": "Stuart Chapman",
+    "author_profile": "https://www.flickr.com/people/99353930@N00/",
+    "title": "New Ford Fiesta",
+    "original_landing_url": "https://www.flickr.com/photos/99353930@N00/2747160443",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0796875,
+      0.045833334,
+      0.9484375,
+      0.84583336
+    ],
+    "caption": "In this picture we can see a red car on the floor. On the left side of the picture we can see a man standing near a white object. In the background we can see people standing. Among them few people are wearing backpacks. We can see the walls.",
+    "caption_annotator_id": 0,
+    "image_sha256": "bc634903643620698755424cf4966a5c308a8dc06ed776ed21154dc4820d578a",
+    "label": "red"
+  },
+  {
+    "image_id": "001083f05db4352b",
+    "crop": "crops/001083f05db4352b.png",
+    "author": "Automobile Italia",
+    "author_profile": "https://www.flickr.com/people/automobileitalia/",
+    "title": "A Pebble Beach in California le auto pi\u00f9 belle",
+    "original_landing_url": "https://www.flickr.com/photos/automobileitalia/20795376805",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1640625,
+      0.3375,
+      0.7671875,
+      0.8225
+    ],
+    "caption": "In this picture we can see a red car on the wooden surface. At the bottom of the image we can see text. We can see barrier poles around a red car. In the background we can see a red board with the depiction of a horse. We can see houses, trees, plants and green grass. At the top of the image we can see the sky.",
+    "caption_annotator_id": 0,
+    "image_sha256": "801fcb40f503713648b3762e40e57a407bb0cb3ced33cf9715ba6fdcba20452c",
+    "label": "red"
+  },
+  {
+    "image_id": "7e50247c78fa1213",
+    "crop": "crops/7e50247c78fa1213.png",
+    "author": "May S. Young",
+    "author_profile": "https://www.flickr.com/people/gungirlnewyork/",
+    "title": "An Italian Sunday at Fiat Gallery, 18 Wooster St, NYC - 10",
+    "original_landing_url": "https://www.flickr.com/photos/gungirlnewyork/5681622907",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.3953125,
+      0.15833333,
+      0.959375,
+      0.81875
+    ],
+    "caption": "In this image in the center there is one red color car and there are some people some of them are standing, and some of them are sitting. And in the background there are some shelves, and in the shelves there are objects and there is wall. The people are holding some things in their hands, and on the left side of the image there is a couch and table. At the bottom there is floor and in the background there is wall.",
+    "caption_annotator_id": 34,
+    "image_sha256": "c524a59c397f2dbd624f9ac5df688b636d4ac252e296a59bbe2a27c0a0c8066d",
+    "label": "red"
+  },
+  {
+    "image_id": "2ce0719caf324eb1",
+    "crop": "crops/2ce0719caf324eb1.png",
+    "author": "Blosterblu - YT",
+    "author_profile": "https://www.flickr.com/people/blosterblu/",
+    "title": "Ferrari 288 GTO",
+    "original_landing_url": "https://www.flickr.com/photos/blosterblu/4475993076/",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.132626,
+      0.24384236,
+      0.83952254,
+      0.73399013
+    ],
+    "caption": "This is an inside view. In the middle of the image I can see a red color car on the floor. It is facing towards the left side. Beside there is a red color tag on which I can see the text. Behind the car there is a person standing facing towards the back side, holding an object in the hand and looking at the object. On the right side there is a monitor attached to the wall. On the left side there is a railing. In the background there are few frames attached to the wall. In the top left-hand corner there is some text.",
+    "caption_annotator_id": 32,
+    "image_sha256": "a98996df1547b79ed98c2d4dd2fac8de4837127278eb79fc6a6bd07458f42a32",
+    "label": "red"
+  },
+  {
+    "image_id": "f5387d39baceeaf1",
+    "crop": "crops/f5387d39baceeaf1.png",
+    "author": "Brandon Bailey",
+    "author_profile": "https://www.flickr.com/people/luxurydesigner/",
+    "title": "Boardwalk",
+    "original_landing_url": "https://www.flickr.com/photos/luxurydesigner/21383555783",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.16459198,
+      0.2712264,
+      0.8381743,
+      0.8820755
+    ],
+    "caption": "In this image there is a red color car on the road. There is an arch. Right side there is a street light. There is a fence on the floor. There are spots on the building. There are plants in the pots. Left side there is a street light on the pavement having a fence. Right side there is a building. Background there is sky. Bottom of the image there is some text.",
+    "caption_annotator_id": 69,
+    "image_sha256": "b17c971e8a8d3956cca514c06fc75ff5fabfc5a5d79c67a4a4d918ccd38b9192",
+    "label": "red"
+  },
+  {
+    "image_id": "b19073acd27ddea3",
+    "crop": "crops/b19073acd27ddea3.png",
+    "author": "Annette Taratuta",
+    "author_profile": "https://www.flickr.com/people/nettas/",
+    "title": "Clean Vibe",
+    "original_landing_url": "https://www.flickr.com/photos/nettas/3354366345",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0359375,
+      0.0,
+      1.0,
+      0.93125
+    ],
+    "caption": "In this image we can see a red color car parked beside a wooden wall and in the front we can see a wooden shed and in the background we can see sky.",
+    "caption_annotator_id": 134,
+    "image_sha256": "aac6f75413842ee130fc8a61dab40de010a0eae2bb43587fb6421896682b945d",
+    "label": "red"
+  },
+  {
+    "image_id": "5c856e54aa9ecb91",
+    "crop": "crops/5c856e54aa9ecb91.png",
+    "author": "Lets Go Out Bournemouth and Poole",
+    "author_profile": "https://www.flickr.com/people/letsgoout-bournemouthandpoole/",
+    "title": "Quay for my Car - Audi TT Night",
+    "original_landing_url": "https://www.flickr.com/photos/letsgoout-bournemouthandpoole/8912764814",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0234375,
+      0.23333333,
+      0.978125,
+      0.675
+    ],
+    "caption": "There is a red color car in the foreground area of the image, there are buildings, stalls, umbrellas, posters, text on a board, people sitting and standing in the background.",
+    "caption_annotator_id": 100,
+    "image_sha256": "67e8e91b22eb8352df38a138b644370309685193f9ac456a6e145f70c074a441",
+    "label": "red"
+  },
+  {
+    "image_id": "e4fb3ec67fe6fa34",
+    "crop": "crops/e4fb3ec67fe6fa34.png",
+    "author": "PSParrot",
+    "author_profile": "https://www.flickr.com/people/parkstreetparrot/",
+    "title": "Ferrari F40 - owner Nick Mason ( Pink Floyd )",
+    "original_landing_url": "https://www.flickr.com/photos/parkstreetparrot/6292540949",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0103270225,
+      0.017045455,
+      0.98967296,
+      0.9185606
+    ],
+    "caption": "In this picture we can see a red car on the ground. Behind the car, there is grass. In the bottom left corner of the image, there is a watermark.",
+    "caption_annotator_id": 9,
+    "image_sha256": "29282e7fc1fb069da455067da0fbfa33f1c484cbfaaf3188682c13de44e4f766",
+    "label": "red"
+  },
+  {
+    "image_id": "7e01f44dabffb807",
+    "crop": "crops/7e01f44dabffb807.png",
+    "author": "Javo Alfaro.",
+    "author_profile": "https://www.flickr.com/people/javoalfaro2/",
+    "title": "D\u00eda Tracci\u00f3n Trasera, Stage 3",
+    "original_landing_url": "https://www.flickr.com/photos/javoalfaro2/9568707260",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.17846608,
+      0.38274336,
+      0.92477876,
+      0.88053095
+    ],
+    "caption": "In this image I can see the car in red color. In the background I can see the grass and trees in green color.",
+    "caption_annotator_id": 17,
+    "image_sha256": "2725d3d66b8e95bce893a7deca02c9b8759fdf405e1e8c307522e1ca6869c7ea",
+    "label": "red"
+  },
+  {
+    "image_id": "d657b9e208b3cfe9",
+    "crop": "crops/d657b9e208b3cfe9.png",
+    "author": "verbeek_dennis",
+    "author_profile": "https://www.flickr.com/people/dennnis/",
+    "title": "24062005(002)",
+    "original_landing_url": "https://www.flickr.com/photos/dennnis/183518177",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1140625,
+      0.114583336,
+      0.7875,
+      0.96666664
+    ],
+    "caption": "In the foreground, I can see a red color car on the road. On which I can see a number plate. And in which I can see a steering wheel. And I can see a bicycle. In the background, I can see grass, plants, the trees, a board, metal poles, some objects and the sky.",
+    "caption_annotator_id": 4,
+    "image_sha256": "a43ba3e0e6b4199069776c9a4ac93e98fa91e03c3eb7032bd63f853d37ad5a34",
+    "label": "red"
+  },
+  {
+    "image_id": "ccb00bfc7c1487d7",
+    "crop": "crops/ccb00bfc7c1487d7.png",
+    "author": "Brian Snelson",
+    "author_profile": "https://www.flickr.com/people/exfordy/",
+    "title": "Ferrari 355",
+    "original_landing_url": "https://www.flickr.com/photos/exfordy/414594115",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.119469024,
+      0.1880531,
+      0.859882,
+      0.8783186
+    ],
+    "caption": "In this image I can see a red colour car in the front and on it I can see something is written. In the background I can see few plants, few poles, two person, the fences and a building. I can also see a blue colour thing in the background.",
+    "caption_annotator_id": 85,
+    "image_sha256": "372e313fb82c3d1e38f11d6c3e6e9c4f683f6a34ba3c940aa8de5b6f4f7ca1c5",
+    "label": "red"
+  },
+  {
+    "image_id": "8b5d958c661e38ed",
+    "crop": "crops/8b5d958c661e38ed.png",
+    "author": "MIKI Yoshihito",
+    "author_profile": "https://www.flickr.com/people/mujitra/",
+    "title": "NISSAN 350Z",
+    "original_landing_url": "https://www.flickr.com/photos/mujitra/2941254742",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.036414567,
+      0.3916084,
+      0.71428573,
+      0.94638693
+    ],
+    "caption": "In this picture we can see a red color car in the front, there are some statues, a pole, railing and grass in the middle, in the background we can see trees, there is the sky at the top of the picture.",
+    "caption_annotator_id": 1,
+    "image_sha256": "e97cfabe19d2171fcb61e5a3a204c152d5c72ddc7ba7dc5e5fe139eae86121e7",
+    "label": "red"
+  },
+  {
+    "image_id": "e4cfaaaa9ef168b3",
+    "crop": "crops/e4cfaaaa9ef168b3.png",
+    "author": "PSParrot",
+    "author_profile": "https://www.flickr.com/people/parkstreetparrot/",
+    "title": "Marino Franchitti driving Nick Masons Ferrari 250GTO - Goodwood Festival of Speed 2012",
+    "original_landing_url": "https://www.flickr.com/photos/parkstreetparrot/7606260348",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.038179148,
+      0.031111112,
+      0.9911894,
+      0.97333336
+    ],
+    "caption": "As we can see in the image in the front there is a person wearing helmet and riding a red color car. The background of the image is in gray color.",
+    "caption_annotator_id": 170,
+    "image_sha256": "576adbf01c45f2002408e7f04ea34e42d04c6988615d7438106b24023867788d",
+    "label": "red"
+  },
+  {
+    "image_id": "22009267df1eef43",
+    "crop": "crops/22009267df1eef43.png",
+    "author": "Sarah_Ackerman",
+    "author_profile": "https://www.flickr.com/people/sackerman519/",
+    "title": "Maserati",
+    "original_landing_url": "https://www.flickr.com/photos/sackerman519/7183451820/",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0,
+      0.15600625,
+      1.0,
+      0.87831515
+    ],
+    "caption": "In this image we can see a red color car is parked in front of a house and in the front the car we can see the logo of the company and in the background there are some white color umbrellas and a tree and a plant is in the pot and we can also see big photo frame is attached to the wall and we can also see some white color pillars and a orange color wall also.",
+    "caption_annotator_id": 134,
+    "image_sha256": "50bc5c19010c0aef911936e5e10df3cf6043f6fddeb0f70ebcd74fd8bffa9ad4",
+    "label": "red"
+  },
+  {
+    "image_id": "535d6e0a924247a4",
+    "crop": "crops/535d6e0a924247a4.png",
+    "author": "Thrifty Look",
+    "author_profile": "https://www.flickr.com/people/thriftylook/",
+    "title": "Meet the latest model of Toyota Vios. She looks like a sexy lady, pretty in red!  For the rich only #toys for big #boys www.thriftylook.com  #thriftylook #photography #iphoneography #cars #wheels #ride #pimpMyRide #hotWheels #toyota #vios #vehicles #engin",
+    "original_landing_url": "https://www.flickr.com/photos/thriftylook/10449789216",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0,
+      0.04873646,
+      1.0,
+      1.0
+    ],
+    "caption": "In the middle of the picture, we see a red car. In the background, we see a wall in white and green color. On the right side, we see the floor in green and grey color.",
+    "caption_annotator_id": 35,
+    "image_sha256": "79bb52327d5a90add3a813e0782ee1c5d9b7705f788d186060a9e07863ba93f2",
+    "label": "red"
+  },
+  {
+    "image_id": "0c92c0f1cf88863e",
+    "crop": "crops/0c92c0f1cf88863e.png",
+    "author": "Mark Harkin",
+    "author_profile": "https://www.flickr.com/people/markyharky/",
+    "title": "Datsun 240z",
+    "original_landing_url": "https://www.flickr.com/photos/markyharky/8422987927",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.01179941,
+      0.17035398,
+      0.98082596,
+      0.69690263
+    ],
+    "caption": "In the center of the image there is a red color car on the road. In the background of the image there are people standing. There are posters with text. There are trash boxes.",
+    "caption_annotator_id": 91,
+    "image_sha256": "2c3b6f97597709890b9c4d0400949437bf00b3ee98a63cb2da10c8075398c85d",
+    "label": "red"
+  },
+  {
+    "image_id": "4f28ab9a116d57c3",
+    "crop": "crops/4f28ab9a116d57c3.png",
+    "author": "Jaeger-Meister",
+    "author_profile": "https://www.flickr.com/people/jaeger-meister/",
+    "title": "Lamborghini Countach Kamera 204",
+    "original_landing_url": "https://www.flickr.com/photos/jaeger-meister/3504859264",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.146875,
+      0.0,
+      1.0,
+      0.8020833
+    ],
+    "caption": "In the image I can see the picture of a red color car and on the both sides there is some paint which is red and white in color.",
+    "caption_annotator_id": 103,
+    "image_sha256": "d6041f0a345ec96d657d0a1392049cfe56d2d12075e90351238c9ac2aed64e16",
+    "label": "red"
+  },
+  {
+    "image_id": "3999a066ae304715",
+    "crop": "crops/3999a066ae304715.png",
+    "author": "Paisley Scotland",
+    "author_profile": "https://www.flickr.com/people/paisleyorguk/",
+    "title": "Monte Carlo Classic Car Rally 2014 Paisley",
+    "original_landing_url": "https://www.flickr.com/photos/paisleyorguk/12124411264",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.23303835,
+      0.39159292,
+      0.77138644,
+      0.80088496
+    ],
+    "caption": "In this image we can see two men are sitting in a red color car and the car is standing on a tiled ground. In background we can see an iron barricade and a building as well.",
+    "caption_annotator_id": 128,
+    "image_sha256": "e4d7fd45c54e53a0034b58ab785983d641fca5fd8e1a127ab37aa16218b82839",
+    "label": "red"
+  },
+  {
+    "image_id": "dead6bc1e76b3b5a",
+    "crop": "crops/dead6bc1e76b3b5a.png",
+    "author": "Jim Hoagland",
+    "author_profile": "https://www.flickr.com/people/98173745@N00/",
+    "title": "Ferrari Pickup 01",
+    "original_landing_url": "https://www.flickr.com/photos/98173745@N00/5951942553",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.015513127,
+      0.45628417,
+      0.9725537,
+      0.88251364
+    ],
+    "caption": "In this picture I can see a red color car and I can see the plain background.",
+    "caption_annotator_id": 37,
+    "image_sha256": "cfdf8edf99a5abc4de1c1abd24a0f3cb040a08a8b6be84f0bd15c647bdefcd2a",
+    "label": "red"
+  },
+  {
+    "image_id": "88ebff265a5f45f7",
+    "crop": "crops/88ebff265a5f45f7.png",
+    "author": "German Medeot",
+    "author_profile": "https://www.flickr.com/people/motosclasicas/",
+    "title": "2013 Nissan 370Z",
+    "original_landing_url": "https://www.flickr.com/photos/motosclasicas/8311838947",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.17096774,
+      0.4172043,
+      0.9629032,
+      0.85806453
+    ],
+    "caption": "This image consists of a car in red color. At the bottom, there is a road. In the background, we can see a shed. At the top, there is sky.",
+    "caption_annotator_id": 92,
+    "image_sha256": "fbc75d7977aeda4b50d6dfe8322ed6ac3a67820e0ad74ab6b7f1af881f1cfa7a",
+    "label": "red"
+  },
+  {
+    "image_id": "0dd112315cf12277",
+    "crop": "crops/0dd112315cf12277.png",
+    "author": "Tom",
+    "author_profile": "https://www.flickr.com/people/dabofthebrake/",
+    "title": "Over the top?",
+    "original_landing_url": "https://www.flickr.com/photos/dabofthebrake/7962080474",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.03539823,
+      0.0044247787,
+      0.72861356,
+      0.96681416
+    ],
+    "caption": "In this image I can see a red color car on the road. In the top right-hand corner there is a wall. At the top of the image there are few plants.",
+    "caption_annotator_id": 32,
+    "image_sha256": "926820da5df4f771af36d6f953d048a4cd780d8a65f538d0ad1cc0de97ef6c7b",
+    "label": "red"
+  },
+  {
+    "image_id": "4f3a0f75518a4e6c",
+    "crop": "crops/4f3a0f75518a4e6c.png",
+    "author": "Ozzy Delaney",
+    "author_profile": "https://www.flickr.com/people/24931020@N02/",
+    "title": "Ferrari 458",
+    "original_landing_url": "https://www.flickr.com/photos/24931020@N02/16254089941",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.056074765,
+      0.06341463,
+      0.94392526,
+      0.79512197
+    ],
+    "caption": "In this image we can see a red color car on the road. In background we can see a iron barricade and some wooden door and brick wall as well.",
+    "caption_annotator_id": 128,
+    "image_sha256": "0b2054f0145c224f3181ca720af24002ceef8b2b316f80a1616d880b1c494842",
+    "label": "red"
+  },
+  {
+    "image_id": "00230c216711fceb",
+    "crop": "crops/00230c216711fceb.png",
+    "author": "\u9673 \u6e05",
+    "author_profile": "https://www.flickr.com/people/ducktail964/",
+    "title": "Ruf BTR",
+    "original_landing_url": "https://www.flickr.com/photos/ducktail964/144429519",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.06921944,
+      0.41906872,
+      0.9484536,
+      0.9467849
+    ],
+    "caption": "In this picture we can see a red car with a number plate moving on the road in front of a building. We can see big iron framed, glass panes and the rods on the left side. In the background, we can see a building with many doors and windows, iron poles, bars, metal towers, walls, AC outside a window etc.,",
+    "caption_annotator_id": 111,
+    "image_sha256": "9f3d70d0cb7052c3a25eb6b37df19ebcee4226c9a66cfee3a6bd479db3580bbb",
+    "label": "red"
+  },
+  {
+    "image_id": "0e2e68bdc40f10c3",
+    "crop": "crops/0e2e68bdc40f10c3.png",
+    "author": "Sabrina Campagna",
+    "author_profile": "https://www.flickr.com/people/mar1lyn84/",
+    "title": "Fiat 500 Vintage HDR",
+    "original_landing_url": "https://www.flickr.com/photos/mar1lyn84/2579564133",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.08504399,
+      0.20222223,
+      0.9633431,
+      0.93777776
+    ],
+    "caption": "This looks like an edited picture. In this picture we can see a red car parked on the road. In the background we can see the wall, a pipe and green leaves.\u00a0",
+    "caption_annotator_id": 0,
+    "image_sha256": "8b53793e57b02419c474c59e9033d6fad743aeaa822828367f63571b125812a1",
+    "label": "red"
+  },
+  {
+    "image_id": "62f6cb65fba70dd4",
+    "crop": "crops/62f6cb65fba70dd4.png",
+    "author": "amateur photography by michel",
+    "author_profile": "https://www.flickr.com/people/119886413@N05/",
+    "title": "2001 Porsche 911",
+    "original_landing_url": "https://www.flickr.com/photos/119886413@N05/13055028675",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0140625,
+      0.17083333,
+      1.0,
+      0.92083335
+    ],
+    "caption": "In this image I can see red color car and I can also see something looking like concrete flooring, table fan, banner and papers with some text printed on them, some objects and wall.",
+    "caption_annotator_id": 133,
+    "image_sha256": "893215d19436c6c1705cc57dc2f4cca3869312ee9f398da5216e87af213dc158",
+    "label": "red"
+  },
+  {
+    "image_id": "a52079c6cc4050cd",
+    "crop": "crops/a52079c6cc4050cd.png",
+    "author": "shawn smith",
+    "author_profile": "https://www.flickr.com/people/metapede/",
+    "title": "patriot acting",
+    "original_landing_url": "https://www.flickr.com/photos/metapede/2044121577",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.09375,
+      0.072916664,
+      0.846875,
+      0.9125
+    ],
+    "caption": "In this picture, we see a red car is parked on the road. At the bottom, we see the road and dry leaves. On the left side, we see the footpath, dry leaves and the stones. On either side of the road, we see the trees. There are trees, poles and the buildings in the background. At the top, we see the sky.",
+    "caption_annotator_id": 161,
+    "image_sha256": "4d2edefe53d4d26af02c6d56fecd015f38dd21abdb921d276822e272849a8a13",
+    "label": "red"
+  },
+  {
+    "image_id": "98c5e220d7eab75f",
+    "crop": "crops/98c5e220d7eab75f.png",
+    "author": "Brian Roberts",
+    "author_profile": "https://www.flickr.com/people/brianroyalroberts/",
+    "title": "BMW",
+    "original_landing_url": "https://www.flickr.com/photos/brianroyalroberts/16634207304",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.119469024,
+      0.0,
+      0.8775811,
+      0.9402655
+    ],
+    "caption": "In this picture we can see a red car parked on the road. On the right side of the picture we can see a partial part of a car on the road. In the background we can see planets and the wall.\u00a0",
+    "caption_annotator_id": 0,
+    "image_sha256": "f141781df130b320774e690ed05130af604ccbdc2a3565eee9f0044085066b32",
+    "label": "red"
+  },
+  {
+    "image_id": "872ec10f4fcb90aa",
+    "crop": "crops/872ec10f4fcb90aa.png",
+    "author": "dwstucke",
+    "author_profile": "https://www.flickr.com/people/dwstucke/",
+    "title": "1986 Audi Coupe GT",
+    "original_landing_url": "https://www.flickr.com/photos/dwstucke/3245177685",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.16961652,
+      0.06858407,
+      0.8643068,
+      0.7876106
+    ],
+    "caption": "In this image we can see in front there is a red car on the road, there are rear lights, name plate, in the top left hand corner there is a rock building, at the back there is snow on the road.",
+    "caption_annotator_id": 180,
+    "image_sha256": "f1cfea0e0158f87c5705e8b61893d7a6411ff923c09e717ec9de53e0b182eb7a",
+    "label": "red"
+  },
+  {
+    "image_id": "4aa5361df4de3986",
+    "crop": "crops/4aa5361df4de3986.png",
+    "author": "The NRMA",
+    "author_profile": "https://www.flickr.com/people/nrmadriversseat/",
+    "title": "2011 McLaren Supercar Release - NRMA Drivers Seat",
+    "original_landing_url": "https://www.flickr.com/photos/nrmadriversseat/5689043759",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0546875,
+      0.06276151,
+      0.9515625,
+      0.8493724
+    ],
+    "caption": "In the middle of the picture, we see a red car. At the bottom, we see the floor. On the right side, we see a wall and a window. Beside that, we see a chair and a table on which a laptop is placed. In the background, we see a white board with some text written on it. Behind that, we see a wall. At the top, we see the lights.",
+    "caption_annotator_id": 35,
+    "image_sha256": "b01c8eff61fa0f338cbdef4758aba3b96fda79a824155bb8a23e9b00e16be448",
+    "label": "red"
+  },
+  {
+    "image_id": "4383947b8040b738",
+    "crop": "crops/4383947b8040b738.png",
+    "author": "Marco 56",
+    "author_profile": "https://www.flickr.com/people/54808174@N04/",
+    "title": "1 OZE 616  149",
+    "original_landing_url": "https://www.flickr.com/photos/54808174@N04/16021567279",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.028400598,
+      0.2576419,
+      0.9626308,
+      0.8209607
+    ],
+    "caption": "As we can see in the image in the front there is a red color car on the floor. In the background there are tables, boards with some text written and there is a wall.",
+    "caption_annotator_id": 170,
+    "image_sha256": "8b2665e41c5b31a981f291f9f38ceccd050e8ba4ed2c3ccca290b4ab89f45d6e",
+    "label": "red"
+  },
+  {
+    "image_id": "7d0f0d9444c0d22c",
+    "crop": "crops/7d0f0d9444c0d22c.png",
+    "author": "Tino Rossini",
+    "author_profile": "https://www.flickr.com/people/stradablog/",
+    "title": "Untitled",
+    "original_landing_url": "https://www.flickr.com/photos/stradablog/9763083563",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0,
+      0.104950495,
+      1.0,
+      1.0
+    ],
+    "caption": "In this image there is a blue color car with an inside view of the car like steering, head mirror, side mirror, AC, etc. There is also some kind of blue color object placed in the car. On the right side of the image there are few people. In the background there is a field of grass, trees and bushes here and there and sky.",
+    "caption_annotator_id": 138,
+    "image_sha256": "b8b49809ac37d9422de853c0e02649be788e3552879b99f60bae85349b5b15f8",
+    "label": "blue"
+  },
+  {
+    "image_id": "877669a0f12d0b32",
+    "crop": "crops/877669a0f12d0b32.png",
+    "author": "Autoviva",
+    "author_profile": "https://www.flickr.com/people/autovivacom/",
+    "title": "Mercedes-Benz B-Class at the Frankfurt Motor Show IAA 2011",
+    "original_landing_url": "https://www.flickr.com/photos/autovivacom/6147726918",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.13293944,
+      0.26269317,
+      0.88921714,
+      0.8432671
+    ],
+    "caption": "This image consists of a car in blue color. At the bottom, there is a floor. On the left and right, there are persons. At the top, there is a roof along with the lamps.",
+    "caption_annotator_id": 92,
+    "image_sha256": "9b4d3d4229cf5783b55a65c52f908f16a55e9ccbd37a802924e54257ea018b2e",
+    "label": "blue"
+  },
+  {
+    "image_id": "6a3384383cb243c9",
+    "crop": "crops/6a3384383cb243c9.png",
+    "author": "Richard Andrianto",
+    "author_profile": "https://www.flickr.com/people/richard-a/",
+    "title": "Fit Aria / City",
+    "original_landing_url": "https://www.flickr.com/photos/richard-a/5033538883/",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.20088626,
+      0.050772626,
+      0.86706054,
+      0.9668874
+    ],
+    "caption": "In this image we can see a blue color car parked in a parking area and we can also see the engine of the car through the glass bonnet and on the left hand side we can see a wall and a yellow and black color paintings on the wall and we can also see some white color lines on the floor.",
+    "caption_annotator_id": 134,
+    "image_sha256": "80f79eb58ffe9b29d90a1a53616977861f0e4e25e2ee08cb82b59ef4c1766ac1",
+    "label": "blue"
+  },
+  {
+    "image_id": "3ed000628c6a0587",
+    "crop": "crops/3ed000628c6a0587.png",
+    "author": "Jim Kelly",
+    "author_profile": "https://www.flickr.com/people/pthread/",
+    "title": "The New Car",
+    "original_landing_url": "https://www.flickr.com/photos/pthread/4211660688",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.18262151,
+      0.2549889,
+      0.7334315,
+      0.88470066
+    ],
+    "caption": "This image consists of a car in blue color. On the left and right, there is snow. In the background, we can a building along with the doors.",
+    "caption_annotator_id": 92,
+    "image_sha256": "b09ecd774920fcda6408e9984970016d3e91bbf3891383d2f830e95096e60678",
+    "label": "blue"
+  },
+  {
+    "image_id": "30d350f09a97cdd7",
+    "crop": "crops/30d350f09a97cdd7.png",
+    "author": "German Medeot",
+    "author_profile": "https://www.flickr.com/people/motosclasicas/",
+    "title": "2013 New Bentley Mulsanne",
+    "original_landing_url": "https://www.flickr.com/photos/motosclasicas/8664771723",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.008064516,
+      0.24301076,
+      0.9903226,
+      0.8795699
+    ],
+    "caption": "In the middle of the picture, we see a car in blue color. At the bottom, we see the grass, dry leaves and the road. On the right side, we see the fence. On the left side, we see a wall. There are trees, fenced and the grass in the background.",
+    "caption_annotator_id": 161,
+    "image_sha256": "13a72a23f4e804e3d8612381a0efb81faafd7f0aa0b73de876defc8362853917",
+    "label": "blue"
+  },
+  {
+    "image_id": "927228a44e769c99",
+    "crop": "crops/927228a44e769c99.png",
+    "author": "Roderick Eime",
+    "author_profile": "https://www.flickr.com/people/rodeime/",
+    "title": "Lexus LF-LC Blue concept",
+    "original_landing_url": "https://www.flickr.com/photos/rodeime/9149445739",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.11356932,
+      0.39823008,
+      0.82300884,
+      0.90707964
+    ],
+    "caption": "In the foreground, I can see a blue color car on the road. In the background, I can see boats in the water and I can see a fence, buildings, the trees and the sky.",
+    "caption_annotator_id": 4,
+    "image_sha256": "af502c9be1e611efb70fbca6f7cb1578d700cb9c68f91ad15333829945957481",
+    "label": "blue"
+  },
+  {
+    "image_id": "c06df3267fbde56b",
+    "crop": "crops/c06df3267fbde56b.png",
+    "author": "amateur photography by michel",
+    "author_profile": "https://www.flickr.com/people/119886413@N05/",
+    "title": "2014 Chevrolet Corvette Sting Ray",
+    "original_landing_url": "https://www.flickr.com/photos/119886413@N05/15618459289/",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.006993007,
+      0.025641026,
+      0.993007,
+      1.0
+    ],
+    "caption": "In this picture we can see a blue car on the floor. In the background we can see the partial part of people and it is looking like a car which is green in color. We can see objects and the wall.",
+    "caption_annotator_id": 0,
+    "image_sha256": "548b2ff1c6ca1c9fc3788a7a0e755026db207332653e3e8e0661421960be7f9e",
+    "label": "blue"
+  },
+  {
+    "image_id": "e05c65afc710a6f6",
+    "crop": "crops/e05c65afc710a6f6.png",
+    "author": "Varin",
+    "author_profile": "https://www.flickr.com/people/varintsai/",
+    "title": "Mercedes-Benz W124 300E",
+    "original_landing_url": "https://www.flickr.com/photos/varintsai/4588774166",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.11590297,
+      0.42857143,
+      0.90296495,
+      0.89104116
+    ],
+    "caption": "In this image I can see blue color car and I can also see road, footpath, grass, small plants and in the background I can see trees and a clear blue sky.",
+    "caption_annotator_id": 133,
+    "image_sha256": "fa51985e3f588b99764bdfec7b88145d10daa83e8e3dcb2db83a921283eebd39",
+    "label": "blue"
+  },
+  {
+    "image_id": "0ef79b5cdf728e01",
+    "crop": "crops/0ef79b5cdf728e01.png",
+    "author": "Mic",
+    "author_profile": "https://www.flickr.com/people/micsworld/",
+    "title": "Dublin, Co. Dublin - Ireland",
+    "original_landing_url": "https://www.flickr.com/photos/micsworld/9701343182",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.20500782,
+      0.31041667,
+      0.90453833,
+      0.8520833
+    ],
+    "caption": "In the middle of the picture, we see a blue car is moving on the road. At the bottom, we see the road. On the left side, we see a pole and four people are standing. Beside them, we see the buildings and the boards in brown, green, blue and black color with some text written on it. On the right side, we see the people are walking on the footpath. This picture is clicked outside the city.",
+    "caption_annotator_id": 35,
+    "image_sha256": "439c6384e4ca4c35139b40bd251210fb66a849d23ac8459752d7e42e46d06840",
+    "label": "blue"
+  },
+  {
+    "image_id": "0dc818e5384e5289",
+    "crop": "crops/0dc818e5384e5289.png",
+    "author": "JaraGuzman (jacoibo5731) Mam\u00e1 ha muerto.",
+    "author_profile": "https://www.flickr.com/people/29140042@N04/",
+    "title": "B-Motorenwerke",
+    "original_landing_url": "https://www.flickr.com/photos/29140042@N04/2812687659",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.06875,
+      0.041666668,
+      0.975,
+      0.93333334
+    ],
+    "caption": "This image consists of cars. In the front, we can see a car in blue color. At the bottom, there is a road. On the right, we can see a bicycle and the buildings.",
+    "caption_annotator_id": 92,
+    "image_sha256": "676be7031c4d3c8f24769305c65a0ede9e0b563ea60b0c49693e6d55f98f20e4",
+    "label": "blue"
+  },
+  {
+    "image_id": "d1bd5b0b6fae3598",
+    "crop": "crops/d1bd5b0b6fae3598.png",
+    "author": "Frank Derks",
+    "author_profile": "https://www.flickr.com/people/eurosporttuning/",
+    "title": "Two words: My goodness \ud83d\ude0d\ud83d\udc4c\ud83d\ude0d\ud83d\udc4c\ud83d\ude0d\ud83d\udc4c @german.design.speed this stopped us dead in our tracks while rolling down our feed! #wheelwednesday #BMW #E60 #5series",
+    "original_landing_url": "https://www.flickr.com/photos/eurosporttuning/17159606141",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.05956679,
+      0.39530686,
+      0.9693141,
+      0.66787004
+    ],
+    "caption": "In this image there is a dark blue color car with its reflection on the ground. In the background there is a red and white color house with windows and shutters. There are also bushes and trees in the background. In the top right side of the image there is a partial view of sky.",
+    "caption_annotator_id": 138,
+    "image_sha256": "69c08bf0acd9d9f5940e4054d8784e174e175d54354107facd4fcd6071039bfd",
+    "label": "blue"
+  },
+  {
+    "image_id": "4f7cd70faff70256",
+    "crop": "crops/4f7cd70faff70256.png",
+    "author": "edward stojakovic",
+    "author_profile": "https://www.flickr.com/people/akasped/",
+    "title": "my favorite: 928 GT4",
+    "original_landing_url": "https://www.flickr.com/photos/akasped/3945171589",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0546875,
+      0.108333334,
+      0.9703125,
+      0.8645833
+    ],
+    "caption": "In this image I can see a blue color car on the floor. In the background there is a wall.",
+    "caption_annotator_id": 32,
+    "image_sha256": "66258b0cd5703eff20d11aae2a5de50294e30ea35cb767a99ac8ed22d94ed52f",
+    "label": "blue"
+  },
+  {
+    "image_id": "82b379d729ff8c2b",
+    "crop": "crops/82b379d729ff8c2b.png",
+    "author": "Tonamel",
+    "author_profile": "https://www.flickr.com/people/tonamel/",
+    "title": "Mini cooper window shot.",
+    "original_landing_url": "https://www.flickr.com/photos/tonamel/4950461294",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.21939586,
+      0.47638604,
+      0.78855324,
+      0.7268994
+    ],
+    "caption": "In the middle of the picture, we see a blue car is moving on the road. We see a man riding a blue car. At the bottom, we see the road. There are trees and the sky in the background. This picture is blurred in the background.",
+    "caption_annotator_id": 35,
+    "image_sha256": "045d8af7d35920f0fb4a30293b634cc19f2907ba8783c343ada1df62712fec07",
+    "label": "blue"
+  },
+  {
+    "image_id": "7bcce2931b9e442e",
+    "crop": "crops/7bcce2931b9e442e.png",
+    "author": "Calgary Reviews",
+    "author_profile": "https://www.flickr.com/people/calgaryreviews/",
+    "title": "Blue Dodge Viper in Calgary Alberta Canada",
+    "original_landing_url": "https://www.flickr.com/photos/calgaryreviews/5899489785",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.15696888,
+      0.5831325,
+      0.8633288,
+      0.9325301
+    ],
+    "caption": "As we can see in the image in the front there is a person riding a blue color car on the road. In the background I can see grass, fence and few objects. At the top there is sky.",
+    "caption_annotator_id": 170,
+    "image_sha256": "4d8180c2fbdf4034777b1f55aac008a9ea198dc652251fe6f8e5e12aa284cfbc",
+    "label": "blue"
+  },
+  {
+    "image_id": "864310a6a93074bf",
+    "crop": "crops/864310a6a93074bf.png",
+    "author": "Highway Patrol Images",
+    "author_profile": "https://www.flickr.com/people/special-fx/",
+    "title": "k43a.jpg",
+    "original_landing_url": "https://www.flickr.com/photos/special-fx/8614788547",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.076696165,
+      0.28539824,
+      0.920354,
+      0.8539823
+    ],
+    "caption": "In this image, I see a blue color car parked on the road, beside it I see few plants, a steel railing and few other plants behind it. In the background I see a wall, few tree trunks, group of trees, a electrical pole with wires on it.",
+    "caption_annotator_id": 141,
+    "image_sha256": "c0b71624ca2a278c089974fc79148946278f33deedd9e6583b0ec699330c772d",
+    "label": "blue"
+  },
+  {
+    "image_id": "8554bdb4bb78d326",
+    "crop": "crops/8554bdb4bb78d326.png",
+    "author": "Kambri Crews",
+    "author_profile": "https://www.flickr.com/people/kambricrews/",
+    "title": "Purple Thunder Nugget",
+    "original_landing_url": "https://www.flickr.com/photos/kambricrews/4847399451",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.05,
+      0.28125,
+      0.90625,
+      0.7625
+    ],
+    "caption": "This image consists of a car in blue color. At the bottom, there is a road. In the background, we can see a wall and a shutter. At the top, there are lights and we can see the metal rods.",
+    "caption_annotator_id": 176,
+    "image_sha256": "7b709697dd2a419283c628427a77db96aecd9376e9b7637782b44c52e86f44c5",
+    "label": "blue"
+  },
+  {
+    "image_id": "e7b06050f612d2ba",
+    "crop": "crops/e7b06050f612d2ba.png",
+    "author": "Jim Hoagland",
+    "author_profile": "https://www.flickr.com/people/98173745@N00/",
+    "title": "Custom",
+    "original_landing_url": "https://www.flickr.com/photos/98173745@N00/6154192287",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.15822785,
+      0.31888545,
+      0.93459916,
+      0.9287926
+    ],
+    "caption": "In the middle of the picture, we see a blue car. It looks like a toy car. At the bottom, we see the shadow of a car. In the background, it is white in color.",
+    "caption_annotator_id": 161,
+    "image_sha256": "78e9855312b713aaa744957bc7455e38f452dfae272e29732d4f0bc8d12f5267",
+    "label": "blue"
+  },
+  {
+    "image_id": "55b40b0932e13653",
+    "crop": "crops/55b40b0932e13653.png",
+    "author": "Yeray Hdez Guerra",
+    "author_profile": "https://www.flickr.com/people/yerahg/",
+    "title": "V Sal\u00f3n del Autom\u00f3vil de Canarias",
+    "original_landing_url": "https://www.flickr.com/photos/yerahg/1826666710",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.11875,
+      0.07083333,
+      0.9796875,
+      0.7708333
+    ],
+    "caption": "In this picture we can see a blue color car with front left side door open and beside of that there are people standing and back side there is a car and some text on a wall.",
+    "caption_annotator_id": 127,
+    "image_sha256": "f1f98b540833ec24c707999795183c7975360be776a8366b76c75a3cff00328a",
+    "label": "blue"
+  },
+  {
+    "image_id": "f6cfa18fdc2a217e",
+    "crop": "crops/f6cfa18fdc2a217e.png",
+    "author": "rlmccutchan",
+    "author_profile": "https://www.flickr.com/people/rlmccutchan/",
+    "title": "22",
+    "original_landing_url": "https://www.flickr.com/photos/110210387@N08/16582327178",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.26037195,
+      0.2164009,
+      0.9527897,
+      0.8656036
+    ],
+    "caption": "In this image we can see a blue color car on which something is written and a man in black dress with cap. We can also see a yellow color troli and green color iron shelves and a yellow color building on which some thing is written on its entrance doors. In background we can see so many peoples and a iron barricade as well.",
+    "caption_annotator_id": 128,
+    "image_sha256": "730ab6cf4186a5a4b403f2c422f7ef159d7f24eaca4a914ffc5ba0c6edde8ae6",
+    "label": "blue"
+  },
+  {
+    "image_id": "fb34545b0515c8fb",
+    "crop": "crops/fb34545b0515c8fb.png",
+    "author": "Nacho",
+    "author_profile": "https://www.flickr.com/people/gonmi/",
+    "title": "Audi",
+    "original_landing_url": "https://www.flickr.com/photos/gonmi/8097270069",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.09144543,
+      0.36725664,
+      0.86725664,
+      0.8982301
+    ],
+    "caption": "In this image I can see a blue colour car in the front. In the background I can see number of plants, a building, number of glass windows, for glass doors, stairs and the railings. On the left side of the image I can see few poles and on the bottom side of the image I can see two things.",
+    "caption_annotator_id": 85,
+    "image_sha256": "a3b8f8112a27a65625f5f6d5d69634cb411225f8b13ed70eb7acfa2c973570ca",
+    "label": "blue"
+  },
+  {
+    "image_id": "cfe71ea85264c7b3",
+    "crop": "crops/cfe71ea85264c7b3.png",
+    "author": "SOCIALisBETTER",
+    "author_profile": "https://www.flickr.com/people/27620885@N02/",
+    "title": "CITROEN 2009 C3 @ FRANKFURT IAA",
+    "original_landing_url": "https://www.flickr.com/photos/27620885@N02/3864617399",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.216,
+      0.048158642,
+      0.93,
+      0.8441926
+    ],
+    "caption": "In this image I can see a blue car with black glasses, and an antenna on the top, and the background is white, and there is text here.",
+    "caption_annotator_id": 131,
+    "image_sha256": "6a2b4082555929f8d2fce01c54d064ca8a1e004769fa5d9593c00c94e5e10c86",
+    "label": "blue"
+  },
+  {
+    "image_id": "086a44384e872726",
+    "crop": "crops/086a44384e872726.png",
+    "author": "SOCIALisBETTER",
+    "author_profile": "https://www.flickr.com/people/27620885@N02/",
+    "title": "2009 Chevrolet Corvette ZR1",
+    "original_landing_url": "https://www.flickr.com/photos/27620885@N02/3254543239",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.088275865,
+      0.24586289,
+      0.9075862,
+      0.9314421
+    ],
+    "caption": "In this picture we can see a blue color car in the front, there is a dark background.",
+    "caption_annotator_id": 1,
+    "image_sha256": "abf55aa78a5d300d5e7156fad089418529a053e59a1949424ead7297391ecd49",
+    "label": "blue"
+  },
+  {
+    "image_id": "63a2023afa1fdd60",
+    "crop": "crops/63a2023afa1fdd60.png",
+    "author": "Randen Pederson",
+    "author_profile": "https://www.flickr.com/people/chefranden/",
+    "title": "Blue 58 Chevy",
+    "original_landing_url": "https://www.flickr.com/photos/chefranden/207469892",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.037156705,
+      0.1959596,
+      0.9063005,
+      0.7656566
+    ],
+    "caption": "This image consists of a car in blue color. At the bottom, there is a road. On the left, there is green grass. In the background, there are trees. At the top, the image is blurred. It looks like the image is edited.",
+    "caption_annotator_id": 176,
+    "image_sha256": "cafb5f1a83a44f17a391663b39c68184012296ebbb967f5cb979666bb7c8d772",
+    "label": "blue"
+  },
+  {
+    "image_id": "a11377f21cbe7b5d",
+    "crop": "crops/a11377f21cbe7b5d.png",
+    "author": "questa_ta",
+    "author_profile": "https://www.flickr.com/people/123686285@N03/",
+    "title": "Mus\u00e9e de l'automobile - Mulhouse - Vaillante - BH5A5965",
+    "original_landing_url": "https://www.flickr.com/photos/123686285@N03/16645356891",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.016224189,
+      0.1460177,
+      0.91887903,
+      0.90486723
+    ],
+    "caption": "This image consists of a car in blue color on which we can see the text. At the bottom, there is floor. On the right, we can see a wall and there is a pipe. On the left, it looks like a glass window.",
+    "caption_annotator_id": 176,
+    "image_sha256": "ce62dfca4c9229710bf563dfe140661fc6b7af63e1ca27f47f888e09e6218815",
+    "label": "blue"
+  },
+  {
+    "image_id": "64c735f81e689331",
+    "crop": "crops/64c735f81e689331.png",
+    "author": "TTTNIS",
+    "author_profile": "https://www.flickr.com/people/tttnis/",
+    "title": "Subaru Impreza WRX 03",
+    "original_landing_url": "https://www.flickr.com/photos/tttnis/4370385694",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.036204744,
+      0.11227154,
+      0.9500624,
+      0.9712794
+    ],
+    "caption": "In this picture we can see a blue car parked on the road. We can see ropes. In the background we can see the fence, trees, plants, stones, rocks, objects and the wall.",
+    "caption_annotator_id": 0,
+    "image_sha256": "c61734136ada9af8f45438d84b16edcc9c98aa5e71e76b9f52def7031ed9f867",
+    "label": "blue"
+  },
+  {
+    "image_id": "305065b141393c46",
+    "crop": "crops/305065b141393c46.png",
+    "author": "Autoviva",
+    "author_profile": "https://www.flickr.com/people/autovivacom/",
+    "title": "Mercedes-Benz B-Class at the Frankfurt Motor Show IAA 2011",
+    "original_landing_url": "https://www.flickr.com/photos/autovivacom/6147725870",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1506647,
+      0.26490065,
+      0.8434269,
+      0.9116998
+    ],
+    "caption": "In the picture I can see a blue color car on the display floor and there is a man in the car. I can see two persons standing on the floor. There is a lighting arrangement on the roof.",
+    "caption_annotator_id": 162,
+    "image_sha256": "8acce477dadb2f972a32869e4b3146badd3d5e4ebd663ec9e6b52ae5e3170bc8",
+    "label": "blue"
+  },
+  {
+    "image_id": "5cc5faa42258524f",
+    "crop": "crops/5cc5faa42258524f.png",
+    "author": "KOMUnews",
+    "author_profile": "https://www.flickr.com/people/komunews/",
+    "title": "2010 Matrix",
+    "original_landing_url": "https://www.flickr.com/photos/komunews/4327751187",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.022916667,
+      0.11388889,
+      0.97291666,
+      0.80277777
+    ],
+    "caption": "In this image I can see the car in blue color and I can see something is written on the image and the background is in white color.",
+    "caption_annotator_id": 17,
+    "image_sha256": "2a58662b7f4c25b9fac90327b0ba2bae273ec8c8bbdf4fb469cebfe15e05d17d",
+    "label": "blue"
+  },
+  {
+    "image_id": "f684d6d673e1b149",
+    "crop": "crops/f684d6d673e1b149.png",
+    "author": "Niels de Wit",
+    "author_profile": "https://www.flickr.com/people/nielsautos/",
+    "title": "1997 Lotus Elise",
+    "original_landing_url": "https://www.flickr.com/photos/nielsautos/20019922649",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.09142857,
+      0.01369863,
+      0.9657143,
+      0.89269406
+    ],
+    "caption": "In this picture, we see a blue car. We see a number plate in yellow color. On the right side, we see the plants and the flowers. At the bottom, we see the pavement. On the left side, we see a wall which is made up of bricks. In the background, we see a white door, pole and a wall.",
+    "caption_annotator_id": 35,
+    "image_sha256": "0400d30595ea808ba6457ae9d5f891008468fc76ce75bb4813a6899492ee298b",
+    "label": "blue"
+  },
+  {
+    "image_id": "561228f883b91c64",
+    "crop": "crops/561228f883b91c64.png",
+    "author": "atomic80",
+    "author_profile": "https://www.flickr.com/people/atomic80/",
+    "title": "Porsche 997.2 TurboS",
+    "original_landing_url": "https://www.flickr.com/photos/atomic80/18893228164",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.2655889,
+      0.50282484,
+      0.869515,
+      0.96892655
+    ],
+    "caption": "In the middle of the image we can see a blue color car on the road, in the background we can see few lights, sign boards and pipes, in the bottom right hand corner we can find some text.",
+    "caption_annotator_id": 62,
+    "image_sha256": "02090fa5bc5f8a2160987b23f8962ae43b1aef1fd13166b02666468f22bdfc56",
+    "label": "blue"
+  },
+  {
+    "image_id": "8f5e92debd91b3bb",
+    "crop": "crops/8f5e92debd91b3bb.png",
+    "author": "AIR FORCE ONE",
+    "author_profile": "https://www.flickr.com/people/wwwarizmonterojazcom/",
+    "title": "AMERICAN EXPRESS",
+    "original_landing_url": "https://www.flickr.com/photos/wwwarizmonterojazcom/15495435300",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.020168068,
+      0.25825244,
+      0.9680672,
+      0.7067961
+    ],
+    "caption": "In this picture we can see a blue car on the road. We can see a person driving a car. Background of the image is blurred. We can see trees and the sky is visible.",
+    "caption_annotator_id": 0,
+    "image_sha256": "0026740d99e49a5e662e8b6c2989d52764e3075de8132fde4445f6dbe70296b2",
+    "label": "blue"
+  },
+  {
+    "image_id": "65378c1fc8c5ad0c",
+    "crop": "crops/65378c1fc8c5ad0c.png",
+    "author": "dawarwickphotography",
+    "author_profile": "https://www.flickr.com/people/dawarwickphotography/",
+    "title": "Ford Capri",
+    "original_landing_url": "https://www.flickr.com/photos/dawarwickphotography/3592616487",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.10619469,
+      0.07522124,
+      0.9277286,
+      0.8362832
+    ],
+    "caption": "In this picture I can see a white and blue color car on the road. In the car, I can see a person. In the background, I can see the fencing, grass, plants, number of trees and the sky.",
+    "caption_annotator_id": 174,
+    "image_sha256": "3433eee1d05a9ceee719349f4417271100b39d30406e309a761a8121cf894e16",
+    "label": "blue"
+  },
+  {
+    "image_id": "f5c2a80a21ddb78c",
+    "crop": "crops/f5c2a80a21ddb78c.png",
+    "author": "Tom",
+    "author_profile": "https://www.flickr.com/people/dabofthebrake/",
+    "title": "PH Breakfast Meet 17",
+    "original_landing_url": "https://www.flickr.com/photos/dabofthebrake/10782036793",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.056047197,
+      0.07522124,
+      0.7212389,
+      0.6836283
+    ],
+    "caption": "In the middle of this image I can see a blue color car on the road. At the bottom there are many stones. In the background there is a wooden fencing on a wall. Behind there are trees. At the top of the image I can see the sky. In the bottom right-hand corner there is some text.",
+    "caption_annotator_id": 32,
+    "image_sha256": "90e5418c3c5f13233e15342e4dc982e0db736354a59905d39a2f3f5f75f6240d",
+    "label": "blue"
+  },
+  {
+    "image_id": "82a9cbf32d9b8bcf",
+    "crop": "crops/82a9cbf32d9b8bcf.png",
+    "author": "JOHN LLOYD",
+    "author_profile": "https://www.flickr.com/people/hugo90/",
+    "title": "Buick Excelle",
+    "original_landing_url": "https://www.flickr.com/photos/hugo90/4621886388",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.10714286,
+      0.3907563,
+      0.886646,
+      0.81512606
+    ],
+    "caption": "In this image I can see the car in blue color. In the background I can see the railing, few buildings and the sky.",
+    "caption_annotator_id": 17,
+    "image_sha256": "af7e9cfd0a59a537fd9be24e3073fff7c1d45fa809ae3b8aa9ea5cca70778fd4",
+    "label": "blue"
+  },
+  {
+    "image_id": "bb09dda759bf5f42",
+    "crop": "crops/bb09dda759bf5f42.png",
+    "author": "Rocking Cars",
+    "author_profile": "https://www.flickr.com/people/rockingcars/",
+    "title": "New BMW X5 is a handsome beast!",
+    "original_landing_url": "https://www.flickr.com/photos/rockingcars/14233694676",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.134375,
+      0.30688936,
+      0.896875,
+      0.8789144
+    ],
+    "caption": "As we can see in the image in the front there is a blue color car on the road. In the background, I can see grass, railing, plants and trees. At the top there is sky.",
+    "caption_annotator_id": 170,
+    "image_sha256": "782cb33cd4a5108000cbfb2ebcf2f8b66bc5de008fcaebf558f26e1356fc0091",
+    "label": "blue"
+  },
+  {
+    "image_id": "1323163565955362",
+    "crop": "crops/1323163565955362.png",
+    "author": "dave_7",
+    "author_profile": "https://www.flickr.com/people/daveseven/",
+    "title": "Telsa Roadster rear",
+    "original_landing_url": "https://www.flickr.com/photos/daveseven/7229826944",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1450858,
+      0.17327766,
+      0.8923557,
+      0.82254696
+    ],
+    "caption": "In the image I can see the picture of a blue color car on the road and to the side there is a shed and also I can see some trees, plants, poles and the sky.",
+    "caption_annotator_id": 103,
+    "image_sha256": "e27428b1c53d3e975ad82aec6f16073ed3e1b9a2c544b3fdf50042dd6d9c61af",
+    "label": "blue"
+  },
+  {
+    "image_id": "67114ee3e551a99a",
+    "crop": "crops/67114ee3e551a99a.png",
+    "author": "Gib Goodrich",
+    "author_profile": "https://www.flickr.com/people/gmpartsonline/",
+    "title": "#Corvette #Stingray speeding away!",
+    "original_landing_url": "https://www.flickr.com/photos/gmpartsonline/12362265923",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.05956679,
+      0.30866426,
+      0.9241877,
+      0.700361
+    ],
+    "caption": "In the picture I can see a blue color car on the road. In the background I can see the sky, trees and some other things.",
+    "caption_annotator_id": 25,
+    "image_sha256": "4145a82e93add29d549d68d65c3b1cc6c6ecd6c55e2955967767418bc0652866",
+    "label": "blue"
+  },
+  {
+    "image_id": "a70bfab1f79150de",
+    "crop": "crops/a70bfab1f79150de.png",
+    "author": "David McSpadden",
+    "author_profile": "https://www.flickr.com/people/familyclan/",
+    "title": "Safe Streets, no garage",
+    "original_landing_url": "https://www.flickr.com/photos/familyclan/14807804827",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0,
+      0.0023474179,
+      1.0,
+      1.0
+    ],
+    "caption": "In this image in the center there is a black color car and at the bottom there is road, and on the left side there is a pavement. And in the background also there is pavement, and it looks like there are vehicles in the background.",
+    "caption_annotator_id": 168,
+    "image_sha256": "740ee1b5dc6d783d07509dfe2636d5040f71392e07b36f56d5a79a067f5842ef",
+    "label": "black"
+  },
+  {
+    "image_id": "3ec0e81d00d8bc2c",
+    "crop": "crops/3ec0e81d00d8bc2c.png",
+    "author": "The NRMA",
+    "author_profile": "https://www.flickr.com/people/nrmadriversseat/",
+    "title": "MY Audi A3 etron - First Drive",
+    "original_landing_url": "https://www.flickr.com/photos/nrmadriversseat/15069134155",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.082474224,
+      0.40486726,
+      0.8821797,
+      0.91150445
+    ],
+    "caption": "In this image we can see a black color car on a road and something is written on that car. In background we can see a building with some pillars, some trees, and other building with a tower on it and a clear sky as well.",
+    "caption_annotator_id": 128,
+    "image_sha256": "4f6f7bdd567bcdd9e97eda625acce1dda91f985cc064d9874694b486e8597a2c",
+    "label": "black"
+  },
+  {
+    "image_id": "f056600365996903",
+    "crop": "crops/f056600365996903.png",
+    "author": "Mathew Bedworth",
+    "author_profile": "https://www.flickr.com/people/bedworth/",
+    "title": "Sam's VW B6 Passat",
+    "original_landing_url": "https://www.flickr.com/photos/bedworth/11374586955",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.19374068,
+      0.19912472,
+      0.80029804,
+      0.80525166
+    ],
+    "caption": "In the picture I can see a black color car on the ground. In the background I can see a shutter, a brick wall and some other things. On the bottom right side of the image I can see a watermark.",
+    "caption_annotator_id": 25,
+    "image_sha256": "25d814a8d8045c7269ca8aedd34250f6475946f4d27f43d020c7c168db9dbb18",
+    "label": "black"
+  },
+  {
+    "image_id": "a626ad6c50d3a8d7",
+    "crop": "crops/a626ad6c50d3a8d7.png",
+    "author": "John Nuttall",
+    "author_profile": "https://www.flickr.com/people/16822508@N05/",
+    "title": "Untitled",
+    "original_landing_url": "https://www.flickr.com/photos/16822508@N05/2081887512",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.11929308,
+      0.2920354,
+      0.89985275,
+      0.7477876
+    ],
+    "caption": "In this image we can see a man in black shirt and white helmet is driving in a black color car,on which \"5\" is written on the road and in background we can see a grass field.",
+    "caption_annotator_id": 128,
+    "image_sha256": "b30431e1dc9f43613cc43819c4762460cc2dce1709c30c4b3c055e5c89247e55",
+    "label": "black"
+  },
+  {
+    "image_id": "3bb70c0267942681",
+    "crop": "crops/3bb70c0267942681.png",
+    "author": "The NRMA",
+    "author_profile": "https://www.flickr.com/people/nrmadriversseat/",
+    "title": "2011 NRMA Motorfest - Some of the Highlights",
+    "original_landing_url": "https://www.flickr.com/photos/nrmadriversseat/5405733707",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.010914052,
+      0.13636364,
+      0.98499316,
+      0.9832536
+    ],
+    "caption": "In this picture I can observe black color car on the road. Beside the car I can observe black color railing. In the background I can observe buildings.",
+    "caption_annotator_id": 39,
+    "image_sha256": "af1468149f01fa45987e9492fe1e01e92836e7b908e21e4c7157e0b661d1861d",
+    "label": "black"
+  },
+  {
+    "image_id": "e7a151c7f73792d9",
+    "crop": "crops/e7a151c7f73792d9.png",
+    "author": "George Shahda",
+    "author_profile": "https://www.flickr.com/people/42063682@N06/",
+    "title": "Bentley Dubai",
+    "original_landing_url": "https://www.flickr.com/photos/42063682@N06/7147645531",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.14198473,
+      0.24786325,
+      0.8549618,
+      0.85683763
+    ],
+    "caption": "In this picture we can see a black car on the floor. In the background we can see the wall.",
+    "caption_annotator_id": 0,
+    "image_sha256": "20f50cc51c970d9f8826ce855189a5f2f3d606416b707f21fdf18acba5b3d682",
+    "label": "black"
+  },
+  {
+    "image_id": "27a36d80be726d15",
+    "crop": "crops/27a36d80be726d15.png",
+    "author": "Curtis Palmer",
+    "author_profile": "https://www.flickr.com/people/techbirmingham/",
+    "title": "Untitled",
+    "original_landing_url": "https://www.flickr.com/photos/techbirmingham/6542091639",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.07279693,
+      0.20971867,
+      0.91570884,
+      0.8465473
+    ],
+    "caption": "In this picture I can see a black colour car in front and I can see number of stones. In the background, I can see the clear sky.",
+    "caption_annotator_id": 174,
+    "image_sha256": "926c1ab0d21ad41fae7ce7e5cb8eaba8ecd6e79e9604aea75b86d738d5b3244d",
+    "label": "black"
+  },
+  {
+    "image_id": "468b60dbc63397c0",
+    "crop": "crops/468b60dbc63397c0.png",
+    "author": "MIKI Yoshihito",
+    "author_profile": "https://www.flickr.com/people/mujitra/",
+    "title": "EXCEL HOTEL TOKYU.",
+    "original_landing_url": "https://www.flickr.com/photos/mujitra/8691404963",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.2359882,
+      0.289823,
+      0.94100296,
+      0.7876106
+    ],
+    "caption": "As we can see in the image in the front there is a black color car on the road. I can see traffic cones, plants, pillars, boards with some text written, trees, current polls, vehicles, railing and few objects. At the top there is sky.",
+    "caption_annotator_id": 170,
+    "image_sha256": "049182d6b0fbad1426e2a678a80f8a09b33b04deb0358b698a20aa8abac8b599",
+    "label": "black"
+  },
+  {
+    "image_id": "e4c538f62413f251",
+    "crop": "crops/e4c538f62413f251.png",
+    "author": "SuperCar-RoadTrip.fr",
+    "author_profile": "https://www.flickr.com/people/xavier33300/",
+    "title": "Porsche 911 GT3 - Circuit Val de Vienne - 15/11/2014 - Image Picture Photography - Organisateur : Club AGC86 Vienne - www.agc86.fr",
+    "original_landing_url": "https://www.flickr.com/photos/xavier33300/15618088200",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.12010796,
+      0.42270532,
+      0.91767883,
+      0.84782606
+    ],
+    "caption": "In this image I can see a black colour car on the road. I can also see one person in the car and I can see this person is wearing a blue colour t-shirt and a helmet. On the both sides of the road I can see grass. In the background I can see two silver colour things, number of trees and the sky. I can also see this image is little bit blurry.",
+    "caption_annotator_id": 85,
+    "image_sha256": "78256cd0f5930771335842a3ef866921f5237c0eae7dac9684304926cab7605f",
+    "label": "black"
+  },
+  {
+    "image_id": "a774a6f81fea258b",
+    "crop": "crops/a774a6f81fea258b.png",
+    "author": "The Car Spy",
+    "author_profile": "https://www.flickr.com/people/thecarspy/",
+    "title": "Range Rover Sport HST 4.2 V8 Supercharged",
+    "original_landing_url": "https://www.flickr.com/photos/thecarspy/2660370384",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0625,
+      0.17083333,
+      0.9453125,
+      0.86875
+    ],
+    "caption": "In this image, we can see a black car with a number plate parked on the road. In the background, there are houses, walls, railings, grass, glass windows, walkway and trees.",
+    "caption_annotator_id": 55,
+    "image_sha256": "20ec96543621301bc88cdd9fef90c5ed0cbf78de169910ec42a54ebcb1f51235",
+    "label": "black"
+  },
+  {
+    "image_id": "b633d505332d1a45",
+    "crop": "crops/b633d505332d1a45.png",
+    "author": "Catch Central Florida",
+    "author_profile": "https://www.flickr.com/people/visitcentralflorida/",
+    "title": "2011 Lake Mirror Classic Auto Festival",
+    "original_landing_url": "https://www.flickr.com/photos/visitcentralflorida/6384196055",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0671875,
+      0.0,
+      0.975,
+      1.0
+    ],
+    "caption": "In this image we can see a black color car and two person are standing near the car. In the background of the image we can see some grass.",
+    "caption_annotator_id": 119,
+    "image_sha256": "bfd17b0e5258a9606fff83c06dbcd3c4819e647e8ec32178b946b8aa99359428",
+    "label": "black"
+  },
+  {
+    "image_id": "7c4cb9f58d38fc0e",
+    "crop": "crops/7c4cb9f58d38fc0e.png",
+    "author": "Pedro Ribeiro Sim\u00f5es",
+    "author_profile": "https://www.flickr.com/people/pedrosimoes7/",
+    "title": "Volkswagen Golf GTI VI",
+    "original_landing_url": "https://www.flickr.com/photos/pedrosimoes7/4662673193",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.019646365,
+      0.13764511,
+      0.9823183,
+      0.8872305
+    ],
+    "caption": "In this image I can see the car in black color. In the background I can see few plants in green color and I can also see few houses in white and brown color.",
+    "caption_annotator_id": 17,
+    "image_sha256": "8994cc689902f3660392966b855abcc1c6225d20c710a3feab0f6a7db1f67615",
+    "label": "black"
+  },
+  {
+    "image_id": "fb55b73f241bf50a",
+    "crop": "crops/fb55b73f241bf50a.png",
+    "author": "Pedro Ribeiro Sim\u00f5es",
+    "author_profile": "https://www.flickr.com/people/pedrosimoes7/",
+    "title": "Golf GTI I",
+    "original_landing_url": "https://www.flickr.com/photos/pedrosimoes7/2252539413",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0014858841,
+      0.052747253,
+      0.99554235,
+      0.9978022
+    ],
+    "caption": "In this image I can see black car covered in a dust, in a garage.",
+    "caption_annotator_id": 131,
+    "image_sha256": "041b7e966e03ad11fd7c91ac8ad9c7f7a370dc9cecb973e25cebb00d7da432b0",
+    "label": "black"
+  },
+  {
+    "image_id": "c773ec0bbbcf23e4",
+    "crop": "crops/c773ec0bbbcf23e4.png",
+    "author": "CarPictures dot com",
+    "author_profile": "https://www.flickr.com/people/carpictures-dot-com/",
+    "title": "2001 Audi S8",
+    "original_landing_url": "https://www.flickr.com/photos/carpictures-dot-com/4330390785",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.064,
+      0.17333333,
+      0.952,
+      0.7733333
+    ],
+    "caption": "In the middle of the picture, we see a black car is parked on the road. At the bottom we see the road. In the background, we see the road and a sheet or a cloth in white color.",
+    "caption_annotator_id": 161,
+    "image_sha256": "04a07c5e2e4dc16c7d801790482a2811b46a7873b75e1975153965b40081f1b4",
+    "label": "black"
+  },
+  {
+    "image_id": "352dff96427e8d81",
+    "crop": "crops/352dff96427e8d81.png",
+    "author": "reed",
+    "author_profile": "https://www.flickr.com/people/u2canreed/",
+    "title": "big car tiny dick",
+    "original_landing_url": "https://www.flickr.com/photos/u2canreed/502779675",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.042384107,
+      0.14039409,
+      0.9576159,
+      0.95566505
+    ],
+    "caption": "This is an edited image. In the middle of the picture, we see a car in black color. At the bottom, we see the road. Behind the car, we see a wall and a street light. We see the wires. On the left side, we see a building and a shutter in white color. At the top, we see the sky. At the bottom and at the top, we see the text. Beside the text, we see the photo of a man who is standing.",
+    "caption_annotator_id": 161,
+    "image_sha256": "64bf632b4955634380c609f345602204c9e558a8d66388b8d3c0b8425ca6dc40",
+    "label": "black"
+  },
+  {
+    "image_id": "79f73796dbe390e5",
+    "crop": "crops/79f73796dbe390e5.png",
+    "author": "Peter Zoon",
+    "author_profile": "https://www.flickr.com/people/peterzen/",
+    "title": "Aston Martin V12 Vantage S",
+    "original_landing_url": "https://www.flickr.com/photos/peterzen/16971449378",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1488498,
+      0.37349397,
+      0.9215156,
+      0.83614457
+    ],
+    "caption": "In the foreground of the picture I can see a black color car on the road. In the background, I can see the rocks. It is looking like a building on the top left side of the picture and I can see the shutter.",
+    "caption_annotator_id": 56,
+    "image_sha256": "c75e4cf78c2181b33287782296411d97278fc0e77f825bb275737a481d84950f",
+    "label": "black"
+  },
+  {
+    "image_id": "eb5fdfc162e5fd34",
+    "crop": "crops/eb5fdfc162e5fd34.png",
+    "author": "nitrohepcat",
+    "author_profile": "https://www.flickr.com/people/23368098@N05/",
+    "title": "55 Chevy Truck, First Series",
+    "original_landing_url": "https://www.flickr.com/photos/23368098@N05/4722787098",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.10841424,
+      0.13657407,
+      0.9223301,
+      0.9398148
+    ],
+    "caption": "In this picture we can see a man inside a black car and a car is parked on the road. In the background we can see green grass, plants, trees and the sky is visible.\u00a0",
+    "caption_annotator_id": 0,
+    "image_sha256": "cb4e6ff9dfca1433cf61d810a8d69b34f31577eec1463b1d7cab134386b674ae",
+    "label": "black"
+  },
+  {
+    "image_id": "378418c267f1ccad",
+    "crop": "crops/378418c267f1ccad.png",
+    "author": "amateur photography by michel",
+    "author_profile": "https://www.flickr.com/people/119886413@N05/",
+    "title": "2014 BMW M6 Coupe",
+    "original_landing_url": "https://www.flickr.com/photos/119886413@N05/16499146699",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.013531799,
+      0.33734939,
+      0.96887684,
+      0.8433735
+    ],
+    "caption": "In this image we can see a black color car on the floor. In the background we can see the glass doors, wall, ceiling, lights. We can also see the board with the pictures of the cars. We can also see a wooden door on the right.",
+    "caption_annotator_id": 13,
+    "image_sha256": "054c5e94083eb6facee6b144f821c5261f9a7d8c633820e3675bf734ecb1d8d6",
+    "label": "black"
+  },
+  {
+    "image_id": "e8376cbcf4c016bf",
+    "crop": "crops/e8376cbcf4c016bf.png",
+    "author": "Collector Car Ads",
+    "author_profile": "https://www.flickr.com/people/48718277@N06/",
+    "title": "1935 Buick 66-C",
+    "original_landing_url": "https://www.flickr.com/photos/48718277@N06/4680514794",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0078125,
+      0.23958333,
+      0.959375,
+      0.69166666
+    ],
+    "caption": "In this picture I can see a car in the middle, in the background there are buildings, trees, at the top there is the sky, on the right side I can see a black color car.",
+    "caption_annotator_id": 6,
+    "image_sha256": "797cc17e5a4244c81e68bca16cf17d9c9862387877406a51d5f74a9876a64133",
+    "label": "black"
+  },
+  {
+    "image_id": "c89c2b1f475df343",
+    "crop": "crops/c89c2b1f475df343.png",
+    "author": "dez1172",
+    "author_profile": "https://www.flickr.com/people/dez1172/",
+    "title": "2007 BMW 530D M-Sport",
+    "original_landing_url": "https://www.flickr.com/photos/dez1172/8741017297",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.135318,
+      0.12771085,
+      0.8173207,
+      0.8433735
+    ],
+    "caption": "In this image, I see designed concrete floor at the bottom and a black colored car is parked on it, beside it I see green plants. In the background I see a steel gate, few poles and a cloudy sky at the top.",
+    "caption_annotator_id": 141,
+    "image_sha256": "97681b2ace3a73f34dbe0a2ab4fe47be4d3c56dd4b72dd530ec518899232d55d",
+    "label": "black"
+  },
+  {
+    "image_id": "e23f496bbc49f399",
+    "crop": "crops/e23f496bbc49f399.png",
+    "author": "Sam Ho",
+    "author_profile": "https://www.flickr.com/people/samhophotography/",
+    "title": "Alan's FRS",
+    "original_landing_url": "https://www.flickr.com/photos/samhophotography/10585881245",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.2920354,
+      0.42256638,
+      0.7079646,
+      0.8960177
+    ],
+    "caption": "In the middle of the picture, we see a black car. At the bottom, we see the road and the shadow of a car on the road. In the background, it is black in color. In the left bottom, we see the text. This picture might be clicked in the dark.",
+    "caption_annotator_id": 161,
+    "image_sha256": "c958b1bd0357bcc58e6f429f24238838dc5e915faeac05a88d95dc975bad5b46",
+    "label": "black"
+  },
+  {
+    "image_id": "153ca6b8093d01ef",
+    "crop": "crops/153ca6b8093d01ef.png",
+    "author": "Alan L",
+    "author_profile": "https://www.flickr.com/people/35188692@N00/",
+    "title": "wide mouth",
+    "original_landing_url": "https://www.flickr.com/photos/35188692@N00/2079654003",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.006153846,
+      0.012711864,
+      0.99846154,
+      0.94067794
+    ],
+    "caption": "This image consists of a car in black color. At the bottom, there is a road. On the left and right, there are buildings. At the top, we can see the sky.",
+    "caption_annotator_id": 92,
+    "image_sha256": "09901b3e4ea81ccb8a0b2f7b0f027fd5dd30b797d07f54f8fdd5c92d9641def0",
+    "label": "black"
+  },
+  {
+    "image_id": "09f8b77a88f224d9",
+    "crop": "crops/09f8b77a88f224d9.png",
+    "author": "Eric E Castro",
+    "author_profile": "https://www.flickr.com/people/ecastro/",
+    "title": "Zero emissions now",
+    "original_landing_url": "https://www.flickr.com/photos/ecastro/5959784801",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.085798815,
+      0.26211452,
+      0.8816568,
+      0.66519827
+    ],
+    "caption": "In this picture we can see a black car parked on the road in front of a house made of stone walls, stairs, doors, windows & iron railings. Here we can also see the trunk of a tree. We can see a yellow sticker with some text pasted on the back wheel of the car.",
+    "caption_annotator_id": 111,
+    "image_sha256": "11015c1f1c1d5c89564a4f5b663bb21ace70c770e7dfb06417573072481923ca",
+    "label": "black"
+  },
+  {
+    "image_id": "e2f3f17e5e627dc5",
+    "crop": "crops/e2f3f17e5e627dc5.png",
+    "author": "Pedro Fernandes",
+    "author_profile": "https://www.flickr.com/people/djprmf/",
+    "title": "w0000112",
+    "original_landing_url": "https://www.flickr.com/photos/djprmf/15680317365",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1556157,
+      0.2,
+      0.8782138,
+      0.7036145
+    ],
+    "caption": "In this image, we can see black car on the black surface. On the surface, we can see car reflection. The background of the image is black.",
+    "caption_annotator_id": 55,
+    "image_sha256": "cc2296e7aedce440b168f32d8311047900f5d0a52209275276a66125fe237749",
+    "label": "black"
+  },
+  {
+    "image_id": "da8eea24abc5d91d",
+    "crop": "crops/da8eea24abc5d91d.png",
+    "author": "German Medeot",
+    "author_profile": "https://www.flickr.com/people/motosclasicas/",
+    "title": "1964 Ferrari 250 GT Lusso Berlinetta by Scaglietti",
+    "original_landing_url": "https://www.flickr.com/photos/motosclasicas/8389025644",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.037096772,
+      0.33246073,
+      0.966129,
+      0.90575916
+    ],
+    "caption": "In this image I can see a road in the center and on it I can see a black car. On the left side of the image I can see something is written on the car's number plate. In the background I can see number of trees, clouds and the sky. On the bottom right side of the image I can see a watermark.",
+    "caption_annotator_id": 85,
+    "image_sha256": "1e61c8482b8878ca984b0466ac53b63ed7dfc2ff166a431fde6e6a82c33cb264",
+    "label": "black"
+  },
+  {
+    "image_id": "1d57e40d40f18464",
+    "crop": "crops/1d57e40d40f18464.png",
+    "author": "David Merrett",
+    "author_profile": "https://www.flickr.com/people/davehamster/",
+    "title": "Bugatti Veyron",
+    "original_landing_url": "https://www.flickr.com/photos/davehamster/14661240614",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.29749632,
+      0.24168514,
+      0.99558175,
+      0.8159645
+    ],
+    "caption": "In this image I can see the car in black and orange color. In the background I can see the railing and I can see many people standing, few trees in green color, few poles and I can also see the glass window.",
+    "caption_annotator_id": 17,
+    "image_sha256": "16cae5fc9b21c562a005d7e1a00809ea90e4b143ee13614aefffa75fb113e044",
+    "label": "black"
+  },
+  {
+    "image_id": "59759fb1d7d62a4f",
+    "crop": "crops/59759fb1d7d62a4f.png",
+    "author": "Mark van Seeters",
+    "author_profile": "https://www.flickr.com/people/zanthraxnl/",
+    "title": "IMG_5923",
+    "original_landing_url": "https://www.flickr.com/photos/zanthraxnl/2938470119",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1875,
+      0.23541667,
+      0.55625,
+      0.59375
+    ],
+    "caption": "In this image we can see a black color car on the road. To the right side of the image there is fencing.",
+    "caption_annotator_id": 91,
+    "image_sha256": "401f47ddb6012a6b9f131cb5bef1986fd89543f3c0adbf884eb123130608f125",
+    "label": "black"
+  },
+  {
+    "image_id": "68a36f7423794862",
+    "crop": "crops/68a36f7423794862.png",
+    "author": "ITU Pictures",
+    "author_profile": "https://www.flickr.com/people/itupictures/",
+    "title": "79 GHz frequency harmonization Press Conference",
+    "original_landing_url": "https://www.flickr.com/photos/itupictures/8163653360",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.030927835,
+      0.097345136,
+      0.9293078,
+      1.0
+    ],
+    "caption": "In this image I can see black color car and I can also see papers with some text and numbers printed on them, some object, road, poles and in the background I can see something looking like steel pavement and glasses.",
+    "caption_annotator_id": 133,
+    "image_sha256": "9b4c1c2ea050258f1dd6cf1b7d9353df9e55b31e8f4600738bd298a9b22c9097",
+    "label": "black"
+  },
+  {
+    "image_id": "191f3a41c1631139",
+    "crop": "crops/191f3a41c1631139.png",
+    "author": "dboyfotopages",
+    "author_profile": "https://www.flickr.com/people/dboyfotopages/",
+    "title": "naza italia",
+    "original_landing_url": "https://www.flickr.com/photos/dboyfotopages/6304860965",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.23099415,
+      0.21875,
+      0.93274856,
+      0.921875
+    ],
+    "caption": "In the foreground of the picture we can see black color car. In the background there is a wall, on the wall we can see a horse logo. At the bottom it is floor.",
+    "caption_annotator_id": 74,
+    "image_sha256": "afb54cfae475a18f50ee8133731624d3e085fc18a0bfc2ec56c68618f0404435",
+    "label": "black"
+  },
+  {
+    "image_id": "182c5012752ad092",
+    "crop": "crops/182c5012752ad092.png",
+    "author": "Feeling My Age",
+    "author_profile": "https://www.flickr.com/people/feelingmyage/",
+    "title": "Sensible city car",
+    "original_landing_url": "https://www.flickr.com/photos/feelingmyage/8054068089",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.009025271,
+      0.12454873,
+      1.0,
+      0.8592058
+    ],
+    "caption": "This image consists of a car in black color. At the bottom, there is a road. In the background, we can see a wall made up of bricks. On which, there is a small board in black color. And the image is bordered.",
+    "caption_annotator_id": 176,
+    "image_sha256": "edb985cfbd0541ee81b0af8a2a00c4ed5afafd10fe011fdb335aa0b06e6d89d1",
+    "label": "black"
+  },
+  {
+    "image_id": "45d1a8ba81d02555",
+    "crop": "crops/45d1a8ba81d02555.png",
+    "author": "Juanedc",
+    "author_profile": "https://www.flickr.com/people/juanedc/",
+    "title": "BMW",
+    "original_landing_url": "https://www.flickr.com/photos/juanedc/8422710971/in/album-72157635150380571/",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.12536873,
+      0.09955752,
+      0.8702065,
+      0.8207965
+    ],
+    "caption": "In this image I can see black color car with number plate and I can also see road with white painted lines, road gratings and in the background I can see pavement, some objects and river.",
+    "caption_annotator_id": 133,
+    "image_sha256": "f27021b6a7ad787587912f40987a9ae68dc1eb938d6bee286ce305901f2e25c3",
+    "label": "black"
+  },
+  {
+    "image_id": "ca5c310bba58bf91",
+    "crop": "crops/ca5c310bba58bf91.png",
+    "author": "RD_Elsie",
+    "author_profile": "https://www.flickr.com/people/25168691@N06/",
+    "title": "RILEY BROOKLANDS 9 SPEED 1928",
+    "original_landing_url": "https://www.flickr.com/photos/25168691@N06/15135928710",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.050147492,
+      0.27433628,
+      0.93952805,
+      0.9292035
+    ],
+    "caption": "This image consists of a car in black color. On which, we can see the text. And there are two persons in the car. Both are wearing white T-shirts and shades. At the bottom, there is a road. In the background, we can see the rocks. It looks like a mountain.",
+    "caption_annotator_id": 176,
+    "image_sha256": "2772ce850eced2c62fd600ba4e25b9aaee2edfaa988b905037f0dbb9875688c5",
+    "label": "black"
+  },
+  {
+    "image_id": "02ec4bbec941280a",
+    "crop": "crops/02ec4bbec941280a.png",
+    "author": "The Car Spy",
+    "author_profile": "https://www.flickr.com/people/thecarspy/",
+    "title": "2007 Volkswagen Golf R32",
+    "original_landing_url": "https://www.flickr.com/photos/thecarspy/5706994962",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0890625,
+      0.0020833334,
+      0.9390625,
+      0.8958333
+    ],
+    "caption": "In the middle of the picture, we see a black car. At the bottom, we see the surface of the road. On the left side, we see a tree. On the right side, we see the trees, shrubs and a wooden fence. There are trees in the background.",
+    "caption_annotator_id": 35,
+    "image_sha256": "018c7a71c346b1735b3f8446b2d4a0d4e9a69ebaccf0a5ebc72d71d243046ee9",
+    "label": "black"
+  },
+  {
+    "image_id": "727ba20e113a4260",
+    "crop": "crops/727ba20e113a4260.png",
+    "author": "airwaves1",
+    "author_profile": "https://www.flickr.com/people/airwaves1/",
+    "title": "DSC04685",
+    "original_landing_url": "https://www.flickr.com/photos/airwaves1/14573231705",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0125,
+      0.14166667,
+      0.9875,
+      0.8833333
+    ],
+    "caption": "In front of the picture, we see a black car. At the bottom, we see the road. Beside the car, we see the people are standing. On the right side, we see a man is holding a water bottle in his hand. In the middle, we see the people are standing. Beside them, we see a vehicle in white and blue color. There are trees, a banner and a tent in the background. The tent is in white, grey and red color.",
+    "caption_annotator_id": 161,
+    "image_sha256": "f75db4dfda96d990956458e6ef17cb399c364e6f76289c6d0cf61b8be9ee276b",
+    "label": "black"
+  },
+  {
+    "image_id": "0e78d30f3c9e4506",
+    "crop": "crops/0e78d30f3c9e4506.png",
+    "author": "Patty Mullins",
+    "author_profile": "https://www.flickr.com/people/dreadpiratepatty/",
+    "title": "IMG_5199",
+    "original_landing_url": "https://www.flickr.com/photos/dreadpiratepatty/8258751979",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.034042552,
+      0.14712644,
+      0.94893616,
+      0.7126437
+    ],
+    "caption": "In the center of the image we can see a black car on the road. In the background there is a building with some text. And we can see trees and a group of people. Among them, we can see a few people are holding some objects.",
+    "caption_annotator_id": 53,
+    "image_sha256": "87e785cdf39a14f0e5e64736ca18b29405f89549010cbab1ce3065882706bed9",
+    "label": "black"
+  },
+  {
+    "image_id": "81d967467488a1fa",
+    "crop": "crops/81d967467488a1fa.png",
+    "author": "Dinu Mukherjee",
+    "author_profile": "https://www.flickr.com/people/dinumukherjee/",
+    "title": "New Image.4",
+    "original_landing_url": "https://www.flickr.com/photos/dinumukherjee/4885465837",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0171875,
+      0.24791667,
+      1.0,
+      0.8333333
+    ],
+    "caption": "In this image we can see a black color car is parked in a parking area and in the background we can see a garden an in the garden there are some plants,grass and some different trees and here we can also see a black color object also and in the front on the floor we can see some different colors of bricks.",
+    "caption_annotator_id": 134,
+    "image_sha256": "a66b0cc952aaf1c892417d16b30eef7e3c3812fa8f8977741775c36864eb7e8f",
+    "label": "black"
+  },
+  {
+    "image_id": "9979e2bd18213f3a",
+    "crop": "crops/9979e2bd18213f3a.png",
+    "author": "Micheal Evans",
+    "author_profile": "https://www.flickr.com/people/mdeuk/",
+    "title": "Matts BMW",
+    "original_landing_url": "https://www.flickr.com/photos/mdeuk/6900026936",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.058897242,
+      0.296875,
+      0.83583957,
+      0.9322917
+    ],
+    "caption": "In this picture we can see a black car with a number plate parked in front of a grey wall with a door & surrounded by plants, trees & grass.",
+    "caption_annotator_id": 111,
+    "image_sha256": "c4b363dce8353dd8d88f02d0ef6b5a23256335c7d130c97e0eb0ce945eddebfc",
+    "label": "black"
+  },
+  {
+    "image_id": "003132be85a0beae",
+    "crop": "crops/003132be85a0beae.png",
+    "author": "Hector Alejandro",
+    "author_profile": "https://www.flickr.com/people/hectoralejandro/",
+    "title": "Jared's Civic 85.jpg",
+    "original_landing_url": "https://www.flickr.com/photos/hectoralejandro/5763085728",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.047267355,
+      0.29139072,
+      0.89512557,
+      0.8476821
+    ],
+    "caption": "In this picture we can see a black car with yellow lights parked on a brick floor surrounded by plants. In the background, we can see a brick wall and a wall made of glass panes.",
+    "caption_annotator_id": 111,
+    "image_sha256": "01ff26250bea5417c8cdcd85e61d862730634ad3c619f2c3530272ededdbbc38",
+    "label": "black"
+  },
+  {
+    "image_id": "5bc0a48d2b85ae88",
+    "crop": "crops/5bc0a48d2b85ae88.png",
+    "author": "Rocco Demas",
+    "author_profile": "https://www.flickr.com/people/vwpartsvortex/",
+    "title": "What's your favorite feature on the #Volkswagen #Golf?",
+    "original_landing_url": "https://www.flickr.com/photos/vwpartsvortex/17119810736",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.016245488,
+      0.2906137,
+      0.96750903,
+      0.8104693
+    ],
+    "caption": "In this image I can see a red and black car, and in the background there is wall, a board, and the sky is cloudy.",
+    "caption_annotator_id": 131,
+    "image_sha256": "2b81d782a058067418f46c83d7b9e91ddc30a03589e8fa9c288f756fa6385f46",
+    "label": "black"
+  },
+  {
+    "image_id": "064e47e2061cc517",
+    "crop": "crops/064e47e2061cc517.png",
+    "author": "Ali from Riyadh : )",
+    "author_profile": "https://www.flickr.com/people/rainsong/",
+    "title": "\u0623\u062d\u0644\u0645 \u0628\u0642\u064a\u0627\u062f\u0629 \u0647\u0630\u0647 \u0627\u0644\u0633\u064a\u0627\u0631\u0629",
+    "original_landing_url": "https://www.flickr.com/photos/rainsong/13336037845",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0875,
+      0.16666667,
+      0.840625,
+      0.7895833
+    ],
+    "caption": "In the center of the image we can see a black car. On the right side of the image, we can see one stand with a board. On the board, we can see some text. In the background there is a glass wall, banner, table, lights, two persons and a few other objects.",
+    "caption_annotator_id": 53,
+    "image_sha256": "a82062f3e5423af9ccf5db86d9e6ee6bbb2d7a69ec018535dbb9e659acbc761d",
+    "label": "black"
+  },
+  {
+    "image_id": "b8016fdd47a096fa",
+    "crop": "crops/b8016fdd47a096fa.png",
+    "author": "Simon Yeo",
+    "author_profile": "https://www.flickr.com/people/smjb/",
+    "title": "20101016_SX1IS_302",
+    "original_landing_url": "https://www.flickr.com/photos/smjb/5091396836",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.17050068,
+      0.03373494,
+      0.84844387,
+      0.82168674
+    ],
+    "caption": "In this picture I can see a black colour car in front and in the background, I can see number of people standing and I can see few colorful things. I can also see the lights.",
+    "caption_annotator_id": 174,
+    "image_sha256": "372a9dfb41a9e2792a92a4bbc69e1a5ee5f5c50a4b62704615ee9a8f95c4b0a7",
+    "label": "black"
+  },
+  {
+    "image_id": "53c5232a325710bb",
+    "crop": "crops/53c5232a325710bb.png",
+    "author": "_fenixn",
+    "author_profile": "https://www.flickr.com/people/hpthnguyen/",
+    "title": "2015-04-25 042",
+    "original_landing_url": "https://www.flickr.com/photos/hpthnguyen/18166045001",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.069321536,
+      0.15265487,
+      0.8820059,
+      0.8716814
+    ],
+    "caption": "In this image I can see the car in black color. In the background I can see few dried trees.",
+    "caption_annotator_id": 17,
+    "image_sha256": "553f0b8ce0cb4cfec7f89fdad497c17742aec79de290f3b1bfe387ef291a7212",
+    "label": "black"
+  },
+  {
+    "image_id": "57aacc99d581528e",
+    "crop": "crops/57aacc99d581528e.png",
+    "author": "Ryan Gsell",
+    "author_profile": "https://www.flickr.com/people/ryangsell/",
+    "title": "DSC05844",
+    "original_landing_url": "https://www.flickr.com/photos/ryangsell/15669211939",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.28212702,
+      0.25607064,
+      0.7976366,
+      0.61147904
+    ],
+    "caption": "This image consists of a sports car in black color on which we can see the text. In the background, there are many trees. At the bottom, there is ground.",
+    "caption_annotator_id": 176,
+    "image_sha256": "016acf1a77f5e85b94acd6ca80a29d8172ccb7393a0be4ed0b99e72028bbaa94",
+    "label": "black"
+  },
+  {
+    "image_id": "a6e3b0b73220cd32",
+    "crop": "crops/a6e3b0b73220cd32.png",
+    "author": "K\u0101rlis Dambr\u0101ns",
+    "author_profile": "https://www.flickr.com/people/janitors/",
+    "title": "BMW 320i 2008  17",
+    "original_landing_url": "https://www.flickr.com/photos/janitors/8451915699",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.26362297,
+      0.20399113,
+      0.96170837,
+      0.88913524
+    ],
+    "caption": "In the picture I can see a person is sitting in a black color car. The car is on the road. In the background I can see plants, trees and some other things. The background of the image is blurred.",
+    "caption_annotator_id": 25,
+    "image_sha256": "b442b2c7a4be71131e62a2fd2b66a0ff1388643a9033d44e7e22dacc05e28763",
+    "label": "black"
+  },
+  {
+    "image_id": "1ecc0db941d92657",
+    "crop": "crops/1ecc0db941d92657.png",
+    "author": "Tino Rossini",
+    "author_profile": "https://www.flickr.com/people/stradablog/",
+    "title": "2010 Lexus HS250h",
+    "original_landing_url": "https://www.flickr.com/photos/stradablog/4325266886",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.13043478,
+      0.09832134,
+      0.94972825,
+      0.76019186
+    ],
+    "caption": "In this image we can see a black color car parked on a gravel road and we can also see the logo of the company and the white color number plate with text in front of the car and in the background we can see a footpath and some dry trees and we can also see the sky.",
+    "caption_annotator_id": 134,
+    "image_sha256": "7f2b2741e1490c1004829651f2aca838dca05e5d3c1c79e698f827fa9e458573",
+    "label": "black"
+  },
+  {
+    "image_id": "c8c2db1590f832ee",
+    "crop": "crops/c8c2db1590f832ee.png",
+    "author": "Yahya S.",
+    "author_profile": "https://www.flickr.com/people/128326674@N06/",
+    "title": "Mercedes-Benz S350 (W222)",
+    "original_landing_url": "https://www.flickr.com/photos/128326674@N06/18503401449",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.12371134,
+      0.27272728,
+      0.9204713,
+      0.7494457
+    ],
+    "caption": "In this image I can see a man sitting in black color car with number plate and I can also see road, sign boards, poles and in the background I can see few people, tree branches, buildings, windows, glasses, fence and trees.",
+    "caption_annotator_id": 133,
+    "image_sha256": "4adcaf0afbcaa737056a6f997738448c64bb6acf8f86c65107aefe3f4f5a7ef7",
+    "label": "black"
+  },
+  {
+    "image_id": "8aef4191021de036",
+    "crop": "crops/8aef4191021de036.png",
+    "author": "Dean Souglass",
+    "author_profile": "https://www.flickr.com/people/deansouglass/",
+    "title": "New R32 in the Driveway",
+    "original_landing_url": "https://www.flickr.com/photos/deansouglass/3009219512/",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.17256637,
+      0.13716814,
+      0.91297936,
+      0.920354
+    ],
+    "caption": "In this image I can see a black car and I can also see dry grass and in the background I can see electricity wires, bushes, and, trees and sky.",
+    "caption_annotator_id": 133,
+    "image_sha256": "7b1f3124623b7ab23401f56f2baf5ce0c6451d5b190567f67b4c8614e8bc16f5",
+    "label": "black"
+  },
+  {
+    "image_id": "113db08614c821a3",
+    "crop": "crops/113db08614c821a3.png",
+    "author": "easylocum",
+    "author_profile": "https://www.flickr.com/people/easylocum/",
+    "title": "Mon Range",
+    "original_landing_url": "https://www.flickr.com/photos/easylocum/8132641146",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.102841675,
+      0.15903614,
+      0.7198917,
+      0.8120482
+    ],
+    "caption": "In this image we can see a black color car parked on a green field and in the front we can see a white color number plate with text on the car and on the bonnet of the car we can see the brand name and on one side we can see a white color design on the car and in the background we can see trees,plants and bushes and we can also see the sky.",
+    "caption_annotator_id": 134,
+    "image_sha256": "033595e6dc671ba7acb2fec8b07fde99b1c8ccacf9d8200ff737bd20492df55b",
+    "label": "black"
+  },
+  {
+    "image_id": "0c53a955b482161a",
+    "crop": "crops/0c53a955b482161a.png",
+    "author": "jean pierre gallot",
+    "author_profile": "https://www.flickr.com/people/jean_pierre_gallot_69009/",
+    "title": "taxi21",
+    "original_landing_url": "https://www.flickr.com/photos/jean_pierre_gallot_69009/7856211936",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.04418262,
+      0.14190687,
+      0.8217968,
+      1.0
+    ],
+    "caption": "In the middle of the picture, we see a car in black and blue color. At the bottom, we see the road. On the right side, we see a board in black color with some text written on it. Behind the car, we see a pole. On the left side, we see the plants, a building and a fountain. In the background, we see the sky.",
+    "caption_annotator_id": 161,
+    "image_sha256": "f2c0eea25185c64860beee410832140691fa40fca1b0785213e809ff2a41764a",
+    "label": "black"
+  },
+  {
+    "image_id": "26183d88c4f8012f",
+    "crop": "crops/26183d88c4f8012f.png",
+    "author": "themadpenguin",
+    "author_profile": "https://www.flickr.com/people/29579384@N03/",
+    "title": "Pegueot 407 2.2 HDI Sport XS",
+    "original_landing_url": "https://www.flickr.com/photos/29579384@N03/8304237955",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0828125,
+      0.077083334,
+      0.921875,
+      0.93125
+    ],
+    "caption": "In this image we can see a black color car on which something is written. Wee can also see some grasses, some bushes and in background we cans see a sea, a mountain and a clear sky.",
+    "caption_annotator_id": 128,
+    "image_sha256": "7be7637de8b79ad856257234c2858a554ac0beea51a92aceef763ad17d16fd00",
+    "label": "black"
+  },
+  {
+    "image_id": "45c5a5823458b1e0",
+    "crop": "crops/45c5a5823458b1e0.png",
+    "author": "Beau B",
+    "author_profile": "https://www.flickr.com/people/beaub/",
+    "title": "Herbie",
+    "original_landing_url": "https://www.flickr.com/photos/beaub/5160183202/",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.005899705,
+      0.17035398,
+      0.99557525,
+      0.9557522
+    ],
+    "caption": "In the middle of the picture, we see a white car. At the bottom, we see the pavement. On the left side, we see a vehicle in green and red color. In the background, we see a building in white, brown and black color. We see the doors in green color.",
+    "caption_annotator_id": 35,
+    "image_sha256": "75d9db1729434bf4453195da348f976480e27a7b4e9d07aa870a673a80648f74",
+    "label": "white"
+  },
+  {
+    "image_id": "e34ada32db901328",
+    "crop": "crops/e34ada32db901328.png",
+    "author": "German Medeot",
+    "author_profile": "https://www.flickr.com/people/motosclasicas/",
+    "title": "1955 Austin-Healey 100M Le Mans Roadster 110HP",
+    "original_landing_url": "https://www.flickr.com/photos/motosclasicas/8383348435",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.032258064,
+      0.3115183,
+      0.9774194,
+      0.84554976
+    ],
+    "caption": "In this image we can see a white color car is standing on the road and in background we can see a tree.",
+    "caption_annotator_id": 128,
+    "image_sha256": "2938c51945e076be8b9af743565e70fbd891d60199381a2233da25e9341cb5b5",
+    "label": "white"
+  },
+  {
+    "image_id": "6049589c1b2fcba1",
+    "crop": "crops/6049589c1b2fcba1.png",
+    "author": "Adam Jakubiak",
+    "author_profile": "https://www.flickr.com/people/adamj4282/",
+    "title": "Untitled",
+    "original_landing_url": "https://www.flickr.com/photos/adamj4282/383293083",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.059375,
+      0.1875,
+      0.9625,
+      0.74791664
+    ],
+    "caption": "In this picture we can see a white car on the platform. At the bottom of the image we can see a glass railing. Background of the image is dark. We can see people standing. We can see boards. At the top of the image we can see the ceiling and lights.",
+    "caption_annotator_id": 0,
+    "image_sha256": "3c3ba9d4c5308d09af180d0605261562475a1b4d97fcdcb2b49e6c4e24818219",
+    "label": "white"
+  },
+  {
+    "image_id": "a0fad99f5b702765",
+    "crop": "crops/a0fad99f5b702765.png",
+    "author": "Autoviva",
+    "author_profile": "https://www.flickr.com/people/autovivacom/",
+    "title": "Nissan 370Z",
+    "original_landing_url": "https://www.flickr.com/photos/autovivacom/5494564740",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.05882353,
+      0.11751663,
+      0.96617645,
+      0.8736142
+    ],
+    "caption": "This image consists of cars. In the front, we can see a car in white color. At the bottom, there is a floor. And there are many persons in this image. In the background, we can a blue light.",
+    "caption_annotator_id": 92,
+    "image_sha256": "a80a71a1870dd350e9c42e119cb2a46d33f581aafdd9d70966fee186e5cd800b",
+    "label": "white"
+  },
+  {
+    "image_id": "7611a13aa09c19f3",
+    "crop": "crops/7611a13aa09c19f3.png",
+    "author": "Andrew Bone",
+    "author_profile": "https://www.flickr.com/people/andreboeni/",
+    "title": "Peugeot 205 GTI 1.9 at Mulsanne, Le Mans -October 1990",
+    "original_landing_url": "https://www.flickr.com/photos/andreboeni/16286095237",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.094452776,
+      0.25434783,
+      0.72263867,
+      0.87391305
+    ],
+    "caption": "In this picture we can see white color car which is parked, we can see board, grass, in the background of the picture there are some trees, poles and on top of the picture we can see the sky.",
+    "caption_annotator_id": 185,
+    "image_sha256": "f96ff3601ecf8f7ccab361de3280f330e3ec7f513a0441720a37ef121bd0c294",
+    "label": "white"
+  },
+  {
+    "image_id": "fa8831003c9a66c8",
+    "crop": "crops/fa8831003c9a66c8.png",
+    "author": "James",
+    "author_profile": "https://www.flickr.com/people/ellesmerefnc/",
+    "title": "Big Healey",
+    "original_landing_url": "https://www.flickr.com/photos/ellesmerefnc/4614667546",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.2453125,
+      0.1875,
+      0.7796875,
+      0.74375
+    ],
+    "caption": "In this image, I can see a person wearing a helmet is driving a red and a white color car on the road. On which I can see headlights and front-grilles and a number plate. And I can see grass. In the background of the image, I can see a stopper, green plants and dried grass on the ground.",
+    "caption_annotator_id": 4,
+    "image_sha256": "472173ffeda57344144944c6877769c5c3ecb85abdbc99a70a39f230bd0dd61d",
+    "label": "white"
+  },
+  {
+    "image_id": "97f3115886e6535d",
+    "crop": "crops/97f3115886e6535d.png",
+    "author": "Dan Davison",
+    "author_profile": "https://www.flickr.com/people/dannyboymalinga/",
+    "title": "Peugeot 207",
+    "original_landing_url": "https://www.flickr.com/photos/dannyboymalinga/3022388849",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0921875,
+      0.24791667,
+      0.909375,
+      0.7875
+    ],
+    "caption": "In this picture I can observe white color car. There are some dried leaves on the land. There are trees in this picture. In the background I can observe sky.",
+    "caption_annotator_id": 39,
+    "image_sha256": "d49a4c284b7fd2b558d174dfc9ff46143b8b0ae37dec93abbe1687a74dcc2d19",
+    "label": "white"
+  },
+  {
+    "image_id": "d7dccce1573ff95a",
+    "crop": "crops/d7dccce1573ff95a.png",
+    "author": "Burt",
+    "author_profile": "https://www.flickr.com/people/blo/",
+    "title": "IMG_6110.JPG",
+    "original_landing_url": "https://www.flickr.com/photos/blo/2339281588/",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.28318584,
+      0.06858407,
+      0.8082596,
+      0.61725664
+    ],
+    "caption": "In this picture I can see a white color car on the road in front and in the car, I can see a person. On the right side of this picture, I can see the cones. In the background, I can see few people and I can see 2 more cones.",
+    "caption_annotator_id": 174,
+    "image_sha256": "0b78c2bfbbb9ff30832d3a698ccc050a1f4b197dcfa9799326f839eb5420ffc0",
+    "label": "white"
+  },
+  {
+    "image_id": "54b313a90378af25",
+    "crop": "crops/54b313a90378af25.png",
+    "author": "David",
+    "author_profile": "https://www.flickr.com/people/bootbearwdc/",
+    "title": "A Rare East German Trabant Auto",
+    "original_landing_url": "https://www.flickr.com/photos/bootbearwdc/1937946333",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.2,
+      0.44915253,
+      0.9676923,
+      1.0
+    ],
+    "caption": "In this picture we can see a white color car in the front, there is some text on the car, we can see trees and grass in the middle, in the background there is a building, we can see the sky at the top of the picture.",
+    "caption_annotator_id": 1,
+    "image_sha256": "ea5423e5fc685047fff7d5fe89975118d8030be4fcc4b83055e4a196320bcdd9",
+    "label": "white"
+  },
+  {
+    "image_id": "996425fa10da7bb0",
+    "crop": "crops/996425fa10da7bb0.png",
+    "author": "ilikewaffles11",
+    "author_profile": "https://www.flickr.com/people/72637915@N03/",
+    "title": "Mercedes SL63 AMG",
+    "original_landing_url": "https://www.flickr.com/photos/72637915@N03/16640427870/",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1,
+      0.30416667,
+      0.940625,
+      0.8625
+    ],
+    "caption": "In this image we can see a white color car is parked on a road and on the trunk of the car we can see some names and a logo of the company and we can also see a white color number plate and on the number plate we can see some colors,text and numbers and on the road there are some white color lines and we can also see other cars of different models and colors of cars are also parked on the road and in the background we can see a wall,trees and a mountain and we can also see the current poles with lights and some current wires and we can also see the sky.",
+    "caption_annotator_id": 134,
+    "image_sha256": "53e512bd07d1b1da6107852a6b263d0ba50d4dfaf3215b41d929a19a94353144",
+    "label": "white"
+  },
+  {
+    "image_id": "c75611295449a7b5",
+    "crop": "crops/c75611295449a7b5.png",
+    "author": "Ruth Hartnup",
+    "author_profile": "https://www.flickr.com/people/ruthanddave/",
+    "title": "Pretty car",
+    "original_landing_url": "https://www.flickr.com/photos/ruthanddave/2449222734",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.029850746,
+      0.16306484,
+      0.973466,
+      1.0
+    ],
+    "caption": "This image consists of a car in white color. Behind the car, we can see a doll. At the bottom, there is a road. In the background, we can see a door in yellow color along with glass windows. On the left, there is a metal sheet. On the right, we can see a bench and green grass on the ground. At the top right, there is a pillar and we can see a sheet.",
+    "caption_annotator_id": 176,
+    "image_sha256": "9597a04d8b3f25c07c060c61cad512c0fafdb4ba13a3edf12c739cfe878b6519",
+    "label": "white"
+  },
+  {
+    "image_id": "76e14d05ee8acb6d",
+    "crop": "crops/76e14d05ee8acb6d.png",
+    "author": "Matthew Townsend",
+    "author_profile": "https://www.flickr.com/people/matthewtownsend/",
+    "title": "20090630194441",
+    "original_landing_url": "https://www.flickr.com/photos/matthewtownsend/3676286368",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.038348082,
+      0.092920355,
+      0.960177,
+      0.9623894
+    ],
+    "caption": "As we can see in the image in the front there is a white color car. In the background, I can see grass, plants, trees, poles and a wall.",
+    "caption_annotator_id": 170,
+    "image_sha256": "d2204b8974eaebef9acae5e2cc6970fc6450c3e62a46b4e62913653dbd77765a",
+    "label": "white"
+  },
+  {
+    "image_id": "cec622472f1f0092",
+    "crop": "crops/cec622472f1f0092.png",
+    "author": "Norsk Elbilforening",
+    "author_profile": "https://www.flickr.com/people/elbilforeningen/",
+    "title": "Ferske tall fra #OFV forteller at det n\u00e5 er rundt 470 VW #eup p\u00e5 norske veier. Bedre tilgang til #CCS-lading (bildet) n\u00e6rmer seg ogs\u00e5. #norskelbilforening #elbilforeningen #ev #evnorway #gronnkontakt #drammen",
+    "original_landing_url": "https://www.flickr.com/photos/elbilforeningen/11432113925",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.22563177,
+      0.23465703,
+      1.0,
+      0.72202164
+    ],
+    "caption": "In this image I can see white color car with number plate and some text printed on it and I can also see road with white painted lines, petrol pump, black color pipes and in the background I can see a board with some text printed on it, poles, house with roof, windows, tree branches and sky.",
+    "caption_annotator_id": 133,
+    "image_sha256": "0e85fe93cda876163c3de2965e0d9dffc2aa350c2391cd7b124fd7ca3b8e72a2",
+    "label": "white"
+  },
+  {
+    "image_id": "0afdc9af559cc794",
+    "crop": "crops/0afdc9af559cc794.png",
+    "author": "Werner  Bayer",
+    "author_profile": "https://www.flickr.com/people/wbayercom/",
+    "title": "Class C Mercedes Gene\u0300ve 2014",
+    "original_landing_url": "https://www.flickr.com/photos/wbayercom/13088860364",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.075,
+      0.3,
+      0.9296875,
+      0.70625
+    ],
+    "caption": "In this image, I see a white colored car and a steel railing around it, in front of the car I see a man standing wearing a suit, eyeglasses and bag at his back and I also see few other people standing around the car and I see some text written at the bottom.",
+    "caption_annotator_id": 141,
+    "image_sha256": "a33a71fd910c9c1efca334fbaf37d6162a712f419da4d73c60a30f9fc284ae8b",
+    "label": "white"
+  },
+  {
+    "image_id": "b54614c7c6a96327",
+    "crop": "crops/b54614c7c6a96327.png",
+    "author": "Janet McKnight",
+    "author_profile": "https://www.flickr.com/people/janetmck/",
+    "title": "Yawn",
+    "original_landing_url": "https://www.flickr.com/photos/janetmck/511217111",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.23424879,
+      0.2020202,
+      0.74151856,
+      0.64646465
+    ],
+    "caption": "In this picture we can see buildings, trees, light poles and there are vehicles on the road. We can see a man riding a bicycle on the road. On the right side of the picture we can see planets and a bicycle near a pole. We can see posts on a board. Behind a white car we can see a man wearing a helmet and looks like he is riding a bicycle. We can see a trash can, a traffic cone and an object. We can see people. We can see a woman carrying a handbag and walking on the road. In the background we can see the sky.\u00a0",
+    "caption_annotator_id": 0,
+    "image_sha256": "c8b312e4d1698cb1fd0ebcaeda1bb4d0befa91089d9236bc17210f13821476db",
+    "label": "white"
+  },
+  {
+    "image_id": "4b380b2ac4e5c417",
+    "crop": "crops/4b380b2ac4e5c417.png",
+    "author": "Mic",
+    "author_profile": "https://www.flickr.com/people/micsworld/",
+    "title": "Mondial de l'Automobile 2012, Paris - France",
+    "original_landing_url": "https://www.flickr.com/photos/micsworld/8642660059",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.039097745,
+      0.3449024,
+      0.9458647,
+      0.96963125
+    ],
+    "caption": "In this picture I can observe white color car on the floor. In the background there is wall.",
+    "caption_annotator_id": 39,
+    "image_sha256": "dfa61ac102b38c301a7453948f4dbca6d95fea2d262733dbdc0515d7afcb6e6e",
+    "label": "white"
+  },
+  {
+    "image_id": "99042a829c40eb69",
+    "crop": "crops/99042a829c40eb69.png",
+    "author": "GillyBerlin",
+    "author_profile": "https://www.flickr.com/people/gillyberlin/",
+    "title": "Lancia Delta Integrale Evoluzione II",
+    "original_landing_url": "https://www.flickr.com/photos/gillyberlin/11249899284",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0,
+      0.18231046,
+      1.0,
+      0.8357401
+    ],
+    "caption": "In this image I can see the car in white color. In the background I can see the brick wall, few stones and the grass is in green color and the sky is in blue and white color.",
+    "caption_annotator_id": 17,
+    "image_sha256": "95b8685a6881c7467e42d728fda24b4c4ebc5969e397d55f87b6d08533149bd3",
+    "label": "white"
+  },
+  {
+    "image_id": "240fba52ee2bad54",
+    "crop": "crops/240fba52ee2bad54.png",
+    "author": "treeday77",
+    "author_profile": "https://www.flickr.com/people/53346708@N07/",
+    "title": "MINI Crossover Conce",
+    "original_landing_url": "https://www.flickr.com/photos/53346708@N07/4978825312",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.2515625,
+      0.23958333,
+      0.703125,
+      0.7708333
+    ],
+    "caption": "This image consists of a car in white color. At the bottom, the surface is in black color. The background is too dark. It looks like an edited image.",
+    "caption_annotator_id": 176,
+    "image_sha256": "de6f6b9753818cdfdf5cf08cc664f13ec062e6328858a5e4e7ee94f69498d8cd",
+    "label": "white"
+  },
+  {
+    "image_id": "be56c21021eab8b4",
+    "crop": "crops/be56c21021eab8b4.png",
+    "author": "FotoSleuth",
+    "author_profile": "https://www.flickr.com/people/51811543@N08/",
+    "title": "Mclaren MP4-12C",
+    "original_landing_url": "https://www.flickr.com/photos/51811543@N08/16743255324",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.22666667,
+      0.603912,
+      0.808,
+      0.95110023
+    ],
+    "caption": "In this picture, we see a white car parked on the road. Beside that, we see a pole and a whiteboard. We see a woman is standing and she is holding a baby in her hands. She is wearing a handbag. Beside her, we see a table. In front of her, we see a woman is standing. On the right side, we see the stools. On the left side, we see a man and a woman are standing. In the background, we see a building. In the left top, we see a tree.",
+    "caption_annotator_id": 35,
+    "image_sha256": "cd92aba92686459f151b6f710ada73a174725a2ac1f64a569f399d4e8f306846",
+    "label": "white"
+  },
+  {
+    "image_id": "058ecce8decdeeaa",
+    "crop": "crops/058ecce8decdeeaa.png",
+    "author": "Rennett Stowe",
+    "author_profile": "https://www.flickr.com/people/tomsaint/",
+    "title": "1934 Packard",
+    "original_landing_url": "https://www.flickr.com/photos/tomsaint/3628024172",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.021052632,
+      0.11062907,
+      0.97744364,
+      0.9132321
+    ],
+    "caption": "In the middle of the picture, we see a green vehicle. At the bottom, we see the grass. On the right side, we see the trees, buildings and the cars. On the left side, we see the people are sitting on the grass. Behind them, we see a white car and a tree. There are trees in the background. At the top, we see the sky.",
+    "caption_annotator_id": 35,
+    "image_sha256": "95aed3bf915bef5392ceda7c4cedcd56a8b003481255d546e2e16c1ef0a559bf",
+    "label": "white"
+  },
+  {
+    "image_id": "53ad98b12752ad16",
+    "crop": "crops/53ad98b12752ad16.png",
+    "author": "Fuzzy Gerdes",
+    "author_profile": "https://www.flickr.com/people/fuzzy/",
+    "title": "810TCH",
+    "original_landing_url": "https://www.flickr.com/photos/fuzzy/4618598617",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0421875,
+      0.0,
+      0.9484375,
+      1.0
+    ],
+    "caption": "In front of the picture, we see a white car with some text written on it. We see the registration number in blue color. In the background, we see the cars are moving on the road. At the bottom, we see the road. On either side of the road, we see the road railing. In the left top, we see an object or the fence.",
+    "caption_annotator_id": 161,
+    "image_sha256": "3c5a60100ee573abc1d0fedf61380fa0f2af824d7720510ac5c317efec0584f2",
+    "label": "white"
+  },
+  {
+    "image_id": "57383c33a593cf28",
+    "crop": "crops/57383c33a593cf28.png",
+    "author": "juan Carlo Gutman Jara Guzm\u00e1n",
+    "author_profile": "https://www.flickr.com/people/36283871@N03/",
+    "title": "De Tarija a Cobija , Bolivia Volvo.",
+    "original_landing_url": "https://www.flickr.com/photos/36283871@N03/6065620494",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.096875,
+      0.36666667,
+      0.846875,
+      0.7583333
+    ],
+    "caption": "In this picture we see a white car on the road surrounded with a stone wall and trees beside it.",
+    "caption_annotator_id": 111,
+    "image_sha256": "6c5b73b6c91e6343060adce6cac0f7d13b700349cd4826bb659f5de0dab22932",
+    "label": "white"
+  },
+  {
+    "image_id": "dcc513e2a59a7a6d",
+    "crop": "crops/dcc513e2a59a7a6d.png",
+    "author": "Collector Car Ads",
+    "author_profile": "https://www.flickr.com/people/48718277@N06/",
+    "title": "1960 Oldsmobile Super 88",
+    "original_landing_url": "https://www.flickr.com/photos/48718277@N06/5012527239",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.003125,
+      0.18541667,
+      1.0,
+      0.86875
+    ],
+    "caption": "In front of the picture, we see a white car. At the bottom, we see the road. On the left side, we see a building. We see the objects in the building. There are trees in the background.",
+    "caption_annotator_id": 161,
+    "image_sha256": "9d335942e3e66bdc57dede5d559253522e5e44051a0ec8c7dc952ec378cc0edc",
+    "label": "white"
+  },
+  {
+    "image_id": "7278b113f4e825e8",
+    "crop": "crops/7278b113f4e825e8.png",
+    "author": "A Verdade",
+    "author_profile": "https://www.flickr.com/people/averdade/",
+    "title": "Maputo baleamento",
+    "original_landing_url": "https://www.flickr.com/photos/averdade/10817389563",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.039583333,
+      0.371875,
+      0.93541664,
+      0.6390625
+    ],
+    "caption": "In this picture I can observe white color car on the land. In the bottom of the picture I can observe grass on the ground. There are some people standing on the land in front of the wall. In the background there are trees and some clouds in the sky.",
+    "caption_annotator_id": 39,
+    "image_sha256": "d727719b559f505981041b37404ce2cc5f45ecc5e341bd6eda79e1b6ee68d77d",
+    "label": "white"
+  },
+  {
+    "image_id": "cecdbf1251e6c6ac",
+    "crop": "crops/cecdbf1251e6c6ac.png",
+    "author": "dave_7",
+    "author_profile": "https://www.flickr.com/people/daveseven/",
+    "title": "Mercedes Benz 300D",
+    "original_landing_url": "https://www.flickr.com/photos/daveseven/4861610970",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.134375,
+      0.21666667,
+      0.9875,
+      0.88125
+    ],
+    "caption": "In the foreground, I can see a white color car on the road. On which I can see some plants. In the background, I can see a metal fence, grass, the trees, buildings, some objects and I can see the blue sky.",
+    "caption_annotator_id": 4,
+    "image_sha256": "1a3144b5fa91e673d22d5359dfd7eae7b60fe45c5d2d6633cabe3f89fd051c3c",
+    "label": "white"
+  },
+  {
+    "image_id": "de4ca997b5b9c468",
+    "crop": "crops/de4ca997b5b9c468.png",
+    "author": "Yann C\u0153uru",
+    "author_profile": "https://www.flickr.com/people/yann07/",
+    "title": "Un fil\u00e9 de cactus !",
+    "original_landing_url": "https://www.flickr.com/photos/yann07/20318844571",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.030555556,
+      0.36150235,
+      0.7625,
+      0.8826291
+    ],
+    "caption": "As we can see in the image in the front there is a man riding a white color car on the road. In the background I can see buildings, trees and at the top there is sky. Background of the image is blurred.",
+    "caption_annotator_id": 170,
+    "image_sha256": "5dfa334a1c02df52eff523e5f35ab2fcdb65855e17ef950d7c9f6f15fc8cb55a",
+    "label": "white"
+  },
+  {
+    "image_id": "1d66bc96d35337d9",
+    "crop": "crops/1d66bc96d35337d9.png",
+    "author": "Uddhav Gupta",
+    "author_profile": "https://www.flickr.com/people/camtraveller/",
+    "title": "Living My Childhood Dream",
+    "original_landing_url": "https://www.flickr.com/photos/camtraveller/19869744229",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.13323572,
+      0.30957684,
+      0.93557835,
+      0.85077953
+    ],
+    "caption": "In this picture we can see a white car parked on the brown floor. Here we can see glass walls with iron frames and pillars. We can see the reflection of the car on the glass walls.",
+    "caption_annotator_id": 111,
+    "image_sha256": "cef337474e126cf94659bd72963d7357c6c1cee4ff2a1ac431b2ba8ea8ef51ff",
+    "label": "white"
+  },
+  {
+    "image_id": "c9f37c92d71b0d68",
+    "crop": "crops/c9f37c92d71b0d68.png",
+    "author": "Dixon Pai",
+    "author_profile": "https://www.flickr.com/people/dixonpai/",
+    "title": "IMG_9885",
+    "original_landing_url": "https://www.flickr.com/photos/dixonpai/16861805136",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.16666667,
+      0.45575222,
+      0.90707964,
+      0.92477876
+    ],
+    "caption": "In this image, we can see a white car on the path in the oil filling station. In the background, we can see the pole, rods, pipes, boxes, wall, lights, railing, few objects and dark view.",
+    "caption_annotator_id": 55,
+    "image_sha256": "7cf47cf448d81030043d49ee360035baaab7196f640f6cda669216e1f3d07dcf",
+    "label": "white"
+  },
+  {
+    "image_id": "106822400a1bb88c",
+    "crop": "crops/106822400a1bb88c.png",
+    "author": "Brett Levin",
+    "author_profile": "https://www.flickr.com/people/scubabrett22/",
+    "title": "Porsche Panamera Turbo",
+    "original_landing_url": "https://www.flickr.com/photos/scubabrett22/8243689239",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1585903,
+      0.25277162,
+      0.7900147,
+      0.8625277
+    ],
+    "caption": "This image is taken outdoors. At the bottom of the image there is a floor. In the background there is a wall. There are few plants. On the right side of the image there is a tree with leaves, stems and branches. There is a ground with grass on it. On the left side of the image there is a pillar. In the middle of the image a car is parked on the floor. The car is white in color.",
+    "caption_annotator_id": 75,
+    "image_sha256": "9c2aab8183a1376ecfdc0cdd8abafd1bb86767568af267b7c197187171b4eef1",
+    "label": "white"
+  },
+  {
+    "image_id": "503de9852d32a7d2",
+    "crop": "crops/503de9852d32a7d2.png",
+    "author": "firegrind",
+    "author_profile": "https://www.flickr.com/people/firegrind/",
+    "title": "16-12-2006 at 13:22",
+    "original_landing_url": "https://www.flickr.com/photos/firegrind/323803731",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0453125,
+      0.06875,
+      0.9984375,
+      0.9
+    ],
+    "caption": "In the image I can see a white color car on the road. On the car there is something written. On the left side background, I can see plants. I can see buildings and trees. In the middle there is a board with some text written. At the top, I can see the sky.",
+    "caption_annotator_id": 170,
+    "image_sha256": "2d378d2f0d6b0e9f748b00974c88e8d702efc6f206c6e08491fcb33f0f0d619e",
+    "label": "white"
+  },
+  {
+    "image_id": "7e053c66ad3bd97f",
+    "crop": "crops/7e053c66ad3bd97f.png",
+    "author": "Tino Rossini",
+    "author_profile": "https://www.flickr.com/people/stradablog/",
+    "title": "SAM_1582",
+    "original_landing_url": "https://www.flickr.com/photos/stradablog/16332420797",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.067344345,
+      0.24102564,
+      0.94790345,
+      0.9358974
+    ],
+    "caption": "In this image I can see the white color car on the brown color surface. I can see the curtains and the red velvet ropes to the pole.",
+    "caption_annotator_id": 97,
+    "image_sha256": "5c517ede3e61e4c3b3416fd6ca7cc984737ecec9ee041d6c2668fd6a7b66b6e5",
+    "label": "white"
+  },
+  {
+    "image_id": "02040812efa69b71",
+    "crop": "crops/02040812efa69b71.png",
+    "author": "Mitsubishi Photos",
+    "author_profile": "https://www.flickr.com/people/mitsucars/",
+    "title": "Unpretentious / 2013 Outlander Sport",
+    "original_landing_url": "https://www.flickr.com/photos/mitsucars/7939075164",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.14306785,
+      0.34513274,
+      0.8082596,
+      0.8561947
+    ],
+    "caption": "In the picture we can see a white color car on the surface and in the background, we can see the sky with clouds.",
+    "caption_annotator_id": 90,
+    "image_sha256": "d8f8ac5e193dda8238caaa495d9af83bee7c60a6629f019f19ad46c17f1ee01a",
+    "label": "white"
+  },
+  {
+    "image_id": "7b8ba978b8f60421",
+    "crop": "crops/7b8ba978b8f60421.png",
+    "author": "Filthiest Productions",
+    "author_profile": "https://www.flickr.com/people/connorlimbocker/",
+    "title": "Dom's Integra",
+    "original_landing_url": "https://www.flickr.com/photos/connorlimbocker/8114620132",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.14098836,
+      0.44394618,
+      0.8008721,
+      0.9843049
+    ],
+    "caption": "In the center of the image there is a white color car and there is a person standing, smoking a cigarette. In the background of the image there is fencing, plants, grass, trees. At the bottom of the image there is road and some text.",
+    "caption_annotator_id": 91,
+    "image_sha256": "c3cba37c7abe14b81fba19edc41bf4fd771b80228fd9a20f065a27012a48f3af",
+    "label": "white"
+  },
+  {
+    "image_id": "77bc26386377485f",
+    "crop": "crops/77bc26386377485f.png",
+    "author": "dennis crowley",
+    "author_profile": "https://www.flickr.com/people/dpstyles/",
+    "title": "Holy F:  WANT.  (Tesla Model S, four-door sedan).   Super Aston Martin-esque.",
+    "original_landing_url": "https://www.flickr.com/photos/dpstyles/3388224916",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.06615385,
+      0.32332563,
+      0.9369231,
+      0.76443416
+    ],
+    "caption": "In the foreground of this image, there is a white car on the white surface. In the background, it seems like a white wall.",
+    "caption_annotator_id": 46,
+    "image_sha256": "543786f9ff12462ac9db4a2714815b6f69f84f1d7eeb55a027065e0627c3b269",
+    "label": "white"
+  },
+  {
+    "image_id": "f197630e58eefc29",
+    "crop": "crops/f197630e58eefc29.png",
+    "author": "David Blaikie",
+    "author_profile": "https://www.flickr.com/people/nikonvscanon/",
+    "title": "Goodwood Track Day-3",
+    "original_landing_url": "https://www.flickr.com/photos/nikonvscanon/8560789630",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.18125,
+      0.20208333,
+      0.915625,
+      0.7916667
+    ],
+    "caption": "In this picture I can observe maroon and white color car on the road. The background is blurred.",
+    "caption_annotator_id": 39,
+    "image_sha256": "ff1e00898b01f8858738f8e30f6f0bc047fe7089c282d2eea020db78a6168d46",
+    "label": "white"
+  },
+  {
+    "image_id": "87b1cc825fa313b2",
+    "crop": "crops/87b1cc825fa313b2.png",
+    "author": "Thai Handicrafts",
+    "author_profile": "https://www.flickr.com/people/thomasthailand/",
+    "title": "001",
+    "original_landing_url": "https://www.flickr.com/photos/thomasthailand/1231687968",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.042671613,
+      0.15803815,
+      0.9666048,
+      0.97002727
+    ],
+    "caption": "In this image we can see a white color car with its door open on a road, we can also see two men in black color suit and white color shirt. In background we can see a white color building with glass windows and a black color pipe and some curtains as well.",
+    "caption_annotator_id": 128,
+    "image_sha256": "f34354bf90a818e42efc78f714fd3047dc4238d7440af289e372c34c132f70be",
+    "label": "white"
+  },
+  {
+    "image_id": "3858fe4c509f8542",
+    "crop": "crops/3858fe4c509f8542.png",
+    "author": "Francis Bijl",
+    "author_profile": "https://www.flickr.com/people/frenkieb/",
+    "title": "I have no idea what type of car this is",
+    "original_landing_url": "https://www.flickr.com/photos/frenkieb/169748512",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0,
+      0.01875,
+      1.0,
+      1.0
+    ],
+    "caption": "In this image, I can see a red and a white color car parked on the road. And I can see grass. In the background of the image, I can see a building with a board on a brick wall and I can see a banner with some text, walls, buildings and looking like people on the road. And I can see a light pole, some objects and the blue sky.",
+    "caption_annotator_id": 4,
+    "image_sha256": "e5cc1c4d59018e6e452188c9ebc4b425a83bfdbf8908c0caf3162fb8308fc861",
+    "label": "white"
+  },
+  {
+    "image_id": "3b1943c86ee196f3",
+    "crop": "crops/3b1943c86ee196f3.png",
+    "author": "Norsk Elbilforening",
+    "author_profile": "https://www.flickr.com/people/elbilforeningen/",
+    "title": "EV Rally Trollstigen",
+    "original_landing_url": "https://www.flickr.com/photos/elbilforeningen/14498680842",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.2079646,
+      0.44469026,
+      0.7876106,
+      0.78097343
+    ],
+    "caption": "In this image we can see a white color car on the road. In the background of the image there are mountains. There is a directional board.",
+    "caption_annotator_id": 91,
+    "image_sha256": "4996850ff0666cb1c8c9544d0f0da03e9d57d890a37995e0df41f70ecefc091f",
+    "label": "white"
+  },
+  {
+    "image_id": "e617abfd70224732",
+    "crop": "crops/e617abfd70224732.png",
+    "author": "Alan_D",
+    "author_profile": "https://www.flickr.com/people/adspackman/",
+    "title": "Renault Megane R26R",
+    "original_landing_url": "https://www.flickr.com/photos/adspackman/2703788848",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.06875,
+      0.12708333,
+      0.78125,
+      0.74375
+    ],
+    "caption": "In this picture, we can see a white car kept for display on a black circular surface. It has a name plate on it. In the background, we have people looking at different model cars and projector display with some images and text on it. There are chairs, wooden fence, curtains and a stage.",
+    "caption_annotator_id": 111,
+    "image_sha256": "651b76afe0bc5cbd019ede59ab67076527bed307225718b40e934bcb365a710f",
+    "label": "white"
+  },
+  {
+    "image_id": "ec1ca79bfabf2ecd",
+    "crop": "crops/ec1ca79bfabf2ecd.png",
+    "author": "Spanish Coches",
+    "author_profile": "https://www.flickr.com/people/39302751@N06/",
+    "title": "1969 Volvo Amazon 133",
+    "original_landing_url": "https://www.flickr.com/photos/39302751@N06/8738290242",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.16224189,
+      0.44911504,
+      0.8864307,
+      0.90929204
+    ],
+    "caption": "In this image we can see a white color car on the road. In background we can see a pole, a card board on which something is written, so many trees.",
+    "caption_annotator_id": 128,
+    "image_sha256": "fc4ac66e55456d18f6bff328546fcf70b239d2d80fa35ff209f9d30d7c8c9fbc",
+    "label": "white"
+  },
+  {
+    "image_id": "a7197d4c4d02c789",
+    "crop": "crops/a7197d4c4d02c789.png",
+    "author": "Autoviva",
+    "author_profile": "https://www.flickr.com/people/autovivacom/",
+    "title": "Mercedes-Benz ML 250 Bluetec at the Frankfurt Motor Show IAA 2011",
+    "original_landing_url": "https://www.flickr.com/photos/autovivacom/6147159355",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.04579025,
+      0.21412803,
+      0.88774,
+      0.8300221
+    ],
+    "caption": "In this picture we can see a white car with front doors open placed on a black color floor in a room, top of that there are lights, back side there is a big pillar and beside of that there is a text on a chalkboard stick to a wall.",
+    "caption_annotator_id": 127,
+    "image_sha256": "8bc00edb29d30ef74569e4aabef543d6899f97881f3af92f879e8b346a4db056",
+    "label": "white"
+  },
+  {
+    "image_id": "efde2a25c1c9c924",
+    "crop": "crops/efde2a25c1c9c924.png",
+    "author": "Ray T",
+    "author_profile": "https://www.flickr.com/people/priordesignna/",
+    "title": "Prior Design Mercedes Benz E-Class Touring E55 E350 AMG",
+    "original_landing_url": "https://www.flickr.com/photos/priordesignna/5267740683",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0515625,
+      0.12235294,
+      0.940625,
+      0.8494118
+    ],
+    "caption": "In this picture we can see a white car parked on green grass. At the bottom of the image we can see the road. Background of the image is blurred. On the right side of the picture it is looking like a pillar and there is a gray object near a pillar.\u00a0",
+    "caption_annotator_id": 0,
+    "image_sha256": "e950a548d1438e168fb7e21204acf25d6219cb0510693cc06a0c7192c8825e00",
+    "label": "white"
+  },
+  {
+    "image_id": "7723ab34ca75ff5e",
+    "crop": "crops/7723ab34ca75ff5e.png",
+    "author": "Louis Rix",
+    "author_profile": "https://www.flickr.com/people/netcars/",
+    "title": "New BMW M3 GT Touring Car White Goodwood Festival 2011",
+    "original_landing_url": "https://www.flickr.com/photos/netcars/6005962934",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1125,
+      0.025,
+      0.8734375,
+      0.975
+    ],
+    "caption": "In the middle of the picture, we see a white car. We see the text written on the car. At the bottom, we see a black carpet. On the right side, we see a woman is standing and we see the legs of the people. On the left side, we see the people are standing and a man is wearing a backpack and he is holding a bag in his hand. In the background, we see the pillars of a wall.",
+    "caption_annotator_id": 161,
+    "image_sha256": "e51cded0a2dcef9b32dc1ba532cdcfd2a8296513083eca00228e2a01035e30fe",
+    "label": "white"
+  },
+  {
+    "image_id": "88e5a3fe3fb0b71e",
+    "crop": "crops/88e5a3fe3fb0b71e.png",
+    "author": "Koen Steunenberg",
+    "author_profile": "https://www.flickr.com/people/115287876@N07/",
+    "title": "IMGP8678",
+    "original_landing_url": "https://www.flickr.com/photos/115287876@N07/14767719813",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.22747415,
+      0.2737307,
+      0.9394387,
+      0.8785872
+    ],
+    "caption": "In the picture I can see a white color car parked on the floor. I can see the motorcycle and bicycles on the floor. I can see four persons standing on the floor. I can see the buildings and trees.",
+    "caption_annotator_id": 162,
+    "image_sha256": "4b6f230271d7565712113eb0115081873159bc61b1fcf2caed2355d50f3ac537",
+    "label": "white"
+  },
+  {
+    "image_id": "c61ed68497448907",
+    "crop": "crops/c61ed68497448907.png",
+    "author": "The Car Spy",
+    "author_profile": "https://www.flickr.com/people/thecarspy/",
+    "title": "2010 BMW X1 sDrive 2.0d SE",
+    "original_landing_url": "https://www.flickr.com/photos/thecarspy/5372910428",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.026027398,
+      0.030952381,
+      0.97534245,
+      0.9785714
+    ],
+    "caption": "In this image I can see a white colour car in the front. On the bottom left side of the image I can see something is written on the car's number plate. In the background I can see few plants, few trees, few buildings and grass. I can also see few other things in the background.",
+    "caption_annotator_id": 85,
+    "image_sha256": "fd6cb15d96caa8a676610916c635486d19a0476f0b378d370f803f01aa418f05",
+    "label": "white"
+  },
+  {
+    "image_id": "bec364af10e100f1",
+    "crop": "crops/bec364af10e100f1.png",
+    "author": "sv1ambo",
+    "author_profile": "https://www.flickr.com/people/50415738@N04/",
+    "title": "1980 Ford Capri Mk III 3.0 S coupe",
+    "original_landing_url": "https://www.flickr.com/photos/50415738@N04/7708286384",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.0453125,
+      0.06875,
+      0.93125,
+      0.75416666
+    ],
+    "caption": "In the middle of the picture, we see a white car is parked on the road. On the left side, we see a woman is sitting on a chair. At the bottom, we see the road. In the middle, we see the road and the grass. We see the fence and a pole. There are trees and the black color hoarding boards in the background. At the top, we see the sky and the clouds.",
+    "caption_annotator_id": 161,
+    "image_sha256": "698ed8cb5b30d9d54e0b7edfde432b86a6aa59955c4674905d691f6b76c72a1d",
+    "label": "white"
+  },
+  {
+    "image_id": "cfc25c92ec31ed5e",
+    "crop": "crops/cfc25c92ec31ed5e.png",
+    "author": "velkr0",
+    "author_profile": "https://www.flickr.com/people/velkr0/",
+    "title": "sweet ride!",
+    "original_landing_url": "https://www.flickr.com/photos/velkr0/9170607965",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.1765625,
+      0.23541667,
+      1.0,
+      0.9583333
+    ],
+    "caption": "In this image, I see a white colored car parked on the road with some text written on it and few people walking around it, in front of the car I see few sign boards with some text written on it and a group of people sitting on the sand field with a camping tent beside them. In the background I see water, ,mountains and a cloudy sky at the top.",
+    "caption_annotator_id": 141,
+    "image_sha256": "13ec3e511126ac3279f896504f5ef74399c0ef61721695ae1cd32d98eecb2637",
+    "label": "white"
+  },
+  {
+    "image_id": "b3acee14af42cbed",
+    "crop": "crops/b3acee14af42cbed.png",
+    "author": "Steve Jurvetson",
+    "author_profile": "https://www.flickr.com/people/jurvetson/",
+    "title": "Autonomous TT",
+    "original_landing_url": "https://www.flickr.com/photos/jurvetson/4041963438",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.026988637,
+      0.032183908,
+      0.90909094,
+      0.9034483
+    ],
+    "caption": "In this image I can see a road and on it I can see a red colour carpet and a white car. I can also see something is written on the car. On the both sides of the image I can see few poles. In the background I can see two iron barricades, few poles, few boards, few plants and number of trees. I can also see something is written on the boards.",
+    "caption_annotator_id": 85,
+    "image_sha256": "a20ed6050ab1ebb28d708db41d1ebbe4c481d76009f8e62e63b94603761d3af7",
+    "label": "white"
+  },
+  {
+    "image_id": "cead4370a2bfbdba",
+    "crop": "crops/cead4370a2bfbdba.png",
+    "author": "Grace Martin",
+    "author_profile": "https://www.flickr.com/people/53352077@N04/",
+    "title": "Ferrari Aurea",
+    "original_landing_url": "https://www.flickr.com/photos/53352077@N04/4973327212",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.062767476,
+      0.047945205,
+      0.9586305,
+      0.9589041
+    ],
+    "caption": "In this image, I can see a red and a white color car on the floor. On which I can see headlights. And in which I can see seats. In the background of the image, I can see a wall.",
+    "caption_annotator_id": 4,
+    "image_sha256": "a2e0a8b9219311ee0557b37a46c7b8564e8e6e8caf0a4f33a4f74e479e15951c",
+    "label": "white"
+  },
+  {
+    "image_id": "a6860b6789da0205",
+    "crop": "crops/a6860b6789da0205.png",
+    "author": "Yomar Lopez",
+    "author_profile": "https://www.flickr.com/people/spoolsociety/",
+    "title": "V2Lab 2014 Orlando, FL",
+    "original_landing_url": "https://www.flickr.com/photos/spoolsociety/15460282847",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "bbox": [
+      0.079104476,
+      0.40611354,
+      0.93731344,
+      0.7620087
+    ],
+    "caption": "In this picture we can see a white car, in front of a shop on road, there is a text on top of shop, there is a tree.",
+    "caption_annotator_id": 127,
+    "image_sha256": "403bdad8202fafb2cbb390f13caa7e0963702f1108686584260ae834c0835a24",
+    "label": "white"
+  }
+]

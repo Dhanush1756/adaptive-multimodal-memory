@@ -1,132 +1,94 @@
-# Adaptive Evidence-Grounded Memory for Long-Term NLP Agents
+# Adaptive Evidence-Grounded Memory
 
-An adaptive multimodal memory that links **text** and **image** evidence to evolving entity
-states, keeps history instead of overwriting it, and answers current and historical questions
-with the evidence behind each answer.
+An integrated NLP + computer vision research prototype that remembers changing facts, preserves historical evidence, and answers questions across conversations in an isolated local account.
 
-> **Status: integrated NLP + CV research prototype.** The implementation follows the submitted
-> report's adaptive evidence-grounded architecture. See
-> [`docs/report_implementation_traceability.md`](docs/report_implementation_traceability.md) for
-> claim-by-claim alignment and [`docs/integrated_nlp_cv_architecture.md`](docs/integrated_nlp_cv_architecture.md)
-> for the final data flow.
+Text and uploaded photos enter the same temporal memory pipeline. The memory engine controls acceptance, conflict resolution, persistence and retrieval; an optional LLM assists extraction and conversation.
 
-## How it works
+## Quick start (Windows PowerShell)
 
-```
-text  -> NLP (entities, colour claim, time expressions) ─┐
-                                                          ├─ evidence fusion (agreement, confidence)
-image -> CV  (detect, crop, HSV/CLIP colour, embedding) ──┘            │
-                                                                       v
-                    rule-based memory engine: ADD / UPDATE / MERGE / HISTORICAL /
-                    CONTRADICTORY / IGNORE  ->  SQLite states chained by time
-                                                                       │
- question -> intent + entity -> temporal retrieval -> grounded answer + evidence + confidence
+Tested environment: **Windows / CPython 3.14.6 / Streamlit 1.58.0**. Direct dependencies are pinned in `requirements.txt`. Other environments are not claimed as verified.
+
+```powershell
+# First-time installation in a separate environment:
+py -3.14 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+
+# Offline, deterministic chat interface:
+.\.venv\Scripts\python.exe -m streamlit run app/account_app.py --server.address 127.0.0.1
 ```
 
-- The memory engine is independent of any LLM (`src/memory/update.py`).
-- Old states are never deleted; they become `HISTORICAL` and stay linked.
-- Text and image that confidently disagree are stored as `CONTRADICTORY` and not applied.
-- Unresolved disagreements can be queried directly and require one explicit human verification.
-- Evidence keeps event time separate from ingestion time and records the active NLP/CV method.
-- Answers come from deterministic templates over retrieved states. An optional LLM only
-  rephrases a prompt that contains the retrieved evidence.
+Open the printed localhost address, register a demonstration account, then log in. New chats share only that account's memory. Accounts and evidence persist after restart when you use the same configuration and data directory.
 
-## Install and run
+### Optional conversational responses with Groq
 
-```bash
-pip install -r requirements.txt
-pytest -q                                   # unit + end-to-end tests (no model downloads)
-python -m streamlit run app/streamlit_app.py --server.address 127.0.0.1  # Light mode defaults on
+```powershell
+.\scripts\start_groq.ps1 -Clipboard
 ```
 
-Quick use from Python:
+On first setup, copy a new private key when prompted, then press Enter without pasting into the terminal. A successful connection test stores the key encrypted with Windows DPAPI outside this repository. Subsequent launches reuse it without prompting:
 
-```python
-from src.agent.reasoning import MemoryAgent
-agent = MemoryAgent(light=True)             # uses the configured persistent database
-agent.remember("I bought a red car.", "red_car.jpg", "2026-10-01")
-agent.remember("I repainted my car blue.", "blue_car.jpg", "2026-10-10")
-print(agent.ask("What color is my car now?").text)
-print(agent.ask("What color was my car originally?").text)
-print(agent.ask("Do the text and image disagree about my car?").text)
-agent.store.close()
+```powershell
+.\scripts\start_groq.ps1
+# Rotate the saved key if needed:
+.\scripts\start_groq.ps1 -ReplaceKey -Clipboard
 ```
 
-Relative configured storage paths resolve from the repository root. Missing database parents
-are created automatically. Use `MemoryAgent(db_path=":memory:", light=True)` for an isolated,
-ephemeral agent; tests and benchmark factories explicitly use temporary or in-memory storage.
+Each person cloning the repository supplies their own key once. GitHub does not distribute your credential. A hosted deployment needs its own server-side secret configuration. `GROQ_API_KEY` overrides the saved key; `GROQ_MODEL` selects the model. There is no automatic paid-provider fallback. [Setup, privacy and troubleshooting](docs/groq_setup.md).
 
-The Streamlit app keeps one agent per browser session. With the default configuration its
-database is `data/processed/memory_sessions/<random-session-id>/memory.db`; images are under
-`<paths.image_dir>/sessions/<random-session-id>/`. Reruns and Light-mode changes preserve that
-session's memory. Reset affects only its database. The sidebar displays a random 128-bit recovery
-code; saving and re-entering that exact code reopens the existing isolated database after a
-browser or server restart. Codes are never listed, and invalid or missing codes do not create or
-open storage. The code is a local bearer secret, so hosted multi-user deployment still requires
-authentication and access controls. Reset does not delete images.
+Groq receives conversation text and selected relevant memories. Images are processed locally. Missing credentials, quota limits and API failures retain deterministic responses and lexical retrieval. Free-tier quotas and access are controlled by Groq.
 
-Late compatible evidence uses its event time: a blue observation dated October 10 can extend
-a blue state previously known from October 20. An October 15 query then returns blue because
-of that earlier observation. Evidence merely confirming an October 20 event does not backdate
-it. Every text/image item retains its own source date and session association.
+## Chat and remember
 
-## Evaluate and train
+- Send text, optionally attaching a PNG/JPEG. Provide explicit object context; general image-only understanding is not implemented.
+- Enable **Remember this** before sending, or write **Remember that my laptop mood is happy.** Explicit requests receive selection usefulness **1.0**, even when automatic selection would skip the fact.
+- Unrecognized explicitly requested content becomes a verbatim user note, not an independently verified fact. Uncertain statements saved this way remain notes.
+- Ask **Show my pinned memories** or **Show my saved notes**. Both list visible pinned current facts and notes with evidence; conflicting values remain withheld pending verification.
+- In **Manage memories**, pin an existing memory, unpin it, or forget/restore its complete fact history. Priority follows the evolving fact; it does not freeze an old value as current.
 
-```bash
-python -m src.data.make_dataset --n 300 --seed 0 --out data/synthetic --save-images
-python -m src.evaluation.ablations --split test --out reports/results
-python -m src.evaluation.component_eval --split test
-python -m src.training.train_intent_classifier
-python -m src.training.train_color_head --real-dir data/raw/colors
-```
+Accepted memories already persist without automatic expiry. Pins record your long-term preference and add a bounded semantic-ranking bonus when local semantic retrieval is available. They never raise evidence confidence, bypass identity checks, resolve disagreements, or restore forgotten information. Forgetting excludes memory from retrieval while preserving transcripts and evidence for audit. Do not enter credentials in chat; obvious credential-bearing explicit requests are not promoted to long-term memory.
 
-Full step-by-step instructions, evaluation rules and what each trained component does are in
-[`docs/training.md`](docs/training.md).
+## Temporal and multimodal demonstration
 
-The published Phase 6 Track A metrics are frozen. Put any reproduction in a new directory as
-described in [`docs/multimodal_evaluation_protocol.md`](docs/multimodal_evaluation_protocol.md).
-`requirements.txt` is the deterministic Light-mode profile tested on Windows 11 with
-CPython 3.14.6, Streamlit 1.58.0, Starlette 1.3.1, Uvicorn 0.40.0, pytest 9.0.3 and
-SQLite 3.53.2. A clean virtual-environment installation passed 193 tests and a live
-headless-Chrome demonstration; see [`docs/phase12_demo_reproducibility.md`](docs/phase12_demo_reproducibility.md).
-Python 3.10.8 with Streamlit 1.31.1 is not supported: core tests run, but that Streamlit AppTest
-release cannot automate file upload and mishandles formatted selectbox values. Pretrained NLP/CV
-packages and model assets are intentionally outside this Light-mode requirements file.
+Set **Message event date** in Settings before each observation:
 
-## Repository layout
-
-| Path | Purpose |
+| Date | Message |
 |---|---|
-| `src/nlp/` | preprocessing, entity lexicon, claim extraction, time expressions, text embeddings |
-| `src/cv/` | image loading, YOLO detection, HSV/CLIP colour, image embeddings |
-| `src/multimodal/` | cross-modal agreement, fusion into a candidate, visual pipeline |
-| `src/memory/` | schema, SQLite store, update engine, state chains, conflict rules |
-| `src/retrieval/` | temporal, hybrid, text and image retrieval |
-| `src/agent/` | query parser, intent model, grounded answers, `MemoryAgent` |
-| `src/data/` | synthetic benchmark generator |
-| `src/evaluation/` | metrics, baselines, benchmark runner, ablations, component evaluation |
-| `src/training/` | intent classifier and colour head training |
-| `app/streamlit_app.py` | demo UI |
-| `tests/` | memory, NLP, CV, retrieval and end-to-end tests |
+| 2026-10-01 | My first car is red. |
+| 2026-10-10 | My first car is blue. |
+| 2026-10-20 | My first car is black. |
 
-Research documentation:
+Ask **What color is my first car now?**, **What color was my first car previously?**, and **What color was my first car originally?** Expect black, blue and red. Add **My second car is white.** to check identity separation. Inspect Sources & evidence and Memory & evidence for timestamps, IDs and provenance.
 
-- [`docs/report_implementation_traceability.md`](docs/report_implementation_traceability.md)
-- [`docs/integrated_nlp_cv_architecture.md`](docs/integrated_nlp_cv_architecture.md)
-- [`docs/multimodal_evaluation_protocol.md`](docs/multimodal_evaluation_protocol.md)
-- [`docs/limitations_and_research_gaps.md`](docs/limitations_and_research_gaps.md)
-- [`docs/integrated_report_outline.md`](docs/integrated_report_outline.md)
-- [`docs/ieee_research_paper.tex`](docs/ieee_research_paper.tex)
+Contrasting images are contextual/non-supporting where association is unverified. When the application flags a disagreement, explicitly select a value in human verification. Importance never chooses a value for you. [Current manual checklist](docs/explicit_memory.md); [full demonstration history](docs/final_demo_script.md).
 
-## Limitations
+## Models and limitations
 
-- Only one attribute (`color`) is tracked; other attributes need extractor and CV support.
-- One claim is extracted per input; several entities in one message are not handled.
-- Explicit ordinal identities such as "first car" and "second car" are distinguished. General
-  identity resolution and visual re-identification are not implemented.
-- The synthetic images are an easy domain. Real-photo accuracy must be measured separately.
-- Weights and thresholds in `config.yaml` are initial values, not tuned ones.
+- Deterministic NLP extraction works offline. Optional Groq candidate extraction and responses remain subject to application validation; assistant responses are not re-ingested as evidence.
+- CV includes HSV heuristics and an **exploratory trained four-colour car classifier** from Open Images crops. Its small first-party artifact, manifest and metrics are included. This is not general image understanding, a trained object detector, or proof of physical identity. The Groq launcher or `config.openimages.yaml` selects this classifier; the default offline profile uses HSV.
+- [Training and label limitations](docs/openimages_colour_training.md) distinguish caption-derived, assistant-reviewed labels from independent human gold.
+- Optional Ollama embeddings are separate from chat generation and never download automatically. Without the runtime/model, retrieval remains lexical. [Optional local setup](docs/local_models_setup.md).
+- Authentication and isolation support a local research prototype. Public production hosting requires a separate security and deployment assessment.
 
-## License
+## Tests and research records
 
-MIT License. See [`LICENSE`](LICENSE). Copyright (c) 2026 Dhanush S, E Sasi Vaishnav, Dhruthi Kulkarni.
+```powershell
+.\.venv\Scripts\python.exe -B -m pytest -q
+```
+
+Tests use temporary storage. Automated API checks use mocks; native credential-cache tests require a working Windows user profile and may skip elsewhere. Streamlit AppTest checks are not a real-browser demonstration. [Latest verification report](docs/explicit_memory.md).
+
+Frozen Phase 4-6 annotations and benchmark reports are retained unchanged. Reliability work does not imply improved benchmark performance. The [documentation index](docs/README.md) separates current guides from historical phase reports. The previous detailed README is preserved in `docs/archive/`.
+
+```text
+app/               Account chat UI and legacy demonstration UI
+src/               NLP, CV, fusion, temporal memory, accounts and providers
+tests/             Regression, integration and mocked API tests
+config*.yaml       Explicit profiles; default is deterministic
+scripts/           Windows secure Groq launcher
+models/            Small reviewed classifier and provenance
+data/annotations/  Frozen/reviewed fixtures, not user memory
+reports/           Research records and historical results
+docs/              Setup, demonstrations, architecture and research history
+```
+
+Databases, uploaded photos, raw datasets, credentials, encrypted keys, virtual environments, caches, logs, other model weights and the pre-existing `Microsoft/` directory are excluded from Git and are not deleted. See [LICENSE](LICENSE) and dataset attribution records before redistributing research assets.

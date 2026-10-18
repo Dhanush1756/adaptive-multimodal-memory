@@ -1,0 +1,20 @@
+{
+  "environment": "Windows normal user-profile context, PowerShell 5.1.26100.9711, Anaconda CPython 3.14.6, Streamlit 1.58.0, pytest 9.0.3",
+  "command": "python -B -m pytest -q -x --tb=short --basetemp=.pytest_cache/groq-persistent-full-20261018",
+  "passed": 296,
+  "failed": 0,
+  "skipped": 0,
+  "duration_seconds": 166.93,
+  "focused_credential_tests_passed": 6,
+  "focused_duration_seconds": 38.97,
+  "native_windows_dpapi_encryption_and_decryption_executed": true,
+  "credential_data": "disposable fixture keys in isolated temporary profiles",
+  "provider_and_app_processes_in_launcher_tests": "stubs, not live API or Streamlit processes",
+  "actual_user_key_read_or_saved_by_agent": false,
+  "live_api_requests": false,
+  "browser_verification": false,
+  "user_database_access": false,
+  "model_or_frozen_benchmark_change": false,
+  "git_mutations": false,
+  "sandbox_limitation": "Native DPAPI unavailable under impersonated sandbox profile; genuine tests rerun in normal Windows profile using new verified-empty workspace temp directories"
+}

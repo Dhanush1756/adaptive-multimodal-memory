@@ -40,8 +40,8 @@ class ClipBackend:
             from transformers import CLIPModel, CLIPProcessor
 
             self._torch = torch
-            self._model = CLIPModel.from_pretrained(self.name).eval()
-            self._proc = CLIPProcessor.from_pretrained(self.name)
+            self._model = CLIPModel.from_pretrained(self.name, local_files_only=bool(cv.get("local_files_only", False))).eval()
+            self._proc = CLIPProcessor.from_pretrained(self.name, local_files_only=bool(cv.get("local_files_only", False)))
             self.available = True
         except Exception as exc:
             print(f"[clip] unavailable ({exc.__class__.__name__}); using colour-histogram fallback")

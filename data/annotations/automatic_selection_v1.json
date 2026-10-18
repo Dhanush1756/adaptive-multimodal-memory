@@ -1,0 +1,27 @@
+{
+  "version": "automatic-selection-diagnostic-v1",
+  "annotation_process": "Assistant-authored and inspected expected claims, not independently human-adjudicated. Constructed grammar-level diagnostics, not natural conversations.",
+  "split": "Diagnostic only; no statistical held-out or generalization claim. Policy fixed before this dataset was executed.",
+  "cases": [
+    {"text":"Hello!", "expected":[]},
+    {"text":"Thanks for helping.", "expected":[]},
+    {"text":"What color is my car?", "expected":[]},
+    {"text":"Maybe my car is blue.", "expected":[]},
+    {"text":"Perhaps my laptop brand is Apple.", "expected":[]},
+    {"text":"My car is not red.", "expected":[]},
+    {"text":"My user mood is happy.", "expected":[]},
+    {"text":"My laptop password is example-only.", "expected":[]},
+    {"text":"I ate a cookie today.", "expected":[]},
+    {"text":"My car is red.", "expected":[["car","color","red"]]},
+    {"text":"My laptop brand is Lenovo.", "expected":[["laptop","brand","lenovo"]]},
+    {"text":"My project named atlas deadline is 2026-12-01.", "expected":[["project","deadline","2026-12-01"]]},
+    {"text":"My project named atlas requirement is offline inference.", "expected":[["project","requirement","offline inference"]]},
+    {"text":"I prefer tea.", "expected":[["user","preference","tea"]]},
+    {"text":"Alice is my supervisor.", "expected":[["user","supervisor","alice"]]},
+    {"text":"My document named thesis status is draft.", "expected":[["document","status","draft"]]},
+    {"text":"My event named conference location is Bengaluru.", "expected":[["event","location","bengaluru"]]},
+    {"text":"My project named atlas model is Gold.", "expected":[["project","model","gold"]]},
+    {"text":"My mug named desk is green.", "expected":[["mug","color","green"]]},
+    {"text":"My laptop brand is Lenovo. My laptop model is ThinkPad.", "expected":[["laptop","brand","lenovo"],["laptop","model","thinkpad"]]}
+  ]
+}

@@ -73,6 +73,7 @@ class VisualEvidence:
     detector_model: str = ""
     attribute_model: str = ""
     embedding_model: str = ""
+    classifier: Dict[str, Any] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
         if self.association_status == "verified":

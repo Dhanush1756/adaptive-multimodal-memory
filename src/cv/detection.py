@@ -7,11 +7,12 @@ so detection only *localises* objects; the attribute (colour) is computed separa
 from __future__ import annotations
 
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from PIL import Image
 
-from ..config import load_config
+from ..config import load_config, resolve_path
 
 # COCO label -> tracked entity name used by the memory
 COCO_TO_ENTITY: Dict[str, str] = {
@@ -46,6 +47,11 @@ class ObjectDetector:
         self.conf = float(cv.get("yolo_conf", 0.25))
         self.weights = cv.get("yolo_weights", "yolov8n.pt")
         self.model = None
+        if cv.get('local_files_only'):
+            local_weights = Path(resolve_path(self.weights))
+            if not local_weights.is_file():
+                return
+            self.weights = str(local_weights)
         if not force_fallback:
             try:
                 from ultralytics import YOLO  # heavy import kept local

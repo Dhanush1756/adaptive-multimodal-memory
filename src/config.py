@@ -55,7 +55,10 @@ def _merge(base: Dict[str, Any], over: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def load_config(path: Optional[str] = None) -> Dict[str, Any]:
-    path = path or os.path.join(ROOT, "config.yaml")
+    environment_path = os.environ.get("AEGM_CONFIG_PATH")
+    if path is None and environment_path and not os.path.isfile(environment_path):
+        raise FileNotFoundError("AEGM_CONFIG_PATH does not identify an existing configuration file")
+    path = path or environment_path or os.path.join(ROOT, "config.yaml")
     user: Dict[str, Any] = {}
     try:
         import yaml

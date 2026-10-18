@@ -1,0 +1,282 @@
+{
+  "dataset": "phase14-track-c-v1",
+  "dataset_sha256": "7f8137269ad899d42653545ce120cddb1ccd0d7561674ac5f8e09a1680e69680",
+  "profile": "Light mode, controlled authored conversations and generated image fixtures; no real photos or pretrained inference",
+  "metrics": {
+    "cross_session_accuracy": {
+      "numerator": 12,
+      "denominator": 12,
+      "value": 1.0
+    },
+    "temporal_accuracy": {
+      "numerator": 4,
+      "denominator": 4,
+      "value": 1.0
+    },
+    "conversation_evidence_precision": {
+      "numerator": 11,
+      "denominator": 11,
+      "value": 1.0
+    },
+    "conversation_evidence_recall": {
+      "numerator": 11,
+      "denominator": 11,
+      "value": 1.0
+    },
+    "unsupported_answer_rate": {
+      "numerator": 0,
+      "denominator": 12,
+      "value": 0.0
+    },
+    "abstention_accuracy": {
+      "numerator": 3,
+      "denominator": 3,
+      "value": 1.0
+    },
+    "entity_accuracy": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1.0
+    },
+    "service_reopen_success": {
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1.0
+    },
+    "cross_user_isolation": {
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1.0
+    }
+  },
+  "storage_bytes_after_run": 208896,
+  "queries": [
+    {
+      "question": "Which model did we decide to train?",
+      "family": "cross_session",
+      "correct": true,
+      "found": true,
+      "actual": "yolo",
+      "expected": "yolo",
+      "source_conversations": [
+        "revision"
+      ],
+      "expected_sources": [
+        "revision"
+      ],
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 13.729499994951766
+    },
+    {
+      "question": "What was my previous project model?",
+      "family": "historical",
+      "correct": true,
+      "found": true,
+      "actual": "clip",
+      "expected": "clip",
+      "source_conversations": [
+        "planning",
+        "revision"
+      ],
+      "expected_sources": [
+        "planning",
+        "revision"
+      ],
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 11.982700001681224
+    },
+    {
+      "question": "What was my project model on 2026-10-15?",
+      "family": "late_arrival",
+      "correct": true,
+      "found": true,
+      "actual": "yolo",
+      "expected": "yolo",
+      "source_conversations": [
+        "revision"
+      ],
+      "expected_sources": [
+        "revision"
+      ],
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 11.028599998098798
+    },
+    {
+      "question": "What was my initial project model?",
+      "family": "initial",
+      "correct": true,
+      "found": true,
+      "actual": "clip",
+      "expected": "clip",
+      "source_conversations": [
+        "planning"
+      ],
+      "expected_sources": [
+        "planning"
+      ],
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 14.40819999697851
+    },
+    {
+      "question": "What is my requirement?",
+      "family": "stable_fact",
+      "correct": true,
+      "found": true,
+      "actual": "offline inference",
+      "expected": "offline inference",
+      "source_conversations": [
+        "planning"
+      ],
+      "expected_sources": [
+        "planning"
+      ],
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 10.129500005859882
+    },
+    {
+      "question": "What do I prefer?",
+      "family": "preference",
+      "correct": true,
+      "found": true,
+      "actual": "detailed answers",
+      "expected": "detailed answers",
+      "source_conversations": [
+        "revision"
+      ],
+      "expected_sources": [
+        "revision"
+      ],
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 10.401600004115608
+    },
+    {
+      "question": "What did I previously prefer?",
+      "family": "historical",
+      "correct": true,
+      "found": true,
+      "actual": "concise answers",
+      "expected": "concise answers",
+      "source_conversations": [
+        "planning",
+        "revision"
+      ],
+      "expected_sources": [
+        "planning",
+        "revision"
+      ],
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 12.400900006468873
+    },
+    {
+      "question": "What color is my first car?",
+      "family": "identity",
+      "correct": true,
+      "found": true,
+      "actual": "red",
+      "expected": "red",
+      "source_conversations": [
+        "planning"
+      ],
+      "expected_sources": [
+        "planning"
+      ],
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 18.02519999910146
+    },
+    {
+      "question": "What color is my second car?",
+      "family": "identity",
+      "correct": true,
+      "found": true,
+      "actual": "blue",
+      "expected": "blue",
+      "source_conversations": [
+        "planning"
+      ],
+      "expected_sources": [
+        "planning"
+      ],
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 16.441300002043135
+    },
+    {
+      "question": "What color is my car?",
+      "family": "abstention",
+      "correct": true,
+      "found": false,
+      "actual": null,
+      "expected": null,
+      "source_conversations": [],
+      "expected_sources": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 15.198500004771631
+    },
+    {
+      "question": "What is my project budget?",
+      "family": "abstention",
+      "correct": true,
+      "found": false,
+      "actual": null,
+      "expected": null,
+      "source_conversations": [],
+      "expected_sources": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 12.030900004901923
+    },
+    {
+      "question": "What color is my bike?",
+      "family": "abstention",
+      "correct": true,
+      "found": false,
+      "actual": null,
+      "expected": null,
+      "source_conversations": [],
+      "expected_sources": [],
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "latency_ms": 12.930299999425188
+    }
+  ],
+  "track_d_controlled": [
+    {
+      "selected": "red",
+      "prompted": true,
+      "current_correct": true,
+      "historical_correct": true
+    },
+    {
+      "selected": "white",
+      "prompted": true,
+      "current_correct": true,
+      "historical_correct": true
+    }
+  ],
+  "limitations": [
+    "Small controlled suite; no public dialogue benchmark or statistical superiority claim.",
+    "Evidence metrics use source-conversation sets, not token-level citation correctness.",
+    "Service reopen simulates restart; this is not a browser-restart test."
+  ]
+}

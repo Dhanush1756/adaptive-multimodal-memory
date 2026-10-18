@@ -1,0 +1,32 @@
+{
+  "version": "phase14-track-c-v1",
+  "provenance": "Assistant-authored controlled scenarios, not human dialogue or a public benchmark",
+  "conversations": [
+    {"name": "planning", "observations": [
+      {"text": "My project model is CLIP.", "date": "2026-10-01"},
+      {"text": "My requirement is offline inference.", "date": "2026-10-01"},
+      {"text": "I prefer concise answers.", "date": "2026-10-01"},
+      {"text": "My first car is red.", "date": "2026-10-01"},
+      {"text": "My second car is blue.", "date": "2026-10-01"}
+    ], "intervening_messages": 120},
+    {"name": "revision", "observations": [
+      {"text": "My project model is YOLO.", "date": "2026-10-20"},
+      {"text": "My project model is YOLO.", "date": "2026-10-10"},
+      {"text": "I now prefer detailed answers.", "date": "2026-10-20"}
+    ]}
+  ],
+  "queries": [
+    {"question": "Which model did we decide to train?", "value": "yolo", "sources": ["revision"], "family": "cross_session"},
+    {"question": "What was my previous project model?", "value": "clip", "sources": ["planning", "revision"], "family": "historical"},
+    {"question": "What was my project model on 2026-10-15?", "value": "yolo", "sources": ["revision"], "family": "late_arrival"},
+    {"question": "What was my initial project model?", "value": "clip", "sources": ["planning"], "family": "initial"},
+    {"question": "What is my requirement?", "value": "offline inference", "sources": ["planning"], "family": "stable_fact"},
+    {"question": "What do I prefer?", "value": "detailed answers", "sources": ["revision"], "family": "preference"},
+    {"question": "What did I previously prefer?", "value": "concise answers", "sources": ["planning", "revision"], "family": "historical"},
+    {"question": "What color is my first car?", "value": "red", "sources": ["planning"], "family": "identity"},
+    {"question": "What color is my second car?", "value": "blue", "sources": ["planning"], "family": "identity"},
+    {"question": "What color is my car?", "value": null, "sources": [], "family": "abstention"},
+    {"question": "What is my project budget?", "value": null, "sources": [], "family": "abstention"},
+    {"question": "What color is my bike?", "value": null, "sources": [], "family": "abstention"}
+  ]
+}

@@ -21,7 +21,7 @@ from uuid import uuid4
 
 from ..config import load_config, resolve_path
 from ..memory.conflict import normalize_value, values_equal
-from ..memory.schema import Action, Candidate, ConflictResolution, Decision, MemoryRecord, Status
+from ..memory.schema import Action, Candidate, Claim, ConflictResolution, Decision, MemoryRecord, Status
 from ..memory.state_tracker import resolve_entity_id, timeline
 from ..memory.store import MemoryStore
 from ..memory.update import MemoryEngine
@@ -173,6 +173,7 @@ class MemoryAgent:
         image: Any = None,
         timestamp: Any = None,
         session_id: Optional[str] = None,
+        *, explicit_claim: Optional[Claim] = None, extractor: str = 'rules-v1',
     ) -> IngestResult:
         """Ingest one observation. timestamp is source time, not arrival order.
 
@@ -182,12 +183,12 @@ class MemoryAgent:
         with self._lock:
             sessions, counter = self._sessions.copy(), self._counter
             try:
-                return self._remember(text, image, timestamp, session_id)
+                return self._remember(text, image, timestamp, session_id, explicit_claim, extractor)
             except BaseException:
                 self._sessions, self._counter = sessions, counter
                 raise
 
-    def _remember(self, text: str, image: Any, timestamp: Any, session_id: Optional[str]) -> IngestResult:
+    def _remember(self, text: str, image: Any, timestamp: Any, session_id: Optional[str], explicit_claim=None, extractor='rules-v1') -> IngestResult:
         timestamp_missing = timestamp is None
         ingested_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
         ts = parse_ts(timestamp).replace(microsecond=0)
@@ -198,6 +199,8 @@ class MemoryAgent:
 
         claims = extract_claims(text, ts, context_entity=ctx,
                                 context_entity_ref=self.context_entity_ref()) if text else []
+        if explicit_claim is not None:
+            claims = [explicit_claim]
         claim = claims[0] if claims else None  # one claim per ingest (documented limitation)
         mentions = tracked_entities(text) if text else []
         text_entity = claim.entity if claim else (mentions[0].canonical if mentions else None)
@@ -227,7 +230,8 @@ class MemoryAgent:
         tc = self._temporal_consistency(entity_guess, cand_time)
 
         common = dict(session_id=sid, timestamp=ts_iso, text_entity=text_entity, context_entity=ctx,
-                      cfg=self.cfg, temporal_consistency=tc, ingested_at=ingested_at)
+                      cfg=self.cfg, temporal_consistency=tc, ingested_at=ingested_at,
+                      nlp_extractor=extractor)
         if self.link_evidence or analysis is None or (claim is None and not text):
             cands = [fuse(text=text, claim=claim, image=analysis, image_id=image_id, image_path=image_path,
                           text_embedding=text_emb, **common)]
@@ -299,6 +303,8 @@ class MemoryAgent:
             return None
 
         if cand.claim is not None:
+            if cand.claim.attribute.lower() != 'color':
+                return None  # Current CV extracts colour, not arbitrary attributes.
             memory_value = normalize_value(cand.claim.value)
             entity = cand.claim.entity
             entity_ref = cand.claim.entity_ref or ""
@@ -359,6 +365,9 @@ class MemoryAgent:
                     confirmation,
                     timestamp=request["timestamp"],
                     session_id=f"{result.session_id}-human-verified",
+                    explicit_claim=Claim(request['entity'], 'color', accepted,
+                        confidence=1., source_text=confirmation, entity_ref=request['entity_ref'] or None,
+                        resolved_time=request['timestamp']),
                 )
                 if not verified.decision.memory_id:
                     raise RuntimeError("human verification did not produce a memory state")

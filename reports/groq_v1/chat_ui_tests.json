@@ -1,0 +1,20 @@
+{
+  "environment": "Windows, Anaconda CPython 3.14.6, Streamlit 1.58.0, pytest 9.0.3",
+  "command": "python -B -m pytest -q -x --tb=short",
+  "passed": 290,
+  "failed": 0,
+  "skipped": 0,
+  "duration_seconds": 136.36,
+  "focused_ui_cases": 2,
+  "focused_ui_duration_seconds_before_final_assertions": 16.01,
+  "ui_verification": "Streamlit AppTest, not live browser verification",
+  "text_composer": "real native widget serialization",
+  "uploads": "returned widget payload injected; actual Pillow decoding, HSV processing, persistence and conflict resolution",
+  "human_resolution_values_tested": ["red", "white"],
+  "closed_connection_recovery_with_evidence_equality": true,
+  "live_api_inference_by_agent": false,
+  "user_database_access_by_agent": false,
+  "database_schema_or_memory_engine_change": false,
+  "model_or_frozen_benchmark_change": false,
+  "git_mutations": false
+}

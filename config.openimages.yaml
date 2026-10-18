@@ -1,0 +1,8 @@
+# Explicit experimental profile; does not replace config.yaml or open its DB.
+# Caption-derived labels reviewed by an assistant, not independently human gold.
+paths:
+  db_path: data/processed/openimages_demo/memory.db
+  image_dir: data/processed/openimages_demo/images
+cv:
+  color_head_path: models/openimages_car_colour_v1/color_head.joblib
+  color_head_entities: [car]

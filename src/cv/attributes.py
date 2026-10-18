@@ -12,6 +12,8 @@ Combination (weights from config cv.clip_weight / cv.hsv_weight, initial values,
 from __future__ import annotations
 
 import os
+import hashlib
+from pathlib import Path
 from dataclasses import dataclass
 from typing import Any, Dict, Optional
 
@@ -130,13 +132,25 @@ class VisualAttributeExtractor:
         self.w_other = float(cv.get("clip_weight", 0.6))
         self.w_hsv = float(cv.get("hsv_weight", 0.4))
         self.clip = clip
+        self.head_entities = cv.get("color_head_entities")
         self.head: Optional[Dict[str, Any]] = None
-        path = head_path or HEAD_PATH
+        self.head_sha256 = ""
+        path = resolve_path(head_path or cv.get("color_head_path") or HEAD_PATH)
         if os.path.exists(path):
             try:
                 import joblib
 
                 self.head = joblib.load(path)
+                if (not isinstance(self.head, dict)
+                        or self.head.get("features") not in {"hist", "clip"}
+                        or not hasattr(self.head.get("model"), "predict_proba")):
+                    self.head = None
+                if self.head is not None:
+                    encoder = self.head.get("meta", {}).get("encoder_model")
+                    if self.head.get("features") == "clip" and encoder and encoder != getattr(clip, "name", None):
+                        self.head = None
+                    else:
+                        self.head_sha256 = hashlib.sha256(Path(path).read_bytes()).hexdigest()
             except Exception as exc:
                 print(f"[attributes] could not load colour head ({exc.__class__.__name__}); ignoring")
 
@@ -147,7 +161,19 @@ class VisualAttributeExtractor:
             return "hsv+head"
         return "hsv+clip" if clip_ok else "hsv"
 
+    def provenance(self) -> Dict[str, Any]:
+        active = self.method == "hsv+head"
+        return {"classifier": "logistic-regression" if active else "none",
+                "classifier_artifact_sha256": self.head_sha256 if active else None,
+                "classifier_features": self.head.get("features") if active else None,
+                "classifier_classes": list(self.head.get("classes", [])) if active else [],
+                "classifier_entity_scope": self.head_entities,
+                "classifier_dataset_sha256": self.head.get("meta", {}).get("manifest_sha256") if active else None,
+                "classifier_calibrated": self.head.get("meta", {}).get("calibrated", False) if active else False}
+
     def _other_probs(self, crop: Image.Image, entity: Optional[str]) -> Optional[Dict[str, float]]:
+        if self.head_entities and entity not in self.head_entities:
+            return None
         clip_ok = self.clip is not None and self.clip.available
         if self.head is not None:
             feats = None

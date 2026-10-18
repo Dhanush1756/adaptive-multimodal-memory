@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-18",
+  "environment": "Windows, normal user profile; CPython 3.14.6; Streamlit 1.58.0; pytest 9.0.3",
+  "command": "python -B -m pytest -q -x --tb=short --basetemp=.pytest_cache/explicit-memory-full-20261018",
+  "passed": 304,
+  "failed": 0,
+  "skipped": 0,
+  "duration_seconds": 171.38,
+  "focused_explicit_memory_and_account_ui": {"passed": 10, "duration_seconds": 35.45},
+  "native_dpapi_fixture_tests_executed": true,
+  "new_explicit_memory_cases": 8,
+  "browser_verification": false,
+  "live_api_calls": false,
+  "user_database_access": false,
+  "models_downloaded": false,
+  "dependencies_installed": false,
+  "canonical_integrity_files_checked": 22,
+  "canonical_integrity_files_changed": 0,
+  "classifier_sha256_unchanged": true,
+  "existing_research_artifacts_preserved": true
+}

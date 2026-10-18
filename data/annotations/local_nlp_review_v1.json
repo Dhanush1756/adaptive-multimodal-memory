@@ -1,0 +1,50 @@
+{
+  "version":"local-nlp-diagnostic-v1",
+  "review":"Assistant-authored and inspected expected outputs. Independent human review pending; not natural-dialogue gold or a statistical held-out split.",
+  "extraction":[
+    {"text":"My laptop brand is Lenovo.","claims":[["laptop","brand","lenovo"]]},
+    {"text":"My project named atlas deadline is 2026-12-01.","claims":[["project","deadline","2026-12-01"]]},
+    {"text":"I enjoy tea.","claims":[["user","preference","tea"]]},
+    {"text":"I live in Bengaluru.","claims":[["user","location","bengaluru"]]},
+    {"text":"I do not use cloud APIs.","claims":[["user","constraint","do not use cloud apis"]]},
+    {"text":"Project atlas must run offline.","claims":[["project","requirement","run offline"]]},
+    {"text":"My supervisor is Alice.","claims":[["user","supervisor","alice"]]},
+    {"text":"My car is red.","claims":[["car","color","red"]]},
+    {"text":"I bought a red Tesla.","claims":[["car","color","red"]]},
+    {"text":"I have an allergy to peanuts.","claims":[["user","allergy","peanuts"]]},
+    {"text":"Peanuts trigger an allergic reaction for me.","claims":[["user","allergy","peanuts"]]},
+    {"text":"I will submit my thesis tomorrow.","claims":[["user","commitment","submit my thesis tomorrow"]]},
+    {"text":"Please schedule a meeting.","claims":[]},
+    {"text":"Atlas will be delivered someday.","claims":[]},
+    {"text":"Maybe I have an allergy to peanuts.","claims":[]},
+    {"text":"My car is not red.","claims":[]},
+    {"text":"Hello, thanks!","claims":[]},
+    {"text":"What color is my car?","claims":[]},
+    {"text":"If my car were blue, it would look different.","claims":[]},
+    {"text":"My project named atlas model is Gold.","claims":[["project","model","gold"]]}
+  ],
+  "observations":[
+    {"text":"My laptop brand is Lenovo.","time":"2026-10-01"},
+    {"text":"My project named atlas deadline is 2026-11-01.","time":"2026-10-01"},
+    {"text":"My project named atlas deadline is 2026-12-01.","time":"2026-10-10"},
+    {"text":"I prefer tea.","time":"2026-10-01"},
+    {"text":"My first car is red.","time":"2026-10-01"},
+    {"text":"My first car is blue.","time":"2026-10-10"},
+    {"text":"My first car is black.","time":"2026-10-20"},
+    {"text":"My second car is white.","time":"2026-10-01"}
+  ],
+  "retrieval":[
+    {"question":"What brand is my laptop?","value":"lenovo"},
+    {"question":"What is the deadline for project named atlas?","value":"2026-12-01"},
+    {"question":"Which make is my laptop?","value":"lenovo"},
+    {"question":"When is project named atlas due?","value":"2026-12-01"},
+    {"question":"What was the previous due date for project named atlas?","value":"2026-11-01"},
+    {"question":"What color is my first car now?","value":"black"},
+    {"question":"What hue is my first car?","value":"black"},
+    {"question":"What color was my first car originally?","value":"red"},
+    {"question":"What color is my car?","value":null},
+    {"question":"What brand is my watch?","value":null},
+    {"question":"What is my project budget?","value":null},
+    {"question":"What would I like to sip?","value":"tea"}
+  ]
+}

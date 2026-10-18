@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "scope": "One existing Open Images car crop; model-loading/local-inference smoke check, not a new accuracy estimate.",
+  "input": "data\\raw\\openimages_colour_v1\\crops\\1d66bc96d35337d9.png",
+  "input_sha256": "7858771663c8226029dc8c863426726965131790b25cd7f442dfad8fb98dd562",
+  "model_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+  "pipeline_status": {
+    "detector": "none (whole-image fallback)",
+    "color": "hsv+head",
+    "image_embedding": "color-histogram",
+    "classifier": "logistic-regression",
+    "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+    "classifier_features": "hist",
+    "classifier_classes": [
+      "black",
+      "blue",
+      "red",
+      "white"
+    ],
+    "classifier_entity_scope": [
+      "car"
+    ],
+    "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+    "classifier_calibrated": false
+  },
+  "observation": {
+    "detection": {
+      "label": "object",
+      "entity": "car",
+      "bbox": [
+        0.0,
+        0.0,
+        512.0,
+        227.0
+      ],
+      "confidence": 0.3,
+      "source": "fallback"
+    },
+    "color": "white",
+    "color_confidence": 0.355,
+    "visual_confidence": 0.305,
+    "method": "hsv+head",
+    "quality": {
+      "width": 512,
+      "height": 227,
+      "brightness": 100.7,
+      "sharpness": 1772.2,
+      "flags": []
+    },
+    "association_status": "contextual",
+    "association_reason": "detector unavailable; image was submitted with this claim",
+    "detector_model": "none (whole-image fallback)",
+    "attribute_model": "hsv+head",
+    "embedding_model": "color-histogram",
+    "classifier": {
+      "classifier": "logistic-regression",
+      "classifier_artifact_sha256": "232658bc14429531eaaf5b3e4c86903ef1f4814d63f0d47f99edd0dd6170e62c",
+      "classifier_features": "hist",
+      "classifier_classes": [
+        "black",
+        "blue",
+        "red",
+        "white"
+      ],
+      "classifier_entity_scope": [
+        "car"
+      ],
+      "classifier_dataset_sha256": "a828c74387186ba4312eec6db67d4c86c0d4c572ea03b4fd187bfc7e62a4a0f8",
+      "classifier_calibrated": false,
+      "applied": true
+    }
+  },
+  "elapsed_ms": 6530.097199996817,
+  "pretrained_inference": false,
+  "download_performed": false
+}

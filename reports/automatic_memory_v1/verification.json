@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-18",
+  "environment": {
+    "platform": "Windows",
+    "python": "3.14.6",
+    "numpy": "2.4.6",
+    "Pillow": "12.3.0",
+    "PyYAML": "6.0.3",
+    "scikit-learn": "1.9.0",
+    "joblib": "1.5.3",
+    "streamlit": "1.58.0",
+    "pytest": "9.0.3"
+  },
+  "full_suite": {
+    "command": "& 'C:\\Users\\DHANUSH S\\anaconda3\\python.exe' -B -m pytest -q",
+    "passed": 230,
+    "failed": 0,
+    "skipped": 0,
+    "elapsed_seconds": 95.49
+  },
+  "focused_account_tests": {"passed": 23, "elapsed_seconds": 62.28},
+  "focused_automatic_and_fusion_tests": {"passed": 25, "elapsed_seconds": 19.66},
+  "focused_final_automatic_and_ui_tests": {"passed": 10, "elapsed_seconds": 24.81},
+  "controlled_evaluation": "final_run.json",
+  "frozen_integrity": "integrity.json",
+  "browser_demonstration": "NOT TESTED for this change; Streamlit AppTest and Python pipeline checks are distinct from a browser",
+  "clean_environment_installation": "NOT PERFORMED in this phase",
+  "new_model_training_or_pretrained_inference": "NOT PERFORMED in this phase; existing four-colour Open Images artifact preserved",
+  "existing_user_database_access": false,
+  "dependency_installation": false,
+  "git_commit_or_push": false,
+  "interpretation": "Regression and authored diagnostic evidence only; not natural-dialogue or general visual performance. Live LLM is not configured."
+}

@@ -93,7 +93,8 @@ class MemoryEngine:
             entity=claim.entity.lower(),
             entity_id=entity_id,
             attribute=claim.attribute.lower(),
-            value=normalize_value(claim.value),
+            value=(normalize_value(claim.value) if claim.attribute.lower() == 'color'
+                   else claim.value.strip().lower()),
             timestamp=ts,
             confidence=cand.confidence if cand.confidence > 0 else claim.confidence,
             status=status,
@@ -191,7 +192,7 @@ class MemoryEngine:
         members = _chain_members(self.store, entity_id, attribute)
         entity_match = 1.0 if members or self.store.query(entity_id=entity_id) else 0.0
         attribute_match = 1.0 if members else 0.0
-        new_value = normalize_value(claim.value)
+        new_value = normalize_value(claim.value) if attribute == 'color' else claim.value.strip().lower()
 
         base = dict(
             entity_match=entity_match,
@@ -260,7 +261,8 @@ class MemoryEngine:
 
         # --- 4. same value already represented -> MERGE ------------------------------
         for target in (in_effect, next_after):
-            if target is not None and values_equal(target.value, new_value):
+            if target is not None and (values_equal(target.value, new_value) if attribute == 'color'
+                                       else target.value == new_value):
                 extended = t < parse_ts(target.timestamp)
                 if extended:
                     # Only the adjacent compatible state is extended. An intervening

@@ -1,0 +1,618 @@
+{
+  "dataset": "data\\annotations\\local_nlp_review_v1.json",
+  "dataset_sha256": "d10d83b5b4e01a225f9f976400c3324408f88c93d6452f70ac232e3a545d2054",
+  "review": "Assistant-authored and inspected expected outputs. Independent human review pending; not natural-dialogue gold or a statistical held-out split.",
+  "python": "3.14.6",
+  "packages": {
+    "numpy": "2.4.6",
+    "streamlit": "1.58.0",
+    "scikit-learn": "1.9.0",
+    "Pillow": "12.3.0",
+    "pytest": "9.0.3"
+  },
+  "local_setup_status": {
+    "enabled": true,
+    "status": "Ollama unavailable at loopback. Start/install Ollama and the documented models; deterministic and lexical fallbacks active.",
+    "llm_model": null,
+    "embedding_model": null,
+    "index": null,
+    "last_extraction": {
+      "method": "deterministic",
+      "notes": []
+    },
+    "last_retrieval": {
+      "method": "lexical"
+    },
+    "last_response": {
+      "method": "deterministic"
+    }
+  },
+  "llm_inference_probe": {
+    "status": "BLOCKED",
+    "reason": "Local runtime/model not available. No real LLM inference executed."
+  },
+  "embedding_inference_probe": {
+    "status": "BLOCKED",
+    "reason": "Local embedding model not available. No semantic model inference executed."
+  },
+  "extraction_case_count": 20,
+  "deterministic_extraction": {
+    "version": "general-explicit-rules-v2",
+    "metrics": {
+      "precision": {
+        "numerator": 10,
+        "denominator": 10,
+        "value": 1.0
+      },
+      "recall": {
+        "numerator": 10,
+        "denominator": 13,
+        "value": 0.7692307692307693
+      },
+      "exact_cases": {
+        "numerator": 17,
+        "denominator": 20,
+        "value": 0.85
+      }
+    },
+    "cases": [
+      {
+        "text": "My laptop brand is Lenovo.",
+        "expected": [
+          [
+            "laptop",
+            "brand",
+            "lenovo"
+          ]
+        ],
+        "actual": [
+          [
+            "laptop",
+            "brand",
+            "lenovo"
+          ]
+        ]
+      },
+      {
+        "text": "My project named atlas deadline is 2026-12-01.",
+        "expected": [
+          [
+            "project",
+            "deadline",
+            "2026-12-01"
+          ]
+        ],
+        "actual": [
+          [
+            "project",
+            "deadline",
+            "2026-12-01"
+          ]
+        ]
+      },
+      {
+        "text": "I enjoy tea.",
+        "expected": [
+          [
+            "user",
+            "preference",
+            "tea"
+          ]
+        ],
+        "actual": [
+          [
+            "user",
+            "preference",
+            "tea"
+          ]
+        ]
+      },
+      {
+        "text": "I live in Bengaluru.",
+        "expected": [
+          [
+            "user",
+            "location",
+            "bengaluru"
+          ]
+        ],
+        "actual": [
+          [
+            "user",
+            "location",
+            "bengaluru"
+          ]
+        ]
+      },
+      {
+        "text": "I do not use cloud APIs.",
+        "expected": [
+          [
+            "user",
+            "constraint",
+            "do not use cloud apis"
+          ]
+        ],
+        "actual": [
+          [
+            "user",
+            "constraint",
+            "do not use cloud apis"
+          ]
+        ]
+      },
+      {
+        "text": "Project atlas must run offline.",
+        "expected": [
+          [
+            "project",
+            "requirement",
+            "run offline"
+          ]
+        ],
+        "actual": [
+          [
+            "project",
+            "requirement",
+            "run offline"
+          ]
+        ]
+      },
+      {
+        "text": "My supervisor is Alice.",
+        "expected": [
+          [
+            "user",
+            "supervisor",
+            "alice"
+          ]
+        ],
+        "actual": [
+          [
+            "user",
+            "supervisor",
+            "alice"
+          ]
+        ]
+      },
+      {
+        "text": "My car is red.",
+        "expected": [
+          [
+            "car",
+            "color",
+            "red"
+          ]
+        ],
+        "actual": [
+          [
+            "car",
+            "color",
+            "red"
+          ]
+        ]
+      },
+      {
+        "text": "I bought a red Tesla.",
+        "expected": [
+          [
+            "car",
+            "color",
+            "red"
+          ]
+        ],
+        "actual": [
+          [
+            "car",
+            "color",
+            "red"
+          ]
+        ]
+      },
+      {
+        "text": "I have an allergy to peanuts.",
+        "expected": [
+          [
+            "user",
+            "allergy",
+            "peanuts"
+          ]
+        ],
+        "actual": []
+      },
+      {
+        "text": "Peanuts trigger an allergic reaction for me.",
+        "expected": [
+          [
+            "user",
+            "allergy",
+            "peanuts"
+          ]
+        ],
+        "actual": []
+      },
+      {
+        "text": "I will submit my thesis tomorrow.",
+        "expected": [
+          [
+            "user",
+            "commitment",
+            "submit my thesis tomorrow"
+          ]
+        ],
+        "actual": []
+      },
+      {
+        "text": "Please schedule a meeting.",
+        "expected": [],
+        "actual": []
+      },
+      {
+        "text": "Atlas will be delivered someday.",
+        "expected": [],
+        "actual": []
+      },
+      {
+        "text": "Maybe I have an allergy to peanuts.",
+        "expected": [],
+        "actual": []
+      },
+      {
+        "text": "My car is not red.",
+        "expected": [],
+        "actual": []
+      },
+      {
+        "text": "Hello, thanks!",
+        "expected": [],
+        "actual": []
+      },
+      {
+        "text": "What color is my car?",
+        "expected": [],
+        "actual": []
+      },
+      {
+        "text": "If my car were blue, it would look different.",
+        "expected": [],
+        "actual": []
+      },
+      {
+        "text": "My project named atlas model is Gold.",
+        "expected": [
+          [
+            "project",
+            "model",
+            "gold"
+          ]
+        ],
+        "actual": [
+          [
+            "project",
+            "model",
+            "gold"
+          ]
+        ]
+      }
+    ]
+  },
+  "local_llm_extraction": {
+    "status": "BLOCKED",
+    "metrics": null,
+    "latencies_ms": [],
+    "cases": []
+  },
+  "retrieval_case_count": 12,
+  "lexical_retrieval": {
+    "precision": {
+      "numerator": 4,
+      "denominator": 4,
+      "value": 1.0
+    },
+    "recall": {
+      "numerator": 4,
+      "denominator": 9,
+      "value": 0.4444444444444444
+    },
+    "correct_abstention": {
+      "numerator": 3,
+      "denominator": 3,
+      "value": 1.0
+    },
+    "exact_cases": {
+      "numerator": 7,
+      "denominator": 12,
+      "value": 0.5833333333333334
+    }
+  },
+  "controlled_source_state_count": 8,
+  "local_with_fallback_retrieval": {
+    "precision": {
+      "numerator": 4,
+      "denominator": 4,
+      "value": 1.0
+    },
+    "recall": {
+      "numerator": 4,
+      "denominator": 9,
+      "value": 0.4444444444444444
+    },
+    "correct_abstention": {
+      "numerator": 3,
+      "denominator": 3,
+      "value": 1.0
+    },
+    "exact_cases": {
+      "numerator": 7,
+      "denominator": 12,
+      "value": 0.5833333333333334
+    }
+  },
+  "real_semantic_comparison_status": "BLOCKED - these are fallback results, not embedding performance",
+  "retrieval_cases": [
+    {
+      "question": "What brand is my laptop?",
+      "expected": "lenovo",
+      "lexical_value": "lenovo",
+      "local_with_fallback_value": "lenovo",
+      "lexical_latency_ms": 5.927399994106963,
+      "local_path_latency_ms": 0.011600001016631722,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [
+        "M001"
+      ],
+      "evidence": [
+        {
+          "memory_id": "M001",
+          "role": "supporting",
+          "value": "lenovo",
+          "source": "automatic_conversation",
+          "modality": "text",
+          "text": "My laptop brand is Lenovo",
+          "session_id": "MSG_9a70f26a5fd24559ae9e07a2a3e0d532_0",
+          "timestamp": "2026-10-01T00:00:00+00:00",
+          "confidence": 0.9,
+          "ingested_at": "2026-10-18T06:42:23.022861+00:00",
+          "extractor": "general-explicit-rules-v2",
+          "evidence_id": "TXT_MSG_9a70f26a5fd24559ae9e07a2a3e0d532_0",
+          "supports_state": true,
+          "conversation_references": [
+            {
+              "conversation_id": "a27cc722c29f4c07b86b7c1c159339cd",
+              "message_id": "9a70f26a5fd24559ae9e07a2a3e0d532"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "What is the deadline for project named atlas?",
+      "expected": "2026-12-01",
+      "lexical_value": "2026-12-01",
+      "local_with_fallback_value": "2026-12-01",
+      "lexical_latency_ms": 3.511400005663745,
+      "local_path_latency_ms": 0.01069999416358769,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [
+        "M003"
+      ],
+      "evidence": [
+        {
+          "memory_id": "M003",
+          "role": "supporting",
+          "value": "2026-12-01",
+          "source": "automatic_conversation",
+          "modality": "text",
+          "text": "My project named atlas deadline is 2026-12-01",
+          "session_id": "MSG_036401e782474973bdf61849d0add2c6_0",
+          "timestamp": "2026-10-10T00:00:00+00:00",
+          "confidence": 0.9,
+          "ingested_at": "2026-10-18T06:42:23.042782+00:00",
+          "extractor": "general-explicit-rules-v2",
+          "evidence_id": "TXT_MSG_036401e782474973bdf61849d0add2c6_0",
+          "supports_state": true,
+          "conversation_references": [
+            {
+              "conversation_id": "a27cc722c29f4c07b86b7c1c159339cd",
+              "message_id": "036401e782474973bdf61849d0add2c6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "Which make is my laptop?",
+      "expected": "lenovo",
+      "lexical_value": null,
+      "local_with_fallback_value": null,
+      "lexical_latency_ms": 1.7993000074056908,
+      "local_path_latency_ms": 0.2750999992713332,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [],
+      "evidence": []
+    },
+    {
+      "question": "When is project named atlas due?",
+      "expected": "2026-12-01",
+      "lexical_value": null,
+      "local_with_fallback_value": null,
+      "lexical_latency_ms": 1.2449999921955168,
+      "local_path_latency_ms": 0.22780000290367752,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [],
+      "evidence": []
+    },
+    {
+      "question": "What was the previous due date for project named atlas?",
+      "expected": "2026-11-01",
+      "lexical_value": null,
+      "local_with_fallback_value": null,
+      "lexical_latency_ms": 1.222899998538196,
+      "local_path_latency_ms": 0.3612000000430271,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [],
+      "evidence": []
+    },
+    {
+      "question": "What color is my first car now?",
+      "expected": "black",
+      "lexical_value": "black",
+      "local_with_fallback_value": "black",
+      "lexical_latency_ms": 7.135099993320182,
+      "local_path_latency_ms": 0.006200003554113209,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [
+        "M007"
+      ],
+      "evidence": [
+        {
+          "memory_id": "M007",
+          "role": "current",
+          "value": "black",
+          "source": "user_interaction",
+          "modality": "text",
+          "text": "My first car is black",
+          "session_id": "MSG_9ee46576e63748d58c7b04e6a93b8bfd_0",
+          "timestamp": "2026-10-20T00:00:00+00:00",
+          "confidence": 0.95,
+          "ingested_at": "2026-10-18T06:42:23+00:00",
+          "extractor": "rules-v1",
+          "evidence_id": "TXT_MSG_9ee46576e63748d58c7b04e6a93b8bfd_0",
+          "supports_state": true,
+          "conversation_references": [
+            {
+              "conversation_id": "a27cc722c29f4c07b86b7c1c159339cd",
+              "message_id": "9ee46576e63748d58c7b04e6a93b8bfd"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "What hue is my first car?",
+      "expected": "black",
+      "lexical_value": null,
+      "local_with_fallback_value": null,
+      "lexical_latency_ms": 1.3946999970357865,
+      "local_path_latency_ms": 0.40079999598674476,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [],
+      "evidence": []
+    },
+    {
+      "question": "What color was my first car originally?",
+      "expected": "red",
+      "lexical_value": "red",
+      "local_with_fallback_value": "red",
+      "lexical_latency_ms": 6.7918999993707985,
+      "local_path_latency_ms": 0.006100002792663872,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [
+        "M005"
+      ],
+      "evidence": [
+        {
+          "memory_id": "M005",
+          "role": "original",
+          "value": "red",
+          "source": "user_interaction",
+          "modality": "text",
+          "text": "My first car is red",
+          "session_id": "MSG_1e5bdb2cddd94532bcfe92bd4af19623_0",
+          "timestamp": "2026-10-01T00:00:00+00:00",
+          "confidence": 0.95,
+          "ingested_at": "2026-10-18T06:42:23+00:00",
+          "extractor": "rules-v1",
+          "evidence_id": "TXT_MSG_1e5bdb2cddd94532bcfe92bd4af19623_0",
+          "supports_state": true,
+          "conversation_references": [
+            {
+              "conversation_id": "a27cc722c29f4c07b86b7c1c159339cd",
+              "message_id": "1e5bdb2cddd94532bcfe92bd4af19623"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "What color is my car?",
+      "expected": null,
+      "lexical_value": null,
+      "local_with_fallback_value": null,
+      "lexical_latency_ms": 1.4605999895138666,
+      "local_path_latency_ms": 0.3338999958941713,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [],
+      "evidence": []
+    },
+    {
+      "question": "What brand is my watch?",
+      "expected": null,
+      "lexical_value": null,
+      "local_with_fallback_value": null,
+      "lexical_latency_ms": 1.291199994739145,
+      "local_path_latency_ms": 0.21839998953510076,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [],
+      "evidence": []
+    },
+    {
+      "question": "What is my project budget?",
+      "expected": null,
+      "lexical_value": null,
+      "local_with_fallback_value": null,
+      "lexical_latency_ms": 1.2830000050598755,
+      "local_path_latency_ms": 0.21729999571107328,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [],
+      "evidence": []
+    },
+    {
+      "question": "What would I like to sip?",
+      "expected": "tea",
+      "lexical_value": null,
+      "local_with_fallback_value": null,
+      "lexical_latency_ms": 1.2072999961674213,
+      "local_path_latency_ms": 0.261799999861978,
+      "local_path": {
+        "method": "lexical"
+      },
+      "supporting_state_ids": [],
+      "evidence": []
+    }
+  ],
+  "resource_start": {
+    "python_rss_bytes": 46092288,
+    "available_system_ram_bytes": 4037083136,
+    "ollama_process_rss_sum_bytes": 0
+  },
+  "resource_end": {
+    "python_rss_bytes": 53465088,
+    "available_system_ram_bytes": 4033683456,
+    "ollama_process_rss_sum_bytes": 0
+  },
+  "resource_scope": "Point samples only, not peak RSS. psutil optional; Ollama process sum may count shared memory and includes runner only if present.",
+  "limitations": "Small assistant-reviewed authored diagnostics, no independent human gold, no generalization or benchmark-improvement claim. Null model scores mean not executed. Browser verification deliberately not performed."
+}
