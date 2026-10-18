@@ -13,7 +13,7 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Dict, Iterator, List, Optional
 
-from .schema import MemoryRecord, Status, TextEvidence, VisualEvidence
+from .schema import ConflictResolution, MemoryRecord, Status, TextEvidence, VisualEvidence
 
 _SCHEMA = """
 CREATE TABLE IF NOT EXISTS memory (
@@ -37,6 +37,24 @@ CREATE TABLE IF NOT EXISTS memory (
 );
 CREATE INDEX IF NOT EXISTS idx_entity_attr ON memory(entity_id, attribute);
 CREATE INDEX IF NOT EXISTS idx_status ON memory(status);
+CREATE TABLE IF NOT EXISTS conflict_resolutions (
+    resolution_id TEXT PRIMARY KEY,
+    original_conflict_id TEXT NOT NULL UNIQUE,
+    source_memory_id TEXT NOT NULL,
+    resulting_memory_id TEXT NOT NULL,
+    selected_value TEXT NOT NULL,
+    selected_source TEXT NOT NULL,
+    text_value TEXT NOT NULL,
+    image_value TEXT NOT NULL,
+    resolved_at TEXT NOT NULL,
+    decision_source TEXT NOT NULL,
+    actor TEXT NOT NULL,
+    rationale TEXT DEFAULT '',
+    source_session_id TEXT DEFAULT '',
+    original_text_evidence TEXT DEFAULT '[]',
+    original_visual_evidence TEXT DEFAULT '[]'
+);
+CREATE INDEX IF NOT EXISTS idx_resolution_result ON conflict_resolutions(resulting_memory_id);
 """
 
 
@@ -58,6 +76,17 @@ class MemoryStore:
                 self.conn.execute("ALTER TABLE memory ADD COLUMN entity_ref TEXT DEFAULT ''")
             if "ingested_at" not in columns:
                 self.conn.execute("ALTER TABLE memory ADD COLUMN ingested_at TEXT DEFAULT ''")
+            resolution_columns = {
+                r[1] for r in self.conn.execute("PRAGMA table_info(conflict_resolutions)")
+            }
+            if "original_text_evidence" not in resolution_columns:
+                self.conn.execute(
+                    "ALTER TABLE conflict_resolutions ADD COLUMN original_text_evidence TEXT DEFAULT '[]'"
+                )
+            if "original_visual_evidence" not in resolution_columns:
+                self.conn.execute(
+                    "ALTER TABLE conflict_resolutions ADD COLUMN original_visual_evidence TEXT DEFAULT '[]'"
+                )
             self.conn.commit()
 
     @contextmanager
@@ -182,8 +211,32 @@ class MemoryStore:
                 )
             return changed
 
+    def insert_resolution(self, resolution: ConflictResolution) -> ConflictResolution:
+        """Persist one immutable resolution; a conflict can be resolved only once."""
+        with self.transaction():
+            self.conn.execute(
+                """INSERT INTO conflict_resolutions (
+                   resolution_id, original_conflict_id, source_memory_id, resulting_memory_id,
+                   selected_value, selected_source, text_value, image_value, resolved_at,
+                   decision_source, actor, rationale, source_session_id,
+                   original_text_evidence, original_visual_evidence)
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                (
+                    resolution.resolution_id, resolution.original_conflict_id,
+                    resolution.source_memory_id, resolution.resulting_memory_id,
+                    resolution.selected_value, resolution.selected_source,
+                    resolution.text_value, resolution.image_value, resolution.resolved_at,
+                    resolution.decision_source, resolution.actor, resolution.rationale,
+                    resolution.source_session_id,
+                    json.dumps(resolution.original_text_evidence),
+                    json.dumps(resolution.original_visual_evidence),
+                ),
+            )
+        return resolution
+
     def reset(self) -> None:
         with self.transaction():
+            self.conn.execute("DELETE FROM conflict_resolutions")
             self.conn.execute("DELETE FROM memory")
 
     def delete_memory(self, memory_id: str) -> None:
@@ -243,6 +296,28 @@ class MemoryStore:
 
     def all(self) -> List[MemoryRecord]:
         return self.query()
+
+    @staticmethod
+    def _row_to_resolution(row: sqlite3.Row) -> ConflictResolution:
+        values = dict(row)
+        values["original_text_evidence"] = json.loads(values.get("original_text_evidence") or "[]")
+        values["original_visual_evidence"] = json.loads(values.get("original_visual_evidence") or "[]")
+        return ConflictResolution(**values)
+
+    def get_resolution(self, original_conflict_id: str) -> Optional[ConflictResolution]:
+        with self._lock:
+            row = self.conn.execute(
+                "SELECT * FROM conflict_resolutions WHERE original_conflict_id=?",
+                (original_conflict_id,),
+            ).fetchone()
+        return self._row_to_resolution(row) if row else None
+
+    def resolutions(self) -> List[ConflictResolution]:
+        with self._lock:
+            rows = self.conn.execute(
+                "SELECT * FROM conflict_resolutions ORDER BY resolved_at, resolution_id"
+            ).fetchall()
+        return [self._row_to_resolution(row) for row in rows]
 
     def current(self, entity_id: str, attribute: str) -> Optional[MemoryRecord]:
         recs = self.query(entity_id, attribute, Status.CURRENT)

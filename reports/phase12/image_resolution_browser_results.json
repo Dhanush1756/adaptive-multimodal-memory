@@ -1,0 +1,21 @@
+{
+  "prompt": {
+    "contextual": true,
+    "non_supporting": true,
+    "red_white": true
+  },
+  "selection_clicked": true,
+  "audit": {
+    "selected_image": true,
+    "actor": true,
+    "timestamp": true,
+    "rationale": true,
+    "ids": true,
+    "evidence_refs": true
+  },
+  "answers": {
+    "current_white": true,
+    "original_red": true,
+    "history_red_white": true
+  }
+}

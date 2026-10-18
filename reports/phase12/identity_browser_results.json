@@ -1,0 +1,12 @@
+{
+  "first": true,
+  "second": true,
+  "category_abstained": true,
+  "category_answer": "2. Ask\n\nQuestion\n\nImage to ask about (optional)\n\nupload\n\nUpload\n\n200MB per file \u2022 JPG, PNG\n\nImage date\n\nPress the down arrow key to interact with the calendar and select a date. Press the escape button to close the calendar.\n\nSelected date is 2026/10/17. Select the second date.\n\nAsk\n\nI don't have enough stored information to answer that. Multiple car identities are stored; name which one you mean.\n\nintent: CURRENT \u00b7 status: abstained \u00b7 confidence: 0% \u00b7 found: False\n\nkeyboard_arrow_right\n\nGrounded prompt (what an LLM would see)\n\n",
+  "selector_options": [
+    "All identities",
+    "first car (car_001)",
+    "second car (car_002)"
+  ],
+  "selector_has_both": true
+}

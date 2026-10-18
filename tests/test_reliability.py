@@ -116,6 +116,10 @@ def test_existing_sqlite_schema_migrates_ingestion_provenance(tmp_path):
     try:
         columns = {row[1] for row in agent.store.conn.execute("PRAGMA table_info(memory)")}
         assert "ingested_at" in columns
+        tables = {row[0] for row in agent.store.conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table'"
+        )}
+        assert "conflict_resolutions" in tables
         agent.remember("My car is red.", timestamp="2026-10-01", session_id="legacy-upgrade")
         record = agent.timeline_for("car")[0]
         assert record.ingested_at
@@ -384,7 +388,7 @@ def test_streamlit_browser_sessions_are_isolated_and_persistent(tmp_path, monkey
     first, second = AppTest.from_file(app), AppTest.from_file(app)
 
     def click(at, label):
-        next(b for b in at.button if b.label == label).click().run()
+        next(b for b in at.button if b.label == label).click().run(timeout=10)
         assert not at.exception
 
     try:

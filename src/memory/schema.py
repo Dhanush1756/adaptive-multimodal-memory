@@ -156,6 +156,29 @@ class MemoryRecord:
 
 
 @dataclass
+class ConflictResolution:
+    """Immutable audit record for one human-resolved multimodal disagreement."""
+    resolution_id: str
+    original_conflict_id: str
+    source_memory_id: str
+    resulting_memory_id: str
+    selected_value: str
+    selected_source: str
+    text_value: str
+    image_value: str
+    resolved_at: str
+    decision_source: str = "human_verification"
+    actor: str = "user"
+    rationale: str = ""
+    source_session_id: str = ""
+    original_text_evidence: List[Dict[str, Any]] = field(default_factory=list)
+    original_visual_evidence: List[Dict[str, Any]] = field(default_factory=list)
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass
 class Decision:
     """Inspectable result of one memory update (brief section 55)."""
     action: Action

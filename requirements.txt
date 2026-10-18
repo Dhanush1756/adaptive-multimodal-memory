@@ -1,18 +1,18 @@
-# Core (enough for the memory engine, tests, synthetic data and HSV-only vision)
-numpy
-Pillow
-pyyaml
-scikit-learn
-joblib
-pytest
+# Deterministic Light-mode prototype and test environment.
+# Verified together on Windows 11 with CPython 3.14.6; see README.md.
+numpy==2.4.6
+Pillow==12.3.0
+PyYAML==6.0.3
+scikit-learn==1.9.0
+joblib==1.5.3
+pytest==9.0.3
+streamlit==1.58.0
+# Streamlit's lower bounds permit newer Starlette/Uvicorn releases that were
+# not browser-compatible in the clean Windows validation environment.  These
+# are the versions used by the supported, browser-working environment.
+starlette==1.3.1
+uvicorn==0.40.0
 
-# Demo
-streamlit
-
-# NLP embeddings (falls back to a hashing embedder if missing)
-sentence-transformers
-
-# Vision (optional; the system degrades gracefully without them)
-torch
-transformers
-ultralytics
+# Pretrained NLP/CV adapters are intentionally excluded from this reproducible
+# Light-mode profile. Their model assets and package combinations have not been
+# validated and must be evaluated as a separate research track.

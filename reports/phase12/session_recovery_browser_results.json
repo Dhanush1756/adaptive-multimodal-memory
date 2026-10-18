@@ -1,0 +1,8 @@
+{
+  "fresh_empty_after_restart": true,
+  "fresh_code_different": true,
+  "recovery_success": true,
+  "timeline_restored": true,
+  "audit_summary_persisted": true,
+  "audit_rationale_persisted": true
+}

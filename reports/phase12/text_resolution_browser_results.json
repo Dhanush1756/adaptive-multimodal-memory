@@ -1,0 +1,20 @@
+{
+  "before": {
+    "verification_prompt": true,
+    "contextual_warning": true,
+    "non_supporting": true,
+    "red_white": true,
+    "uncertain_before_resolution": true
+  },
+  "after": {
+    "success": true,
+    "selected_text": true,
+    "actor": true,
+    "rationale": true,
+    "resulting_state": true,
+    "resolution_id": false,
+    "original_conflict_id": false,
+    "original_evidence": false,
+    "resolved_not_unresolved": true
+  }
+}

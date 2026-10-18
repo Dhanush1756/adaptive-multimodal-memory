@@ -52,7 +52,7 @@ def _input(at, label):
 
 
 def _click(at, label):
-    next(button for button in at.button if button.label == label).click().run()
+    next(button for button in at.button if button.label == label).click().run(timeout=10)
     assert not at.exception
 
 
@@ -108,7 +108,10 @@ def test_streamlit_red_blue_black_queries_timeline_and_evidence(app_test):
 
     markdown, _ = _ask(at, "How do you know my car is black?")
     evidence = "\n".join(markdown)
-    assert "black-source" in evidence and "2026-10-20" in evidence
+    assert "TXT_black-source" in evidence
+    assert "user_interaction/black-source" in evidence
+    assert "2026-10-20" in evidence and "ingested" in evidence
+    assert "extractor rules-v1" in evidence
 
 
 def test_streamlit_two_car_timelines_are_separate_and_ambiguous_query_abstains(app_test):
@@ -121,12 +124,12 @@ def test_streamlit_two_car_timelines_are_separate_and_ambiguous_query_abstains(a
     assert "car_002" in rendered and "second car" in rendered and "blue" in rendered
 
     selector = next(item for item in at.selectbox if item.label == "Timeline entity")
-    selector.select("car_001").run()
+    selector.select("first car (car_001)").run()
     assert not at.exception
     rendered = "\n".join(item.value for item in at.markdown).lower()
     assert "car_001" in rendered and "car_002" not in rendered
     selector = next(item for item in at.selectbox if item.label == "Timeline entity")
-    selector.select("car_002").run()
+    selector.select("second car (car_002)").run()
     assert not at.exception
     rendered = "\n".join(item.value for item in at.markdown).lower()
     assert "car_002" in rendered and "car_001" not in rendered
@@ -157,6 +160,9 @@ def test_streamlit_displays_contextual_image_as_non_supporting(app_test):
     evidence = "\n".join(markdown)
     assert "mixed-source" in evidence and "2026-10-05" in evidence
     assert "contextual, non-supporting" in evidence
+    visual = agent.timeline_for("car")[0].visual_evidence[0]
+    assert visual.image_id in evidence
+    assert "attribute hsv" in evidence and "ingested" in evidence
     answer = agent.ask("How do you know my car is blue?")
     assert all("IMG_" not in evidence_id for evidence_id in answer.supporting_evidence_ids)
     assert answer.value == "blue"
@@ -182,7 +188,16 @@ def test_streamlit_ask_accepts_image_only_and_stores_contextual_provenance(app_t
     assert "appears 'white'" in rendered_warnings and "state remains 'red'" in rendered_warnings
 
 
-def test_streamlit_requires_one_human_verification_for_text_image_disagreement(app_test):
+@pytest.mark.parametrize(
+    ("choice", "expected_value", "expected_source"),
+    [
+        ("Keep memory/text value (red)", "red", "text_or_memory"),
+        ("Accept image value (white)", "white", "image"),
+    ],
+)
+def test_streamlit_requires_one_human_verification_for_text_image_disagreement(
+    app_test, choice, expected_value, expected_source,
+):
     at = app_test
     _input(at, "What happened?").set_value("My car is red.")
     next(item for item in at.file_uploader if item.label == "Photo (optional)").set_value(
@@ -194,11 +209,15 @@ def test_streamlit_requires_one_human_verification_for_text_image_disagreement(a
     assert "pending_verification" in at.session_state
     chooser = next(item for item in at.radio if item.label == "Which value is correct?")
     assert set(chooser.options) == {"Keep memory/text value (red)", "Accept image value (white)"}
-    chooser.set_value("Accept image value (white)")
+    chooser.set_value(choice)
     _click(at, "Apply human verification")
 
     assert "pending_verification" not in at.session_state
-    assert at.session_state["memory_agent"].ask("What color is my car now?").value == "white"
+    assert at.session_state["memory_agent"].ask("What color is my car now?").value == expected_value
+    assert at.session_state["memory_agent"].ask("What color was my car originally?").value == "red"
+    audit = at.session_state["memory_agent"].conflict_audit()
+    assert len(audit) == 1 and audit[0]["selected_source"] == expected_source
+    assert audit[0]["resulting_memory_id"]
     assert not [item for item in at.radio if item.label == "Which value is correct?"]
     assert any("Human verification applied" in item.value for item in at.success)
 
@@ -238,6 +257,35 @@ def test_streamlit_surfaces_cv_failure_note_while_retaining_text(app_test, monke
     at.run()
     assert agent.ask("What color is my phone now?").value == "green"
     assert any("image analysis unavailable (ValueError)" in item.value for item in at.caption)
+
+
+def test_streamlit_recovers_only_the_session_named_by_an_opaque_code(app_test):
+    from streamlit.testing.v1 import AppTest
+
+    first = app_test
+    _store(first, "My car is red.", 1, "recover-source")
+    code = first.session_state["memory_namespace"]
+    first_db = first.session_state["memory_agent"].store.db_path
+
+    app = str(Path(__file__).resolve().parents[1] / "app" / "streamlit_app.py")
+    second = AppTest.from_file(app).run()
+    try:
+        assert not second.exception
+        assert second.session_state["memory_namespace"] != code
+        assert second.session_state["memory_agent"].store.db_path != first_db
+        assert not second.session_state["memory_agent"].ask("What color is my car now?").found
+        assert code not in "\n".join(item.value for item in second.code)
+
+        _input(second, "Recovery code").set_value(code)
+        _click(second, "Open existing session")
+        recovered = second.session_state["memory_agent"]
+        assert second.session_state["memory_namespace"] == code
+        assert recovered.store.db_path == first_db
+        assert recovered.ask("What color is my car now?").value == "red"
+        assert any("Existing isolated session opened" in item.value for item in second.success)
+    finally:
+        if "memory_agent" in second.session_state:
+            second.session_state["memory_agent"].store.close()
 
 
 def test_file_reopen_preserves_identity_timelines(tmp_path):

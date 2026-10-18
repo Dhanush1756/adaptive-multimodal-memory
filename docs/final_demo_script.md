@@ -1,6 +1,9 @@
 # Final demonstration script
 
-This walkthrough uses disposable test data and Light mode. It defines expected behavior; the browser steps are **pending manual execution** until a person launches the application and captures the outputs.
+This walkthrough uses disposable test data and Light mode. The Phase 12 run
+executed these core flows in genuine headless Chrome; see
+`docs/phase12_demo_reproducibility.md` and `reports/phase12/`. A presentation
+machine rehearsal remains useful before the live academic demonstration.
 
 ## 1. Preflight and launch
 
@@ -92,9 +95,17 @@ For a controlled conflict demonstration, run the existing automated test and lab
 
 Capture the test output separately from the browser evidence.
 
-## 7. Persistence using disposable storage
+## 7. Persistence and session recovery
 
-The UI creates a new private namespace and does not reconnect it after a new server/browser session. Demonstrate database persistence independently with a disposable file:
+Use a fresh disposable browser session and copy the 32-character recovery code shown in the
+sidebar. Store red, blue and black, then stop Streamlit and start it again with the same command.
+The restarted browser session should initially be empty and have a different code. Enter the saved
+code in **Recovery code** and click **Open existing session**. Expected: a generic success message,
+the saved code becomes the active code, and current/previous/original answers return black/blue/red.
+Capture the code before restart with its middle characters obscured, the empty new session, the
+recovery success message, and the restored timeline. Do not publish the complete code.
+
+Also demonstrate database persistence independently with a disposable file:
 
 ```powershell
 $env:PHASE7_DEMO_DB = (Join-Path (Resolve-Path .) '.pytest_cache\phase7-demo\persistence.db')
@@ -103,9 +114,22 @@ Remove-Item -LiteralPath $env:PHASE7_DEMO_DB -ErrorAction SilentlyContinue
 & $python -c "import os; from src.agent.reasoning import MemoryAgent; a=MemoryAgent(db_path=os.environ['PHASE7_DEMO_DB'],light=True); print(a.ask('What color is my car now?').value,a.ask('What color was my car before?').value,a.ask('What color was my car originally?').value); print([(r.value,r.status.value,r.timestamp,r.previous_memory_id) for r in a.timeline_for('car')]); a.store.close()" | Tee-Object .pytest_cache\phase7-demo\persistence-reopen.txt
 ```
 
-Expected after the second process: `black blue red` and the same red-to-blue-to-black chain. Capture both files plus database path, size, and modified time. When demonstrating Streamlit restart, capture that the old file remains but the restarted UI creates a new empty namespace; record this as the documented session-resume limitation.
+Expected after the second process: `black blue red` and the same red-to-blue-to-black chain. Capture
+both files plus database path, size, and modified time. Invalid, malformed, and unknown recovery
+codes must show the same generic error and must not create a database.
 
-## 8. Completion record
+## 8. Human-resolution audit
+
+In one disposable session, submit text and a clearly different whole-image colour in Light mode.
+The image must be labelled contextual/non-supporting, and the UI should request one human choice.
+Apply the text choice and capture the **Resolution audit** entry: original disagreement ID, source
+memory ID, resulting state ID, selected source/value, actor, resolution timestamp and preserved
+text/image evidence IDs. In another disposable session, repeat and accept the image value. Verify
+the original state remains answerable through an initial/history question. Restart and recover one
+session to confirm its audit entry persists. These are browser checks; do not describe the image as
+detector-verified or pretrained inference.
+
+## 9. Completion record
 
 Record each step as pass, fail, or not performed. A valid final evidence package contains:
 

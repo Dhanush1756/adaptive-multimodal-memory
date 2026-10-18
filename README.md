@@ -59,9 +59,11 @@ ephemeral agent; tests and benchmark factories explicitly use temporary or in-me
 The Streamlit app keeps one agent per browser session. With the default configuration its
 database is `data/processed/memory_sessions/<random-session-id>/memory.db`; images are under
 `<paths.image_dir>/sessions/<random-session-id>/`. Reruns and Light-mode changes preserve that
-session's memory. Reset affects only its database. A fresh browser session gets a new namespace;
-automatic restoration after a browser/server restart is not implemented. Existing files remain
-available for explicit reopening through `MemoryAgent(db_path=...)`. Reset does not delete images.
+session's memory. Reset affects only its database. The sidebar displays a random 128-bit recovery
+code; saving and re-entering that exact code reopens the existing isolated database after a
+browser or server restart. Codes are never listed, and invalid or missing codes do not create or
+open storage. The code is a local bearer secret, so hosted multi-user deployment still requires
+authentication and access controls. Reset does not delete images.
 
 Late compatible evidence uses its event time: a blue observation dated October 10 can extend
 a blue state previously known from October 20. An October 15 query then returns blue because
@@ -83,8 +85,13 @@ Full step-by-step instructions, evaluation rules and what each trained component
 
 The published Phase 6 Track A metrics are frozen. Put any reproduction in a new directory as
 described in [`docs/multimodal_evaluation_protocol.md`](docs/multimodal_evaluation_protocol.md).
-The recorded compatible test environment is Python 3.14.6, Streamlit 1.58.0 and pytest 9.0.3;
-dependency versions in `requirements.txt` are not yet pinned.
+`requirements.txt` is the deterministic Light-mode profile tested on Windows 11 with
+CPython 3.14.6, Streamlit 1.58.0, Starlette 1.3.1, Uvicorn 0.40.0, pytest 9.0.3 and
+SQLite 3.53.2. A clean virtual-environment installation passed 193 tests and a live
+headless-Chrome demonstration; see [`docs/phase12_demo_reproducibility.md`](docs/phase12_demo_reproducibility.md).
+Python 3.10.8 with Streamlit 1.31.1 is not supported: core tests run, but that Streamlit AppTest
+release cannot automate file upload and mishandles formatted selectbox values. Pretrained NLP/CV
+packages and model assets are intentionally outside this Light-mode requirements file.
 
 ## Repository layout
 

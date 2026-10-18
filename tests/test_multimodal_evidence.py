@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from PIL import Image
+import pytest
 
 from src.agent.reasoning import MemoryAgent
 from src.config import load_config
@@ -149,6 +150,25 @@ def test_human_verification_can_accept_contextual_image_value():
         agent.store.close()
 
 
+def test_contextual_text_choice_freezes_original_evidence_snapshot():
+    agent = _agent()
+    try:
+        disagreement = _remember(agent, "My car is red.", "white", 1)
+        source_id = disagreement.decision.memory_id
+        assert len(agent.store.get(source_id).text_evidence) == 1
+        verified = agent.verify(disagreement, "red", rationale="the text is authoritative")
+        assert verified.decision.memory_id == source_id
+        # The confirmation merges into the live state, while the audit snapshot
+        # remains exactly the evidence that existed when the choice was made.
+        assert len(agent.store.get(source_id).text_evidence) == 2
+        audit = agent.conflict_audit()[0]
+        assert len(audit["original_text_evidence"]) == 1
+        assert len(audit["original_visual_evidence"]) == 1
+        assert audit["rationale"] == "the text is authoritative"
+    finally:
+        agent.store.close()
+
+
 def test_human_verification_resolves_detector_verified_conflict(monkeypatch, tmp_path):
     path = str(tmp_path / "verified.db")
     agent = _agent(path)
@@ -164,7 +184,7 @@ def test_human_verification_resolves_detector_verified_conflict(monkeypatch, tmp
         assert conflict.decision.action == Action.CONTRADICTORY
         assert agent.ask("What color is my car now?").status == "uncertain"
 
-        verified = agent.verify(conflict, "blue")
+        verified = agent.verify(conflict, "blue", actor="reviewer", rationale="photo lighting is misleading")
         assert verified.decision.action == Action.UPDATE
         conflict_id = conflict.decision.memory_id
         resolved = agent.store.get(conflict_id)
@@ -173,6 +193,21 @@ def test_human_verification_resolves_detector_verified_conflict(monkeypatch, tmp
         assert answer.value == "blue"
         assert answer.status == "answered"
         assert "conflicting evidence" not in answer.text.lower()
+        audit = agent.conflict_audit()
+        assert len(audit) == 1
+        assert audit[0]["original_conflict_id"] == conflict_id
+        assert audit[0]["resulting_memory_id"] == verified.decision.memory_id
+        assert audit[0]["selected_value"] == "blue"
+        assert audit[0]["selected_source"] == "text_or_memory"
+        assert audit[0]["actor"] == "reviewer"
+        assert audit[0]["rationale"] == "photo lighting is misleading"
+        assert audit[0]["original_text_evidence"]
+        assert audit[0]["original_visual_evidence"]
+        before_retry = [r.to_dict() for r in agent.store.all()]
+        with pytest.raises(ValueError, match="unresolved|already been resolved"):
+            agent.verify(conflict, "red")
+        assert [r.to_dict() for r in agent.store.all()] == before_retry
+        assert len(agent.store.resolutions()) == 1
     finally:
         agent.store.close()
 
@@ -181,6 +216,51 @@ def test_human_verification_resolves_detector_verified_conflict(monkeypatch, tmp
         assert reopened.store.get(conflict_id).status.value == "RESOLVED"
         answer = reopened.ask("What color is my car now?")
         assert answer.value == "blue" and answer.status == "answered"
+        audit = reopened.conflict_audit()
+        assert len(audit) == 1 and audit[0]["actor"] == "reviewer"
+        assert len(audit[0]["original_text_evidence"]) == 1
+        assert len(audit[0]["original_visual_evidence"]) == 1
+    finally:
+        reopened.store.close()
+
+
+@pytest.mark.parametrize(
+    ("accepted", "expected_source", "expected_current"),
+    [("blue", "text_or_memory", "blue"), ("white", "image", "white")],
+)
+def test_both_verified_conflict_choices_preserve_history_and_reopen(
+    monkeypatch, tmp_path, accepted, expected_source, expected_current,
+):
+    path = str(tmp_path / f"{accepted}.db")
+    agent = _agent(path)
+    try:
+        monkeypatch.setattr(agent.comp.visual.detector, "detect", lambda image: [
+            Detection("car", "car", [0, 0, image.width, image.height], .99),
+        ])
+        agent.remember("My car is red.", timestamp="2026-10-01", session_id="initial")
+        conflict = agent.remember(
+            "My car is blue.", Image.new("RGB", (64, 64), "white"),
+            "2026-10-05", "disagreement",
+        )
+        conflict_id = conflict.decision.memory_id
+        assert conflict.decision.action == Action.CONTRADICTORY
+        verified = agent.verify(conflict, accepted, actor="test_reviewer")
+        assert agent.ask("What color is my car now?").value == expected_current
+        assert agent.ask("What color was my car originally?").value == "red"
+        audit = agent.conflict_audit()[0]
+        assert audit["selected_source"] == expected_source
+        assert audit["resulting_memory_id"] == verified.decision.memory_id
+        assert audit["original_text_evidence"] and audit["original_visual_evidence"]
+    finally:
+        agent.store.close()
+
+    reopened = _agent(path)
+    try:
+        assert reopened.ask("What color is my car now?").value == expected_current
+        assert reopened.ask("What color was my car originally?").value == "red"
+        assert reopened.store.get(conflict_id).status.value == "RESOLVED"
+        audit = reopened.conflict_audit()
+        assert len(audit) == 1 and audit[0]["selected_source"] == expected_source
     finally:
         reopened.store.close()
 

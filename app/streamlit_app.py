@@ -8,37 +8,41 @@ see the extracted claim / detections / memory decision, then ask questions and i
 import sys
 from datetime import datetime
 from pathlib import Path
-from uuid import uuid4
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import streamlit as st  # noqa: E402
 
 from src.agent.reasoning import MemoryAgent, build_components  # noqa: E402
-from src.config import load_config, resolve_path  # noqa: E402
+from src.config import load_config  # noqa: E402
 from src.memory.state_tracker import timeline  # noqa: E402
+from src.session_recovery import (  # noqa: E402
+    new_recovery_code, recoverable_session_exists, session_paths, validate_recovery_code,
+)
 
 st.set_page_config(page_title="Adaptive Evidence-Grounded Memory", layout="wide")
 
 
 def get_agent(light: bool) -> MemoryAgent:
-    """One mutable agent and private disk namespace per Streamlit browser session.
+    """One mutable agent per active, private, recoverable disk namespace.
 
     The configured database names the storage root; the unscoped database is never
-    opened/reset by this demo. Reruns and model-mode changes reuse the same memory.
+    opened/reset by this demo. Reruns and model-mode changes reuse the same memory,
+    and an exact opaque recovery code can select an existing namespace.
     """
     if "memory_agent" not in st.session_state:
         cfg = load_config()
-        namespace = uuid4().hex
+        namespace = st.session_state.setdefault("memory_namespace", new_recovery_code())
         configured_db = cfg["paths"]["db_path"]
         if configured_db == ":memory:":
             db_path = configured_db
+            image_dir = None
         else:
-            base = Path(resolve_path(configured_db))
-            db_path = str(base.parent / f"{base.stem}_sessions" / namespace / base.name)
-        image_dir = Path(resolve_path(cfg["paths"]["image_dir"])) / "sessions" / namespace
+            db_path, image_dir = session_paths(cfg, namespace)
         st.session_state["memory_agent"] = MemoryAgent(
-            cfg, db_path=db_path, image_dir=str(image_dir), light=light)
+            cfg, db_path=db_path,
+            image_dir=None if image_dir is None else str(image_dir), light=light,
+        )
     agent = st.session_state["memory_agent"]
     if agent.light != light:
         components = build_components(agent.cfg, light=light)
@@ -71,8 +75,33 @@ def timeline_rows(agent: MemoryAgent, selected_entity_id: str | None = None):
 with st.sidebar:
     st.header("Memory")
     light = st.toggle("Light mode (no model downloads)", value=True)
+    cfg = load_config()
+    st.session_state.setdefault("memory_namespace", new_recovery_code())
+    recovery = st.text_input(
+        "Recovery code", type="password",
+        help="Enter a code you previously saved. Codes are never listed or searchable.",
+    )
+    if st.button("Open existing session"):
+        try:
+            requested = validate_recovery_code(recovery)
+        except ValueError:
+            st.error("The recovery code is invalid or the session does not exist.")
+        else:
+            if not recoverable_session_exists(cfg, requested):
+                st.error("The recovery code is invalid or the session does not exist.")
+            else:
+                existing = st.session_state.pop("memory_agent", None)
+                if existing is not None:
+                    existing.store.close()
+                st.session_state["memory_namespace"] = requested
+                st.session_state["recovery_message"] = "Existing isolated session opened."
+                st.rerun()
     agent = get_agent(light)
-    st.caption("Memory belongs to this browser session. A new browser session starts a separate memory.")
+    recovered = st.session_state.pop("recovery_message", None)
+    if recovered:
+        st.success(recovered)
+    st.caption("Memory belongs to this isolated session. Save this code to reopen it after restart:")
+    st.code(st.session_state["memory_namespace"], language=None)
     st.json(agent.status())
     if st.button("Reset memory"):
         agent.reset()
@@ -235,8 +264,14 @@ if request is not None:
         "Which value is correct?", list(choices),
         key=f"verification_choice_{pending.session_id}",
     )
+    rationale = st.text_input(
+        "Resolution rationale (optional)",
+        key=f"verification_rationale_{pending.session_id}",
+    )
     if st.button("Apply human verification", type="primary"):
-        verified = agent.verify(pending, choices[selected])
+        verified = agent.verify(
+            pending, choices[selected], actor="streamlit_user", rationale=rationale,
+        )
         st.session_state["last"] = verified
         st.session_state.pop("pending_verification", None)
         st.session_state["verification_message"] = (
@@ -250,15 +285,16 @@ entities = agent.store.entities()
 selected_entity_id = None
 if entities:
     by_id = {entity["entity_id"]: entity for entity in entities}
-    selected = st.selectbox(
+    labels = ["All identities"] + [
+        f"{by_id[entity_id]['entity_ref'] or by_id[entity_id]['entity']} ({entity_id})"
+        for entity_id in by_id
+    ]
+    ids_by_label = {label: entity_id for label, entity_id in zip(labels[1:], by_id)}
+    selected_label = st.selectbox(
         "Timeline entity",
-        ["all"] + list(by_id),
-        format_func=lambda entity_id: (
-            "All identities" if entity_id == "all" else
-            f"{by_id[entity_id]['entity_ref'] or by_id[entity_id]['entity']} ({entity_id})"
-        ),
+        labels,
     )
-    selected_entity_id = None if selected == "all" else selected
+    selected_entity_id = ids_by_label.get(selected_label)
 rows = timeline_rows(agent, selected_entity_id)
 if not rows:
     st.info("Nothing stored yet.")
@@ -273,3 +309,38 @@ else:
 conflicts = [r for r in agent.store.all() if r.status.value == "CONTRADICTORY"]
 for r in conflicts:
     st.warning(f"Conflict {r.memory_id}: '{r.value}' vs '{r.conflicting_value}' on {r.timestamp[:10]} (not applied)")
+
+# ---------------------------------------------------------- resolution audit
+st.subheader("4. Resolution audit")
+audit = agent.conflict_audit()
+if not audit:
+    st.info("No resolved disagreements in this session.")
+else:
+    for item in audit:
+        with st.expander(
+            f"{item['original_conflict_id']}: {item['selected_value']} "
+            f"selected from {item['selected_source']}"
+        ):
+            st.write(
+                f"Resolved {item['resolved_at']} by {item['actor']} "
+                f"({item['decision_source']}). Resulting state: {item['resulting_memory_id']}."
+            )
+            if item["rationale"]:
+                st.write(f"Rationale: {item['rationale']}")
+            st.json({
+                "resolution_id": item["resolution_id"],
+                "original_conflict_id": item["original_conflict_id"],
+                "source_memory_id": item["source_memory_id"],
+                "resulting_memory_id": item["resulting_memory_id"],
+                "text_value": item["text_value"],
+                "image_value": item["image_value"],
+                "selected_value": item["selected_value"],
+                "selected_source": item["selected_source"],
+                "source_session_id": item["source_session_id"],
+                "original_text_evidence_ids": [
+                    evidence.get("evidence_id") for evidence in item["original_text_evidence"]
+                ],
+                "original_image_evidence_ids": [
+                    evidence.get("image_id") for evidence in item["original_visual_evidence"]
+                ],
+            }, expanded=False)
