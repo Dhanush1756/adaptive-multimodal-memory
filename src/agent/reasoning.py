@@ -96,7 +96,13 @@ class MemoryAgent:
         self.image_dir = Path(resolve_path(image_dir)) if image_dir else None
         self._lock = threading.RLock()
         self.comp = components or build_components(self.cfg, light)
-        self.store = MemoryStore(db_path)
+        self.protection = None
+        if self.cfg.get('privacy',{}).get('encrypt_account_storage'):
+            from ..protected_storage import EncryptedWorkspace, ProtectionError
+            if db_path == ':memory:':raise ProtectionError('Protected profile requires an explicit workspace path.')
+            if Path(db_path).exists():raise ProtectionError('Legacy plaintext workspace is not opened by the protected profile. Use a separate profile or a reviewed migration.')
+            self.protection = EncryptedWorkspace(str(db_path)+'.fernet',Path(db_path).parent.name)
+        self.store = MemoryStore(db_path, protection=self.protection)
         self.engine = MemoryEngine(self.store, self.cfg)
         self.hybrid = HybridRetriever(self.store, self.comp.embedder, self.cfg)
         self.retriever = TemporalRetriever(self.store, self.hybrid)
@@ -224,6 +230,7 @@ class MemoryAgent:
             image_id = f"IMG_{uuid4().hex}"
             if self.image_dir is not None:
                 image_path = str(self.image_dir / f"{image_id}.png")
+                if self.protection:image_path += '.fernet'
 
         entity_guess = (claim.entity if claim else None) or text_entity or (analysis.entity if analysis else None) or ctx
         cand_time = claim.resolved_time if (claim and claim.resolved_time) else ts_iso
@@ -252,7 +259,14 @@ class MemoryAgent:
                     self.image_dir.mkdir(parents=True, exist_ok=True)
                     with open(image_path, "xb") as output:
                         created_image = True
-                        analysis.image.save(output, format="PNG")
+                        clean_image=analysis.image.copy()
+                        clean_image.info.clear()
+                        if self.protection:
+                            from io import BytesIO
+                            buffer = BytesIO();clean_image.save(buffer,format='PNG')
+                            output.write(self.protection.cipher.encrypt(buffer.getvalue()))
+                        else:
+                            clean_image.save(output, format="PNG")
         except BaseException:
             if created_image:
                 # Only remove the new file owned by this failed operation.
@@ -289,7 +303,7 @@ class MemoryAgent:
         return IngestResult(
             session_id=sid, timestamp=ts_iso,
             claim=claim.to_dict() if claim else None,
-            image=analysis.summary() if analysis else None,
+            image={**analysis.summary(),'image_id':image_id,'image_path':image_path} if analysis else None,
             candidates=cands, decisions=decisions, notes=notes,
         )
 

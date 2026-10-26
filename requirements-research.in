@@ -1,0 +1,5 @@
+# Optional detector runtime versions imported and exercised in the existing Windows environment.
+# Core requirements.txt and historical model experiments remain unchanged.
+torch==2.14.0
+torchvision==0.29.0
+# VLM dependencies are NOT tested or automatically installed. See the assessment.

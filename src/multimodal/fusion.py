@@ -88,6 +88,8 @@ def fuse(
             attribute_model=image.method,
             embedding_model=image.embedding_model,
             classifier=image.classifier,
+            objects=image.objects,
+            description=image.description,
         )
 
     agreement: Optional[float] = None

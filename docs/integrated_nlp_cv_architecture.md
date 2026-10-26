@@ -121,3 +121,19 @@ add general visual recognition. The legacy demonstration remains deterministic.
 
 - **Light/Track A:** rules, hashing-256, no detector, HSV color, histogram image embeddings. Fully offline and the only profile with frozen comparative results.
 - **Optional pretrained:** sentence transformer, YOLO, CLIP, and optional trained heads. Adapters exist, but release-level real-image performance has not been established.
+
+## 26 October 2026: protected research profile
+
+The new account profiles add a local SSDLite detector with unassociated multi-object
+observations, optional cached description loading, versioned candidate/source-span
+metadata and account-level external-processing consent. Content/evidence encryption
+is opt-in in a separate workspace; existing plaintext stores are not converted.
+Privacy controls span input sensitivity, minimised API transmission, authorization,
+encrypted persistence, derivative invalidation, export, erasure and inactivity
+retention. See the complete [privacy architecture diagram and threat model](privacy_threat_model.md)
+and [operational setup and manual checklist](research_upgrade_setup.md).
+
+Only compact detector inference has been executed in this phase. Caption-model
+inference, real semantic embedding comparison, independent general-object accuracy
+and browser validation remain unverified. Earlier benchmark descriptions above
+retain their original controlled scope and historical results.

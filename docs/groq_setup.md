@@ -1,5 +1,12 @@
 # Groq setup and manual demonstration
 
+**26 October privacy change:** server credentials/opt-in are no longer sufficient
+for account-content processing. Each account defaults to external processing off.
+Enable **Allow external Groq processing for this account** in Privacy & data
+controls and save preferences only after accepting the disclosure. See the
+[protected-profile setup](research_upgrade_setup.md) and
+[current implementation report](research_upgrade_report.md).
+
 Read the [model/cost assessment](groq_assessment.md) and
 [implementation and executed results](groq_implementation.md). Initial provider:
 Groq, `openai/gpt-oss-20b`. This is an external API, not local inference or a model

@@ -6,6 +6,10 @@ __pycache__/
 !.env.example
 .streamlit/secrets.toml
 *.dpapi
+*.fernet
+*.vault
+*.lock
+models/local/
 models/*.joblib
 *.joblib
 # Small, reviewed first-party classifier required by the Groq/Open Images demo.

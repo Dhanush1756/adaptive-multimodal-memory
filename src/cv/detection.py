@@ -47,6 +47,23 @@ class ObjectDetector:
         self.conf = float(cv.get("yolo_conf", 0.25))
         self.weights = cv.get("yolo_weights", "yolov8n.pt")
         self.model = None
+        self.kind = cv.get('detector_backend','yolo')
+        self.general_categories = bool(cv.get('general_categories',False))
+        self.model_identity = ''
+        if self.kind == 'ssdlite':
+            self.weights = cv.get('detector_weights_path','models/local/ssdlite320.pt')
+            local_weights = Path(resolve_path(self.weights))
+            if force_fallback or not local_weights.is_file():return
+            try:
+                import torch
+                from torchvision.models.detection import ssdlite320_mobilenet_v3_large, SSDLite320_MobileNet_V3_Large_Weights
+                self.labels = SSDLite320_MobileNet_V3_Large_Weights.COCO_V1.meta['categories']
+                self.model = ssdlite320_mobilenet_v3_large(weights=None,weights_backbone=None).eval()
+                self.model.load_state_dict(torch.load(str(local_weights),map_location='cpu',weights_only=True))
+                import hashlib
+                self.model_identity = 'ssdlite320-coco:'+hashlib.sha256(local_weights.read_bytes()).hexdigest()
+            except Exception:self.model=None
+            return
         if cv.get('local_files_only'):
             local_weights = Path(resolve_path(self.weights))
             if not local_weights.is_file():
@@ -62,13 +79,24 @@ class ObjectDetector:
 
     @property
     def backend(self) -> str:
-        return "yolo" if self.model is not None else "none (whole-image fallback)"
+        return self.kind if self.model is not None else "none (whole-image fallback)"
 
     def detect(self, img: Image.Image) -> List[Detection]:
         if self.model is None:
             return []
         out: List[Detection] = []
         try:
+            if self.kind == 'ssdlite':
+                import torch
+                from torchvision.transforms.functional import to_tensor
+                with torch.inference_mode():res=self.model([to_tensor(img)])[0]
+                for box,score,label in zip(res['boxes'],res['scores'],res['labels']):
+                    name=self.labels[int(label)]
+                    if float(score) >= self.conf and name not in {'N/A','__background__'}:
+                        entity=(name if self.general_categories and name in {'bus','truck'} else
+                                COCO_TO_ENTITY.get(name,name if self.general_categories else None))
+                        out.append(Detection(name,entity,[float(x) for x in box],float(score),'ssdlite'))
+                return sorted(out,key=lambda d:d.confidence,reverse=True)[:20]
             res = self.model.predict(img, conf=self.conf, verbose=False)[0]
             names = res.names
             for b in res.boxes:
@@ -76,7 +104,7 @@ class ObjectDetector:
                 out.append(
                     Detection(
                         label=label,
-                        entity=COCO_TO_ENTITY.get(label),
+                        entity=COCO_TO_ENTITY.get(label,label if self.general_categories else None),
                         bbox=[float(v) for v in b.xyxy[0].tolist()],
                         confidence=float(b.conf[0]),
                     )

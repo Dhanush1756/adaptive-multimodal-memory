@@ -37,7 +37,7 @@ def test_automatic_turn_general_temporal_and_provenance(service):
     other = s.create()
     answer = s.chat(other, 'What is the previous deadline for project named atlas?').answer
     assert answer.value == '2026-11-01'
-    assert answer.evidence[0]['extractor'] == 'general-explicit-rules-v2'
+    assert answer.evidence[0]['extractor'] == 'general-explicit-rules-v3'
     assert answer.evidence[0]['timestamp'] and answer.evidence[0]['ingested_at']
     assert answer.evidence[0]['conversation_references'][0]['conversation_id'] == cid
     assert s.chat(other, 'What brand is my laptop?').answer.value == 'lenovo'

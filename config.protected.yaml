@@ -1,0 +1,14 @@
+# Explicit new account-storage profile. Never opens or converts existing profiles.
+paths:
+  db_path: data/processed/protected_demo/memory.db
+  image_dir: data/processed/protected_demo/images
+privacy:
+  encrypt_account_storage: true
+llm:
+  provider: groq
+local_models:
+  enabled: false
+cv:
+  local_files_only: true
+  color_head_path: models/openimages_car_colour_v1/color_head.joblib
+  color_head_entities: [car]

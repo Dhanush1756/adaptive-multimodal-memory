@@ -27,6 +27,8 @@ class ImageAnalysis:
     detector_model: str = ""
     embedding_model: str = ""
     classifier: Dict[str, Any] = field(default_factory=dict)
+    objects: list = field(default_factory=list)
+    description: Dict[str, Any] = field(default_factory=dict)
 
     @property
     def entity(self) -> Optional[str]:
@@ -46,4 +48,6 @@ class ImageAnalysis:
             "attribute_model": self.method,
             "embedding_model": self.embedding_model,
             "classifier": self.classifier,
+            "objects": self.objects,
+            "description": self.description,
         }

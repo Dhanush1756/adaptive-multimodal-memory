@@ -16,6 +16,7 @@ from uuid import uuid4
 
 from .accounts import AuthenticationError
 from .automatic_memory import AutomaticMemory
+from .privacy import PrivacyControls
 from .agent.answer_generator import Answer, evidence_items
 from .agent.query_parser import Intent, ParsedQuery
 from .agent.reasoning import MemoryAgent, IngestResult
@@ -59,7 +60,7 @@ def project_claims(text):
     return claims
 
 
-class Conversations(AutomaticMemory):
+class Conversations(PrivacyControls, AutomaticMemory):
     def __init__(self, accounts, token, root, cfg=None, light=True):
         self.accounts, self.token = accounts, token
         self.uid = accounts.identity(token)
@@ -99,6 +100,8 @@ class Conversations(AutomaticMemory):
           payload TEXT NOT NULL, resolved INTEGER NOT NULL DEFAULT 0);
         """)
         self._init_automatic()
+        self._init_privacy()
+        self.db.execute('PRAGMA secure_delete=ON')
 
     def _authorize(self, conversation_id=None):
         if self.accounts.identity(self.token) != self.uid:
@@ -139,6 +142,12 @@ class Conversations(AutomaticMemory):
 
     def remember(self, cid, text="", image=None, timestamp=None):
         """Roll back newly created evidence files if the enclosing transcript fails."""
+        self._authorize(cid)
+        from .privacy import sensitivity
+        if sensitivity(text) != 'ordinary':
+            return IngestResult('',str(timestamp or now()),None,None,
+                decisions=[Decision(Action.IGNORE,None,'Sensitive input was not retained.')],
+                notes=['Sensitive content was not saved or sent to an external provider.'])
         with self.agent._lock:
             created = []
             sessions, counter = self.agent._sessions.copy(), self.agent._counter
@@ -152,7 +161,7 @@ class Conversations(AutomaticMemory):
                     # eligible. Existing user evidence is never enumerated/deleted.
                     file = Path(path)
                     file.resolve().relative_to(self.agent.image_dir.resolve())
-                    if re.fullmatch(r"IMG_[0-9a-f]{32}\.png", file.name):
+                    if re.fullmatch(r"IMG_[0-9a-f]{32}\.png(?:\.fernet)?", file.name):
                         file.unlink(missing_ok=True)
                 raise
 
@@ -210,6 +219,9 @@ class Conversations(AutomaticMemory):
 
     def ask(self, cid, question, reference_time=None):
         self._authorize(cid)
+        from .privacy import sensitivity
+        if sensitivity(question) != 'ordinary':
+            return Answer('Sensitive content was not saved or sent to an external provider.',None,0,False,'CURRENT')
         low = question.lower()
         with self.agent._lock, self.agent.store.transaction():
             self._message(cid, "user", question)

@@ -1,0 +1,19 @@
+# New research-only storage, not frozen benchmark configuration.
+paths:
+  db_path: data/processed/research_upgrade/memory.db
+  image_dir: data/processed/research_upgrade/images
+privacy:
+  encrypt_account_storage: true
+llm:
+  provider: groq
+local_models:
+  enabled: false
+cv:
+  detector_backend: ssdlite
+  detector_weights_path: models/local/ssdlite320.pt
+  general_categories: true
+  local_files_only: true
+  yolo_conf: 0.5
+  attribute_min_confidence: 0.65
+  color_head_path: models/openimages_car_colour_v1/color_head.joblib
+  color_head_entities: [car]

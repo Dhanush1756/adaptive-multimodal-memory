@@ -51,6 +51,9 @@ class TextEvidence:
 @dataclass
 class VisualEvidence:
     image_id: str
+    # All detections are unassociated observations, never proof of physical identity.
+    objects: List[Dict[str, Any]] = field(default_factory=list)
+    description: Dict[str, Any] = field(default_factory=dict)
     image_path: str = ""
     label: str = ""                       # detected object label, e.g. "car"
     bbox: Optional[List[float]] = None    # [x1, y1, x2, y2]

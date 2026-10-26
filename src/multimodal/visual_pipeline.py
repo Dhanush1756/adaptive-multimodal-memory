@@ -22,6 +22,8 @@ class VisualPipeline:
         self.detector = ObjectDetector(self.cfg, force_fallback=light)
         self.attributes = VisualAttributeExtractor(self.cfg, clip=self.clip)
         self.embedder = ImageEmbedder(self.clip)
+        from ..cv.descriptions import LocalDescriptions
+        self.descriptions = LocalDescriptions(self.cfg.get('cv',{}))
 
     def status(self) -> Dict[str, str]:
         return {"detector": self.detector.backend, "color": self.attributes.method,
@@ -31,6 +33,18 @@ class VisualPipeline:
         img = load_image(image)
         quality = quality_report(img)
         dets = self.detector.detect(img)
+        objects = []
+        for index,detection in enumerate(dets[:20]):
+            crop = crop_to_bbox(img,detection.bbox)
+            # Do not extract personal attributes from detected people.
+            attrs = self.attributes.extract(crop,entity=detection.entity) if detection.label != 'person' else None
+            supported = attrs and attrs['confidence'] >= float(self.cfg.get('cv',{}).get('attribute_min_confidence',.65))
+            objects.append({**detection.to_dict(),'observation_index':index,
+                'color':attrs['color'] if supported else None,
+                'attribute_status':'unverified_prediction' if supported else 'unknown',
+                'attribute_method':attrs['method'] if attrs else 'disabled_for_people',
+                'identity_status':'unassociated','supports_state':False,
+                'model':getattr(self.detector,'model_identity','') or self.detector.backend})
         mapped = [d for d in dets if d.entity]
         if preferred_entity:
             matches = [d for d in mapped if d.entity == preferred_entity]
@@ -46,6 +60,9 @@ class VisualPipeline:
             primary, association_status, association_reason = select_primary(mapped, img), "verified", "detected object selected without a text entity"
         else:
             primary, association_status, association_reason = full_image_detection(img), "unmatched", "no tracked object was detected"
+        if self.cfg.get('cv',{}).get('general_categories') and association_status == 'verified':
+            association_status = 'contextual'
+            association_reason = 'Detector localizes a category; physical-object identity is unverified. No automatic link to an existing object.'
         crop = crop_to_bbox(img, primary.bbox) if primary.source != "fallback" else img
         attrs = self.attributes.extract(
             crop, entity=primary.entity or preferred_entity,
@@ -58,7 +75,9 @@ class VisualPipeline:
         return ImageAnalysis(
             image=img,
             detection=primary,
-            color=attrs["color"],
+            color=(attrs['color'] if not self.cfg.get('cv',{}).get('general_categories') or
+                   (attrs['confidence'] >= float(self.cfg['cv'].get('attribute_min_confidence',.65))
+                    and primary.label != 'person') else None),
             color_confidence=attrs["confidence"],
             confidence=round(min(conf, 0.99), 3),
             method=attrs["method"],
@@ -70,4 +89,6 @@ class VisualPipeline:
             detector_model=self.detector.backend,
             embedding_model=self.embedder.name,
             classifier={**self.attributes.provenance(), "applied": attrs["method"] == "hsv+head"},
+            objects=objects,
+            description=self.descriptions.describe(img),
         )

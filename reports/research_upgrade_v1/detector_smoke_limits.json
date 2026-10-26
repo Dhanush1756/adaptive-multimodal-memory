@@ -1,0 +1,17 @@
+{
+  "scope": "Executed functional smoke checks, not a held-out accuracy evaluation",
+  "weights_bytes": 14069355,
+  "weights_sha256": "a79551df90c79834bcd3bb3845ef9d966b5449a3a9b2833ae8404778ca5d65d2",
+  "cpu": true,
+  "torch_threads": 2,
+  "initial_pipeline_load_seconds": 13.908442899934016,
+  "examples": [
+    {"input":"existing recorded white-car crop","inference_ms":270.1348999980837,"predicted_categories":["car","car"],"scores":[0.91,0.528],"independent_box_gold":false},
+    {"input":"constructed two-crop collage","inference_ms":144.64120008051395,"predicted_categories":["parking meter"],"scores":[0.891],"finding":"Incorrect category on a constructed collage; not evidence of reliable general-object detection."}
+  ],
+  "description_model_inference": false,
+  "semantic_embedding_inference": false,
+  "browser_verification": false,
+  "general_category_precision_recall": null,
+  "independent_reviewed_test_set": false
+}

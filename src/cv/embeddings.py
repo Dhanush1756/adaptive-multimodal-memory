@@ -85,7 +85,8 @@ _CACHE: Dict[Any, ClipBackend] = {}
 
 
 def get_clip(cfg: Optional[Dict[str, Any]] = None, force_fallback: bool = False) -> ClipBackend:
-    key = ("fallback",) if force_fallback else ((cfg or load_config()).get("cv", {}).get("clip_model"),)
+    cv=(cfg or load_config()).get('cv',{})
+    key = ("fallback",) if force_fallback else (cv.get('clip_model'),bool(cv.get('local_files_only',False)))
     if key not in _CACHE:
         _CACHE[key] = ClipBackend(cfg, force_fallback)
     return _CACHE[key]

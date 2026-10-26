@@ -15,6 +15,7 @@ class Response(io.BytesIO):
 
 
 def envelope(value,finish='stop'):
+    if 'claims' in value:value={**value,'schema_version':'candidate-memory-v2'}
     return {'choices':[{'finish_reason':finish,'message':{'content':json.dumps(value)}}],
             'usage':{'prompt_tokens':12,'completion_tokens':7,'total_tokens':19}}
 
@@ -141,20 +142,21 @@ def workspace(tmp_path,monkeypatch):
     accounts.register('alice','disposable test password')
     cfg = load_config()
     service = Conversations(accounts,accounts.login('alice','disposable test password'),tmp_path/'users',cfg=cfg)
+    service.set_privacy(external_processing=True)
     service.local.remote.opener = StubHTTPS(lambda request:envelope({'claims':[]}))
     yield service,accounts,tmp_path
     service.close()
     accounts.close()
 
 
-def candidate(text,value='peanuts',advice='consider'):
-    return {'claims':[{'entity':'user','entity_ref':'self','attribute':'allergy','value':value,
+def candidate(text,value='origami',advice='consider'):
+    return {'claims':[{'entity':'user','entity_ref':'self','attribute':'hobby','value':value,
         'evidence_quote':text,'assertion':'explicit','memory_advice':advice}]}
 
 
 def test_candidates_cached_but_event_time_revalidated(workspace):
     service,_,_ = workspace
-    text = 'I have an allergy to peanuts.'
+    text = 'I have a hobby of origami.'
     remote = service.local.remote
     remote.opener.handler = lambda request:envelope(candidate(text))
     first,meta = service.local.extract(text,'2026-10-01',[])
@@ -169,7 +171,7 @@ def test_candidates_cached_but_event_time_revalidated(workspace):
 @pytest.mark.parametrize('advice,stored',[('consider',True),('history_only',False)])
 def test_advisory_selection_is_not_verification_and_persists(workspace,advice,stored):
     service,accounts,path = workspace
-    text = 'I have an allergy to peanuts.'
+    text = 'I have a hobby of origami.'
     service.local.remote.opener.handler = lambda request:envelope(candidate(text,advice=advice))
     cid = service.create()
     service.chat(cid,text,timestamp='2026-10-01')
@@ -228,13 +230,14 @@ def test_groq_account_context_and_cache_are_isolated(workspace):
     service.chat(alice,'My laptop brand is AliceSecret.',timestamp='2026-10-01')
     accounts.register('bob','another disposable password')
     bob = Conversations(accounts,accounts.login('bob','another disposable password'),path/'users')
+    bob.set_privacy(external_processing=True)
     try:
         def inspect(request):
             assert 'alicesecret' not in request.data.decode().lower()
-            return envelope(candidate('I have an allergy to peanuts.'))
+            return envelope(candidate('I have a hobby of origami.'))
         bob.local.remote.opener = StubHTTPS(inspect)
-        bob.chat(bob.create(),'I have an allergy to peanuts.',timestamp='2026-10-01')
-        assert bob.memories()[0]['value']=='peanuts'
+        bob.chat(bob.create(),'I have a hobby of origami.',timestamp='2026-10-01')
+        assert bob.memories()[0]['value']=='origami'
         assert service.memories()[0]['value']=='alicesecret'
         assert bob.local.extraction_cache is not service.local.extraction_cache
     finally:

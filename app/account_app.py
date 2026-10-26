@@ -44,6 +44,8 @@ if token:
 if not token:
     st.title("Sign in to your persistent memory")
     st.caption("Local research prototype. Your account memory persists after logout and restart.")
+    if st.session_state.get('privacy_notice'):
+        st.warning(st.session_state.pop('privacy_notice'))
     mode = st.radio("Account action", ["Login", "Register"])
     with st.form("authentication"):
         name = st.text_input("Username", key="auth_username")
@@ -96,12 +98,51 @@ if workspace is None or workspace.agent.light != light:
         # must not leave a closed workspace for the next rerun to reuse.
         st.session_state.pop('workspace', None)
         workspace.close()
-    workspace = Conversations(accounts, token, base / "users", cfg=cfg, light=light)
+    try:
+        workspace = Conversations(accounts, token, base / "users", cfg=cfg, light=light)
+    except ValueError as error:
+        from src.protected_storage import ProtectionError
+        if not isinstance(error, ProtectionError):raise
+        st.error(str(error))
+        accounts.close()
+        st.stop()
     st.session_state["workspace"] = workspace
 else:
     # Each rerun owns a short-lived registry connection; do not retain a closed
     # connection through Streamlit state.
     workspace.accounts = accounts
+
+expired = workspace.apply_retention()
+if expired:
+    for name in ('conversation','chosen_conversation','answer','chat_selections','chat_notes'):
+        st.session_state.pop(name,None)
+    st.info('Your configured inactivity-retention period expired; stored workspace content was erased.')
+
+with tools.expander('Privacy & data controls'):
+    preferences = workspace.privacy_settings()
+    st.caption('Groq receives your message and relevant memory text. It is external processing; provider retention policies apply. Images stay local. Disabling does not recall previous requests.')
+    external = st.checkbox('Allow external Groq processing for this account',value=bool(preferences['external_processing']))
+    automatic = st.checkbox('Select long-term memories automatically',value=bool(preferences['automatic_memory']))
+    days = st.number_input('Erase workspace after inactive days (0 = no expiry)',min_value=0,max_value=3650,value=preferences['retention_days'])
+    if st.button('Save privacy preferences'):
+        workspace.set_privacy(external_processing=external,automatic_memory=automatic,retention_days=int(days))
+        st.success('Privacy preferences saved. Explicit Remember this requests remain available.')
+    st.caption('Only upload photos you have permission to process. No sensitive-person attribute inference is permitted. Colour/category similarity does not prove identity.')
+    st.caption('Encrypted account content/evidence' if workspace.agent.protection else 'Legacy plaintext workspace. Use config.protected.yaml for a separate encrypted workspace; existing data is not converted.')
+    st.download_button('Export my workspace (contains personal data)',json.dumps(workspace.export_workspace(),indent=2),file_name='my-memory-export.json',mime='application/json')
+    st.caption('Forget hides memory from retrieval. Permanent erasure deletes ALL conversations, memories, local evidence and derived indexes in this workspace. Account/login metadata and external backups/provider copies are excluded.')
+    confirmation = st.text_input('Permanent erasure confirmation',placeholder='DELETE MY STORED DATA')
+    if st.button('Permanently erase my stored workspace'):
+        if confirmation != 'DELETE MY STORED DATA':
+            st.warning('Type DELETE MY STORED DATA to confirm.')
+        else:
+            result = workspace.erase_workspace(confirmation)
+            st.session_state['privacy_notice'] = ('Workspace content erased. Evidence files awaiting cleanup: '
+                +str(result['evidence_cleanup_pending'])+'. External provider copies and backups are outside this operation.')
+            accounts.logout(token)
+            close_workspace()
+            accounts.close()
+            st.rerun()
 
 def clear_turn():
     for name in ("pending", "answer", "ingest", "chat_selections", "chat_notes"):
@@ -114,7 +155,7 @@ def display_image(path, caption=None):
         return
     resolved = Path(path).resolve()
     if resolved.is_relative_to(workspace.agent.image_dir.resolve()) and resolved.is_file():
-        st.image(str(resolved), caption=caption, width=320)
+        st.image(workspace.read_evidence(str(resolved)), caption=caption, width=320)
 
 
 conversations = workspace.list()
@@ -141,7 +182,7 @@ navigation.caption('Conversations and memories are private to your account.')
 
 st.markdown('<div class="memory-heading">Adaptive Memory</div>', unsafe_allow_html=True)
 local_status = workspace.local.status()
-if local_status.get('provider') == 'groq' and local_status.get('llm_model'):
+if local_status.get('provider') == 'groq' and local_status.get('llm_model') and workspace.privacy_settings()['external_processing']:
     st.caption('Groq enabled | Conversation text and relevant memories are sent to Groq. Images are processed locally.')
 else:
     st.caption('Deterministic responses | Evidence-grounded memory')
@@ -171,6 +212,8 @@ if submission is not None:
                 remember=st.session_state.pop('remember_submitted', remember_requested))
         st.session_state['answer'] = turn.answer
         st.session_state['chat_selections'] = turn.selections
+        if turn.answer.text.startswith('Sensitive content was not saved'):
+            notes.append(turn.answer.text)
         notes.extend(note for observation in turn.observations for note in observation.notes)
         notes.extend(selection['reason'] for selection in turn.selections if selection['outcome'] == 'clarify')
         st.session_state['chat_notes'] = notes
@@ -180,6 +223,7 @@ if submission is not None:
 messages = workspace.transcript(cid)
 facts = workspace.memories()
 events = workspace.events(cid)
+general_visuals = workspace.visual_observations(cid)
 visuals = {e['image_id']:e for record in facts for e in record.get('visual_evidence',[])}
 images_by_message = {}
 for event in events:
@@ -198,7 +242,13 @@ for row in messages:
     with st.chat_message(row['role']):
         st.write(row['content'] or 'Image observation')
         if row['role'] == 'user':
+            for observation in general_visuals:
+                if observation['message_id'] == row['message_id']:
+                    display_image(observation['image_path'],'Local visual observation; no existing-object identity assumed')
+                    with st.expander('Detected objects and uncertainty'):
+                        st.json(observation['payload'])
             for visual in images_by_message.get(row['message_id'], {}).values():
+                if any(v['observation_id'] == visual['image_id'] for v in general_visuals):continue
                 association = visual.get('association_status', 'unknown')
                 support = 'supporting' if visual.get('supports_state') else 'non-supporting'
                 display_image(visual.get('image_path'), f'Image evidence | {association} | {support}')

@@ -15,6 +15,24 @@ pytestmark = pytest.mark.skipif(os.name != 'nt' or not POWERSHELL,
 KEY = 'offline-launcher-fixture-not-a-real-api-key'
 
 
+def test_protected_launcher_creates_and_reuses_only_disposable_dpapi_key(tmp_path):
+    fake=tmp_path/'fake.ps1'
+    fake.write_text("@{key_length=$env:AEGM_DATA_KEY.Length;external=$env:AEGM_ALLOW_EXTERNAL_LLM;profile=[IO.Path]::GetFileName($env:AEGM_CONFIG_PATH)} | ConvertTo-Json -Compress | Add-Content -LiteralPath $env:AEGM_PROTECTED_LOG",encoding='utf-8')
+    env=os.environ.copy()
+    env['LOCALAPPDATA']=str(tmp_path/'profile')
+    env['AEGM_PROTECTED_LOG']=str(tmp_path/'observations.jsonl')
+    env.pop('AEGM_DATA_KEY',None);env.pop('GROQ_API_KEY',None)
+    command=[POWERSHELL,'-NoProfile','-NonInteractive','-File',str(ROOT/'scripts/start_protected.ps1'),'-Python',str(fake)]
+    first=subprocess.run(command,env=env,capture_output=True,text=True,timeout=25)
+    assert first.returncode==0, 'Protected launcher failed with disposable profile.'
+    keyfile=tmp_path/'profile/AdaptiveEvidenceGroundedMemory/credentials/data-key.dpapi'
+    cipher=keyfile.read_bytes()
+    second=subprocess.run(command,env=env,capture_output=True,text=True,timeout=25)
+    assert second.returncode==0 and keyfile.read_bytes()==cipher
+    records=[json.loads(line) for line in Path(env['AEGM_PROTECTED_LOG']).read_text().splitlines()]
+    assert records==[{'key_length':44,'external':'0','profile':'config.protected.yaml'}]*2
+
+
 @pytest.fixture(scope='module', autouse=True)
 def windows_profile_supports_dpapi():
     # Sandboxed impersonation can deny DPAPI even on Windows. Detect the native

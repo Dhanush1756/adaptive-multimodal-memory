@@ -1,0 +1,23 @@
+{
+  "version": "research-upgrade-nlp-v1",
+  "review": "Assistant-authored and inspected diagnostics; independent human gold review pending. Not a frozen benchmark or natural-language generalization study.",
+  "reference": "2026-10-01",
+  "cases": [
+    {"text":"Alice works at Acme.","expected":[["person","workplace","acme"]]},
+    {"text":"Bob works for Contoso.","expected":[["person","workplace","contoso"]]},
+    {"text":"I will submit my thesis tomorrow.","expected":[["user","commitment","submit my thesis tomorrow"]]},
+    {"text":"I will prepare the slides.","expected":[["user","commitment","prepare the slides"]]},
+    {"text":"My camera named iris status is ready.","expected":[["camera","status","ready"]]},
+    {"text":"My project named delta is due on 2026-12-10.","expected":[["project","deadline","2026-12-10"]]},
+    {"text":"Project delta must run offline.","expected":[["project","requirement","run offline"]]},
+    {"text":"I prefer coffee.","expected":[["user","preference","coffee"]]},
+    {"text":"My mentor is Mina.","expected":[["user","mentor","mina"]]},
+    {"text":"I live in Mysuru.","expected":[["user","location","mysuru"]]},
+    {"text":"Maybe Alice works at Acme.","expected":[]},
+    {"text":"Does Bob work for Contoso?","expected":[]},
+    {"text":"I might submit my thesis tomorrow.","expected":[]},
+    {"text":"My API key is a disposable example.","expected":[]},
+    {"text":"My passport number is a disposable example.","expected":[]},
+    {"text":"The speaker is probably a doctor.","expected":[]}
+  ]
+}

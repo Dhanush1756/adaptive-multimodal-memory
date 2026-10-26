@@ -1,0 +1,3 @@
+# Optional protected workspace profile; installed version tested separately.
+# Does not replace or change frozen requirements.txt.
+cryptography==49.0.0

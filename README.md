@@ -4,6 +4,14 @@ An integrated NLP + computer vision research prototype that remembers changing f
 
 Text and uploaded photos enter the same temporal memory pipeline. The memory engine controls acceptance, conflict resolution, persistence and retrieval; an optional LLM assists extraction and conversation.
 
+**Research/privacy upgrade:** optional local SSDLite multi-object observations,
+versioned candidate provenance, account-level external-processing consent,
+automatic-memory controls, export/erasure/retention and a separate encrypted
+workspace profile are implemented. Read the [setup and manual checklist](docs/research_upgrade_setup.md)
+and [privacy threat model](docs/privacy_threat_model.md). General-object accuracy,
+caption-model inference and semantic retrieval quality are not established by
+these reliability changes. Historical experiments remain unchanged.
+
 ## Quick start (Windows PowerShell)
 
 Tested environment: **Windows / CPython 3.14.6 / Streamlit 1.58.0**. Direct dependencies are pinned in `requirements.txt`. Other environments are not claimed as verified.
@@ -36,16 +44,23 @@ On first setup, copy a new private key when prompted, then press Enter without p
 Each person cloning the repository supplies their own key once. GitHub does not distribute your credential. A hosted deployment needs its own server-side secret configuration. `GROQ_API_KEY` overrides the saved key; `GROQ_MODEL` selects the model. There is no automatic paid-provider fallback. [Setup, privacy and troubleshooting](docs/groq_setup.md).
 
 Groq receives conversation text and selected relevant memories. Images are processed locally. Missing credentials, quota limits and API failures retain deterministic responses and lexical retrieval. Free-tier quotas and access are controlled by Groq.
+The server key/opt-in must now be accompanied by **Allow external Groq processing
+for this account** in Privacy & data controls. It defaults off and can be revoked.
 
 ## Chat and remember
 
-- Send text, optionally attaching a PNG/JPEG. Provide explicit object context; general image-only understanding is not implemented.
+- Send text, optionally attaching a PNG/JPEG. Image-only uploads can retain local visual observations; the optional research detector produces multiple category/box predictions. These do not automatically establish physical identity or accepted long-term facts. Missing models and uncertain attributes remain unavailable/unknown.
 - Enable **Remember this** before sending, or write **Remember that my laptop mood is happy.** Explicit requests receive selection usefulness **1.0**, even when automatic selection would skip the fact.
 - Unrecognized explicitly requested content becomes a verbatim user note, not an independently verified fact. Uncertain statements saved this way remain notes.
 - Ask **Show my pinned memories** or **Show my saved notes**. Both list visible pinned current facts and notes with evidence; conflicting values remain withheld pending verification.
 - In **Manage memories**, pin an existing memory, unpin it, or forget/restore its complete fact history. Priority follows the evolving fact; it does not freeze an old value as current.
 
 Accepted memories already persist without automatic expiry. Pins record your long-term preference and add a bounded semantic-ranking bonus when local semantic retrieval is available. They never raise evidence confidence, bypass identity checks, resolve disagreements, or restore forgotten information. Forgetting excludes memory from retrieval while preserving transcripts and evidence for audit. Do not enter credentials in chat; obvious credential-bearing explicit requests are not promoted to long-term memory.
+Privacy controls also provide explicit full-workspace erasure and opt-in inactivity
+expiry. Obvious sensitive turns are blocked before storage/API use; this is not
+comprehensive PII detection. The encrypted profile uses separate new storage and
+does not convert existing plaintext accounts. Account/login metadata, exports,
+provider copies and backups have separately documented protection limits.
 
 ## Temporal and multimodal demonstration
 

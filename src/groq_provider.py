@@ -87,6 +87,10 @@ class GroqChat:
 
     def chat(self,model,messages,schema=None,max_tokens=384):
         self.identify(model)  # consent/key are rechecked on EVERY request
+        from .privacy import sensitivity
+        if any(sensitivity(m['content']) != 'ordinary' for m in messages
+               if isinstance(m,dict) and isinstance(m.get('content'),str)):
+            raise LocalModelUnavailable('Sensitive content blocked before external processing; deterministic fallback active.')
         if time.monotonic()<self.retry_at:
             raise LocalModelUnavailable('Groq cooling down after a provider error; deterministic fallback active.')
         if (not isinstance(messages,list) or not 1<=len(messages)<=8

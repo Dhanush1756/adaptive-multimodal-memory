@@ -59,15 +59,23 @@ CREATE INDEX IF NOT EXISTS idx_resolution_result ON conflict_resolutions(resulti
 
 
 class MemoryStore:
-    def __init__(self, db_path: str = ":memory:"):
+    def __init__(self, db_path: str = ":memory:", *, protection=None):
         self.db_path = str(db_path)
+        self.protection = protection
         if self.db_path != ":memory:":
             # mkdir never replaces an existing file/directory or database.
             Path(self.db_path).parent.mkdir(parents=True, exist_ok=True)
         self._lock = threading.RLock()
         self._transaction_depth = 0
         # check_same_thread=False so Streamlit reruns on other threads can reuse the connection.
-        self.conn = sqlite3.connect(self.db_path, check_same_thread=False, isolation_level=None)
+        self.conn = sqlite3.connect(':memory:' if protection else self.db_path, check_same_thread=False, isolation_level=None)
+        if protection:
+            try:
+                payload = protection.load()
+                if payload:self.conn.deserialize(payload)
+            except BaseException:
+                self.conn.close();protection.close();raise
+            self.conn.execute('PRAGMA temp_store=MEMORY')
         self.conn.row_factory = sqlite3.Row
         with self._lock:
             self.conn.executescript(_SCHEMA)
@@ -99,6 +107,7 @@ class MemoryStore:
         """
         with self._lock:
             depth = self._transaction_depth
+            previous_snapshot = self.conn.serialize() if self.protection and write and not depth else None
             savepoint = f"memory_sp_{depth}"
             self.conn.execute(f"SAVEPOINT {savepoint}" if depth else
                               ("BEGIN IMMEDIATE" if write else "BEGIN"))
@@ -109,6 +118,11 @@ class MemoryStore:
                     self.conn.execute(f"RELEASE SAVEPOINT {savepoint}")
                 else:
                     self.conn.commit()
+                    if self.protection and write:
+                        try:self.protection.save(self.conn.serialize())
+                        except BaseException:
+                            self.conn.deserialize(previous_snapshot)
+                            raise
             except BaseException:
                 if depth:
                     self.conn.execute(f"ROLLBACK TO SAVEPOINT {savepoint}")
@@ -341,4 +355,6 @@ class MemoryStore:
 
     def close(self) -> None:
         with self._lock:
-            self.conn.close()
+            try:self.conn.close()
+            finally:
+                if self.protection:self.protection.close()

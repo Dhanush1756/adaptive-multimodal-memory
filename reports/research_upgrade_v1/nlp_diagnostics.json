@@ -1,0 +1,407 @@
+{
+  "dataset": "data/annotations/research_upgrade_nlp_v1.json",
+  "sha256": "b09f3a107c059d472b123277f4d0de100748de07ae72bade8156ca818104b6db",
+  "review": "Assistant-authored and inspected diagnostics; independent human gold review pending. Not a frozen benchmark or natural-language generalization study.",
+  "live_api_calls": false,
+  "systems": {
+    "legacy_colour_extractor": {
+      "true_positive": 0,
+      "false_positive": 0,
+      "false_negative": 10,
+      "precision": null,
+      "recall": 0.0,
+      "exact_cases": 6,
+      "total_cases": 16,
+      "latency_ms": [
+        8.909699972718954,
+        0.3287999425083399,
+        0.36349997390061617,
+        0.31670008320361376,
+        0.3991000121459365,
+        0.49899995792657137,
+        0.3372000064700842,
+        0.2533999504521489,
+        0.27409999165683985,
+        0.273600104264915,
+        0.32840005587786436,
+        0.03830005880445242,
+        0.35479990765452385,
+        0.006400048732757568,
+        0.013699987903237343,
+        0.354900024831295
+      ],
+      "cases": [
+        {
+          "text": "Alice works at Acme.",
+          "expected": [
+            [
+              "person",
+              "workplace",
+              "acme"
+            ]
+          ],
+          "actual": []
+        },
+        {
+          "text": "Bob works for Contoso.",
+          "expected": [
+            [
+              "person",
+              "workplace",
+              "contoso"
+            ]
+          ],
+          "actual": []
+        },
+        {
+          "text": "I will submit my thesis tomorrow.",
+          "expected": [
+            [
+              "user",
+              "commitment",
+              "submit my thesis tomorrow"
+            ]
+          ],
+          "actual": []
+        },
+        {
+          "text": "I will prepare the slides.",
+          "expected": [
+            [
+              "user",
+              "commitment",
+              "prepare the slides"
+            ]
+          ],
+          "actual": []
+        },
+        {
+          "text": "My camera named iris status is ready.",
+          "expected": [
+            [
+              "camera",
+              "status",
+              "ready"
+            ]
+          ],
+          "actual": []
+        },
+        {
+          "text": "My project named delta is due on 2026-12-10.",
+          "expected": [
+            [
+              "project",
+              "deadline",
+              "2026-12-10"
+            ]
+          ],
+          "actual": []
+        },
+        {
+          "text": "Project delta must run offline.",
+          "expected": [
+            [
+              "project",
+              "requirement",
+              "run offline"
+            ]
+          ],
+          "actual": []
+        },
+        {
+          "text": "I prefer coffee.",
+          "expected": [
+            [
+              "user",
+              "preference",
+              "coffee"
+            ]
+          ],
+          "actual": []
+        },
+        {
+          "text": "My mentor is Mina.",
+          "expected": [
+            [
+              "user",
+              "mentor",
+              "mina"
+            ]
+          ],
+          "actual": []
+        },
+        {
+          "text": "I live in Mysuru.",
+          "expected": [
+            [
+              "user",
+              "location",
+              "mysuru"
+            ]
+          ],
+          "actual": []
+        },
+        {
+          "text": "Maybe Alice works at Acme.",
+          "expected": [],
+          "actual": []
+        },
+        {
+          "text": "Does Bob work for Contoso?",
+          "expected": [],
+          "actual": []
+        },
+        {
+          "text": "I might submit my thesis tomorrow.",
+          "expected": [],
+          "actual": []
+        },
+        {
+          "text": "My API key is a disposable example.",
+          "expected": [],
+          "actual": []
+        },
+        {
+          "text": "My passport number is a disposable example.",
+          "expected": [],
+          "actual": []
+        },
+        {
+          "text": "The speaker is probably a doctor.",
+          "expected": [],
+          "actual": []
+        }
+      ]
+    },
+    "candidate_rules_v2": {
+      "true_positive": 10,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "exact_cases": 16,
+      "total_cases": 16,
+      "latency_ms": [
+        7.5882000382989645,
+        0.21190010011196136,
+        0.19230006728321314,
+        0.175400055013597,
+        0.2039000391960144,
+        0.26539992541074753,
+        0.18670002464205027,
+        0.17500005196779966,
+        0.16350008081644773,
+        0.16210007015615702,
+        0.0350000336766243,
+        0.026699970476329327,
+        0.03509991802275181,
+        0.005800044164061546,
+        0.012699980288743973,
+        1.4867999125272036
+      ],
+      "cases": [
+        {
+          "text": "Alice works at Acme.",
+          "expected": [
+            [
+              "person",
+              "workplace",
+              "acme"
+            ]
+          ],
+          "actual": [
+            [
+              "person",
+              "workplace",
+              "acme"
+            ]
+          ]
+        },
+        {
+          "text": "Bob works for Contoso.",
+          "expected": [
+            [
+              "person",
+              "workplace",
+              "contoso"
+            ]
+          ],
+          "actual": [
+            [
+              "person",
+              "workplace",
+              "contoso"
+            ]
+          ]
+        },
+        {
+          "text": "I will submit my thesis tomorrow.",
+          "expected": [
+            [
+              "user",
+              "commitment",
+              "submit my thesis tomorrow"
+            ]
+          ],
+          "actual": [
+            [
+              "user",
+              "commitment",
+              "submit my thesis tomorrow"
+            ]
+          ]
+        },
+        {
+          "text": "I will prepare the slides.",
+          "expected": [
+            [
+              "user",
+              "commitment",
+              "prepare the slides"
+            ]
+          ],
+          "actual": [
+            [
+              "user",
+              "commitment",
+              "prepare the slides"
+            ]
+          ]
+        },
+        {
+          "text": "My camera named iris status is ready.",
+          "expected": [
+            [
+              "camera",
+              "status",
+              "ready"
+            ]
+          ],
+          "actual": [
+            [
+              "camera",
+              "status",
+              "ready"
+            ]
+          ]
+        },
+        {
+          "text": "My project named delta is due on 2026-12-10.",
+          "expected": [
+            [
+              "project",
+              "deadline",
+              "2026-12-10"
+            ]
+          ],
+          "actual": [
+            [
+              "project",
+              "deadline",
+              "2026-12-10"
+            ]
+          ]
+        },
+        {
+          "text": "Project delta must run offline.",
+          "expected": [
+            [
+              "project",
+              "requirement",
+              "run offline"
+            ]
+          ],
+          "actual": [
+            [
+              "project",
+              "requirement",
+              "run offline"
+            ]
+          ]
+        },
+        {
+          "text": "I prefer coffee.",
+          "expected": [
+            [
+              "user",
+              "preference",
+              "coffee"
+            ]
+          ],
+          "actual": [
+            [
+              "user",
+              "preference",
+              "coffee"
+            ]
+          ]
+        },
+        {
+          "text": "My mentor is Mina.",
+          "expected": [
+            [
+              "user",
+              "mentor",
+              "mina"
+            ]
+          ],
+          "actual": [
+            [
+              "user",
+              "mentor",
+              "mina"
+            ]
+          ]
+        },
+        {
+          "text": "I live in Mysuru.",
+          "expected": [
+            [
+              "user",
+              "location",
+              "mysuru"
+            ]
+          ],
+          "actual": [
+            [
+              "user",
+              "location",
+              "mysuru"
+            ]
+          ]
+        },
+        {
+          "text": "Maybe Alice works at Acme.",
+          "expected": [],
+          "actual": []
+        },
+        {
+          "text": "Does Bob work for Contoso?",
+          "expected": [],
+          "actual": []
+        },
+        {
+          "text": "I might submit my thesis tomorrow.",
+          "expected": [],
+          "actual": []
+        },
+        {
+          "text": "My API key is a disposable example.",
+          "expected": [],
+          "actual": []
+        },
+        {
+          "text": "My passport number is a disposable example.",
+          "expected": [],
+          "actual": []
+        },
+        {
+          "text": "The speaker is probably a doctor.",
+          "expected": [],
+          "actual": []
+        }
+      ]
+    }
+  },
+  "semantic_retrieval": "NOT EXECUTED: embedding runtime/model unavailable; existing lexical fallback retained."
+}

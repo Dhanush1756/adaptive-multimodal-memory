@@ -13,7 +13,7 @@ from .conflict import normalize_value
 from ..nlp.temporal_extraction import resolve_event_time
 from ..utils import parse_ts, iso
 
-EXTRACTOR_VERSION = 'general-explicit-rules-v2'
+EXTRACTOR_VERSION = 'general-explicit-rules-v3'
 
 
 def is_query_text(text):
@@ -52,6 +52,8 @@ def extract_candidates(text, reference):
         relationship = re.fullmatch(r'([\w-]+) is my ([\w -]{1,40})', sentence, re.I)
         requirement = re.fullmatch(r'(?:my|our) (?:new |previous )?requirement is (.+)', sentence, re.I)
         plan = re.fullmatch(r'(?:we|I) (?:decided|plan) to train (.+)', sentence, re.I)
+        commitment = re.fullmatch(r'I will ([^?]+)',sentence,re.I)
+        affiliation = re.fullmatch(r'([\w-]+) works (?:at|for) ([\w -]+)',sentence,re.I)
         named_colour = re.fullmatch(r"(?:my|our) ([\w-]+) named ([\w-]+) is ("+'|'.join(COLOR_WORDS)+r")", sentence, re.I)
         if named:
             entity, ref, attr, value = named.groups()
@@ -61,6 +63,10 @@ def extract_candidates(text, reference):
         elif requirement or plan:
             match = requirement or plan
             claim = Claim('project', 'requirement' if requirement else 'model', match[1].lower(), entity_ref='default project')
+        elif commitment:
+            claim = Claim('user','commitment',commitment[1].lower(),entity_ref='self')
+        elif affiliation:
+            claim = Claim('person','workplace',affiliation[2].lower(),entity_ref=affiliation[1].lower())
         elif residence:
             claim = Claim('user','location',residence[1].lower(),entity_ref='self')
         elif due:
@@ -88,7 +94,7 @@ def extract_candidates(text, reference):
             claim.source_text, claim.confidence = sentence, .9
             event = resolve_event_time(sentence, reference=reference)
             # A date-valued attribute is not the date the user observed the claim.
-            date_attribute = any(x in claim.attribute for x in ('deadline','date','birthday'))
+            date_attribute = any(x in claim.attribute for x in ('deadline','date','birthday','commitment'))
             if event and event.resolved and not date_attribute:
                 claim.resolved_time = iso(event.resolved)
             else:

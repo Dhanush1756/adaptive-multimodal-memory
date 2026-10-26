@@ -31,6 +31,10 @@ class AutomaticMemory:
     def _init_automatic(self):
         self.selection_policy = SelectionPolicy(self.agent.cfg.get('automatic_memory'))
         self.db.executescript('''
+        CREATE TABLE IF NOT EXISTS visual_observations (
+          observation_id TEXT PRIMARY KEY, conversation_id TEXT NOT NULL,
+          message_id TEXT NOT NULL, event_time TEXT NOT NULL, ingested_at TEXT NOT NULL,
+          payload_json TEXT NOT NULL, image_path TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS memory_priority_events (
           event_id TEXT PRIMARY KEY, memory_id TEXT NOT NULL, entity_id TEXT NOT NULL,
           attribute TEXT NOT NULL, enabled INTEGER NOT NULL, priority REAL NOT NULL,
@@ -47,6 +51,36 @@ class AutomaticMemory:
           created_at TEXT NOT NULL);
         ''')
         self.local = LocalMemoryServices(self,self.agent.cfg)
+
+    def visual_observations(self, cid):
+        self._authorize(cid)
+        return [{**dict(row),'payload':json.loads(row['payload_json'])} for row in self.db.execute(
+            'SELECT * FROM visual_observations WHERE conversation_id=? ORDER BY rowid',(cid,))]
+
+    def _observe_image(self, cid, mid, image, timestamp, created):
+        """Multi-object context, kept outside accepted same-object memory states."""
+        analysis = self.agent.comp.visual.analyze(image)
+        image_id = 'IMG_'+uuid4().hex
+        path = ''
+        if self.agent.image_dir:
+            from io import BytesIO
+            self.agent.image_dir.mkdir(parents=True,exist_ok=True)
+            file=self.agent.image_dir/(image_id+'.png'+('.fernet' if self.agent.protection else ''))
+            clean_image=analysis.image.copy();clean_image.info.clear()
+            data=BytesIO();clean_image.save(data,format='PNG')
+            payload=data.getvalue()
+            if self.agent.protection:payload=self.agent.protection.cipher.encrypt(payload)
+            try:
+                with file.open('xb') as stream:stream.write(payload)
+            except BaseException:
+                file.unlink(missing_ok=True)
+                raise
+            path=str(file);created.append(path)
+        summary={**analysis.summary(),'image_id':image_id,'event_time':timestamp,
+                 'ingested_at':self._clock(),'source_message_id':mid,'supports_memory_state':False}
+        self.db.execute('INSERT INTO visual_observations VALUES (?,?,?,?,?,?,?)',
+            (image_id,cid,mid,timestamp,summary['ingested_at'],json.dumps(summary),path))
+        return summary
 
     def priority_history(self):
         self._authorize()
@@ -91,6 +125,11 @@ class AutomaticMemory:
             self.db.execute('INSERT INTO memory_visibility_events VALUES (?,?,?,?,?,?,?)',
                             (uuid4().hex, record.entity_id, record.attribute, int(bool(visible)),
                              'authenticated_user', rationale, self._clock()))
+            # Derived generations may contain hidden values; purge rather than
+            # relying only on filtering. Rebuild from eligible records on demand.
+            self.db.execute('DELETE FROM local_memory_embeddings')
+            self.db.execute('DELETE FROM local_embedding_generations')
+        self._clear_private_caches()
 
     @staticmethod
     def _clock():
@@ -225,6 +264,9 @@ class AutomaticMemory:
     def chat(self, cid, text='', image=None, timestamp=None, *, remember=False):
         """One normal turn: extract -> select -> validate -> persist -> retrieve -> reply."""
         self._authorize(cid)
+        from .privacy import sensitivity
+        if sensitivity(text) != 'ordinary':
+            return ChatTurn(Answer('Sensitive content was not saved or sent to an external provider. Remove credentials or highly sensitive details before continuing.', None, 0, False, 'CURRENT'))
         event_time = parse_ts(timestamp or self._clock())
         from datetime import timezone
         if event_time.tzinfo is None:
@@ -240,7 +282,7 @@ class AutomaticMemory:
                     mid = self._message(cid, 'user', text)
                     claims = extract_candidates(text,ts)
                     model_metadata = {}
-                    if not explicit:
+                    if not explicit and self.privacy_settings()['automatic_memory']:
                         claims, model_metadata = self.local.extract(text,ts,claims)
                     elif sensitive:
                         claims = []
@@ -252,6 +294,8 @@ class AutomaticMemory:
                                             source_text=text, confidence=.9, resolved_time=ts)]
                             note_only = True
                     colours = [c for c in claims if c.attribute == 'color']
+                    if not self.privacy_settings()['automatic_memory'] and not explicit:
+                        claims, colours = [], []
                     for i, claim in enumerate(claims):
                         existing = self.agent.store.all()
                         selection = self.selection_policy.evaluate(claim, existing, explicit=explicit)
@@ -270,6 +314,12 @@ class AutomaticMemory:
                                                              explicit_claim=claim,
                                                              extractor=extractor if extraction else 'rules-v1')
                                 observations.append(result)
+                                if self.agent.cfg.get('cv',{}).get('general_categories') and result.image:
+                                    summary={k:v for k,v in result.image.items() if k != 'image_path'}
+                                    summary.update(source_message_id=mid,event_time=ts,ingested_at=self._clock(),supports_memory_state=False)
+                                    if result.image['image_path']:created.append(result.image['image_path'])
+                                    self.db.execute('INSERT INTO visual_observations VALUES (?,?,?,?,?,?,?)',
+                                        (summary['image_id'],cid,mid,ts,summary['ingested_at'],json.dumps(summary),result.image['image_path']))
                                 for candidate in result.candidates:
                                     if candidate.visual and candidate.visual.image_path:
                                         created.append(candidate.visual.image_path)
@@ -291,6 +341,12 @@ class AutomaticMemory:
                         record = {**asdict(selection), 'candidate': claim.to_dict(),
                                   'memory_id': decision.memory_id if decision else None,
                                   'lifecycle_action': decision.action.value if decision else None}
+                        quote = claim.source_text
+                        start = text.find(quote)
+                        record['candidate']['provenance'] = {'schema_version':'candidate-memory-v2',
+                            'source_message_id':mid, 'assertion':'verbatim_note' if note_only else 'explicit',
+                            'source_span':[start,start+len(quote)] if start >= 0 else None,
+                            'independently_verified':False}
                         if explicit:
                             record['candidate']['memory_request'] = {'explicit': True, 'priority': 1.0,
                                 'retention': 'until_user_forgets', 'verbatim_note': note_only}
@@ -321,7 +377,12 @@ class AutomaticMemory:
                             if diagnostics.get('method') == 'local-llm-plus-rules' else {}),
                             memory_id=None, lifecycle_action=None))
                     if image is not None and len(colours) != 1:
-                        selections.append(dict(outcome='clarify', reason='Image needs one explicit object/colour claim; no object identity inferred.',
+                        try:
+                            summary=self._observe_image(cid,mid,image,ts,created)
+                            reason='Visual observation stored with '+str(len(summary['objects']))+' detected objects; none is automatically associated with an existing identity.'
+                        except Exception:
+                            reason='Visual processing failed; valid text observations are preserved.'
+                        selections.append(dict(outcome='clarify', reason=reason,
                                                usefulness=0., confidence=0., candidate={}, memory_id=None, lifecycle_action=None))
                     for record in selections:
                         self.db.execute('INSERT INTO memory_selection_audit VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
@@ -362,6 +423,6 @@ class AutomaticMemory:
                 for name in created:
                     path = Path(name)
                     path.resolve().relative_to(self.agent.image_dir.resolve())
-                    if re.fullmatch(r'IMG_[0-9a-f]{32}\.png', path.name):
+                    if re.fullmatch(r'IMG_[0-9a-f]{32}\.png(?:\.fernet)?', path.name):
                         path.unlink(missing_ok=True)
                 raise

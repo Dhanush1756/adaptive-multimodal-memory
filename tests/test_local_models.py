@@ -66,18 +66,18 @@ def local_service(tmp_path):
     registry.close()
 
 
-def proposal(text, value='peanuts', assertion='explicit'):
-    return {'claims':[{'entity':'user','entity_ref':'self','attribute':'allergy','value':value,
+def proposal(text, value='origami', assertion='explicit'):
+    return {'claims':[{'entity':'user','entity_ref':'self','attribute':'hobby','value':value,
                       'evidence_quote':text,'assertion':assertion}]}
 
 
 def test_local_extraction_is_grounded_candidate_with_provenance(local_service):
     s,r,_,_ = local_service
-    text = 'I have an allergy to peanuts.'
+    text = 'I have a hobby of origami.'
     r.output = proposal(text)
     s.chat(s.create(),text,timestamp='2026-10-01')
     memory = s.memories()[0]
-    assert memory['value'] == 'peanuts'
+    assert memory['value'] == 'origami'
     assert 'unverified-candidate' in memory['text_evidence'][0]['extractor']
     import json
     audit = json.loads(s.selection_history()[0]['candidate_json'])
@@ -86,10 +86,10 @@ def test_local_extraction_is_grounded_candidate_with_provenance(local_service):
 
 
 @pytest.mark.parametrize('text,value,assertion',[
-    ('Maybe I have an allergy to peanuts.','peanuts','explicit'),
-    ('I do not have an allergy to peanuts.','peanuts','explicit'),
-    ('I have an allergy to peanuts.','walnuts','explicit'),
-    ('I have an allergy to peanuts.','peanuts','inferred')])
+    ('Maybe I have a hobby of origami.','origami','explicit'),
+    ('I do not have a hobby of origami.','origami','explicit'),
+    ('I have a hobby of origami.','painting','explicit'),
+    ('I have a hobby of origami.','origami','inferred')])
 def test_model_cannot_turn_hedges_negation_or_inference_into_facts(local_service,text,value,assertion):
     s,r,_,_ = local_service
     r.output = proposal(text,value,assertion)
@@ -100,9 +100,9 @@ def test_model_cannot_turn_hedges_negation_or_inference_into_facts(local_service
 def test_weaker_model_update_requires_explicit_correction(local_service):
     s,r,_,_ = local_service
     cid = s.create()
-    s.chat(cid,'My user allergy is peanuts.',timestamp='2026-10-01')
-    r.output = proposal('I have an allergy to walnuts.','walnuts')
-    turn = s.chat(cid,'I have an allergy to walnuts.',timestamp='2026-10-02')
+    s.chat(cid,'My user hobby is origami.',timestamp='2026-10-01')
+    r.output = proposal('I have a hobby of painting.','painting')
+    turn = s.chat(cid,'I have a hobby of painting.',timestamp='2026-10-02')
     assert turn.selections[0]['outcome'] == 'clarify'
     assert len(s.memories()) == 1
 

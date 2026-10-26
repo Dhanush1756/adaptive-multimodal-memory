@@ -2,6 +2,11 @@
 
 Start with the root [README](../README.md). Current guides:
 
+- [Research upgrade setup and pending manual verification](research_upgrade_setup.md)
+- [Research upgrade implementation and actual results](research_upgrade_report.md)
+- [Privacy threat model and data lifecycle](privacy_threat_model.md)
+- [Hardware/model assessment](research_upgrade_assessment.md)
+
 - [Groq setup and secure key reuse](groq_setup.md)
 - [Explicit memory priority and verification](explicit_memory.md)
 - [Integrated architecture](integrated_nlp_cv_architecture.md)
